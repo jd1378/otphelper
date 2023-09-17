@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="48dp"
+  android:gravity="center_vertical"
+  android:orientation="horizontal"
+  android:baselineAligned="false">
+
+  <LinearLayout
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_height="match_parent"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <TextView
+      android:id="@+id/code_detected_label"
+      android:text="@string/detected_code"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:textSize="14sp"
+      android:textColor="@color/notif_secondary" />
+
+    <TextView
+      android:id="@+id/detected_code"
+      android:text="00000000"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:textSize="20sp"
+      android:textColor="@color/notif_primary"
+      tools:ignore="HardcodedText" />
+
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+      android:id="@+id/copied_textview"
+      android:visibility="gone"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/copied"
+      android:textColor="@color/notif_secondary" />
+
+    <ImageView
+      android:id="@+id/action_image"
+      android:layout_width="40dp"
+      android:layout_height="wrap_content"
+      android:src="@drawable/baseline_content_copy_24"
+      android:contentDescription="@string/copy_to_clipboard" />
+  </LinearLayout>
+</LinearLayout>
