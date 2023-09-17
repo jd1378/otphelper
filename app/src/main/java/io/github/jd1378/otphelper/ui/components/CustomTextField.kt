@@ -9,7 +9,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -28,7 +28,6 @@ fun CustomTextField(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = LocalTextStyle.current,
     label: @Composable (() -> Unit)? = null,
     placeholder: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -45,22 +44,26 @@ fun CustomTextField(
     minLines: Int = 1,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = TextFieldDefaults.shape,
-    colors: TextFieldColors =
-        TextFieldDefaults.colors(
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-        ),
     contentPadding: PaddingValues =
         TextFieldDefaults.contentPaddingWithoutLabel(
             top = 0.dp,
             bottom = 0.dp,
         )
 ) {
-
   val localStyle = LocalTextStyle.current
   val mergedStyle = localStyle.merge(TextStyle(color = LocalContentColor.current))
+
+  val colors =
+      TextFieldDefaults.colors(
+          focusedIndicatorColor = Color.Transparent,
+          unfocusedIndicatorColor = Color.Transparent,
+          disabledIndicatorColor = Color.Transparent,
+          errorIndicatorColor = Color.Transparent,
+          focusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+          unfocusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+          disabledContainerColor = MaterialTheme.colorScheme.onSurface,
+          errorContainerColor = MaterialTheme.colorScheme.errorContainer,
+      )
 
   BasicTextField(
       value = value,
