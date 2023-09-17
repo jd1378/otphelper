@@ -1,8 +1,6 @@
 # COPY SMS CODE | OTP Helper | کپی رمز پیامک
 
---------------------
-
-An open-source application that allows you to copy codes from SMS and notifications automataically by reading all of your notifications. 
+An open-source application that allows you to copy codes from SMS and notifications automataically by reading all of your notifications.
 
 The application works completely offline and without internet permission. So you can be rest assured that your data does not leave your device.
 
