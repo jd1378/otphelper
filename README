@@ -2,7 +2,9 @@
 
 --------------------
 
-A very simple app to read all of your notifications and detect if there's a code in it and copy it for you automataically.
+An open-source application that allows you to copy codes from SMS and notifications automataically by reading all of your notifications. 
+
+The application works completely offline and without internet permission. So you can be rest assured that your data does not leave your device.
 
 ## credits
 
