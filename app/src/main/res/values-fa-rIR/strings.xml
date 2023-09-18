@@ -44,4 +44,6 @@
   <string name="perm_restricted_desc">اگر نتوانستید مرحله دوم را انجام دهید، گزینه \"اجازه دادن به تنظیمات محدود شده\" را در تنظیمات برنامه فعال کنید</string>
   <string name="language">زبان</string>
   <string name="system_default">پیش فرض سیستم</string>
+  <string name="search_language">جستجوی زبان</string>
+  <string name="no_result">بدون نتیجه</string>
 </resources>

@@ -30,23 +30,32 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import io.github.jd1378.otphelper.R
-import io.github.jd1378.otphelper.ui.components.LocaleDropdownMenu
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 fun NavGraphBuilder.addPermissionsGraph(
+    onNavigateToRoute: (String) -> Unit,
     upPress: () -> Unit,
 ) {
   composable(
       MainDestinations.PERMISSIONS_SETUP_ROUTE,
       arguments = listOf(navArgument("setup") { nullable = true })) { backStackEntry ->
         val viewModel = hiltViewModel<PermissionsViewModel>()
-        Permissions(upPress, viewModel, backStackEntry.arguments?.containsKey("setup") ?: false)
+        Permissions(
+            onNavigateToRoute,
+            upPress,
+            viewModel,
+            backStackEntry.arguments?.containsKey("setup") ?: false)
       }
 }
 
 @Composable
-fun Permissions(upPress: () -> Unit, viewModel: PermissionsViewModel, setupMode: Boolean = false) {
+fun Permissions(
+    onNavigateToRoute: (String) -> Unit,
+    upPress: () -> Unit,
+    viewModel: PermissionsViewModel,
+    setupMode: Boolean = false
+) {
   val uiState by viewModel.uiState.collectAsStateWithLifecycle()
   val lifecycleOwner = LocalLifecycleOwner.current
   val lifecycleState by lifecycleOwner.lifecycle.currentStateFlow.collectAsStateWithLifecycle()
@@ -69,8 +78,13 @@ fun Permissions(upPress: () -> Unit, viewModel: PermissionsViewModel, setupMode:
             text = LocalContext.current.getString(R.string.PERMISSION_ROUTE),
             showBackBtn = !setupMode) {
               if (setupMode) {
-                LocaleDropdownMenu(
-                    Modifier.padding(start = 40.dp, end = dimensionResource(R.dimen.small_padding)))
+                Button(
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .padding(start = 40.dp, end = dimensionResource(R.dimen.small_padding)),
+                    onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
+                      Text(text = stringResource(R.string.language))
+                    }
               }
             }
       },

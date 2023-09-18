@@ -26,7 +26,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
-import io.github.jd1378.otphelper.ui.components.LocaleDropdownMenu
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 fun NavGraphBuilder.addHomeGraph(
@@ -98,7 +97,11 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
               checked = uiState.isPostNotifEnabled,
               onCheckedChange = { viewModel.onPostNotifToggle() })
         }
-        LocaleDropdownMenu()
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
+              Text(text = stringResource(R.string.language))
+            }
       }
     }
   }

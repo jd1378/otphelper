@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.StateFlow
 /** Destinations used in the [OtpHelperApp]]. */
 object MainDestinations {
   const val HOME_ROUTE = "home"
+  const val LANGUAGE_SELECTION_ROUTE = "language_selection"
   const val IGNORED_LIST_ROUTE = "ignored_list"
   const val PERMISSIONS_ROUTE = "permissions"
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"

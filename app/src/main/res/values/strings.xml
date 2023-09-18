@@ -46,4 +46,6 @@
   <string name="fa" translatable="false">فارسی</string>
   <string name="language">Language</string>
   <string name="system_default">System Default</string>
+  <string name="search_language">Search language</string>
+  <string name="no_result">No result</string>
 </resources>

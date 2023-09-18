@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <dimen name="extra_small_padding">5dp</dimen>
   <dimen name="small_padding">10dp</dimen>
   <dimen name="medium_padding">15dp</dimen>
 </resources>

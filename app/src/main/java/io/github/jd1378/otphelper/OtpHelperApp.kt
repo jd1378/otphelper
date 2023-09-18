@@ -13,6 +13,7 @@ import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.ui.navigation.rememberTheNavController
 import io.github.jd1378.otphelper.ui.screens.home.addHomeGraph
 import io.github.jd1378.otphelper.ui.screens.ignored_list.addIgnoredListGraph
+import io.github.jd1378.otphelper.ui.screens.language_selection.addLanguageSelectionGraph
 import io.github.jd1378.otphelper.ui.screens.permissions.addPermissionsGraph
 import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 
@@ -61,8 +62,9 @@ private fun NavGraphBuilder.otphelperNavGraph(
     onNavigateToRoute: (String) -> Unit
 ) {
   addHomeGraph(onNavigateToRoute)
+  addLanguageSelectionGraph(upPress)
   addIgnoredListGraph(upPress)
-  addPermissionsGraph(upPress)
+  addPermissionsGraph(onNavigateToRoute, upPress)
   // for nested navigation (example):
   //  navigation(route = MainDestinations.HOME_ROUTE, startDestination =
   //          HomeSections.FEED.route) {
