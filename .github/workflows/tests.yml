@@ -35,6 +35,6 @@ jobs:
     #
     # So this is enough for testing the project
     - name: Build with Gradle
-      run: ./gradlew build --stacktrace
+      run: ./gradlew --no-daemon build --stacktrace
 
     - run: echo "Build status report=${{ job.status }}."
