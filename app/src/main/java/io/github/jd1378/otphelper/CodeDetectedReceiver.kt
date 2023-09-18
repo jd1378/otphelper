@@ -9,10 +9,10 @@ import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationSender
+import javax.inject.Inject
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CodeDetectedReceiver : BroadcastReceiver() {

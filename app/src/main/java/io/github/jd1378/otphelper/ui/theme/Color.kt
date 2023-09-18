@@ -1,4 +1,5 @@
 package com.example.compose
+
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF006C47)
@@ -62,6 +63,5 @@ val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFF57DEA0)
 val md_theme_dark_outlineVariant = Color(0xFF404943)
 val md_theme_dark_scrim = Color(0xFF000000)
-
 
 val seed = Color(0xFF00AB72)

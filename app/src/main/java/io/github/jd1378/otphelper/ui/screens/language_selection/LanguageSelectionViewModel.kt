@@ -7,13 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
-import javax.inject.Inject
 
 data class LocaleOption(val code: String, val label: Int, val tag: String = "")
 
@@ -21,7 +21,7 @@ val localeOptions =
     listOf(
         LocaleOption("default", R.string.system_default, "default"),
         LocaleOption("en", R.string.en, "english"),
-        LocaleOption("fa", R.string.fa, "farsi,persian,فارسی"))
+        LocaleOption("fa", R.string.fa, "farsi,persian,?????"))
 
 data class LanguageSelectionUiState(
     val locales: List<LocaleOption> = localeOptions,

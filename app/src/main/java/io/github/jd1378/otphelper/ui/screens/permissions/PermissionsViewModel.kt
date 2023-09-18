@@ -19,13 +19,13 @@ import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.DeviceDetectHelper
 import io.github.jd1378.otphelper.utils.combine
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 data class PermissionsUiState(
     val hasNotifPerm: Boolean = false,
@@ -122,6 +122,7 @@ constructor(
       upPress()
     }
   }
+
   fun onSetupSkipPressed() {
     _showSkipWarning.update { true }
   }

@@ -2,9 +2,9 @@ package io.github.jd1378.otphelper.data
 
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreConstants
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreHelper
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
 
 @Singleton
 class IgnoredNotifSetRepository

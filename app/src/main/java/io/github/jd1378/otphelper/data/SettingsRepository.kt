@@ -2,9 +2,9 @@ package io.github.jd1378.otphelper.data
 
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreConstants
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreHelper
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
 
 @Singleton
 class SettingsRepository
@@ -40,6 +40,7 @@ constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
     preferenceDataStoreHelper.putPreference(
         PreferenceDataStoreConstants.IS_AUTO_COPY_ENABLED, newValue)
   }
+
   suspend fun setIsPostNotifEnabled(newValue: Boolean) {
     preferenceDataStoreHelper.putPreference(
         PreferenceDataStoreConstants.IS_POST_NOTIF_ENABLED, newValue)
