@@ -1,0 +1,85 @@
+name: build
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: cimg/android:2023.09.1
+      options: --user root
+    
+    steps:
+    - name: install git
+      run: |
+        sudo apt-get update;
+        sudo apt-get -y install git;
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: setup JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: build
+      run: | 
+        ./gradlew --no-daemon :app:bundleRelease
+        ./gradlew --no-daemon :app:assembleRelease
+
+    - name: Sign App Apk
+      if: ${{ github.event_name == 'release'}}
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+        alias: ${{ secrets.ANDROID_ALIAS }}
+        keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      env: 
+        # found inside pulled layers detail of cimg/android inside docker hub after "/bin/bash -exo pipefail -c SDK_TOOLS_URL..."
+        BUILD_TOOLS_VERSION: "33.0.1" 
+
+    - name: Sign App Bundle
+      if: ${{ github.event_name == 'release' }}
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: android/app/build/outputs/bundle/release
+        signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+        alias: ${{ secrets.ANDROID_ALIAS }}
+        keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      env: 
+        # build tools version is found inside cimg/android related tag pulled layers details inside docker hub. after `...-c SDK_TOOLS_URL=...`
+        BUILD_TOOLS_VERSION: "33.0.1" 
+       
+    - name: Release on GitHub
+      uses: ncipollo/release-action@v1
+      with:
+        prerelease: true
+        omitBody: true
+        omitBodyDuringUpdate: true
+        omitName: true
+        allowUpdates: true
+        replacesArtifacts: true
+        updateOnlyUnreleased: true
+        artifacts: app/build/outputs/apk/release/*signed.apk,app/build/outputs/bundle/release/*.aab
+
+    # - name: Push to Play Store
+    #   if: ${{ github.event_name == 'release' && !contains(github.ref, '-rc') }}
+    #   uses: r0adkll/upload-google-play@v1
+    #   with:
+    #     serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+    #     packageName: io.github.jd1378.otphelper
+    #     releaseFiles: app/build/outputs/bundle/release/*.aab
+    #     track: internal
+    #     status: draft
