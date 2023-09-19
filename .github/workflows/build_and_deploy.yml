@@ -74,12 +74,12 @@ jobs:
         updateOnlyUnreleased: true
         artifacts: app/build/outputs/apk/release/*signed.apk,app/build/outputs/bundle/release/*.aab
 
-    # - name: Push to Play Store
-    #   if: ${{ github.event_name == 'release' && !contains(github.ref, '-rc') }}
-    #   uses: r0adkll/upload-google-play@v1
-    #   with:
-    #     serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-    #     packageName: io.github.jd1378.otphelper
-    #     releaseFiles: app/build/outputs/bundle/release/*.aab
-    #     track: internal
-    #     status: draft
+    - name: Push to Play Store
+      if: ${{ github.event_name == 'release' && !contains(github.ref, '-rc') }}
+      uses: r0adkll/upload-google-play@v1
+      with:
+        serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+        packageName: io.github.jd1378.otphelper
+        releaseFiles: app/build/outputs/bundle/release/*.aab
+        track: internal
+        status: draft
