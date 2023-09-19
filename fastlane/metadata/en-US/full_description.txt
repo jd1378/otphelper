@@ -2,5 +2,5 @@ An open-source application that allows you to copy OTP and codes from SMS and no
 
 The application works completely offline and without internet permission. So you can be rest assured that your data does not leave your device.
 
-If you have any problems or suggestions, submit them in our GitHub repo:
+If you have any problems or suggestions, submit them in our GitHub repository:
 https://github.com/jd1378/otphelper/issues
