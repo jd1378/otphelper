@@ -10,7 +10,6 @@ import io.github.jd1378.otphelper.utils.ActivityHelper
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
   companion object {
-    var observer: MyLifecycleObserver? = null
     const val scale = 1.15f
   }
 
@@ -21,14 +20,7 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     ActivityHelper.adjustFontSize(this, scale)
-    observer = MyLifecycleObserver(activityResultRegistry)
-    lifecycle.addObserver(observer!!)
 
     setContent { OtpHelperApp() }
-  }
-
-  override fun onDestroy() {
-    observer = null
-    super.onDestroy()
   }
 }

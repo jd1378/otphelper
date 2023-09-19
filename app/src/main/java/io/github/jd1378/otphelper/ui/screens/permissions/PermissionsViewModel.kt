@@ -13,19 +13,18 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.jd1378.otphelper.MainActivity
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.DeviceDetectHelper
 import io.github.jd1378.otphelper.utils.combine
-import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 data class PermissionsUiState(
     val hasNotifPerm: Boolean = false,
@@ -125,20 +124,6 @@ constructor(
 
   fun onSetupSkipPressed() {
     _showSkipWarning.update { true }
-  }
-
-  fun onGrantNotifPermissionPressed(context: Context) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-      MainActivity.observer?.requestPermission(android.Manifest.permission.POST_NOTIFICATIONS) {
-          isGranted ->
-        if (!isGranted) {
-          val intent =
-              Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                  .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-          context.startActivity(intent)
-        }
-      }
-    }
   }
 
   fun onOpenReadNotificationsPressed(context: Context) {

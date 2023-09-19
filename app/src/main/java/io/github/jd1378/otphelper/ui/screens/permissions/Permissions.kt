@@ -1,5 +1,8 @@
 package io.github.jd1378.otphelper.ui.screens.permissions
 
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -60,6 +63,10 @@ fun Permissions(
   val lifecycleOwner = LocalLifecycleOwner.current
   val lifecycleState by lifecycleOwner.lifecycle.currentStateFlow.collectAsStateWithLifecycle()
   val context = LocalContext.current
+  val permLauncher =
+      rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
+        viewModel.updatePermissionsStatus(context)
+      }
 
   LaunchedEffect(lifecycleState) {
     when (lifecycleState) {
@@ -124,7 +131,9 @@ fun Permissions(
               actionText = stringResource(R.string.grant),
               enabled = !uiState.hasNotifPerm,
               checked = uiState.hasNotifPerm) {
-                viewModel.onGrantNotifPermissionPressed(context)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                  permLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                }
               }
           TodoItem(
               stringResource(R.string.permission_todo_read_notifications),
