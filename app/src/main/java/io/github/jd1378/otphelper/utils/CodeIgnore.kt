@@ -4,7 +4,7 @@ class CodeIgnore {
   companion object {
 
     private val ignoredWords =
-        listOf("تخفیف", "takhfif", "off", "اشتباه وارد شده", "RatingCode", "vscode")
+        listOf("تخفیف", "takhfif", "off", "اشتباه وارد شده", "RatingCode", "vscode", "versionCode")
     private val ignoredWordsRegex =
         """\b(${ignoredWords.joinToString("|")})\b""".toRegex(
             setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
