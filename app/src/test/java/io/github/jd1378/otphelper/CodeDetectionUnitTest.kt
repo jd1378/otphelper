@@ -161,6 +161,24 @@ www.iranketab.ir
   }
 
   @Test
+  fun spanishCode() {
+      val testCases = listOf(
+          Pair("Su codigo de verificacion de AAAA es 123456", "123456"),
+          Pair("123456 es el código de verificación para tu cuenta de Sony.", "123456"),
+          Pair("BBB. Clave de firma: 1234. Introduce esta clave de un solo uso (OTP) en el formulario web para firmar (SMS CERTIFICADO)", "1234"),
+          Pair("123 456 es tu código de Instagram. No lo compartas.", "123456"),
+          Pair("PayPal: Tu código de seguridad es 123456. No lo compartas con nadie.", "123456"),
+          Pair("Se ha generado el siguiente codigo de un solo uso: 12345678", "12345678"),
+          Pair("123456 es tu contraseña temporal de Amazon. No la compartas con nadie.", "123456")
+      )
+
+      for ((msg, expectedCode) in testCases) {
+          assertEquals(false, CodeIgnore.shouldIgnore(msg))
+          assertEquals(expectedCode, CodeExtractor.getCode(msg))
+      }
+  }
+
+  @Test
   fun shouldNotExtractAnythingFromWordsContainingOTP() {
     val msg = "123456 is your foOTPath."
     val msg2 = "your foOTPath is 123456."
