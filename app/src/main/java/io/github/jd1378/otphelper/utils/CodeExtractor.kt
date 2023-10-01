@@ -2,16 +2,16 @@ package io.github.jd1378.otphelper.utils
 
 class CodeExtractor {
   companion object {
-    private val sensitiveWords = listOf("code", "کد", "رمز")
+    private val sensitiveWords = listOf("code", "کد", "رمز", "\\bOTP\\b", "Einmalkennwort")
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9]*)*[:.]?\s*["']?(?!${
+            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9]*)*[:.]?\s*(["']?)(?!${
                 ignoredWords.joinToString(
                     "|"
                 )
-            })(?<code>[^\s:"',]*)(?:["'.\s]|${'$'})"""
+            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]*)\1(?:[.\s][\n\t]|[.]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
@@ -27,11 +27,18 @@ class CodeExtractor {
       if (results.count() > 0) {
         // generalCodeMatcher also detects if the text contains "code" keyword
         // so we only run google's regex only if general regex did not capture the "code" group
-        var foundCode = results.find { !it.groups["code"]!!.value.isNullOrEmpty() }
+        var foundCode =
+            results
+                .find { !it.groups["code"]!!.value.isNullOrEmpty() }
+                ?.groups
+                ?.get("code")
+                ?.value
+                ?.replace(" ", "")
         if (foundCode !== null) {
-          return toEnglishNumbers(foundCode.groups["code"]!!.value)
+          return toEnglishNumbers(foundCode)
         }
-        return toEnglishNumbers(specialCodeMatcher.find(str)?.groups?.get("code")?.value)
+        return toEnglishNumbers(
+            specialCodeMatcher.find(str)?.groups?.get("code")?.value?.replace(" ", ""))
       }
       return null
     }

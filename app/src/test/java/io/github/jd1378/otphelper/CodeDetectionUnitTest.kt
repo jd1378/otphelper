@@ -123,4 +123,60 @@ www.iranketab.ir
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun tiktokCode() {
+    val msg = "[#][TikTok] 123456 is your verification code"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun instagramCode() {
+    val msg = "123 456 is your Instagram code. Don't share it."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun paypal2FACode() {
+    val msg = """PayPal : 123456 est votre code de sécurité. Ne partagez pas votre code."""
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun amazonCode() {
+    val msg = "123456 ist dein Amazon-Einmalkennwort. Teile es nicht mit anderen Personen."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun googleCode() {
+    val msg = "G-123456 is your Google verification code."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun shouldNotExtractAnythingFromWordsContainingOTP() {
+    val msg = "123456 is your foOTPath."
+    val msg2 = "your foOTPath is 123456."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(false, CodeIgnore.shouldIgnore(msg2))
+    assertEquals(null, CodeExtractor.getCode(msg))
+    assertEquals(null, CodeExtractor.getCode(msg2))
+  }
+
+  @Test
+  fun shouldBeSensitiveToOTP() {
+    val msg = "123456 is your OTP."
+    val msg2 = "your otp is 123456."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(false, CodeIgnore.shouldIgnore(msg2))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg2))
+  }
 }
