@@ -23,7 +23,7 @@ when a notification is sent, the app creates a single string from all text in th
 Simply run:
 
 ```bash
-./gradlew --no-daemon :app:assembleRelease
+./gradlew :app:assembleRelease
 ```
 
 The apk should be available in `apps/build/outputs/apk/release/` directory.
