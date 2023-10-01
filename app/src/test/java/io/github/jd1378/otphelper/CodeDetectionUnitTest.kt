@@ -112,4 +112,15 @@ https://www.digikala.com/transaction/rate/?RatingCode=x123456
 
     Assert.assertTrue(should)
   }
+
+  @Test
+  fun iranKetabCode() {
+    val msg = """کد فعالسازی شما در سایت ایران کتاب 
+Code: 123456
+www.iranketab.ir
+لغو11"""
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
