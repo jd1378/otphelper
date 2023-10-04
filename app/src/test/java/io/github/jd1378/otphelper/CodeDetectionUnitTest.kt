@@ -161,6 +161,46 @@ www.iranketab.ir
   }
 
   @Test
+  fun spanishCode1() {
+      val msg = "Su codigo de verificacion de AAAA es 123456"
+      val expectedCode = "123456"
+      assertEquals(false, CodeIgnore.shouldIgnore(msg))
+      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun spanishCode2() {
+      val msg = "BBB. Clave de firma: 1234. Introduce esta clave de un solo uso (OTP) en el formulario web para firmar (SMS CERTIFICADO)"
+      val expectedCode = "1234"
+      assertEquals(false, CodeIgnore.shouldIgnore(msg))
+      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun spanishCode3() {
+      val msg = "123 456 es tu código de Instagram. No lo compartas."
+      val expectedCode = "123456"
+      assertEquals(false, CodeIgnore.shouldIgnore(msg))
+      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun spanishCode4() {
+      val msg = "PayPal: Tu código de seguridad es 123456. No lo compartas con nadie."
+      val expectedCode = "123456"
+      assertEquals(false, CodeIgnore.shouldIgnore(msg))
+      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun spanishCode5() {
+      val msg = "123456 es tu contraseña temporal de Amazon. No la compartas con nadie."
+      val expectedCode = "123456"
+      assertEquals(false, CodeIgnore.shouldIgnore(msg))
+      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
   fun shouldNotExtractAnythingFromWordsContainingOTP() {
     val msg = "123456 is your foOTPath."
     val msg2 = "your foOTPath is 123456."

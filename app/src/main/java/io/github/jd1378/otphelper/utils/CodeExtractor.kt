@@ -2,7 +2,7 @@ package io.github.jd1378.otphelper.utils
 
 class CodeExtractor {
   companion object {
-    private val sensitiveWords = listOf("code", "کد", "رمز", "\\bOTP\\b", "Einmalkennwort")
+    private val sensitiveWords = listOf("code", "کد", "رمز", "\\bOTP\\b", "Einmalkennwort", "contraseña", "c[oó]digo", "clave")
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
