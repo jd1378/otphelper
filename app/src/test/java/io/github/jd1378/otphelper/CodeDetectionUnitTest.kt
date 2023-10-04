@@ -219,4 +219,11 @@ www.iranketab.ir
     assertEquals("123456", CodeExtractor.getCode(msg))
     assertEquals("123456", CodeExtractor.getCode(msg2))
   }
+
+  @Test
+  fun kingsoftCode() {
+    val msg = "【金山办公】验证码123456，10分钟内有效。验证码提供给他人可能导致账号被盗，请勿转发或泄露。"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
