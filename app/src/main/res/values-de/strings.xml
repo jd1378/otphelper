@@ -3,7 +3,6 @@
   <string name="detected_code">Code gefunden:</string>
   <string name="code_detected_channel_name">Code gefunden</string>
   <string name="code_detected_channel_description">Wenn ein Code detektiert wird, wird eine Benachrichtigung in diesem Kanal gesendet</string>
-  <string name="code_detected_channel_id" translatable="false">code_detected_channel</string>
   <string name="code_copied_to_clipboard">In Zwischenablage kopiert!</string>
   <string name="code_failed_to_access_clipboard">Zugriff zur Zwischenablage fehlgeschlagen!</string>
   <string name="code_sensitive">***</string>
@@ -42,8 +41,6 @@
   <string name="permission_todo_allow_restricted_settings">- Eingeschränkte Einstellungen erlauben</string>
   <string name="failed_to_open_app_settings">Einstellungen öffnen fehlgeschlagen</string>
   <string name="perm_restricted_desc">Falls du \"Benachrichtigungen lesen\" in Schritt 2 nicht erlauben konntest, versuche \"Eingeschränkte Einstellungen erlauben\" in den App Einstellungen</string>
-  <string name="en" translatable="false">English</string>
-  <string name="fa" translatable="false">فارسی</string>
   <string name="language">Sprache</string>
   <string name="system_default">Systemstandard</string>
   <string name="search_language">Sprache suchen</string>
