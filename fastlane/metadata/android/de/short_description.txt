@@ -1,1 +1,2 @@
-an open-source app that can detect and copy any code for you
+eine open-soure app die Codes für dich erkennt und kopiert
+
