@@ -21,6 +21,7 @@ val localeOptions =
     listOf(
         LocaleOption("default", R.string.system_default, "default"),
         LocaleOption("en", R.string.en, "english"),
+        LocaleOption("de", R.string.de, "deutsch"),
         LocaleOption("fa", R.string.fa, "farsi,persian,?????"))
 
 data class LanguageSelectionUiState(
