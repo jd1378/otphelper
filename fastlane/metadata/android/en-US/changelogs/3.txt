@@ -1,0 +1,3 @@
+- Added German language
+- Added Spanish sensitive keywords
+- Added Chinese sensitive keyword
