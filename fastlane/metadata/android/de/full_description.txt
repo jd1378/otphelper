@@ -1,0 +1,6 @@
+Eine open-source Anwendung die automatisch Einmalpasswörter und Codes aus deinen SMS und Benachrichtigungen kopiert. 
+
+Die App arbeitet komplett offline und ohne Berechtigung zum Internetzugriff. So kannst du sicher sein dass alle deine Daten auf deinem Gerät bleiben.
+
+Falls du Probleme oder Anregungen hast, schreib uns auf GitHub:
+https://github.com/jd1378/otphelper/issues
