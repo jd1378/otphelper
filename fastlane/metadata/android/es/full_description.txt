@@ -1,0 +1,6 @@
+Una aplicación de código abierto que te permite copiar automáticamente contraseñas de un solo uso (OTP) y códigos de mensajes de texto y notificaciones, leyendo todas tus notificaciones.
+
+La aplicación funciona completamente sin conexión y sin permiso de acceso a Internet. Así que puedes estar tranquilo/a de que tus datos no salen de tu dispositivo.
+
+Si tienes algún problema o sugerencia, envíalos en nuestro repositorio de GitHub.
+https://github.com/jd1378/otphelper/issues
