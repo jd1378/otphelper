@@ -162,42 +162,43 @@ www.iranketab.ir
 
   @Test
   fun spanishCode1() {
-      val msg = "Su codigo de verificacion de AAAA es 123456"
-      val expectedCode = "123456"
-      assertEquals(false, CodeIgnore.shouldIgnore(msg))
-      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+    val msg = "Su codigo de verificacion de AAAA es 123456"
+    val expectedCode = "123456"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
 
   @Test
   fun spanishCode2() {
-      val msg = "BBB. Clave de firma: 1234. Introduce esta clave de un solo uso (OTP) en el formulario web para firmar (SMS CERTIFICADO)"
-      val expectedCode = "1234"
-      assertEquals(false, CodeIgnore.shouldIgnore(msg))
-      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+    val msg =
+        "BBB. Clave de firma: 1234. Introduce esta clave de un solo uso (OTP) en el formulario web para firmar (SMS CERTIFICADO)"
+    val expectedCode = "1234"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
 
   @Test
   fun spanishCode3() {
-      val msg = "123 456 es tu código de Instagram. No lo compartas."
-      val expectedCode = "123456"
-      assertEquals(false, CodeIgnore.shouldIgnore(msg))
-      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+    val msg = "123 456 es tu código de Instagram. No lo compartas."
+    val expectedCode = "123456"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
 
   @Test
   fun spanishCode4() {
-      val msg = "PayPal: Tu código de seguridad es 123456. No lo compartas con nadie."
-      val expectedCode = "123456"
-      assertEquals(false, CodeIgnore.shouldIgnore(msg))
-      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+    val msg = "PayPal: Tu código de seguridad es 123456. No lo compartas con nadie."
+    val expectedCode = "123456"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
 
   @Test
   fun spanishCode5() {
-      val msg = "123456 es tu contraseña temporal de Amazon. No la compartas con nadie."
-      val expectedCode = "123456"
-      assertEquals(false, CodeIgnore.shouldIgnore(msg))
-      assertEquals(expectedCode, CodeExtractor.getCode(msg))
+    val msg = "123456 es tu contraseña temporal de Amazon. No la compartas con nadie."
+    val expectedCode = "123456"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
 
   @Test
@@ -223,6 +224,22 @@ www.iranketab.ir
   @Test
   fun kingsoftCode() {
     val msg = "【金山办公】验证码123456，10分钟内有效。验证码提供给他人可能导致账号被盗，请勿转发或泄露。"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun gitubCode() {
+    val msg = """123456 is your GitHub authentication code.
+
+@github.com #123456"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun metroHealthCode() {
+    val msg = "MetroHealth: Your verification code is: 123456. This code expires at 12:00 AM EDT."
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
