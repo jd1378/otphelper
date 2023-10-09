@@ -24,6 +24,7 @@ val localeOptions =
         LocaleOption("en", R.string.en, "english"),
         LocaleOption("es", R.string.es, "spanish"),
         LocaleOption("fa", R.string.fa, "farsi,persian,?????"))
+        LocaleOption("tr", R.string.tr, "turkish,türkçe"))
 
 data class LanguageSelectionUiState(
     val locales: List<LocaleOption> = localeOptions,
