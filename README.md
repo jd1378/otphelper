@@ -10,6 +10,9 @@ The application works completely offline and without internet permission. So you
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
      alt='Get it on Google Play'
      height="80">](https://play.google.com/store/apps/details?id=io.github.jd1378.otphelper)
+[<img src="https://s.cafebazaar.ir/2/images/badge-new.png"
+     alt='Get it on Bazaar'
+     height="50" style="padding: 15px 10px">](https://cafebazaar.ir/app/io.github.jd1378.otphelper)
 
 or get the APK from [Latest Release](https://github.com/jd1378/otphelper/releases/latest).
 
