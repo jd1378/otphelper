@@ -243,4 +243,12 @@ www.iranketab.ir
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun hdfcBankCode() {
+    val msg =
+        "123456 is the One Time Password (OTP) to 2FA Login of your HDFC securities trading and investment account."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }

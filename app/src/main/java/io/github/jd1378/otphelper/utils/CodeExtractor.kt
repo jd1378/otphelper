@@ -2,16 +2,27 @@ package io.github.jd1378.otphelper.utils
 
 class CodeExtractor {
   companion object {
-    private val sensitiveWords = listOf("code", "کد", "رمز", "\\bOTP\\b", "Einmalkennwort", "contraseña", "c[oó]digo", "clave", "验证码")
+    private val sensitiveWords =
+        listOf(
+            "code",
+            "کد",
+            "رمز",
+            "\\bOTP\\b",
+            "\\b2FA\\b",
+            "Einmalkennwort",
+            "contraseña",
+            "c[oó]digo",
+            "clave",
+            "验证码")
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9]*)*[:.]?\s*(["']?)(?!${
+            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*[:.]?\s*(["']?)(?!${
                 ignoredWords.joinToString(
                     "|"
                 )
-            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]*)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
+            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
@@ -19,8 +30,8 @@ class CodeExtractor {
                 ))
 
     private val specialCodeMatcher =
-        """(?<code>[\d ]+(?=\s)).*(?:${sensitiveWords.joinToString("|")})""".toRegex(
-            setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
+        """(?<code>[\d ]+(?=\s)).*(?:${sensitiveWords.joinToString("|")})"""
+            .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     fun getCode(str: String): String? {
       var results = generalCodeMatcher.findAll(str).filter { it.groups["code"] !== null }
