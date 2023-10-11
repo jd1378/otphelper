@@ -16,7 +16,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
-import io.github.jd1378.otphelper.utils.DeviceDetectHelper
 import io.github.jd1378.otphelper.utils.combine
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -108,7 +107,7 @@ constructor(
 
       launch {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-          _hasRestrictedSettings.update { DeviceDetectHelper.isMiUi() }
+          _hasRestrictedSettings.update { true }
         }
       }
     }
