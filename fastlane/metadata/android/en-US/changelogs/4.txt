@@ -1,1 +1,5 @@
-- Added spanish language
+- Added Spanish language
+- Added Turkish language
+- Added Russian sensitive keyword for code matching
+- Improved code matching pattern
+- Fixed a case where application would freeze and close
