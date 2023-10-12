@@ -1,0 +1,4 @@
+Một ứng dụng mã nguồn mở cho phép bạn sao chép mã OTP và các mã khác từ tin nhắn SMS và thông báo tự động băng cách đọc thông tin từ các thông báo của bạn.
+Ứng dụng này hoạt động hoàn toàn offline và không cần quyền try cập kết nối mạng internet. Vậy nên bạn có thể yên tâm rằng thông tin của bạn không bị rò rỉ ra bên ngoài.
+Nếu bạn gặp bất kì vấn đề nào hoặc có ý kiến đóng góp, hãy gửi chúng đến Github của chúng tôi:
+https://github.com/jd1378/otphelper/issues

@@ -47,6 +47,7 @@
   <string name="es" translatable="false">Español</string>
   <string name="fa" translatable="false">فارسی</string>
   <string name="tr" translatable="false">Türkçe</string>
+  <string name="vi" translatable="false">Tiếng Việt</string>
   <string name="language">Language</string>
   <string name="system_default">System Default</string>
   <string name="search_language">Search language</string>
