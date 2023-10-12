@@ -48,3 +48,7 @@ Spanish:
 Turksih:
 
 - [@SirCrownguard](https://github.com/SirCrownguard)
+
+Vietnamese:
+
+- [Sharethebest](https://github.com/Sharethebest)
