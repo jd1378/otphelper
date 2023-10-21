@@ -46,4 +46,8 @@
   <string name="system_default">Mặc định hệ thống</string>
   <string name="search_language">Tìm kiếm ngôn ngữ</string>
   <string name="no_result">Không có kết quả</string>
+  <string name="about">Về</string>
+  <string name="label_version">Phiên bản:</string>
+  <string name="label_license">Giấy phép:</string>
+  <string name="label_source_code_link">Mã nguồn:</string>
 </resources>

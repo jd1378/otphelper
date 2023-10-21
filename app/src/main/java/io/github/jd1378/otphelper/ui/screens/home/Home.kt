@@ -9,7 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -50,59 +54,69 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
     }
   }
 
-  Scaffold(modifier = modifier) { padding ->
-    Column(
-        modifier = Modifier.fillMaxSize().padding(padding),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-      Column(
-          Modifier.width(IntrinsicSize.Max),
-          verticalArrangement = Arrangement.spacedBy(8.dp),
-      ) {
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE) }) {
-              Text(text = stringResource(R.string.PERMISSION_ROUTE))
-            }
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { viewModel.onSendTestNotifPressed(context) }) {
-              Text(text = stringResource(R.string.send_test_notification))
-            }
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE) }) {
-              Text(text = stringResource(R.string.ignored_list))
-            }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-          Text(text = stringResource(R.string.auto_copy), Modifier.padding(horizontal = 10.dp))
-          Switch(
-              checked = uiState.isAutoCopyEnabled,
-              onCheckedChange = { viewModel.onAutoCopyToggle() })
+  Scaffold(
+      modifier = modifier,
+      topBar = {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+          IconButton(onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE) }) {
+            Icon(
+                imageVector = Icons.Outlined.Info,
+                contentDescription = stringResource(R.string.about))
+          }
         }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+      }) { padding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(padding),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
         ) {
-          Text(
-              text = stringResource(R.string.send_detected_notif),
-              Modifier.padding(horizontal = 10.dp))
-          Switch(
-              checked = uiState.isPostNotifEnabled,
-              onCheckedChange = { viewModel.onPostNotifToggle() })
-        }
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
-              Text(text = stringResource(R.string.language))
+          Column(
+              Modifier.width(IntrinsicSize.Max),
+              verticalArrangement = Arrangement.spacedBy(8.dp),
+          ) {
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE) }) {
+                  Text(text = stringResource(R.string.PERMISSION_ROUTE))
+                }
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { viewModel.onSendTestNotifPressed(context) }) {
+                  Text(text = stringResource(R.string.send_test_notification))
+                }
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE) }) {
+                  Text(text = stringResource(R.string.ignored_list))
+                }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              Text(text = stringResource(R.string.auto_copy), Modifier.padding(horizontal = 10.dp))
+              Switch(
+                  checked = uiState.isAutoCopyEnabled,
+                  onCheckedChange = { viewModel.onAutoCopyToggle() })
             }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              Text(
+                  text = stringResource(R.string.send_detected_notif),
+                  Modifier.padding(horizontal = 10.dp))
+              Switch(
+                  checked = uiState.isPostNotifEnabled,
+                  onCheckedChange = { viewModel.onPostNotifToggle() })
+            }
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
+                  Text(text = stringResource(R.string.language))
+                }
+          }
+        }
       }
-    }
-  }
 }

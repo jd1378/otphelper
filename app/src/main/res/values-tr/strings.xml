@@ -46,4 +46,8 @@
   <string name="system_default">Sistem Varsayılanı</string>
   <string name="search_language">Dil ara</string>
   <string name="no_result">Sonuç yok</string>
+  <string name="about">Hakkında</string>
+  <string name="label_version">Sürüm:</string>
+  <string name="label_license">Lisans:</string>
+  <string name="label_source_code_link">Kaynak kodu:</string>
 </resources>

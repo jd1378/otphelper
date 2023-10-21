@@ -11,6 +11,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.ui.navigation.rememberTheNavController
+import io.github.jd1378.otphelper.ui.screens.about.addAboutGraph
 import io.github.jd1378.otphelper.ui.screens.home.addHomeGraph
 import io.github.jd1378.otphelper.ui.screens.ignored_list.addIgnoredListGraph
 import io.github.jd1378.otphelper.ui.screens.language_selection.addLanguageSelectionGraph
@@ -65,6 +66,7 @@ private fun NavGraphBuilder.otphelperNavGraph(
   addLanguageSelectionGraph(upPress)
   addIgnoredListGraph(upPress)
   addPermissionsGraph(onNavigateToRoute, upPress)
+  addAboutGraph(upPress)
   // for nested navigation (example):
   //  navigation(route = MainDestinations.HOME_ROUTE, startDestination =
   //          HomeSections.FEED.route) {

@@ -21,6 +21,7 @@ object MainDestinations {
   const val IGNORED_LIST_ROUTE = "ignored_list"
   const val PERMISSIONS_ROUTE = "permissions"
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"
+  const val ABOUT_ROUTE = "about"
 }
 
 @Composable

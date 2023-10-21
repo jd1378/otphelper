@@ -53,4 +53,10 @@
   <string name="system_default">System Default</string>
   <string name="search_language">Search language</string>
   <string name="no_result">No result</string>
+  <string name="about">About</string>
+  <string name="github" translatable="false">GitHub</string>
+  <string name="license_type" translatable="false">AGPL-v3.0</string>
+  <string name="label_version">Version:</string>
+  <string name="label_license">License:</string>
+  <string name="label_source_code_link">Source Code:</string>
 </resources>

@@ -45,5 +45,9 @@
   <string name="system_default">Predeterminado del sistema</string>
   <string name="search_language">Buscar idioma</string>
   <string name="no_result">Sin resultados</string>
+  <string name="about">Acerca de</string>
+  <string name="label_version">Versión:</string>
+  <string name="label_license">Licencia:</string>
+  <string name="label_source_code_link">Código fuente:</string>
 </resources>
 
