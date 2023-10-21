@@ -14,7 +14,10 @@ class CodeExtractor {
             "c[oó]digo",
             "clave",
             "验证码",
-            "код")
+            "код",
+            "סיסמ",
+            "קוד",
+        )
 
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
     private val generalCodeMatcher =
