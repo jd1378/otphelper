@@ -1,0 +1,6 @@
+Tüm bildirimlerinizi okuyarak SMS ve bildirimlerden OTP ve kodları otomatik olarak kopyalamanızı sağlayan açık kaynaklı bir uygulama.
+
+Uygulama tamamen çevrimdışı ve internet izni olmadan çalışır. Böylece verilerinizin cihazınızdan çıkmadığından emin olabilirsiniz.
+
+Herhangi bir sorununuz veya öneriniz varsa, bunları GitHub depomuza gönderin:
+https://github.com/jd1378/otphelper/issues

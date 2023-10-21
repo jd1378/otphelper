@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">SMS Kodunu Kopyala</string>
+  <string name="app_name">SMS Kodu Kopyala</string>
   <string name="detected_code">Tespit Edilen Kod:</string>
   <string name="code_detected_channel_name">Kod Tespit Edildi</string>
   <string name="code_detected_channel_description">bir kod tespit edildiği zaman bu kanaldan bir bildirim gönderilecektir</string>
