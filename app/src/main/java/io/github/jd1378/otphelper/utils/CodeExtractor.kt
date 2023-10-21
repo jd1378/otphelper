@@ -17,6 +17,7 @@ class CodeExtractor {
             "код",
             "סיסמ",
             "קוד",
+            "Kodunuz",
         )
 
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
