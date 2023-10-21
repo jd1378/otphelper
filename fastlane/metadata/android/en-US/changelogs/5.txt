@@ -1,2 +1,3 @@
 - Added Chinese (Hans) language
-- Added Hebrew sensitive keyword for code matching 
+- Added Hebrew sensitive keyword
+- Added Turkish sensitive keyword
