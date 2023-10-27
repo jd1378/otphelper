@@ -294,4 +294,23 @@ www.iranketab.ir
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun shouldNotExtractCodeLessThanFourChars() {
+    val msg = "your code is 123"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg)) // shouldnt ignore, but shouldnt extract
+    assertEquals(null, CodeExtractor.getCode(msg))
+
+    val msg2 = "your code is 1234"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg2))
+    assertEquals("1234", CodeExtractor.getCode(msg2))
+
+    val msg3 = "123 is your code"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg3))
+    assertEquals(null, CodeExtractor.getCode(msg3))
+
+    val msg4 = "1234 is your code"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg4))
+    assertEquals("1234", CodeExtractor.getCode(msg4))
+  }
 }
