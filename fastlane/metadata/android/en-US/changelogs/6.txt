@@ -1,0 +1,2 @@
+- fixed sensitive keyword for Turkish
+- set minimum code length for codes that are in the beginning of the message to 4
