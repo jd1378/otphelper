@@ -286,4 +286,12 @@ www.iranketab.ir
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun binanceTRCode() {
+    val msg =
+        "[Binance TR] Doğrulama Kodu: 123456. Lütfen bu doğrulama kodunu Binance TR çalışanı dahil kimseyle paylaşmayın! B040"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
