@@ -330,6 +330,21 @@ Bitte überprüfen Sie alle Werte!
   }
 
   @Test
+  fun atrustHandySignaturCode2() {
+    val msg =
+        """Handy-Signatur für
+ eid.oesterreich.gv.at
+Vergleichswert
+ v 7 n M Z S S H 6 l
+TAN
+ 1 u 8 k u f
+Bitte überprüfen Sie alle Werte!
+(5 Min. gültig)"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("1u8kuf", CodeExtractor.getCode(msg))
+  }
+
+  @Test
   fun rabinCash2FA() {
     val msg =
         """کدامنیتی درخواست انتقال ارز از کیف‌پول رابین‌کش
