@@ -321,10 +321,10 @@ www.iranketab.ir
 Vergleichswert
  v 7 n M Z S S H 6 l
 TAN
- 4 u 8 k u f
+ a u 8 k u f
 Bitte überprüfen Sie alle Werte!
 (5 Min. gültig)"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
-    assertEquals("4u8kuf", CodeExtractor.getCode(msg))
+    assertEquals("au8kuf", CodeExtractor.getCode(msg))
   }
 }

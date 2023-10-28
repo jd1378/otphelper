@@ -25,7 +25,7 @@ class CodeExtractor {
 
     private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
     private val generalCodeMatcher =
-        """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
+        """(?:${sensitiveWords.joinToString("|")})(?:\s*(?![a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] )(?!${
                 ignoredWords.joinToString("|")
             })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*[:.]?\s*(["']?)(?!${
                 ignoredWords.joinToString(
