@@ -31,7 +31,7 @@ class CodeExtractor {
                 ignoredWords.joinToString(
                     "|"
                 )
-            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z0-9]){4,}|)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
+            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
