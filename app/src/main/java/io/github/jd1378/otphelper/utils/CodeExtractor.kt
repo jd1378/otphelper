@@ -23,15 +23,23 @@ class CodeExtractor {
             "\\bmTAN\\b",
         )
 
-    private val ignoredWords = listOf("مقدار", "مبلغ", "amount", "برای", "-ارز")
+    private val ignoredWords =
+        listOf(
+            "مقدار",
+            "مبلغ",
+            "amount",
+            "برای",
+            "-ارز",
+            // avoids detecting space separated code as bunch of words:
+            "[a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] ?",
+        )
+
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*[:.]?\s*(["']?)(?!${
-                ignoredWords.joinToString(
-                    "|"
-                )
-            })(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
+            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*[:.]?\s*(["']?)${""
+              // this comment is to separate parts
+          }(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[.\s][\n\t]|[.,，]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
@@ -43,11 +51,11 @@ class CodeExtractor {
             .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     fun getCode(str: String): String? {
-      var results = generalCodeMatcher.findAll(str).filter { it.groups["code"] !== null }
+      val results = generalCodeMatcher.findAll(str).filter { it.groups["code"] !== null }
       if (results.count() > 0) {
         // generalCodeMatcher also detects if the text contains "code" keyword
         // so we only run google's regex only if general regex did not capture the "code" group
-        var foundCode =
+        val foundCode =
             results
                 .find { !it.groups["code"]!!.value.isNullOrEmpty() }
                 ?.groups

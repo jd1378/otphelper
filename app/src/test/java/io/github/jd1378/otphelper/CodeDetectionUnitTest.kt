@@ -316,15 +316,34 @@ www.iranketab.ir
 
   @Test
   fun atrustHandySignaturCode() {
-    val msg = """Handy-Signatur für
+    val msg =
+        """Handy-Signatur für
  eid.oesterreich.gv.at
 Vergleichswert
  v 7 n M Z S S H 6 l
 TAN
- 4 u 8 k u f
+ a u 8 k u f
 Bitte überprüfen Sie alle Werte!
 (5 Min. gültig)"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
-    assertEquals("4u8kuf", CodeExtractor.getCode(msg))
+    assertEquals("au8kuf", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun rabinCash2FA() {
+    val msg =
+        """کدامنیتی درخواست انتقال ارز از کیف‌پول رابین‌کش
+
+مقدار ارز:
+1000000IRT
+
+کیف‌پول مقصد:
+0000000000000000
+
+code: 123456
+لغو11"""
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
   }
 }
