@@ -51,4 +51,8 @@ Turksih:
 
 Vietnamese:
 
-- [Sharethebest](https://github.com/Sharethebest)
+- [@Sharethebest](https://github.com/Sharethebest)
+
+Chinese:
+
+- [@BackMountainDevil](https://github.com/BackMountainDevil)
