@@ -361,4 +361,28 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun vietnameseCode1() {
+    val msg =
+        "GD truc tuyen VietinBank,ma GD 1533 ma OTP 123456 so tien 50000 tai web MOMOCE.QK tuyet doi KHONG cung cap OTP cho nguoi khac"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun vietnameseCode2() {
+    val msg =
+        "Tai khoan quy khach se bi tru 6000000 VND qua kenh giao dich truc tuyen. Neu dung, quy khach thuc hien nhap OTP 123456 de hoan tat. Neu khong, LH 19009247"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun vietnameseCode3() {
+    val msg =
+        "QK nhap ma OTP 123456 tuong ung voi ma giao dich 7709 de cap lai mat khau dich vu VietinBank iPay.TH QK khong thuc hien giao dich nay, LH 1900558868"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
