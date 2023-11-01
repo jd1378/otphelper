@@ -7,8 +7,8 @@ class CodeExtractor {
             "code",
             "کد",
             "رمز",
-            "\\bOTP\\b",
-            "\\b2FA\\b",
+            "\\bOTP\\W",
+            "\\b2FA\\W",
             "Einmalkennwort",
             "contraseña",
             "c[oó]digo",
@@ -42,7 +42,7 @@ class CodeExtractor {
                 ignoredWords.joinToString("|")
             })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*:?\s*(["']?)${""
               // this comment is to separate parts
-          }(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?=\s|[.,，]|${'$'})"""
+          }(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
