@@ -229,6 +229,34 @@ www.iranketab.ir
   }
 
   @Test
+  fun alibabaCode() {
+    val msg = "【阿里巴巴】验证码123456，您正在登录验证，切勿将验证码泄露于他人，验证码15分钟内有效。"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun twBankingOneCode() {
+    val msg = "請提防詐騙！密碼勿提供他人或輸入不明網頁，您的信用卡網路消費幣別新台幣金額9876元，交易驗證碼『123456』請十分鐘內認證"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun twBankingTwoCode() {
+    val msg = "【銀行轉帳】OTP密碼1234567網頁識別碼ABCD轉入帳號後四碼8888、TWD\$9876，密碼勿告知他人以防詐騙"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("1234567", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun twShopeeCode() {
+    val msg = "【蝦皮購物】輸入 123456 以登入您的帳號，15 分鐘有效。請不要將驗證碼分享給任何人，包括蝦皮員工。"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
   fun gitubCode() {
     val msg = """123456 is your GitHub authentication code.
 
