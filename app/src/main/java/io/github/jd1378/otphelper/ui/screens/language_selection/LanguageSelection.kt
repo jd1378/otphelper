@@ -64,7 +64,7 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
               active = false,
               onActiveChange = {},
               placeholder = { Text(text = stringResource(R.string.search_language)) },
-              trailingIcon = {
+              leadingIcon = {
                 Icon(imageVector = Icons.Default.Search, contentDescription = null)
               }) {}
           LazyColumn(
