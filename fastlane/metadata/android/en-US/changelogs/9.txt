@@ -1,0 +1,1 @@
+- added "unicode" to ignore list. if it's present, it won't be detected as code anymore.

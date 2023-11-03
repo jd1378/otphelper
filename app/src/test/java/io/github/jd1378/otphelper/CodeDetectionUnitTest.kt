@@ -413,4 +413,10 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun unicodeTest() {
+    val msg = "some unicode is 123456"
+    assertEquals(true, CodeIgnore.shouldIgnore(msg))
+  }
 }
