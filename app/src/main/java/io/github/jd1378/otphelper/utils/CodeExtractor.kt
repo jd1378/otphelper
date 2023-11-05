@@ -24,6 +24,7 @@ class CodeExtractor {
             "\\bKodunuz\\b",
             "\\bTAN\\b",
             "\\bmTAN\\b",
+            "mã", // "code" in vietnamese
         )
 
     private val ignoredWords =
