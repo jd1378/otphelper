@@ -437,4 +437,11 @@ code: 123456
     val msg = "some decode is 123456"
     assertEquals(true, CodeIgnore.shouldIgnore(msg))
   }
+
+  @Test
+  fun longCodeCaptureTest() {
+    val msg = longtext
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
