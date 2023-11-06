@@ -415,8 +415,26 @@ code: 123456
   }
 
   @Test
-  fun unicodeTest() {
+  fun unicodeIgnoreTest() {
     val msg = "some unicode is 123456"
+    assertEquals(true, CodeIgnore.shouldIgnore(msg))
+  }
+
+  @Test
+  fun fancodeIgnoreTest() {
+    val msg = "some fancode is 123456"
+    assertEquals(true, CodeIgnore.shouldIgnore(msg))
+  }
+
+  @Test
+  fun encodeIgnoreTest() {
+    val msg = "some encode is 123456"
+    assertEquals(true, CodeIgnore.shouldIgnore(msg))
+  }
+
+  @Test
+  fun decodeIgnoreTest() {
+    val msg = "some decode is 123456"
     assertEquals(true, CodeIgnore.shouldIgnore(msg))
   }
 }

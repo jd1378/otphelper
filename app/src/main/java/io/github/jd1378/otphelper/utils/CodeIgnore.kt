@@ -13,6 +13,9 @@ class CodeIgnore {
             "vscode",
             "versionCode",
             "unicode",
+            "\\bfancode",
+            "\\bencode",
+            "\\bdecode",
         )
     private val ignoredWordsRegex =
         """\b(${ignoredWords.joinToString("|")})\b"""
