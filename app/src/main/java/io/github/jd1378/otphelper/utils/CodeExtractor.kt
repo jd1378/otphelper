@@ -22,6 +22,8 @@ class CodeExtractor {
             "קוד",
             "\\bKodu\\b",
             "\\bKodunuz\\b",
+            "\\bKodi\\b",
+            "\\bKods\\b",
             "\\bTAN\\b",
             "\\bmTAN\\b",
             "mã", // "code" in vietnamese
