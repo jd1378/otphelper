@@ -11,7 +11,7 @@ class NotificationListener : NotificationListenerService() {
   companion object {
     val notification_text_keys =
         listOf(
-            Notification.EXTRA_TITLE,
+            // Notification.EXTRA_TITLE, // removed due to causing false positives.
             Notification.EXTRA_TEXT,
             Notification.EXTRA_SUB_TEXT,
             Notification.EXTRA_INFO_TEXT,
