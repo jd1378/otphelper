@@ -13,7 +13,14 @@ class CodeDetectionUnitTest {
 
   @Test
   fun dummyTest() {
-    val msg = "deosnt have anything"
+    val msg = "doesnt have anything"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(null, CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun dummyTest2() {
+    val msg = "doesn't have code here"
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals(null, CodeExtractor.getCode(msg))
   }
