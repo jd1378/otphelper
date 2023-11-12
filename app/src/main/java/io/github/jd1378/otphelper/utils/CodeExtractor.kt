@@ -45,7 +45,7 @@ class CodeExtractor {
                 ignoredWords.joinToString("|")
             })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*:?\s*(["']?)${""
               // this comment is to separate parts
-          }(?<code>[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
+          }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
@@ -53,26 +53,26 @@ class CodeExtractor {
                 ))
 
     private val specialCodeMatcher =
-        """(?<code>[\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)).*(?:${sensitiveWords.joinToString("|")})"""
+        """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)).*(?:${sensitiveWords.joinToString("|")})"""
             .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     fun getCode(str: String): String? {
-      val results = generalCodeMatcher.findAll(str).filter { it.groups["code"] !== null }
+      val results = generalCodeMatcher.findAll(str).filter { it.groups[2]?.value != null }
       if (results.count() > 0) {
         // generalCodeMatcher also detects if the text contains "code" keyword
         // so we only run google's regex only if general regex did not capture the "code" group
         val foundCode =
             results
-                .find { !it.groups["code"]!!.value.isNullOrEmpty() }
+                .find { it.groups[2]!!.value.isNotEmpty() }
                 ?.groups
-                ?.get("code")
+                ?.get(2)
                 ?.value
                 ?.replace(" ", "")
         if (foundCode !== null) {
           return toEnglishNumbers(foundCode)
         }
         return toEnglishNumbers(
-            specialCodeMatcher.find(str)?.groups?.get("code")?.value?.replace(" ", ""))
+            specialCodeMatcher.find(str)?.groups?.get(1)?.value?.replace(" ", ""))
       }
       return null
     }
