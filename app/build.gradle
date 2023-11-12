@@ -73,7 +73,7 @@ dependencies {
 
   implementation 'androidx.core:core-ktx:1.12.0'
   implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
-  implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0-alpha03")
+  implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0-beta01")
   implementation 'androidx.activity:activity-compose:1.8.0'
   implementation "androidx.compose.ui:ui"
   implementation "androidx.compose.ui:ui-tooling-preview"
@@ -88,12 +88,12 @@ dependencies {
   // debugImplementation because LeakCanary should only run in debug builds.
   debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
   // navigation
-  implementation "androidx.navigation:navigation-compose:2.7.4"
+  implementation "androidx.navigation:navigation-compose:2.7.5"
   // hilt
-  implementation "com.google.dagger:hilt-android:2.48"
-  kapt "com.google.dagger:hilt-compiler:2.48"
+  implementation "com.google.dagger:hilt-android:2.48.1"
+  kapt "com.google.dagger:hilt-compiler:2.48.1"
   // hilt for navigation compose
-  implementation 'androidx.hilt:hilt-navigation-compose:1.1.0-rc01'
+  implementation 'androidx.hilt:hilt-navigation-compose:1.1.0'
   // app compat (for locales)
   def appcompat_version = '1.7.0-alpha03'
   implementation "androidx.appcompat:appcompat:$appcompat_version"
