@@ -10,6 +10,14 @@ import org.junit.Test
 
 /** See [testing documentation](http://d.android.com/tools/testing). */
 class CodeDetectionUnitTest {
+
+  @Test
+  fun dummyTest() {
+    val msg = "deosnt have anything"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(null, CodeExtractor.getCode(msg))
+  }
+
   @Test
   fun pasargadCode() {
     val msg = """پاسارگاد
