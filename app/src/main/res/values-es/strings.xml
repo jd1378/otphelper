@@ -5,7 +5,6 @@
   <string name="code_detected_channel_description">cuando se detecta un código, se enviará una notificación desde este canal</string>
   <string name="code_copied_to_clipboard">¡Copiado al portapapeles!</string>
   <string name="code_failed_to_access_clipboard">¡Error al acceder al portapapeles!</string>
-  <string name="code_sensitive">***</string>
   <string name="copy_to_clipboard">Copiar al Portapapeles</string>
   <string name="wont_detect_code_from_this_notif">No se volverá a detectar ningún código desde esta notificación.</string>
   <string name="copied">Copiado</string>

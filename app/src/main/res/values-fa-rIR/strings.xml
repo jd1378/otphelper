@@ -6,7 +6,6 @@
   <string name="code_detected_channel_description">هر زمان که یک کد شناسایی شود، یک اعلان از این کانال ارسال می شود</string>
   <string name="code_copied_to_clipboard">کد کپی شد!</string>
   <string name="code_failed_to_access_clipboard">خطا در دسترسی به کلیپ بورد!</string>
-  <string name="code_sensitive">***</string>
   <string name="copy_to_clipboard">کپی</string>
   <string name="wont_detect_code_from_this_notif">دیگر از این اعلان کدی شناسایی نمی شود.</string>
   <string name="copied">کپی شد</string>

@@ -6,7 +6,6 @@
   <string name="code_detected_channel_description">bir kod tespit edildiği zaman bu kanaldan bir bildirim gönderilecektir</string>
   <string name="code_copied_to_clipboard">Panoya kopyalandı!</string>
   <string name="code_failed_to_access_clipboard">Panoya erişilemedi!</string>
-  <string name="code_sensitive">***</string>
   <string name="copy_to_clipboard">Panoya Kopyala</string>
   <string name="wont_detect_code_from_this_notif">Bu bildirimdeki kod bir daha algılanmayacak.</string>
   <string name="copied">Kopyalandı</string>

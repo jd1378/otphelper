@@ -6,7 +6,6 @@
   <string name="code_detected_channel_description">bất cứ khi nào phát hiện mã, thông báo sẽ được gửi từ kênh này</string>
   <string name="code_copied_to_clipboard">Đã sao chép vào clipboard!</string>
   <string name="code_failed_to_access_clipboard">Không thể try cập clipboard!</string>
-  <string name="code_sensitive">***</string>
   <string name="copy_to_clipboard">Sao chép vào Clipboard</string>
   <string name="wont_detect_code_from_this_notif">Sẽ không phát hiện lại mã từ thông báo này.</string>
   <string name="copied">Đã sao chép</string>
