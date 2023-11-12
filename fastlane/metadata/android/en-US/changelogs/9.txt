@@ -2,4 +2,4 @@
 - added georgian sensitive keywords
 - added "mã" to sensitive keywords (vietnamese for code)
 - added Russian translation
-- fix app crashing on android version lower than oreo
+- fix app crashing on android before 8.0 (Oreo)
