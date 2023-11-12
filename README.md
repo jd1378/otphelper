@@ -56,3 +56,7 @@ Vietnamese:
 Chinese:
 
 - [@BackMountainDevil](https://github.com/BackMountainDevil)
+
+Russian:
+
+- [@darkspacer](https://github.com/darkspacer)
