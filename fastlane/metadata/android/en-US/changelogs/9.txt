@@ -1,4 +1,4 @@
-- added "unicode", "fancode", "encode", "decode" to ignore list. if it's present, it won't be detected as code anymore.
+- added "unicode", "fancode", "encode", "decode" to ignore list. if any of them is present, nothing will be detected as code anymore.
 - added georgian sensitive keywords
 - added "mã" to sensitive keywords (vietnamese for code)
 - added Russian translation
