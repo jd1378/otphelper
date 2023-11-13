@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Copia codici SMS</string>
   <string name="detected_code">Codice rilevato:</string>
@@ -38,8 +39,8 @@
   <string name="test_notification_content">Il tuo codice è: 230914</string>
   <string name="test_notification_title">Questa è una notifica di prova</string>
   <string name="permission_todo_allow_restricted_settings">- Permetti impostazioni riservate</string>
-  <string name="failed_to_open_app_settings">Errore nell'apertura delle impostazioni dell'applicazione</string>
-  <string name="perm_restricted_desc">Se non puoi abilitare l'aprtura delle notifiche nello step 2, prova ad abilitare \"Permetti impostazioni riservate\" nelle impostazioni dell'applicazione</string>
+  <string name="failed_to_open_app_settings">Errore nell\'apertura delle impostazioni dell\'applicazione</string>
+  <string name="perm_restricted_desc">Se non puoi abilitare l\'aprtura delle notifiche nello step 2, prova ad abilitare \"Permetti impostazioni riservate\" nelle impostazioni dell\'applicazione</string>
   <string name="language">Lingua</string>
   <string name="system_default">Default di sistema</string>
   <string name="search_language">Cerca lingua</string>
