@@ -3,10 +3,8 @@
   <string name="detected_code">Codice rilevato:</string>
   <string name="code_detected_channel_name">Code rilevato</string>
   <string name="code_detected_channel_description">Quando un codice viene rilevato, verrà inviata una notifica</string>
-  <string name="code_detected_channel_id" translatable="false">code_detected_channel</string>
   <string name="code_copied_to_clipboard">Copiato negli appunti!</string>
   <string name="code_failed_to_access_clipboard">Impossibile accedere agli appunti!</string>
-  <string name="code_sensitive" translatable="false">***</string>
   <string name="copy_to_clipboard">Copia negli appunti</string>
   <string name="wont_detect_code_from_this_notif">Non rileverò più codici in questa notifica</string>
   <string name="copied">Copiato</string>
@@ -42,22 +40,11 @@
   <string name="permission_todo_allow_restricted_settings">- Permetti impostazioni riservate</string>
   <string name="failed_to_open_app_settings">Errore nell'apertura delle impostazioni dell'applicazione</string>
   <string name="perm_restricted_desc">Se non puoi abilitare l'aprtura delle notifiche nello step 2, prova ad abilitare \"Permetti impostazioni riservate\" nelle impostazioni dell'applicazione</string>
-  <string name="de" translatable="false">Deutsch</string>
-  <string name="en" translatable="false">English</string>
-  <string name="es" translatable="false">Español</string>
-  <string name="fa" translatable="false">فارسی</string>
-  <string name="tr" translatable="false">Türkçe</string>
-  <string name="vi" translatable="false">Tiếng Việt</string>
-  <string name="zh" translatable="false">简体中文</string>
-  <string name="ru" translatable="false">Русский</string>
-  <string name="it" translatable="false">Italiano</string>
   <string name="language">Lingua</string>
   <string name="system_default">Default di sistema</string>
   <string name="search_language">Cerca lingua</string>
   <string name="no_result">Nessun risultato</string>
   <string name="about">About</string>
-  <string name="github" translatable="false">GitHub</string>
-  <string name="license_type" translatable="false">AGPL-v3.0</string>
   <string name="label_version">Versione:</string>
   <string name="label_license">Licenza:</string>
   <string name="label_source_code_link">Codice sorgente:</string>

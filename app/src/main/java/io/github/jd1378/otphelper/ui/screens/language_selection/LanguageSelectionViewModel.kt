@@ -28,6 +28,7 @@ val localeOptions =
         LocaleOption("vi", R.string.vi, "Tiếng Việt,vietnamese"),
         LocaleOption("zh", R.string.zh, "简体中文"),
         LocaleOption("ru", R.string.ru, "Русский,russian"),
+        LocaleOption("it", R.string.it, "italiano"),
     )
 
 data class LanguageSelectionUiState(
