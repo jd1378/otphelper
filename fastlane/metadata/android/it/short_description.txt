@@ -1,1 +1,1 @@
-Un'app open-source che rivela e copia i codici OTP per te
+Un'app open-source che rileva e copia i codici OTP per te
