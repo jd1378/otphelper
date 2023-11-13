@@ -1,0 +1,64 @@
+<resources>
+  <string name="app_name">Copia codici SMS</string>
+  <string name="detected_code">Codice rilevato:</string>
+  <string name="code_detected_channel_name">Code rilevato</string>
+  <string name="code_detected_channel_description">Quando un codice viene rilevato, verrà inviata una notifica</string>
+  <string name="code_detected_channel_id" translatable="false">code_detected_channel</string>
+  <string name="code_copied_to_clipboard">Copiato negli appunti!</string>
+  <string name="code_failed_to_access_clipboard">Impossibile accedere agli appunti!</string>
+  <string name="code_sensitive" translatable="false">***</string>
+  <string name="copy_to_clipboard">Copia negli appunti</string>
+  <string name="wont_detect_code_from_this_notif">Non rileverò più codici in questa notifica</string>
+  <string name="copied">Copiato</string>
+  <string name="ignored_list">Lista di codici ignorati</string>
+  <string name="open_notification_permission">Apri i permessi delle notifiche</string>
+  <string name="send_test_notification">Invia notifica di test</string>
+  <string name="auto_copy">Copiatura negli appunti automatica</string>
+  <string name="delete">Elimina</string>
+  <string name="label_back">Indietro</string>
+  <string name="HOME_ROUTE">Home</string>
+  <string name="IGNORED_LIST_ROUTE">Lista ignorati</string>
+  <string name="list_is_empty">La lista è vuota</string>
+  <string name="ignored_list_description">Quando premi il bottone ignora su una notifica inviata quando un codice è rilevato, non verranno più rilevati come codici ed appariranno qua</string>
+  <string name="copy">Copia</string>
+  <string name="ignore">Ignora</string>
+  <string name="PERMISSION_ROUTE">Permessi</string>
+  <string name="permissions_desc">Per permettere all\'app di rilevare codici nelle notifiche, garantisci questi permessi:</string>
+  <string name="open">Apri</string>
+  <string name="permission_todo_post_notifications">1. Invia notifiche</string>
+  <string name="permission_todo_read_notifications">2. Leggi notifiche</string>
+  <string name="grant">Garantisci</string>
+  <string name="permission_todo_remain_open">3. Esecuzione in backgroud</string>
+  <string name="perm_extra_desc">Su alcuni dispostivi come Xiaomi, Huawei, etc, per permettere all\'app di avviarsi col telefono, devi garantire il permesso di avvio automatico. Non possiamo controllare se il permesso sia garantino o meno.</string>
+  <string name="permission_todo_autostart">4. Permetti avvio automatico</string>
+  <string name="send_detected_notif">Notifiche post</string>
+  <string name="skip">Salta</string>
+  <string name="finish">finisci</string>
+  <string name="okay">ok</string>
+  <string name="skip_warning">Per permettere all\'app di funzionare corettamente, è necessario garantire i seguenti permessi. Puoi apire questa schermata cliccando su \"Permessi\" nella schermata principale.</string>
+  <string name="notice">Avviso</string>
+  <string name="test_notification_content">Il tuo codice è: 230914</string>
+  <string name="test_notification_title">Questa è una notifica di prova</string>
+  <string name="permission_todo_allow_restricted_settings">- Permetti impostazioni riservate</string>
+  <string name="failed_to_open_app_settings">Errore nell'apertura delle impostazioni dell'applicazione</string>
+  <string name="perm_restricted_desc">Se non puoi abilitare l'aprtura delle notifiche nello step 2, prova ad abilitare \"Permetti impostazioni riservate\" nelle impostazioni dell'applicazione</string>
+  <string name="de" translatable="false">Deutsch</string>
+  <string name="en" translatable="false">English</string>
+  <string name="es" translatable="false">Español</string>
+  <string name="fa" translatable="false">فارسی</string>
+  <string name="tr" translatable="false">Türkçe</string>
+  <string name="vi" translatable="false">Tiếng Việt</string>
+  <string name="zh" translatable="false">简体中文</string>
+  <string name="ru" translatable="false">Русский</string>
+  <string name="it" translatable="false">Italiano</string>
+  <string name="language">Lingua</string>
+  <string name="system_default">Default di sistema</string>
+  <string name="search_language">Cerca lingua</string>
+  <string name="no_result">Nessun risultato</string>
+  <string name="about">About</string>
+  <string name="github" translatable="false">GitHub</string>
+  <string name="license_type" translatable="false">AGPL-v3.0</string>
+  <string name="label_version">Versione:</string>
+  <string name="label_license">Licenza:</string>
+  <string name="label_source_code_link">Codice sorgente:</string>
+</resources>
