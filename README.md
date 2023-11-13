@@ -60,3 +60,7 @@ Chinese:
 Russian:
 
 - [@darkspacer](https://github.com/darkspacer)
+
+Italian:
+
+- [@lollo03](https://github.com/lollo03)
