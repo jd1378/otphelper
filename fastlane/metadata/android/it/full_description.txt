@@ -1,0 +1,6 @@
+Un'applicazione open-source che copia in automatico i codici OTP che compaiono nelle tue notifice.
+
+L'applicazione lavora completamente offline e non necessita di connessione internet. Puoi assicurarti sul fatto che i tuoi dati non lascino il dispositivo.
+
+Se hai problemi o suggerimenti, inviale tramite il repository su github:
+https://github.com/jd1378/otphelper/issues
