@@ -14,6 +14,7 @@ class CodeExtractor {
             "c[oó]digo",
             "clave",
             "验证码",
+            "校验码",
             "識別碼",
             "認證",
             "驗證",

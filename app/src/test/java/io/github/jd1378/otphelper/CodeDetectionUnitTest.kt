@@ -502,4 +502,11 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun chineseAlipayCode() {
+    val msg = "【支付宝】校验码1234，付款金额169.00，你正在使用支付宝，需要进行校验，请勿向任何人提供您收到的短信校验码"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("1234", CodeExtractor.getCode(msg))
+  }
 }
