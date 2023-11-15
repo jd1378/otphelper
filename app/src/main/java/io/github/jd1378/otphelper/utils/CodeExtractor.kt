@@ -20,13 +20,12 @@ class CodeExtractor {
             "код",
             "סיסמ",
             "קוד",
-            "\\bKodu\\b",
-            "\\bKodunuz\\b",
+            "\\bKodu\\b", // turkish
+            "\\bKodunuz\\b", // turkish
             "\\bKodi\\b",
             "\\bKods\\b",
             "\\bTAN\\b",
             "\\bmTAN\\b",
-            "\\bmã\\W", // "code" in vietnamese
             "\\bcodice\\W", // "code" in italian
         )
 
