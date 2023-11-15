@@ -1,1 +1,2 @@
 - add Italian translation and sensitive keyword (codice)
+- app no longer detects code from notifications that have a service attached (like notifications that control media)
