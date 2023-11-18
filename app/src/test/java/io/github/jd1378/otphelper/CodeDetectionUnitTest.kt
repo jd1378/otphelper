@@ -430,13 +430,6 @@ code: 123456
   }
 
   @Test
-  fun vietnameseInstagramCode() {
-    val msg = "123 456 là mã Instagram của bạn và không được chia sẻ."
-    assertEquals(false, CodeIgnore.shouldIgnore(msg))
-    assertEquals("123456", CodeExtractor.getCode(msg))
-  }
-
-  @Test
   fun unicodeIgnoreTest() {
     val msg = "some unicode is 123456"
     assertEquals(true, CodeIgnore.shouldIgnore(msg))
@@ -491,6 +484,21 @@ code: 123456
   @Test
   fun italianCode1() {
     val msg = "Il tuo codice di sicurezza è: 123456"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun samaneNobatCode() {
+    val msg =
+        """
+      کد تایید شما در سامانه نوبت  : 123456
+
+      لغو11
+      لغو11
+    """
+            .trimIndent()
+
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }

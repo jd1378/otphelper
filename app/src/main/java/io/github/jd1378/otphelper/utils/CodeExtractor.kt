@@ -43,7 +43,7 @@ class CodeExtractor {
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*:?\s*(["']?)${""
+            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*\s*:?\s*(["']?)${""
               // this comment is to separate parts
           }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
             .toRegex(
