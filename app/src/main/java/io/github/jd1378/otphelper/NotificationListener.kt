@@ -25,6 +25,10 @@ class NotificationListener : NotificationListenerService() {
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
     val mNotification = sbn?.notification
     if (mNotification != null) {
+      // ignore notifications that are foreground service
+      val isForegroundService = (mNotification.flags and Notification.FLAG_FOREGROUND_SERVICE) != 0
+      if (isForegroundService) return
+
       val extras = mNotification.extras
       val notifyTexts = StringBuilder()
       for (key in notification_text_keys) {

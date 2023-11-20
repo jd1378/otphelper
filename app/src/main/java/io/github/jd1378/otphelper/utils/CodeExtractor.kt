@@ -21,13 +21,12 @@ class CodeExtractor {
             "код",
             "סיסמ",
             "קוד",
-            "\\bKodu\\b",
-            "\\bKodunuz\\b",
+            "\\bKodu\\b", // turkish
+            "\\bKodunuz\\b", // turkish
             "\\bKodi\\b",
             "\\bKods\\b",
             "\\bTAN\\b",
             "\\bmTAN\\b",
-            "\\bmã\\W", // "code" in vietnamese
             "\\bcodice\\W", // "code" in italian
         )
 
@@ -45,7 +44,7 @@ class CodeExtractor {
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*:?\s*(["']?)${""
+            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*\s*:?\s*(["']?)${""
               // this comment is to separate parts
           }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
             .toRegex(

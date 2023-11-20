@@ -430,13 +430,6 @@ code: 123456
   }
 
   @Test
-  fun vietnameseInstagramCode() {
-    val msg = "123 456 là mã Instagram của bạn và không được chia sẻ."
-    assertEquals(false, CodeIgnore.shouldIgnore(msg))
-    assertEquals("123456", CodeExtractor.getCode(msg))
-  }
-
-  @Test
   fun unicodeIgnoreTest() {
     val msg = "some unicode is 123456"
     assertEquals(true, CodeIgnore.shouldIgnore(msg))
@@ -496,9 +489,23 @@ code: 123456
   }
 
   @Test
+  fun samaneNobatCode() {
+    val msg =
+        """
+      کد تایید شما در سامانه نوبت  : 123456
+
+      لغو11
+      لغو11
+    """
+            .trimIndent()
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+  
+  @Test
   fun chineseAlipayCode() {
     val msg = "【支付宝】校验码1234，付款金额169.00，你正在使用支付宝，需要进行校验，请勿向任何人提供您收到的短信校验码"
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("1234", CodeExtractor.getCode(msg))
-  }
 }

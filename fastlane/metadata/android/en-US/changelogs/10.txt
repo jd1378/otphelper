@@ -1,1 +1,3 @@
 - add Italian translation and sensitive keyword (codice)
+- app no longer detects code from notifications that have a service attached (like notifications that control media). this should reduce false positives.
+- removed mã sensitive keyword as it has too many false positives.
