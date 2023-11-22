@@ -56,12 +56,8 @@ class NotificationListener : NotificationListenerService() {
           val intent = Intent(CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED)
           intent.putExtra("code", code)
 
-          val ignoreWord: String
-          val notifTitle = extras.getCharSequence(Notification.EXTRA_TITLE)
-          ignoreWord =
-              if (notifTitle != null) {
-                "title:$notifTitle"
-              } else if (sbn.tag !== null && sbn.tag.contains(":")) {
+          val ignoreWord =
+              if (sbn.tag !== null && sbn.tag.contains(":")) {
                 "tag:${sbn.tag}"
               } else {
                 "app:${sbn.packageName}:nid:${sbn.id}"
