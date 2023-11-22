@@ -27,8 +27,12 @@ import java.util.Date
 class NotificationSender {
   companion object {
     private fun hasNotifPermission(context: Context): Boolean {
-      return ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-          PackageManager.PERMISSION_GRANTED
+      return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+            PackageManager.PERMISSION_GRANTED
+      } else {
+        true
+      }
     }
 
     private fun createDetectedChannel(context: Context): String {
