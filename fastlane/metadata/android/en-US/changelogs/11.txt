@@ -1,3 +1,3 @@
-- added another chinese sensitive keyword
+- added chinese sensitive keyword "校验码" (for alipay)
 - improved code matching pattern. this should help capture some more codes.
 - changed ignore button to ignore app instead when no tag is found. this should improve UX a bit.
