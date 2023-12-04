@@ -1,0 +1,2 @@
+- added zh-Hant locale
+- added monochrome icon
