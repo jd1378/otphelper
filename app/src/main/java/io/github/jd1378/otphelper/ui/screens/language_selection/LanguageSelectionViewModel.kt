@@ -26,7 +26,8 @@ val localeOptions =
         LocaleOption("fa", R.string.fa, "farsi,persian,?????"),
         LocaleOption("tr", R.string.tr, "turkish,türkçe"),
         LocaleOption("vi", R.string.vi, "Tiếng Việt,vietnamese"),
-        LocaleOption("zh", R.string.zh, "简体中文"),
+        LocaleOption("zh-Hans", R.string.zh_Hans, "简体中文,simplified,chinese"),
+        LocaleOption("zh-Hant", R.string.zh_Hant, "繁體中文,traditional,chinese"),
         LocaleOption("ru", R.string.ru, "Русский,russian"),
         LocaleOption("it", R.string.it, "italiano"),
     )
