@@ -509,4 +509,49 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("1234", CodeExtractor.getCode(msg))
   }
+    @Test
+  fun japaneseMercari() {
+    val msg =
+        """[ログイン] 認証番号：123456
+
+ログインが実行されます
+心当たりがない場合は詐欺に注意して下さい
+メルカリ"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+  @Test
+  fun japaneseMyJCB() {
+    val msg = "MyJCBアプリワンタイムパスコード「123456」、10分間有効です。MyJCBアプリへご入力下さい。偽サイトへの入力にご注意ください。"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+  @Test
+  fun japaneseJapanRailwaySmartEX() {
+    val msg =
+        """
+【スマートEX】ワンタイムパスワード:123456
+この番号を入力してください。
+有効期限は5分間です。
+"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+  @Test
+  fun japaneseJCB3DSecure() {
+    val msg =
+        """パスワード：123456
+ご利用金額：JPY 54,321
+株式会社ジェーシービー"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+  @Test
+  fun japaneseJapanPostBank() {
+    val msg =
+        """【ゆうちょ銀行】確認コードは12345です。
+このコードを、メールやSMSで誘導された先の偽サイトに入力しないよう、ご注意ください。"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("12345", CodeExtractor.getCode(msg))
+  }
 }
