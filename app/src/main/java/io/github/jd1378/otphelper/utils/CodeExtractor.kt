@@ -28,6 +28,10 @@ class CodeExtractor {
             "\\bTAN\\b",
             "\\bmTAN\\b",
             "\\bcodice\\W", // "code" in italian
+            "コード", // "code" in japanese
+            "パスワード", // "password" in japanese
+            "認証番号", //"authentication number" in japanese
+            "ワンタイム", //"one time" in japanese
         )
 
     private val ignoredWords =
