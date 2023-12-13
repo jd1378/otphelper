@@ -30,7 +30,7 @@ val localeOptions =
         LocaleOption("zh-Hant", R.string.zh_Hant, "繁體中文,traditional,chinese"),
         LocaleOption("ru", R.string.ru, "Русский,russian"),
         LocaleOption("it", R.string.it, "italiano"),
-        LocaleOption("bn-BD", R.string.bn_BD, "Bangla, Bangladesh"),
+        LocaleOption("bn-BD", R.string.bn_BD, "Bangla (Bangladesh)"),
     )
 
 data class LanguageSelectionUiState(
