@@ -49,6 +49,10 @@ Turksih:
 
 - [@SirCrownguard](https://github.com/SirCrownguard)
 
+Bangla (Bangladesh):
+
+- [@0xNaimulHasanTaky](https://github.com/0xNaimulHasanTaky)
+
 Vietnamese:
 
 - [@Sharethebest](https://github.com/Sharethebest)
