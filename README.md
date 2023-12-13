@@ -53,9 +53,13 @@ Vietnamese:
 
 - [@Sharethebest](https://github.com/Sharethebest)
 
-Chinese:
+Chinese (Hans):
 
 - [@BackMountainDevil](https://github.com/BackMountainDevil)
+
+Chinese (Hant):
+
+- [@sntc06](https://github.com/sntc06)
 
 Russian:
 
