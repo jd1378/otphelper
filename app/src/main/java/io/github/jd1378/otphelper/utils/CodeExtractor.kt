@@ -30,8 +30,8 @@ class CodeExtractor {
             "\\bcodice\\W", // "code" in italian
             "コード", // "code" in japanese
             "パスワード", // "password" in japanese
-            "認証番号", //"authentication number" in japanese
-            "ワンタイム", //"one time" in japanese
+            "認証番号", // "authentication number" in japanese
+            "ワンタイム", // "one time" in japanese
         )
 
     private val ignoredWords =
@@ -45,12 +45,19 @@ class CodeExtractor {
             "[a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] [a-zA-Z0-9] ?",
         )
 
+    private val currencyIndicators =
+        listOf(
+            "USD",
+            "EUR",
+            "[$€]",
+        )
+
     private val generalCodeMatcher =
         """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
-            })[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9])*\s*:?\s*(["']?)${""
+            })(?:[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9\-]|[\d\u0660-\u0669\u06F0-\u06F9,\s]+(?:${currencyIndicators.joinToString("|")})|[\d\u0660-\u0669\u06F0-\u06F9][^\d\u0660-\u0669\u06F0-\u06F9]))*\s*:?\s*(["'「]?)${""
               // this comment is to separate parts
-          }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
+          }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1?(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
             .toRegex(
                 setOf(
                     RegexOption.IGNORE_CASE,
@@ -73,6 +80,7 @@ class CodeExtractor {
                 ?.get(2)
                 ?.value
                 ?.replace(" ", "")
+                ?.replace("-", "")
         if (foundCode !== null) {
           return toEnglishNumbers(foundCode)
         }

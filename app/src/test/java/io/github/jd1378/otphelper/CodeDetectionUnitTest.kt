@@ -509,10 +509,10 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("1234", CodeExtractor.getCode(msg))
   }
-    @Test
+
+  @Test
   fun japaneseMercari() {
-    val msg =
-        """[ログイン] 認証番号：123456
+    val msg = """[ログイン] 認証番号：123456
 
 ログインが実行されます
 心当たりがない場合は詐欺に注意して下さい
@@ -520,16 +520,17 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
   @Test
   fun japaneseMyJCB() {
     val msg = "MyJCBアプリワンタイムパスコード「123456」、10分間有効です。MyJCBアプリへご入力下さい。偽サイトへの入力にご注意ください。"
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
   @Test
   fun japaneseJapanRailwaySmartEX() {
-    val msg =
-        """
+    val msg = """
 【スマートEX】ワンタイムパスワード:123456
 この番号を入力してください。
 有効期限は5分間です。
@@ -537,21 +538,37 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
   @Test
   fun japaneseJCB3DSecure() {
-    val msg =
-        """パスワード：123456
+    val msg = """パスワード：123456
 ご利用金額：JPY 54,321
 株式会社ジェーシービー"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
   @Test
   fun japaneseJapanPostBank() {
-    val msg =
-        """【ゆうちょ銀行】確認コードは12345です。
+    val msg = """【ゆうちょ銀行】確認コードは12345です。
 このコードを、メールやSMSで誘導された先の偽サイトに入力しないよう、ご注意ください。"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("12345", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun sacombank() {
+    val msg =
+        """Quy khach se MAT TIEN va THONG TIN neu cung cap Ma xac thuc giao dich (OTP) cho bat ky ai. Ma OTP (het han sau 1 phut) cua Quy khach la 123-456"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun ecarteBlue() {
+    val msg =
+        """Le code à saisir pour votre achat de 200,00 EUR est 12345678. Ne donnez ce code à personne. Si vous n'avez pas réalisé cet achat, appelez le 09.69.32.00.04."""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("12345678", CodeExtractor.getCode(msg))
   }
 }
