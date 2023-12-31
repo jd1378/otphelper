@@ -571,4 +571,12 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("12345678", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun blueSmart() {
+    val msg =
+        """Your One Time Password for user account with BluSmart is 123456. Valid for 10 Mins. For any assistance call (redacted)."""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
