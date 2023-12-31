@@ -1,0 +1,2 @@
+- added bn-BD locale (Bengali language)
+- improved code matching pattern
