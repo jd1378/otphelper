@@ -579,4 +579,21 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun oneTimePasswordVariant() {
+    val msg =
+        """
+      Danmarks Statistik SMS Token
+
+      One-Time Password:
+      AAAAAAAA
+
+      Expiration Date: TUE Jan 05 12:00:00 CET 2024
+    """
+            .trimIndent()
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("AAAAAAAA", CodeExtractor.getCode(msg))
+  }
 }

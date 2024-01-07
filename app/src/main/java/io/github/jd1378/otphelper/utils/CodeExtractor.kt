@@ -5,7 +5,7 @@ class CodeExtractor {
     private val sensitiveWords =
         listOf(
             "code",
-            "One Time Password",
+            "One[-\\s]Time[-\\s]Password",
             "کد",
             "رمز",
             "\\bOTP\\W",
