@@ -21,7 +21,8 @@ class CodeExtractor {
             "驗證",
             "код",
             "סיסמ",
-            "קוד",
+            "\\bהקוד\\b",
+            "\\bקוד\\b",
             "\\bKodu\\b", // turkish
             "\\bKodunuz\\b", // turkish
             "\\bKodi\\b",
