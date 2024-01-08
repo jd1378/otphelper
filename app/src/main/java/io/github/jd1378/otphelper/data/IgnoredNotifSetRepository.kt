@@ -27,13 +27,13 @@ constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
   }
 
   suspend fun addIgnoredNotif(ignoredNotif: String) {
-    var ignores = this.getIgnoredNotifSet().toMutableSet()
+    val ignores = this.getIgnoredNotifSet().toMutableSet()
     ignores.add(ignoredNotif)
     this.setIgnoredNotifSet(ignores)
   }
 
   suspend fun removeIgnoredNotif(ignoredNotif: String) {
-    var ignores = this.getIgnoredNotifSet().toMutableSet()
+    val ignores = this.getIgnoredNotifSet().toMutableSet()
     ignores.remove(ignoredNotif)
     this.setIgnoredNotifSet(ignores)
   }
