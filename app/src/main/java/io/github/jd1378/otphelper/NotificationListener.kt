@@ -56,13 +56,15 @@ class NotificationListener : NotificationListenerService() {
           val intent = Intent(CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED)
           intent.putExtra("code", code)
 
-          val ignoreWord =
-              if (sbn.tag !== null && sbn.tag.contains(":")) {
+          val ignoreTag =
+              if (sbn.tag?.contains(":") == true) {
                 "tag:${sbn.tag}"
               } else {
-                "app:${sbn.packageName}:nid:${sbn.id}"
+                null
               }
-          intent.putExtra("ignore_word", ignoreWord)
+          val ignoreApp = "app:${sbn.packageName}:nid:${sbn.id}"
+          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG, ignoreTag)
+          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP, ignoreApp)
 
           sendBroadcast(intent, CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED_PERMISSION)
         }

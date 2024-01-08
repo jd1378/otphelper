@@ -49,4 +49,7 @@
   <string name="label_version">版本：</string>
   <string name="label_license">許可權：</string>
   <string name="label_source_code_link">原始碼：</string>
+  <string name="wont_detect_code_from_this_app">不會再次檢測來自此應用程式的程式碼</string>
+  <string name="ignore_tag">忽略標籤</string>
+  <string name="ignore_app">忽略應用程式</string>
 </resources>

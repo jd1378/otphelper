@@ -49,4 +49,7 @@
   <string name="label_version">版本:</string>
   <string name="label_license">执照:</string>
   <string name="label_source_code_link">源代码:</string>
+  <string name="wont_detect_code_from_this_app">不会再次检测来自此应用程序的代码</string>
+  <string name="ignore_tag">忽略标签</string>
+  <string name="ignore_app">忽略应用程序</string>
 </resources>

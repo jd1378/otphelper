@@ -9,10 +9,10 @@ import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationSender
-import javax.inject.Inject
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CodeDetectedReceiver : BroadcastReceiver() {
@@ -25,21 +25,23 @@ class CodeDetectedReceiver : BroadcastReceiver() {
     const val INTENT_ACTION_CODE_DETECTED_PERMISSION =
         "io.github.jd1378.otphelper.permission.RECEIVE_CODE"
     const val NOTIFICATION_TIMEOUT = 60_000L
+    const val INTENT_EXTRA_IGNORE_TAG = "ignore_tag"
+    const val INTENT_EXTRA_IGNORE_APP = "ignore_app"
 
     const val TAG = "CodeDetectedReceiver"
   }
 
   override fun onReceive(context: Context?, intent: Intent?) {
     if (intent?.extras !== null && context !== null) {
-      var intentIgnoreWord = intent.extras!!.getString("ignore_word")
+      val intentIgnoreTag = intent.extras!!.getString(INTENT_EXTRA_IGNORE_TAG)
+      val intentIgnoreApp = intent.extras!!.getString(INTENT_EXTRA_IGNORE_APP)
 
       @OptIn(DelicateCoroutinesApi::class)
       GlobalScope.launch() {
         try {
-          if (intentIgnoreWord != null) {
-            if (ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreWord)) {
-              return@launch
-            }
+          if (ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreTag) ||
+              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreApp)) {
+            return@launch
           }
 
           val code = intent.extras!!.getString("code")

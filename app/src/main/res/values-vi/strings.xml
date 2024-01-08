@@ -49,4 +49,7 @@
   <string name="label_version">Phiên bản:</string>
   <string name="label_license">Giấy phép:</string>
   <string name="label_source_code_link">Mã nguồn:</string>
+  <string name="wont_detect_code_from_this_app">Sẽ không phát hiện lại mã từ ứng dụng này</string>
+  <string name="ignore_tag">Bỏ qua thẻ</string>
+  <string name="ignore_app">Bỏ qua ứng dụng</string>
 </resources>

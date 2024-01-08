@@ -48,4 +48,7 @@
   <string name="label_version">স্করণ:</string>
   <string name="label_license">লাইসেন্স:</string>
   <string name="label_source_code_link">উৎস কোড:</string>
+  <string name="wont_detect_code_from_this_app">এই অ্যাপ থেকে কোড আর সনাক্ত করা হবে না।</string>
+  <string name="ignore_tag">ট্যাগ উপেক্ষা করুন</string>
+  <string name="ignore_app">অ্যাপকে উপেক্ষা করুন</string>
 </resources>

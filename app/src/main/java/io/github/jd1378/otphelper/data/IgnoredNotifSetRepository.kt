@@ -2,9 +2,9 @@ package io.github.jd1378.otphelper.data
 
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreConstants
 import io.github.jd1378.otphelper.data.local.PreferenceDataStoreHelper
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlinx.coroutines.flow.Flow
 
 @Singleton
 class IgnoredNotifSetRepository
@@ -38,7 +38,8 @@ constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
     this.setIgnoredNotifSet(ignores)
   }
 
-  suspend fun hasIgnoredNotif(ignoredNotif: String): Boolean {
+  suspend fun hasIgnoredNotif(ignoredNotif: String?): Boolean {
+    if (ignoredNotif == null) return false
     return this.getIgnoredNotifSet().contains(ignoredNotif)
   }
 }

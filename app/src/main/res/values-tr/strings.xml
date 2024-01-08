@@ -49,4 +49,7 @@
   <string name="label_version">Sürüm:</string>
   <string name="label_license">Lisans:</string>
   <string name="label_source_code_link">Kaynak kodu:</string>
+  <string name="wont_detect_code_from_this_app">Bu uygulamadaki kod bir daha algılanmayacak</string>
+  <string name="ignore_tag">Etiketi Yoksay</string>
+  <string name="ignore_app">Uygulamayı Yoksay</string>
 </resources>

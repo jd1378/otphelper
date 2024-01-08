@@ -49,4 +49,7 @@
   <string name="label_version">نسخه:</string>
   <string name="label_license">مجوز:</string>
   <string name="label_source_code_link">کد منبع:</string>
+  <string name="wont_detect_code_from_this_app">از این برنامه دیگر کدی تشخیص داده نمی شود</string>
+  <string name="ignore_tag">نادیده گرفتن تگ</string>
+  <string name="ignore_app">نادیده گرفتن برنامه</string>
 </resources>

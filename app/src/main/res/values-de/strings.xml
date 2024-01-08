@@ -48,4 +48,7 @@
   <string name="label_version">Ausführung:</string>
   <string name="label_license">Lizenz:</string>
   <string name="label_source_code_link">Quellcode:</string>
+  <string name="wont_detect_code_from_this_app">Der Code dieser App wird nicht mehr erkannt</string>
+  <string name="ignore_tag">Tag ignorieren</string>
+  <string name="ignore_app">App ignorieren</string>
 </resources>

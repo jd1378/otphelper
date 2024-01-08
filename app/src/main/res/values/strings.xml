@@ -8,7 +8,8 @@
   <string name="code_failed_to_access_clipboard">Failed to access clipboard!</string>
   <string name="code_sensitive" translatable="false">***</string>
   <string name="copy_to_clipboard">Copy To Clipboard</string>
-  <string name="wont_detect_code_from_this_notif">Won\'t detect code from this notification again.</string>
+  <string name="wont_detect_code_from_this_notif">Won\'t detect code from this notification again</string>
+  <string name="wont_detect_code_from_this_app">Won\'t detect code from this app again</string>
   <string name="copied">Copied</string>
   <string name="ignored_list">Ignored List</string>
   <string name="open_notification_permission">Open Notification Permission</string>
@@ -63,4 +64,6 @@
   <string name="label_version">Version:</string>
   <string name="label_license">License:</string>
   <string name="label_source_code_link">Source Code:</string>
+  <string name="ignore_tag">Ignore Tag</string>
+  <string name="ignore_app">Ignore App</string>
 </resources>

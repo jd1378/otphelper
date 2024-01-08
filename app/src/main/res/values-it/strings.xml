@@ -49,4 +49,7 @@
   <string name="label_version">Versione:</string>
   <string name="label_license">Licenza:</string>
   <string name="label_source_code_link">Codice sorgente:</string>
+  <string name="wont_detect_code_from_this_app">Non rileverà più il codice di questa app</string>
+  <string name="ignore_tag">Ignora etichetta</string>
+  <string name="ignore_app">Ignora l\'app</string>
 </resources>

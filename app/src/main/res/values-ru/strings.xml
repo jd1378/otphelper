@@ -49,4 +49,7 @@
   <string name="label_version">Версия:</string>
   <string name="label_license">Лицезия:</string>
   <string name="label_source_code_link">Исходный код:</string>
+  <string name="wont_detect_code_from_this_app">Больше не буду обнаруживать код из этого приложения</string>
+  <string name="ignore_tag">Игнорировать тег</string>
+  <string name="ignore_app">Игнорировать приложение</string>
 </resources>

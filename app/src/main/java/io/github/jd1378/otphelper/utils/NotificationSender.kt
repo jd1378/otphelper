@@ -72,19 +72,32 @@ class NotificationSender {
         notificationRV.setViewVisibility(R.id.copied_textview, View.VISIBLE)
       }
 
-      var channelId = createDetectedChannel(context)
+      val channelId = createDetectedChannel(context)
 
-      var copyIntent = Intent(NotifActionReceiver.INTENT_ACTION_CODE_COPY)
-      copyIntent.setPackage(context.packageName)
-      val copyPendingIntent = PendingIntentCompat.getBroadcast(context, 0, copyIntent, 0, false)
+      val copyPendingIntent =
+          PendingIntentCompat.getBroadcast(
+              context,
+              0,
+              Intent(NotifActionReceiver.INTENT_ACTION_CODE_COPY).apply {
+                setPackage(context.packageName)
+              },
+              0,
+              false,
+          )
 
-      var ignoreIntent = Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_NOTIFICATION)
-      ignoreIntent.setPackage(context.packageName)
-      ignoreIntent.putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+      val ignoreAppPendingIntent =
+          PendingIntentCompat.getBroadcast(
+              context,
+              0,
+              Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_NOTIFICATION_APP).apply {
+                setPackage(context.packageName)
+                putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+              },
+              0,
+              false,
+          )
 
-      var ignorePendingIntent = PendingIntentCompat.getBroadcast(context, 0, ignoreIntent, 0, false)
-
-      var notification =
+      val notificationBuilder =
           NotificationCompat.Builder(context, channelId)
               .setExtras(extras)
               .setSmallIcon(R.drawable.ic_launcher_foreground)
@@ -107,11 +120,30 @@ class NotificationSender {
                   copyPendingIntent)
               .addAction(
                   R.drawable.baseline_visibility_off_24,
-                  context.getString(R.string.ignore),
-                  ignorePendingIntent)
-              .build()
+                  context.getString(R.string.ignore_app),
+                  ignoreAppPendingIntent)
 
-      NotificationManagerCompat.from(context).notify(R.id.code_detected_notify_id, notification)
+      if (extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG) != null) {
+        val ignoreTagPendingIntent =
+            PendingIntentCompat.getBroadcast(
+                context,
+                0,
+                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG).apply {
+                  setPackage(context.packageName)
+                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                },
+                0,
+                false,
+            )
+
+        notificationBuilder.addAction(
+            R.drawable.baseline_visibility_off_24,
+            context.getString(R.string.ignore_tag),
+            ignoreTagPendingIntent)
+      }
+
+      NotificationManagerCompat.from(context)
+          .notify(R.id.code_detected_notify_id, notificationBuilder.build())
 
       if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
         // we need to schedule notification cleanup on older devices
