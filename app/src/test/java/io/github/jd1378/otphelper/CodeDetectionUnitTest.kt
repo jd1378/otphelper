@@ -596,4 +596,12 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("AAAAAAAA", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun shouldNotExtractHebrewNonCode() {
+    val msg = "בנקודת 123456"
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(null, CodeExtractor.getCode(msg))
+  }
 }
