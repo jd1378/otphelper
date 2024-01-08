@@ -70,6 +70,7 @@ class NotificationSender {
         notificationRV.setImageViewIcon(
             R.id.action_image, Icon.createWithResource(context, R.drawable.baseline_check_24))
         notificationRV.setViewVisibility(R.id.copied_textview, View.VISIBLE)
+        notificationRV.setViewVisibility(R.id.copy_textview, View.GONE)
       }
 
       val channelId = createDetectedChannel(context)
@@ -114,10 +115,6 @@ class NotificationSender {
               .setTimeoutAfter(CodeDetectedReceiver.NOTIFICATION_TIMEOUT)
               .setSilent(true)
               .setVibrate(null)
-              .addAction(
-                  R.drawable.baseline_content_copy_24,
-                  context.getString(R.string.copy),
-                  copyPendingIntent)
               .addAction(
                   R.drawable.baseline_visibility_off_24,
                   context.getString(R.string.ignore_app),
