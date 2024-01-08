@@ -1,4 +1,4 @@
 - "One Time Password" sensitive keyword now can contain dashes
-- hebrew sensitive keyword "קוד" no longer matches partially
+- Hebrew sensitive keyword "קוד" no longer matches partially
 - Removed "Ignore" action from notification and Added "Ignore App" and "Ignore Tag" actions instead
 - Removed "Copy" action button from notification to make room for translation of mentioned actions (pressing the notification still copies the code)
