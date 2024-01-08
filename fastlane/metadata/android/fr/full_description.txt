@@ -1,0 +1,8 @@
+Une application open-source qui vous permet de copier les OTP et les codes, des SMS et notifications, automatiquement en lisant toutes vos notifications.
+
+L'application fonctionne complètement hors ligne et sans permission internet. Vous pouvez donc être assuré que vos données ne quittent pas votre appareil.
+
+Si vous avez des problèmes ou des suggestions, soumettez-les dans notre dépôt GitHub :
+
+
+Traduit avec DeepL.com (version gratuite)https://github.com/jd1378/otphelper/issues
