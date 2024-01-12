@@ -27,8 +27,7 @@ class CodeExtractor {
             "\\bKodunuz\\b", // turkish
             "\\bKodi\\b",
             "\\bKods\\b",
-            "\\bTAN\\b",
-            "\\bmTAN\\b",
+            "\\b(?:m|sms)?TAN\\b",
             "\\bcodice\\W", // "code" in italian
             "コード", // "code" in japanese
             "パスワード", // "password" in japanese
