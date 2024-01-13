@@ -1,0 +1,2 @@
+- improve "TAN" sensitive keyword 
+- added French language
