@@ -72,3 +72,7 @@ Russian:
 Italian:
 
 - [@lollo03](https://github.com/lollo03)
+
+French:
+
+- [@trev0r-STA](https://github.com/trev0r-STA)
