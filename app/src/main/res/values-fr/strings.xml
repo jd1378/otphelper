@@ -42,7 +42,7 @@
   <string name="failed_to_open_app_settings">Échec de l\'ouverture des paramètres de l\'application</string>
   <string name="perm_restricted_desc">Si vous n\'avez pas pu autoriser les notifications de lecture à l\'étape 2, essayez d\'activer l\'option \"Autoriser les paramètres restreints\" dans les paramètres de l\'application.</string>
   <string name="language">Langue</string>
-  <string name="system_default"></string>
+  <string name="system_default">Système par défaut</string>
   <string name="search_language">Chercher la langue</string>
   <string name="no_result">Pas de résultat</string>
   <string name="about">À propos</string>
