@@ -32,6 +32,7 @@ val localeOptions =
         LocaleOption("it", R.string.it, "italiano"),
         LocaleOption("bn-BD", R.string.bn_BD, "Bangla (Bangladesh)"),
         LocaleOption("fr", R.string.fr, "français,french"),
+        LocaleOption("ar", R.string.ar, "العربية,arabic"),
     )
 
 data class LanguageSelectionUiState(

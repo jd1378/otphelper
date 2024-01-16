@@ -55,6 +55,7 @@
   <string name="ru" translatable="false">Русский</string>
   <string name="it" translatable="false">Italiano</string>
   <string name="fr" translatable="false">français</string>
+  <string name="ar" translatable="false">العربية</string>
   <string name="language">Language</string>
   <string name="system_default">System Default</string>
   <string name="search_language">Search language</string>
