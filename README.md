@@ -76,3 +76,7 @@ Italian:
 French:
 
 - [@trev0r-STA](https://github.com/trev0r-STA)
+
+Arabic:
+
+- [@Bunny-77X](https://github.com/Bunny-77X)
