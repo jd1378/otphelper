@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.ui.screens.permissions
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,6 +14,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.github.jd1378.otphelper.NotificationListener
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
@@ -126,8 +128,26 @@ constructor(
   }
 
   fun onOpenReadNotificationsPressed(context: Context) {
-    val intent = Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
-    context.startActivity(intent)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+      // Go directly to the app's notification listener settings page
+      val intent = Intent(Settings.ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS)
+      intent.putExtra(
+          Settings.EXTRA_NOTIFICATION_LISTENER_COMPONENT_NAME,
+          ComponentName(
+              context, NotificationListener::class.java,
+          ).flattenToString(),
+      )
+
+      try {
+        context.startActivity(intent)
+      } catch (e: Exception) {
+        // Not all phones had this action in Android 11, this is a fallback
+        context.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+      }
+
+    } else {
+      context.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+    }
   }
 
   fun onOpenBatteryOptimizationsPressed(context: Context) {
