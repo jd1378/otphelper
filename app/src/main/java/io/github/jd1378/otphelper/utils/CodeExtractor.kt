@@ -21,13 +21,13 @@ class CodeExtractor {
             "驗證",
             "код",
             "סיסמ",
-            "\\bהקוד\\b",
-            "\\bקוד\\b",
-            "\\bKodu\\b", // turkish
-            "\\bKodunuz\\b", // turkish
-            "\\bKodi\\b",
-            "\\bKods\\b",
-            "\\b(?:m|sms)?TAN\\b",
+            "\\bהקוד\\W",
+            "\\bקוד\\W",
+            "\\bKodu\\W", // turkish
+            "\\bKodunuz\\W", // turkish
+            "\\bKodi\\W",
+            "\\bKods\\W",
+            "\\b(?:m|sms)?TAN\\W",
             "\\bcodice\\W", // "code" in italian
             "コード", // "code" in japanese
             "パスワード", // "password" in japanese
