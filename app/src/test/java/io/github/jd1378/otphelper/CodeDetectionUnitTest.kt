@@ -618,4 +618,16 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun telegramCode() {
+    val msg =
+        """Login code: 12345. Do not give this code to anyone, even if they say they are from Telegram!
+
+This code can be used to log in to your Telegram account. We never ask it for anything else.
+
+If you didn't request this code by trying to log in on another device, simply ignore this message."""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("12345", CodeExtractor.getCode(msg))
+  }
 }
