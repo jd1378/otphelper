@@ -604,4 +604,11 @@ code: 123456
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals(null, CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun finnishMicrosoft() {
+    val msg = """Microsoft todennuksessa käytetään vahvistuskoodia 123456"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
