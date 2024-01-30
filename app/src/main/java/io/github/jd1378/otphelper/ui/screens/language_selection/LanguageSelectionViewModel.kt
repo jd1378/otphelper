@@ -20,6 +20,7 @@ data class LocaleOption(val code: String, val label: Int, val tag: String = "")
 val localeOptions =
     listOf(
         LocaleOption("default", R.string.system_default, "default"),
+        LocaleOption("hi", R.string.hi, "हिंदी"),
         LocaleOption("de", R.string.de, "deutsch"),
         LocaleOption("en", R.string.en, "english"),
         LocaleOption("es", R.string.es, "spanish"),

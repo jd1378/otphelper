@@ -46,6 +46,7 @@
   <string name="de" translatable="false">Deutsch</string>
   <string name="bn_BD" translatable="false">Bangla (Bangladesh)</string>
   <string name="en" translatable="false">English</string>
+  <string name="hi" translatable="false">हिंदी</string>
   <string name="es" translatable="false">Español</string>
   <string name="fa" translatable="false">فارسی</string>
   <string name="tr" translatable="false">Türkçe</string>
