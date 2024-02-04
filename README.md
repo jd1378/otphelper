@@ -80,3 +80,13 @@ French:
 Arabic:
 
 - [@Bunny-77X](https://github.com/Bunny-77X)
+
+--------
+
+### Donation
+
+You can show your love and support for this project by donating to the following addresses:
+
+BTC: bc1q8prgxcfcqpcq5ennyv08sxg6ymx2pm4azvcu0l
+
+LTC: ltc1qxw6znp372l3dl3ddxksr6mqvsvhe9gyuszeg9p
