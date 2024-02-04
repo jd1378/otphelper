@@ -92,3 +92,5 @@ Hindi:
 You can show your love and support for this project by donating to the following addresses:
 
 BTC: bc1q8prgxcfcqpcq5ennyv08sxg6ymx2pm4azvcu0l
+
+LTC: LVnTy14pHFRoSbqWbmhGBNjV4k2dBnY2Zn
