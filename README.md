@@ -81,6 +81,10 @@ Arabic:
 
 - [@Bunny-77X](https://github.com/Bunny-77X)
 
+Hindi:
+
+- [@chintanjoshi01](https://github.com/chintanjoshi01)
+
 --------
 
 ### Donation
