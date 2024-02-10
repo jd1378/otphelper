@@ -20,20 +20,20 @@ data class LocaleOption(val code: String, val label: Int, val tag: String = "")
 val localeOptions =
     listOf(
         LocaleOption("default", R.string.system_default, "default"),
-        LocaleOption("hi", R.string.hi, "हिंदी"),
-        LocaleOption("de", R.string.de, "deutsch"),
+        LocaleOption("ar", R.string.ar, "العربية,arabic"),
+        LocaleOption("bn-BD", R.string.bn_BD, "Bangla (Bangladesh)"),
         LocaleOption("en", R.string.en, "english"),
         LocaleOption("es", R.string.es, "spanish"),
         LocaleOption("fa", R.string.fa, "farsi,persian,?????"),
+        LocaleOption("fr", R.string.fr, "français,french"),
+        LocaleOption("de", R.string.de, "deutsch"),
+        LocaleOption("hi", R.string.hi, "हिंदी"),
+        LocaleOption("it", R.string.it, "italiano"),
+        LocaleOption("ru", R.string.ru, "Русский,russian"),
         LocaleOption("tr", R.string.tr, "turkish,türkçe"),
         LocaleOption("vi", R.string.vi, "Tiếng Việt,vietnamese"),
         LocaleOption("zh-Hans", R.string.zh_Hans, "简体中文,simplified,chinese"),
         LocaleOption("zh-Hant", R.string.zh_Hant, "繁體中文,traditional,chinese"),
-        LocaleOption("ru", R.string.ru, "Русский,russian"),
-        LocaleOption("it", R.string.it, "italiano"),
-        LocaleOption("bn-BD", R.string.bn_BD, "Bangla (Bangladesh)"),
-        LocaleOption("fr", R.string.fr, "français,french"),
-        LocaleOption("ar", R.string.ar, "العربية,arabic"),
     )
 
 data class LanguageSelectionUiState(
