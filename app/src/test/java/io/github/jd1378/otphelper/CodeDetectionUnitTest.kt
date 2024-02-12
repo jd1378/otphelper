@@ -630,4 +630,11 @@ If you didn't request this code by trying to log in on another device, simply ig
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("12345", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun miHoYoCode() {
+    val msg = """【米哈游】验证码：123456（10分钟内有效）。您正在关闭新设备验证功能，请勿将验证码告诉他人哦。"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
