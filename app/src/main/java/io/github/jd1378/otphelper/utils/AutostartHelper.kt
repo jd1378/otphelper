@@ -62,8 +62,12 @@ class AutostartHelper {
     fun openAutostartSettings(context: Context) {
       for (intent in POWER_MANAGER_INTENTS) {
         if (ActivityHelper.isCallable(context, intent)) {
-          context.startActivity(intent)
-          break
+          try {
+            context.startActivity(intent)
+            break
+          } catch (e: Throwable) {
+            continue
+          }
         }
       }
     }
