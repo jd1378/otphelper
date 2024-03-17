@@ -1,0 +1,1 @@
+- fix small issue with app crashing when trying to open autostart settings on some phones
