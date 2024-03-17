@@ -637,4 +637,11 @@ If you didn't request this code by trying to log in on another device, simply ig
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun bilibiliCode() {
+    val msg = """【哔哩哔哩】123456短信登录验证码，5分钟内有效，请勿泄露。"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }

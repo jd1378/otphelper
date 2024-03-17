@@ -68,7 +68,7 @@ class CodeExtractor {
                 ))
 
     private val specialCodeMatcher =
-        """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)).*(?:${sensitiveWords.joinToString("|")})"""
+        """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(?:${sensitiveWords.joinToString("|")})"""
             .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     fun getCode(str: String): String? {
