@@ -68,8 +68,8 @@ android {
 }
 
 dependencies {
-  implementation platform('androidx.compose:compose-bom:2024.02.00')
-  androidTestImplementation platform('androidx.compose:compose-bom:2024.02.00')
+  implementation platform('androidx.compose:compose-bom:2024.02.02')
+  androidTestImplementation platform('androidx.compose:compose-bom:2024.02.02')
 
   implementation 'androidx.core:core-ktx:1.12.0'
   implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
@@ -93,7 +93,7 @@ dependencies {
   implementation "com.google.dagger:hilt-android:2.50"
   kapt "com.google.dagger:hilt-compiler:2.50"
   // hilt for navigation compose
-  implementation 'androidx.hilt:hilt-navigation-compose:1.1.0'
+  implementation 'androidx.hilt:hilt-navigation-compose:1.2.0'
   // app compat (for locales)
   def appcompat_version = '1.7.0-alpha03'
   implementation "androidx.appcompat:appcompat:$appcompat_version"
