@@ -34,8 +34,8 @@ class CodeExtractor {
             "認証番号", // "authentication number" in japanese
             "ワンタイム", // "one time" in japanese
             "\\bvahvistuskoodi", // "confirmation code" in finnish
-            "kod", // PL
-            "autoryzacji", // PL
+            "\\bkod\\W", // PL
+            "\\bautoryzacji\\W", // PL
         )
 
     private val ignoredWords =
