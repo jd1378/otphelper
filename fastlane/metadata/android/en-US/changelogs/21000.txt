@@ -1,1 +1,1 @@
-- add "kod" and "autoryzacji" to sensitive keywords (Polish locale)
+- added "kod" and "autoryzacji" to sensitive keywords (Polish locale)
