@@ -644,4 +644,18 @@ If you didn't request this code by trying to log in on another device, simply ig
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun plCode1() {
+    val msg = "123456 - to Twój kod weryfikacyjny"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun plCode2() {
+    val msg = "Twoje hasło do autoryzacji to: 123456."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
