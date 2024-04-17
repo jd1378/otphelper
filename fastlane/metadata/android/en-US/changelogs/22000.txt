@@ -1,1 +1,1 @@
-- Excluded app from recent apps. This means the app will be hidden as soon as you switch to other apps. Hopefully this prevents the app from being killed accidently on phones like huawei.
+- Excluded app from recent apps. This means the app will be hidden as soon as you switch to other apps. Hopefully this prevents the app from being killed accidently on phones like Huawei.
