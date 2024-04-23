@@ -4,10 +4,8 @@
   <string name="detected_code">驗證碼：</string>
   <string name="code_detected_channel_name">偵測到驗證碼</string>
   <string name="code_detected_channel_description">偵測到驗證碼時，會發送通知</string>
-  <string name="code_detected_channel_id" translatable="false">code_detected_channel</string>
   <string name="code_copied_to_clipboard">複製成功</string>
   <string name="code_failed_to_access_clipboard">無法讀取剪貼簿！</string>
-  <string name="code_sensitive" translatable="false">***</string>
   <string name="copy_to_clipboard">複製</string>
   <string name="wont_detect_code_from_this_notif">將不會再從此通知中偵測驗證碼</string>
   <string name="wont_detect_code_from_this_app">將不會再從此應用程式中偵測驗證碼</string>
@@ -44,27 +42,11 @@
   <string name="permission_todo_allow_restricted_settings">- 允許受限制的設定</string>
   <string name="failed_to_open_app_settings">無法開啟系統設定</string>
   <string name="perm_restricted_desc">如果在步驟 2 中無法允許讀取通知的權限，請嘗試在系統設定中的應用程式設定中開啟「允許受限制的設定」</string>
-  <string name="de" translatable="false">Deutsch</string>
-  <string name="bn_BD" translatable="false">Bangla (Bangladesh)</string>
-  <string name="en" translatable="false">English</string>
-  <string name="hi" translatable="false">हिंदी</string>
-  <string name="es" translatable="false">Español</string>
-  <string name="fa" translatable="false">فارسی</string>
-  <string name="tr" translatable="false">Türkçe</string>
-  <string name="vi" translatable="false">Tiếng Việt</string>
-  <string name="zh_Hans" translatable="false">简体中文</string>
-  <string name="zh_Hant" translatable="false">繁體中文</string>
-  <string name="ru" translatable="false">Русский</string>
-  <string name="it" translatable="false">Italiano</string>
-  <string name="fr" translatable="false">français</string>
-  <string name="ar" translatable="false">العربية</string>
   <string name="language">切換語言</string>
   <string name="system_default">系統預設語言</string>
   <string name="search_language">搜尋語言</string>
   <string name="no_result">未找到相關語言</string>
   <string name="about">關於</string>
-  <string name="github" translatable="false">GitHub</string>
-  <string name="license_type" translatable="false">AGPL-v3.0</string>
   <string name="label_version">版本：</string>
   <string name="label_license">許可權：</string>
   <string name="label_source_code_link">原始碼：</string>
