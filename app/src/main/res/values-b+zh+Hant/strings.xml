@@ -13,7 +13,7 @@
   <string name="ignored_list">忽略名單</string>
   <string name="open_notification_permission">授予通知權限</string>
   <string name="send_test_notification">發送測試通知</string>
-  <string name="auto_copy">自動複製到剪貼簿</string>
+  <string name="auto_copy">自動複製</string>
   <string name="delete">刪除</string>
   <string name="label_back">返回</string>
   <string name="HOME_ROUTE">首頁</string>
