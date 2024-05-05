@@ -3,10 +3,8 @@
   <string name="detected_code">Виявлено код:</string>
   <string name="code_detected_channel_name">Код виявлено</string>
   <string name="code_detected_channel_description">При виявленні коду, сповіщення надійде із цього каналу</string>
-  <string name="code_detected_channel_id" translatable="false">code_detected_channel</string>
   <string name="code_copied_to_clipboard">Скопійовано до буфера обміну!</string>
   <string name="code_failed_to_access_clipboard">Помилка доступу до буфера обміну!</string>
-  <string name="code_sensitive" translatable="false">***</string>
   <string name="copy_to_clipboard">Скопіювати в буфер обміну</string>
   <string name="wont_detect_code_from_this_notif">Більше не виявляти код із цього сповіщення</string>
   <string name="wont_detect_code_from_this_app">Більше не виявляти код із цього додатку</string>
@@ -43,27 +41,11 @@
   <string name="permission_todo_allow_restricted_settings">- Дозволити обмежені налаштування</string>
   <string name="failed_to_open_app_settings">Не вдалося відкрити налаштування програми</string>
   <string name="perm_restricted_desc">Якщо ви не змогли дозволити читання сповіщень на кроці 2, спробуйте увімкнути \"Дозволити обмежені налаштування\" у налаштуваннях програми</string>
-  <string name="de" translatable="false">Deutsch</string>
-  <string name="bn_BD" translatable="false">Bangla (Bangladesh)</string>
-  <string name="en" translatable="false">English</string>
-  <string name="hi" translatable="false">हिंदी</string>
-  <string name="es" translatable="false">Español</string>
-  <string name="fa" translatable="false">فارسی</string>
-  <string name="tr" translatable="false">Türkçe</string>
-  <string name="vi" translatable="false">Tiếng Việt</string>
-  <string name="zh_Hans" translatable="false">简体中文</string>
-  <string name="zh_Hant" translatable="false">繁體中文</string>
-  <string name="ru" translatable="false">Русский</string>
-  <string name="it" translatable="false">Italiano</string>
-  <string name="fr" translatable="false">français</string>
-  <string name="ar" translatable="false">العربية</string>
   <string name="language">Мова</string>
   <string name="system_default">Стандартна системи</string>
   <string name="search_language">Пошук мови</string>
   <string name="no_result">Немає результату</string>
   <string name="about">Про</string>
-  <string name="github" translatable="false">GitHub</string>
-  <string name="license_type" translatable="false">AGPL-v3.0</string>
   <string name="label_version">Версія:</string>
   <string name="label_license">Ліцензія:</string>
   <string name="label_source_code_link">Джерельний код:</string>
