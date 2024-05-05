@@ -18,7 +18,7 @@
   <string name="HOME_ROUTE">Домівка</string>
   <string name="IGNORED_LIST_ROUTE">Список ігнорування</string>
   <string name="list_is_empty">Список порожній</string>
-  <string name="ignored_list_description">Якщо ви натиснете кнопку "ігнорувати" в надісланому сповіщенні про виявлений код, в подальшому він не буде розпізнаватися і з'являтися тут.</string>
+  <string name="ignored_list_description">Якщо ви натиснете кнопку \"Ігнорувати\" в надісланому сповіщенні про виявлений код, в подальшому він не буде розпізнаватися і зʼявлятися тут.</string>
   <string name="copy">Копіювати</string>
   <string name="ignore">Ігнорувати</string>
   <string name="PERMISSION_ROUTE">Дозволи</string>
@@ -34,7 +34,7 @@
   <string name="skip">Пропустити</string>
   <string name="finish">Завершити</string>
   <string name="okay">Гаразд</string>
-  <string name="skip_warning">Щоб програма працювала коректно, ви повинні надати ці дозволи. Ви можете знову відкрити цей екран за допомогою кнопки "Дозволи" на головному екрані.</string>
+  <string name="skip_warning">Щоб програма працювала коректно, ви повинні надати ці дозволи. Ви можете знову відкрити цей екран за допомогою кнопки \"Дозволи\" на головному екрані.</string>
   <string name="notice">Повідомлення</string>
   <string name="test_notification_content">Ваш код: 230914</string>
   <string name="test_notification_title">Це тестове повідомлення</string>
