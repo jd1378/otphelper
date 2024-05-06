@@ -89,6 +89,12 @@ Ukrainian:
 
 - [@balaraz](https://github.com/balaraz)
 
+You can help translate this app to your langauge on weblate:
+
+<a href="https://hosted.weblate.org/engage/copy-sms-code-otp-helper/">
+<img src="https://hosted.weblate.org/widget/copy-sms-code-otp-helper/287x66-grey.png" alt="Translation status" />
+</a>
+
 --------
 
 ### Donation
