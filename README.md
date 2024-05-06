@@ -85,6 +85,10 @@ Hindi:
 
 - [@chintanjoshi01](https://github.com/chintanjoshi01)
 
+Ukrainian:
+
+- [@balaraz](https://github.com/balaraz)
+
 --------
 
 ### Donation
