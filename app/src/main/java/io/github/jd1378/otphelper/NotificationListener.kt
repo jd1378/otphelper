@@ -62,7 +62,7 @@ class NotificationListener : NotificationListenerService() {
               } else {
                 null
               }
-          val ignoreApp = "app:${sbn.packageName}:nid:${sbn.id}"
+          val ignoreApp = "app:${sbn.packageName}"
           intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG, ignoreTag)
           intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP, ignoreApp)
 
