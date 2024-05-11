@@ -1,55 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">短信验证码自动复制</string>
-  <string name="detected_code">验证码:</string>
-  <string name="code_detected_channel_name">检测到验证码</string>
-  <string name="code_detected_channel_description">检测到验证码时，本频道会发送一条通知</string>
-  <string name="code_copied_to_clipboard">复制成功</string>
-  <string name="code_failed_to_access_clipboard">无法读取剪贴板!</string>
-  <string name="copy_to_clipboard">复制</string>
-  <string name="wont_detect_code_from_this_notif">将不会再从该通知中检测验证码。</string>
-  <string name="copied">已复制</string>
-  <string name="ignored_list">黑名单</string>
-  <string name="open_notification_permission">赋予通知权限</string>
-  <string name="send_test_notification">发送测试通知</string>
-  <string name="auto_copy">自动复制</string>
-  <string name="delete">删除</string>
-  <string name="label_back">返回</string>
-  <string name="HOME_ROUTE">首页</string>
-  <string name="IGNORED_LIST_ROUTE">黑名单</string>
-  <string name="list_is_empty">暂无黑名单</string>
-  <string name="ignored_list_description">当你点击此应用的验证码通知中的“忽略”按钮时，此应用不会再检测对应的验证码。</string>
-  <string name="copy">复制</string>
-  <string name="ignore">忽略</string>
-  <string name="PERMISSION_ROUTE">权限管理</string>
-  <string name="permissions_desc">为了确保此应用可以随时从通知中检测验证码，此应用请求将以下权限：</string>
-  <string name="open">前往设置</string>
-  <string name="permission_todo_post_notifications">1. 允许发送通知</string>
-  <string name="permission_todo_read_notifications">2. 允许读取通知</string>
-  <string name="grant">授权</string>
-  <string name="permission_todo_remain_open">3. 允许后台运行</string>
-  <string name="perm_extra_desc">在某些手机上，如小米、华为等，要允许此应用在手机重启时启动，您必须手动授予自动启动权限。此应用无法检测您是否授予了该权限。</string>
-  <string name="permission_todo_autostart">4. 允许开机自动启动</string>
-  <string name="send_detected_notif">发送通知</string>
-  <string name="skip">跳过</string>
-  <string name="finish">完成</string>
-  <string name="okay">确认</string>
-  <string name="skip_warning">为了确保应用正常运行， 您需要提供三个权限。您可以通过首页的 \"权限管理\" 再次授权或撤销。</string>
-  <string name="notice">通知</string>
-  <string name="test_notification_content">【某平台】 您的验证码为：230914，切勿将验证码泄漏给他人，验证码10分钟内有效。</string>
-  <string name="test_notification_title">这是一条用来测试验证码提取的通知</string>
-  <string name="permission_todo_allow_restricted_settings">- 允许受限设置</string>
-  <string name="failed_to_open_app_settings">无法打开系统设置</string>
-  <string name="perm_restricted_desc">如果在步骤 2 中无法授权允许读取通知的权限，请尝试在系统设置中的应用程序设置中开启“允许受限设置”</string>
-  <string name="language">切换语言</string>
-  <string name="system_default">系统默认语言</string>
-  <string name="search_language">搜索语言</string>
-  <string name="no_result">没搜索到相关语言</string>
-  <string name="about">关于</string>
-  <string name="label_version">版本:</string>
-  <string name="label_license">执照:</string>
-  <string name="label_source_code_link">源代码:</string>
-  <string name="wont_detect_code_from_this_app">不会再次检测来自此应用程序的代码</string>
-  <string name="ignore_tag">忽略标签</string>
-  <string name="ignore_app">忽略应用程序</string>
+    <string name="app_name">短信验证码自动复制</string>
+    <string name="detected_code">验证码:</string>
+    <string name="code_detected_channel_name">检测到验证码</string>
+    <string name="code_detected_channel_description">检测到验证码时，本频道会发送一条通知</string>
+    <string name="code_copied_to_clipboard">复制成功</string>
+    <string name="code_failed_to_access_clipboard">无法读取剪贴板!</string>
+    <string name="copy_to_clipboard">复制</string>
+    <string name="wont_detect_code_from_this_notif">将不会再从该通知中检测验证码。</string>
+    <string name="copied">已复制</string>
+    <string name="ignored_list">黑名单</string>
+    <string name="open_notification_permission">赋予通知权限</string>
+    <string name="send_test_notification">发送测试通知</string>
+    <string name="auto_copy">自动复制</string>
+    <string name="delete">删除</string>
+    <string name="label_back">返回</string>
+    <string name="HOME_ROUTE">首页</string>
+    <string name="IGNORED_LIST_ROUTE">黑名单</string>
+    <string name="list_is_empty">暂无黑名单</string>
+    <string name="ignored_list_description">当你点击此应用的验证码通知中的“忽略”按钮时，此应用不会再检测对应的验证码。</string>
+    <string name="copy">复制</string>
+    <string name="ignore">忽略</string>
+    <string name="PERMISSION_ROUTE">权限管理</string>
+    <string name="permissions_desc">为了确保此应用可以随时从通知中检测验证码，此应用请求将以下权限：</string>
+    <string name="open">前往设置</string>
+    <string name="permission_todo_post_notifications">1. 允许发送通知</string>
+    <string name="permission_todo_read_notifications">2. 允许读取通知</string>
+    <string name="grant">授权</string>
+    <string name="permission_todo_remain_open">3. 允许后台运行</string>
+    <string name="perm_extra_desc">在某些手机上，如小米、华为等，要允许此应用在手机重启时启动，您必须手动授予自动启动权限。此应用无法检测您是否授予了该权限。</string>
+    <string name="permission_todo_autostart">4. 允许开机自动启动</string>
+    <string name="send_detected_notif">发送通知</string>
+    <string name="skip">跳过</string>
+    <string name="finish">完成</string>
+    <string name="okay">确认</string>
+    <string name="skip_warning">为了确保应用正常运行， 您需要提供三个权限。您可以通过首页的 \"权限管理\" 再次授权或撤销。</string>
+    <string name="notice">通知</string>
+    <string name="test_notification_content">【某平台】 您的验证码为：230914，切勿将验证码泄漏给他人，验证码10分钟内有效。</string>
+    <string name="test_notification_title">这是一条用来测试验证码提取的通知</string>
+    <string name="permission_todo_allow_restricted_settings">- 允许受限设置</string>
+    <string name="failed_to_open_app_settings">无法打开系统设置</string>
+    <string name="perm_restricted_desc">如果在步骤 2 中无法授权允许读取通知的权限，请尝试在系统设置中的应用程序设置中开启“允许受限设置”</string>
+    <string name="language">切换语言</string>
+    <string name="system_default">系统默认语言</string>
+    <string name="search_language">搜索语言</string>
+    <string name="no_result">没搜索到相关语言</string>
+    <string name="about">关于</string>
+    <string name="label_version">版本:</string>
+    <string name="label_license">执照:</string>
+    <string name="label_source_code_link">源代码:</string>
+    <string name="wont_detect_code_from_this_app">不会再次检测来自此应用程序的代码</string>
+    <string name="ignore_tag">忽略标签</string>
+    <string name="ignore_app">忽略应用程序</string>
+    <string name="code_detected_channel_id" translatable="false"></string>
+    <string name="code_sensitive" translatable="false"></string>
+    <string name="hi" translatable="false"></string>
+    <string name="en" translatable="false"></string>
+    <string name="bn_BD" translatable="false"></string>
+    <string name="de" translatable="false"></string>
+    <string name="es" translatable="false"></string>
+    <string name="ru" translatable="false"></string>
+    <string name="it" translatable="false"></string>
+    <string name="tr" translatable="false"></string>
+    <string name="zh_Hans" translatable="false"></string>
+    <string name="ar" translatable="false"></string>
+    <string name="fr" translatable="false"></string>
+    <string name="github" translatable="false"></string>
+    <string name="permission_revoked_channel_description"></string>
+    <string name="permission_revoked"></string>
+    <string name="permission_revoked_channel_id" translatable="false"></string>
+    <string name="vi" translatable="false"></string>
+    <string name="zh_Hant" translatable="false"></string>
+    <string name="permission_revoked_channel_name"></string>
+    <string name="license_type" translatable="false"></string>
+    <string name="fa" translatable="false"></string>
+    <string name="permission_revoked_notification_hint"></string>
 </resources>
