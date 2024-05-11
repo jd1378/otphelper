@@ -52,27 +52,4 @@
     <string name="wont_detect_code_from_this_app">এই অ্যাপ থেকে কোড আর সনাক্ত করা হবে না।</string>
     <string name="ignore_tag">ট্যাগ উপেক্ষা করুন</string>
     <string name="ignore_app">অ্যাপকে উপেক্ষা করুন</string>
-    <string name="code_sensitive" translatable="false"></string>
-    <string name="code_detected_channel_id" translatable="false"></string>
-    <string name="hi" translatable="false"></string>
-    <string name="zh_Hant" translatable="false"></string>
-    <string name="it" translatable="false"></string>
-    <string name="de" translatable="false"></string>
-    <string name="es" translatable="false"></string>
-    <string name="tr" translatable="false"></string>
-    <string name="permission_revoked"></string>
-    <string name="bn_BD" translatable="false"></string>
-    <string name="permission_revoked_notification_hint"></string>
-    <string name="fa" translatable="false"></string>
-    <string name="permission_revoked_channel_name"></string>
-    <string name="ar" translatable="false"></string>
-    <string name="vi" translatable="false"></string>
-    <string name="github" translatable="false"></string>
-    <string name="license_type" translatable="false"></string>
-    <string name="ru" translatable="false"></string>
-    <string name="permission_revoked_channel_id" translatable="false"></string>
-    <string name="fr" translatable="false"></string>
-    <string name="en" translatable="false"></string>
-    <string name="zh_Hans" translatable="false"></string>
-    <string name="permission_revoked_channel_description"></string>
 </resources>

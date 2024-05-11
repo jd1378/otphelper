@@ -56,23 +56,4 @@
     <string name="permission_revoked_channel_description">مجوز های ضروری را به کاربر یادآوری می کند</string>
     <string name="permission_revoked">مجوز باطل شد</string>
     <string name="permission_revoked_notification_hint">لطفا اجازه خواندن اعلان ها را دوباره بدهید. برای باز کردن تنظیمات روی این پیام ضربه بزنید.</string>
-    <string name="code_detected_channel_id" translatable="false"></string>
-    <string name="en" translatable="false"></string>
-    <string name="bn_BD" translatable="false"></string>
-    <string name="zh_Hant" translatable="false"></string>
-    <string name="vi" translatable="false"></string>
-    <string name="tr" translatable="false"></string>
-    <string name="ru" translatable="false"></string>
-    <string name="fa" translatable="false"></string>
-    <string name="zh_Hans" translatable="false"></string>
-    <string name="ar" translatable="false"></string>
-    <string name="it" translatable="false"></string>
-    <string name="fr" translatable="false"></string>
-    <string name="license_type" translatable="false"></string>
-    <string name="code_sensitive" translatable="false"></string>
-    <string name="github" translatable="false"></string>
-    <string name="hi" translatable="false"></string>
-    <string name="es" translatable="false"></string>
-    <string name="permission_revoked_channel_id" translatable="false"></string>
-    <string name="de" translatable="false"></string>
 </resources>
