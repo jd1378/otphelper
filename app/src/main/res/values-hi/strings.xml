@@ -2,54 +2,77 @@
 <resources>
     <string name="app_name">SMS कोड कॉपी करें</string>
     <string name="detected_code">पता लगाया गया कोड:</string>
-  <string name="code_detected_channel_name">OTP का पता चला</string>
-  <string name="code_detected_channel_description">जब भी किसी ओटीपी का पता चलेगा, इस चैनल से एक अधिसूचना भेजी जाएगी</string>
-  <string name="code_copied_to_clipboard">"क्लिपबोर्ड पर कॉपी हो गया है "</string>
-  <string name="code_failed_to_access_clipboard">क्लिपबोर्ड तक पहुंचने में असफल!</string>
-  <string name="copy_to_clipboard">क्लिपबोर्ड पर कॉपी करें</string>
-  <string name="wont_detect_code_from_this_notif">इस अधिसूचना से दोबारा कोड का पता नहीं चलेगा</string>
-  <string name="wont_detect_code_from_this_app">इस ऐप से दोबारा कोड का पता नहीं चलेगा</string>
-  <string name="copied">कॉपी किया गया</string>
-  <string name="ignored_list">उपेक्षित सूची</string>
-  <string name="open_notification_permission">नोटिफिकेशन अनुमति खोलें</string>
-  <string name="send_test_notification">परीक्षण नोटिफिकेशन भेजें</string>
-  <string name="auto_copy">ऑटो कॉपी</string>
-  <string name="delete">"मिटाये "</string>
-  <string name="label_back">"पीछे जाएं "</string>
-  <string name="HOME_ROUTE">"मुख्य पेज "</string>
-  <string name="IGNORED_LIST_ROUTE">उपेक्षित सूची</string>
-  <string name="list_is_empty">सूची खाली है</string>
-  <string name="ignored_list_description">जब आप किसी कोड का पता चलने पर भेजे गए नोटिफिकेशन पर इग्नोर बटन दबाते हैं, तो यह कोड कॉपी नहीं किया जाएगा।</string>
-  <string name="copy">नकल</string>
-  <string name="ignore">अनदेखा</string>
-  <string name="PERMISSION_ROUTE">अनुमतियां</string>
-  <string name="permissions_desc">यह सुनिश्चित करने के लिए कि App हर समय नोटिफिकेशन से कोड का सहीसे से पता करनेके लिए , आपको निम्नलिखित अनुमतियाँ देनी होंगी:</string>
-  <string name="open">"खोले "</string>
-  <string name="permission_todo_post_notifications">"1. पोस्ट नोटिफिकेशन "</string>
-  <string name="permission_todo_read_notifications">"2. रीड नोटिफिकेशन "</string>
-  <string name="grant">स्वीकृत</string>
-  <string name="permission_todo_remain_open">3. खुले रहें</string>
-  <string name="perm_extra_desc">कुछ डिवाइसों, जैसे कि Xiaomi, Huawei, आदि पर, फ़ोन के पुनरारंभ होने पर ऐप को प्रारंभ करने की अनुमति देने के लिए, आपको मैन्युअल रूप से ऑटोस्टार्ट अनुमति देनी होगी। हम पता नहीं लगा सकते कि आपके पास है या नहीं।</string>
-  <string name="permission_todo_autostart">4. ऑटोस्टार्ट की अनुमति दें</string>
-  <string name="send_detected_notif">"पोस्ट नोटिफिकेशन "</string>
-  <string name="skip">स्किप</string>
-  <string name="finish">"पूरा करें "</string>
-  <string name="okay">ठीक है</string>
-  <string name="skip_warning">यह सुनिश्चित करने के लिए कि ऐप ठीक से काम कर सके, आपको ये अनुमतियाँ प्रदान करनी होंगी। आप मुख्य स्क्रीन पर \"अनुमतियाँ\" बटन का उपयोग करके इस स्क्रीन को फिर से खोल सकते हैं।</string>
-  <string name="notice">सूचना</string>
-  <string name="test_notification_content">आपका कोड है: 230914</string>
-  <string name="test_notification_title">यह एक परीक्षण नोटिफिकेशन  है</string>
-  <string name="permission_todo_allow_restricted_settings">- प्रतिबंधित सेटिंग्स की अनुमति दें</string>
-  <string name="failed_to_open_app_settings">ऐप सेटिंग खोलने में विफल</string>
-  <string name="perm_restricted_desc">यदि आप चरण 2 में सूचनाएं पढ़ने की अनुमति नहीं दे सकते हैं, तो एप्लिकेशन सेटिंग्स में \"प्रतिबंधित सेटिंग्स की अनुमति दें\" को सक्षम करने का प्रयास करें</string>
-  <string name="language">भाषा</string>
-  <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
-  <string name="search_language">भाषा खोजें</string>
-  <string name="no_result">कोई परिणाम नहीं</string>
-  <string name="about">मेरे बारे में</string>
-  <string name="label_version">वर्जन:</string>
-  <string name="label_license">लाइसेंस:</string>
-  <string name="label_source_code_link">सोर्स कोड:</string>
-  <string name="ignore_tag">टैग पर ध्यान न दें</string>
-  <string name="ignore_app">ऐप पर ध्यान न दें</string>
+    <string name="code_detected_channel_name">OTP का पता चला</string>
+    <string name="code_detected_channel_description">जब भी किसी ओटीपी का पता चलेगा, इस चैनल से एक अधिसूचना भेजी जाएगी</string>
+    <string name="code_copied_to_clipboard">"क्लिपबोर्ड पर कॉपी हो गया है "</string>
+    <string name="code_failed_to_access_clipboard">क्लिपबोर्ड तक पहुंचने में असफल!</string>
+    <string name="copy_to_clipboard">क्लिपबोर्ड पर कॉपी करें</string>
+    <string name="wont_detect_code_from_this_notif">इस अधिसूचना से दोबारा कोड का पता नहीं चलेगा</string>
+    <string name="wont_detect_code_from_this_app">इस ऐप से दोबारा कोड का पता नहीं चलेगा</string>
+    <string name="copied">कॉपी किया गया</string>
+    <string name="ignored_list">उपेक्षित सूची</string>
+    <string name="open_notification_permission">नोटिफिकेशन अनुमति खोलें</string>
+    <string name="send_test_notification">परीक्षण नोटिफिकेशन भेजें</string>
+    <string name="auto_copy">ऑटो कॉपी</string>
+    <string name="delete">"मिटाये "</string>
+    <string name="label_back">"पीछे जाएं "</string>
+    <string name="HOME_ROUTE">"मुख्य पेज "</string>
+    <string name="IGNORED_LIST_ROUTE">उपेक्षित सूची</string>
+    <string name="list_is_empty">सूची खाली है</string>
+    <string name="ignored_list_description">जब आप किसी कोड का पता चलने पर भेजे गए नोटिफिकेशन पर इग्नोर बटन दबाते हैं, तो यह कोड कॉपी नहीं किया जाएगा।</string>
+    <string name="copy">नकल</string>
+    <string name="ignore">अनदेखा</string>
+    <string name="PERMISSION_ROUTE">अनुमतियां</string>
+    <string name="permissions_desc">यह सुनिश्चित करने के लिए कि App हर समय नोटिफिकेशन से कोड का सहीसे से पता करनेके लिए , आपको निम्नलिखित अनुमतियाँ देनी होंगी:</string>
+    <string name="open">"खोले "</string>
+    <string name="permission_todo_post_notifications">"1. पोस्ट नोटिफिकेशन "</string>
+    <string name="permission_todo_read_notifications">"2. रीड नोटिफिकेशन "</string>
+    <string name="grant">स्वीकृत</string>
+    <string name="permission_todo_remain_open">3. खुले रहें</string>
+    <string name="perm_extra_desc">कुछ डिवाइसों, जैसे कि Xiaomi, Huawei, आदि पर, फ़ोन के पुनरारंभ होने पर ऐप को प्रारंभ करने की अनुमति देने के लिए, आपको मैन्युअल रूप से ऑटोस्टार्ट अनुमति देनी होगी। हम पता नहीं लगा सकते कि आपके पास है या नहीं।</string>
+    <string name="permission_todo_autostart">4. ऑटोस्टार्ट की अनुमति दें</string>
+    <string name="send_detected_notif">"पोस्ट नोटिफिकेशन "</string>
+    <string name="skip">स्किप</string>
+    <string name="finish">"पूरा करें "</string>
+    <string name="okay">ठीक है</string>
+    <string name="skip_warning">यह सुनिश्चित करने के लिए कि ऐप ठीक से काम कर सके, आपको ये अनुमतियाँ प्रदान करनी होंगी। आप मुख्य स्क्रीन पर \"अनुमतियाँ\" बटन का उपयोग करके इस स्क्रीन को फिर से खोल सकते हैं।</string>
+    <string name="notice">सूचना</string>
+    <string name="test_notification_content">आपका कोड है: 230914</string>
+    <string name="test_notification_title">यह एक परीक्षण नोटिफिकेशन है</string>
+    <string name="permission_todo_allow_restricted_settings">- प्रतिबंधित सेटिंग्स की अनुमति दें</string>
+    <string name="failed_to_open_app_settings">ऐप सेटिंग खोलने में विफल</string>
+    <string name="perm_restricted_desc">यदि आप चरण 2 में सूचनाएं पढ़ने की अनुमति नहीं दे सकते हैं, तो एप्लिकेशन सेटिंग्स में \"प्रतिबंधित सेटिंग्स की अनुमति दें\" को सक्षम करने का प्रयास करें</string>
+    <string name="language">भाषा</string>
+    <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
+    <string name="search_language">भाषा खोजें</string>
+    <string name="no_result">कोई परिणाम नहीं</string>
+    <string name="about">मेरे बारे में</string>
+    <string name="label_version">वर्जन:</string>
+    <string name="label_license">लाइसेंस:</string>
+    <string name="label_source_code_link">सोर्स कोड:</string>
+    <string name="ignore_tag">टैग पर ध्यान न दें</string>
+    <string name="ignore_app">ऐप पर ध्यान न दें</string>
+    <string name="code_detected_channel_id" translatable="false"></string>
+    <string name="zh_Hans" translatable="false"></string>
+    <string name="hi" translatable="false"></string>
+    <string name="ru" translatable="false"></string>
+    <string name="fr" translatable="false"></string>
+    <string name="de" translatable="false"></string>
+    <string name="ar" translatable="false"></string>
+    <string name="license_type" translatable="false"></string>
+    <string name="github" translatable="false"></string>
+    <string name="permission_revoked_channel_id" translatable="false"></string>
+    <string name="bn_BD" translatable="false"></string>
+    <string name="permission_revoked_channel_description"></string>
+    <string name="tr" translatable="false"></string>
+    <string name="permission_revoked_notification_hint"></string>
+    <string name="fa" translatable="false"></string>
+    <string name="zh_Hant" translatable="false"></string>
+    <string name="code_sensitive" translatable="false"></string>
+    <string name="it" translatable="false"></string>
+    <string name="permission_revoked"></string>
+    <string name="en" translatable="false"></string>
+    <string name="vi" translatable="false"></string>
+    <string name="es" translatable="false"></string>
+    <string name="permission_revoked_channel_name"></string>
 </resources>
