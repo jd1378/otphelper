@@ -40,9 +40,9 @@ class NotifActionReceiver : BroadcastReceiver() {
     if (context == null || intent == null) return
 
     if (intent.action == INTENT_ACTION_CODE_COPY) {
-      var notif = getActiveNotification(context, R.id.code_detected_notify_id)
+      val notif = getActiveNotification(context, R.id.code_detected_notify_id)
       if (notif != null) {
-        var code = notif.extras.getString("code")
+        val code = notif.extras.getString("code")
 
         if (code != null) {
           NotificationHelper.sendDetectedNotif(
