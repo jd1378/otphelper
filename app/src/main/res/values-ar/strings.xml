@@ -71,4 +71,8 @@
     <string name="github" translatable="false"></string>
     <string name="ar" translatable="false"></string>
     <string name="license_type" translatable="false"></string>
+    <string name="permission_revoked_channel_name">تم إلغاء الإذن</string>
+    <string name="permission_revoked">تم إلغاء الإذن</string>
+    <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. انقر لفتح الإعدادات.</string>
+    <string name="permission_revoked_channel_description">يذكر المستخدم بالأذونات المطلوبة للتطبيق</string>
 </resources>
