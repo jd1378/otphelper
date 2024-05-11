@@ -54,6 +54,6 @@
     <string name="ignore_app">تجاهل التطبيق</string>
     <string name="permission_revoked_channel_name">تم إلغاء الإذن</string>
     <string name="permission_revoked">تم إلغاء الإذن</string>
-    <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. انقر لفتح الإعدادات.</string>
+    <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. اضغط على هذه الرسالة لفتح الإعدادات.</string>
     <string name="permission_revoked_channel_description">يذكر المستخدم بالأذونات المطلوبة للتطبيق</string>
 </resources>
