@@ -69,4 +69,9 @@
   <string name="label_source_code_link">Source Code:</string>
   <string name="ignore_tag">Ignore Tag</string>
   <string name="ignore_app">Ignore App</string>
+  <string name="permission_revoked_channel_id" translatable="false">permission_revoked_channel_id</string>
+  <string name="permission_revoked_channel_name">Permission Revoked</string>
+  <string name="permission_revoked_channel_description">Reminds user of app\'s required permissions</string>
+  <string name="permission_revoked">Permission revoked</string>
+  <string name="permission_revoked_notification_hint">Please grant read notification permission again. Tap to open settings.</string>
 </resources>

@@ -10,7 +10,7 @@ import androidx.core.app.NotificationManagerCompat
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
 import io.github.jd1378.otphelper.utils.Clipboard
-import io.github.jd1378.otphelper.utils.NotificationSender
+import io.github.jd1378.otphelper.utils.NotificationHelper
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -45,7 +45,7 @@ class NotifActionReceiver : BroadcastReceiver() {
         var code = notif.extras.getString("code")
 
         if (code != null) {
-          NotificationSender.sendDetectedNotif(
+          NotificationHelper.sendDetectedNotif(
               context, notif.extras, code, copied = Clipboard.copyCodeToClipboard(context, code))
         }
       }

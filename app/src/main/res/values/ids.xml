@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="code_detected_notify_id" type="id" />
+  <item name="code_detected_notify_id" type="id" />
+  <item name="permission_revoked_notify_id" type="id" />
 </resources>

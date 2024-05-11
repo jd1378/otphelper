@@ -8,7 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
 import io.github.jd1378.otphelper.data.SettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
-import io.github.jd1378.otphelper.utils.NotificationSender
+import io.github.jd1378.otphelper.utils.NotificationHelper
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -52,7 +52,7 @@ class CodeDetectedReceiver : BroadcastReceiver() {
             Clipboard.copyCodeToClipboard(context, code)
           }
           if (settingsRepository.getIsPostNotifEnabled()) {
-            NotificationSender.sendDetectedNotif(context, intent.extras!!, code, autoCopyEnabled)
+            NotificationHelper.sendDetectedNotif(context, intent.extras!!, code, autoCopyEnabled)
           }
         } catch (e: Exception) {
           Log.e(TAG, e.stackTraceToString())

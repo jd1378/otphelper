@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -20,11 +21,13 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
 import io.github.jd1378.otphelper.CodeDetectedReceiver
+import io.github.jd1378.otphelper.INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS
+import io.github.jd1378.otphelper.MainActivity
 import io.github.jd1378.otphelper.NotifActionReceiver
 import io.github.jd1378.otphelper.R
 import java.util.Date
 
-class NotificationSender {
+class NotificationHelper {
   companion object {
     private fun hasNotifPermission(context: Context): Boolean {
       return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -33,6 +36,23 @@ class NotificationSender {
       } else {
         true
       }
+    }
+
+    private fun createPermissionRevokedChannel(context: Context): String {
+      val channelId = context.getString(R.string.permission_revoked_channel_id)
+      // Create the NotificationChannel only on API 26+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val name = context.getString(R.string.permission_revoked_channel_name)
+        val descriptionText = context.getString(R.string.permission_revoked_channel_description)
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel =
+            NotificationChannel(channelId, name, importance).apply { description = descriptionText }
+        // Register the channel with the system
+        val notificationManager: NotificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+      }
+      return channelId
     }
 
     private fun createDetectedChannel(context: Context): String {
@@ -149,6 +169,46 @@ class NotificationSender {
                 { NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id) },
                 CodeDetectedReceiver.NOTIFICATION_TIMEOUT)
       }
+    }
+
+    @SuppressLint("MissingPermission")
+    fun sendPermissionRevokedNotif(
+        context: Context,
+    ) {
+      if (!hasNotifPermission(context)) return
+
+      val channelId = createPermissionRevokedChannel(context)
+
+      val openSettingsPendingIntent =
+          PendingIntentCompat.getActivity(
+              context,
+              0,
+              Intent(context, MainActivity::class.java).apply {
+                setPackage(context.packageName)
+                setAction(INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS)
+                setFlags(
+                    Intent.FLAG_ACTIVITY_NO_HISTORY or
+                        Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP)
+              },
+              PendingIntent.FLAG_ONE_SHOT,
+              false,
+          )
+
+      val notificationBuilder =
+          NotificationCompat.Builder(context, channelId)
+              .setSmallIcon(R.drawable.ic_launcher_foreground)
+              .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+              .setContentTitle(context.getString(R.string.permission_revoked))
+              .setContentText(context.getString(R.string.permission_revoked_notification_hint))
+              .setContentIntent(openSettingsPendingIntent)
+              .setCategory(Notification.CATEGORY_ERROR)
+              .setSortKey("0")
+              .setVibrate(null)
+              .setAutoCancel(true)
+
+      NotificationManagerCompat.from(context)
+          .notify(R.id.permission_revoked_notify_id, notificationBuilder.build())
     }
   }
 }
