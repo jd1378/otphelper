@@ -1,7 +1,7 @@
 plugins {
   id 'com.android.application'
   id 'org.jetbrains.kotlin.android'
-  id 'kotlin-kapt'
+  id "com.google.devtools.ksp"
   id 'com.google.dagger.hilt.android'
 }
 
@@ -55,7 +55,7 @@ android {
     compose true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion '1.5.9'
+    kotlinCompilerExtensionVersion '1.5.13'
   }
   packagingOptions {
     resources {
@@ -68,17 +68,17 @@ android {
 }
 
 dependencies {
-  implementation platform('androidx.compose:compose-bom:2024.04.01')
-  androidTestImplementation platform('androidx.compose:compose-bom:2024.04.01')
+  implementation platform('androidx.compose:compose-bom:2024.05.00')
+  androidTestImplementation platform('androidx.compose:compose-bom:2024.05.00')
 
-  implementation 'androidx.core:core-ktx:1.12.0'
+  implementation 'androidx.core:core-ktx:1.13.1'
   implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
   implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
-  implementation 'androidx.activity:activity-compose:1.8.2'
+  implementation 'androidx.activity:activity-compose:1.9.0'
   implementation "androidx.compose.ui:ui"
   implementation "androidx.compose.ui:ui-tooling-preview"
   implementation 'androidx.compose.material3:material3'
-  implementation("androidx.datastore:datastore-preferences:1.0.0")
+  implementation("androidx.datastore:datastore-preferences:1.1.1")
   testImplementation 'junit:junit:4.13.2'
   androidTestImplementation 'androidx.test.ext:junit:1.1.5'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -91,16 +91,13 @@ dependencies {
   implementation "androidx.navigation:navigation-compose:2.7.7"
   // hilt
   implementation "com.google.dagger:hilt-android:2.50"
-  kapt "com.google.dagger:hilt-compiler:2.50"
+  ksp "com.google.dagger:hilt-compiler:2.50"
   // hilt for navigation compose
   implementation 'androidx.hilt:hilt-navigation-compose:1.2.0'
   // app compat (for locales)
-  def appcompat_version = '1.7.0-alpha03'
+  def appcompat_version = '1.7.0-beta01'
   implementation "androidx.appcompat:appcompat:$appcompat_version"
   implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
 }
 
-// Allow references to generated code
-kapt {
-  correctErrorTypes true
-}
+hilt { enableAggregatingTask = true }
