@@ -1,0 +1,2 @@
+- added ukranian language
+- app now checks for notification listener permission on reboot and inform the user to grant the permission again
