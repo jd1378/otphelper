@@ -25,6 +25,8 @@ class NotifActionReceiver : BroadcastReceiver() {
     const val INTENT_ACTION_CODE_COPY = "io.github.jd1378.otphelper.actions.code_copy"
     const val INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG =
         "io.github.jd1378.otphelper.actions.ignore_notif_tag"
+    const val INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID =
+        "io.github.jd1378.otphelper.actions.ignore_notif_nid"
     const val INTENT_ACTION_IGNORE_NOTIFICATION_APP =
         "io.github.jd1378.otphelper.actions.ignore_notif_app"
 
@@ -53,33 +55,43 @@ class NotifActionReceiver : BroadcastReceiver() {
 
     val notif = getActiveNotification(context, R.id.code_detected_notify_id)
     if (notif != null) {
-      if (intent.action == INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG) {
+      when (intent.action) {
+        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG,
+        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID -> {
 
-        val ignoreWord = notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG)
+          val ignoreWord =
+              if (intent.action == INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG) {
+                notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG)
+              } else {
+                notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_NID)
+              }
 
-        if (ignoreWord != null) {
+          if (ignoreWord != null) {
 
-          @OptIn(DelicateCoroutinesApi::class)
-          GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
+            @OptIn(DelicateCoroutinesApi::class)
+            GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
 
-          NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
+            NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
 
-          Toast.makeText(context, R.string.wont_detect_code_from_this_notif, Toast.LENGTH_LONG)
-              .show()
+            Toast.makeText(context, R.string.wont_detect_code_from_this_notif, Toast.LENGTH_LONG)
+                .show()
+          }
         }
-      } else if (intent.action == INTENT_ACTION_IGNORE_NOTIFICATION_APP) {
+        INTENT_ACTION_IGNORE_NOTIFICATION_APP -> {
+          val ignoreWord = notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP)
 
-        val ignoreWord = notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP)
+          if (ignoreWord != null) {
 
-        if (ignoreWord != null) {
+            @OptIn(DelicateCoroutinesApi::class)
+            GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
 
-          @OptIn(DelicateCoroutinesApi::class)
-          GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
+            NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
 
-          NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
-
-          Toast.makeText(context, R.string.wont_detect_code_from_this_app, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.wont_detect_code_from_this_app, Toast.LENGTH_LONG)
+                .show()
+          }
         }
+        else -> {}
       }
     }
 

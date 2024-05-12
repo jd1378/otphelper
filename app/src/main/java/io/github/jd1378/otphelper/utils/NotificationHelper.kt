@@ -157,6 +157,23 @@ class NotificationHelper {
             R.drawable.baseline_visibility_off_24,
             context.getString(R.string.ignore_tag),
             ignoreTagPendingIntent)
+      } else if (extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_NID) != null) {
+        val ignoreNidPendingIntent =
+            PendingIntentCompat.getBroadcast(
+                context,
+                0,
+                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID).apply {
+                  setPackage(context.packageName)
+                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                },
+                0,
+                false,
+            )
+
+        notificationBuilder.addAction(
+            R.drawable.baseline_visibility_off_24,
+            context.getString(R.string.ignore_tag),
+            ignoreNidPendingIntent)
       }
 
       NotificationManagerCompat.from(context)
