@@ -33,7 +33,7 @@
     <string name="send_detected_notif">Benachrichtigung senden</string>
     <string name="skip">Überspringen</string>
     <string name="finish">Beenden</string>
-    <string name="okay">Ok</string>
+    <string name="okay">Einverstanden</string>
     <string name="skip_warning">Um sicherzustellen dass diese App korrekt funktionert, musst du diese Berechtigungen erteilen. Du kannst dieses Menü über den \"Berechtigungen\"-Knopf im Home-Menü erneut öffnen.</string>
     <string name="notice">Hinweis</string>
     <string name="test_notification_content">Dein Code ist: 230914</string>
