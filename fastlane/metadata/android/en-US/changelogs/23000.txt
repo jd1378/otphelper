@@ -1,2 +1,4 @@
 - added ukranian language
 - app now checks for notification listener permission on reboot and inform the user to grant the permission again
+- ignore app button now actually ignores the entire app instead of notification type
+- ignore tag button now fallbacks to id when there's no tag
