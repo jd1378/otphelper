@@ -13,6 +13,7 @@ class CodeIgnore {
             "vscode",
             "versionCode",
             "unicode",
+            "discount code",
             "\\bfancode",
             "\\bencode",
             "\\bdecode",
