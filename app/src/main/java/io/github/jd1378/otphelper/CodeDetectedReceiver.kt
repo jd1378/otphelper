@@ -27,6 +27,7 @@ class CodeDetectedReceiver : BroadcastReceiver() {
     const val NOTIFICATION_TIMEOUT = 60_000L
     const val INTENT_EXTRA_IGNORE_TAG = "ignore_tag"
     const val INTENT_EXTRA_IGNORE_APP = "ignore_app"
+    const val INTENT_EXTRA_IGNORE_NID = "ignore_nid"
 
     const val TAG = "CodeDetectedReceiver"
   }
@@ -35,12 +36,14 @@ class CodeDetectedReceiver : BroadcastReceiver() {
     if (intent?.extras !== null && context !== null) {
       val intentIgnoreTag = intent.extras!!.getString(INTENT_EXTRA_IGNORE_TAG)
       val intentIgnoreApp = intent.extras!!.getString(INTENT_EXTRA_IGNORE_APP)
+      val intentIgnoreNid = intent.extras!!.getString(INTENT_EXTRA_IGNORE_NID)
 
       @OptIn(DelicateCoroutinesApi::class)
       GlobalScope.launch() {
         try {
           if (ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreTag) ||
-              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreApp)) {
+              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreApp) ||
+              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreNid)) {
             return@launch
           }
 
