@@ -52,4 +52,7 @@
     <string name="label_source_code_link">原始碼：</string>
     <string name="ignore_tag">忽略標籤</string>
     <string name="ignore_app">忽略應用程式</string>
+    <string name="permission_revoked_channel_description">提醒用戶應用程式所需的權限</string>
+    <string name="permission_revoked">權限被撤銷</string>
+    <string name="permission_revoked_notification_hint">請再次授予讀取通知權限。 點擊此訊息可開啟設定。</string>
 </resources>

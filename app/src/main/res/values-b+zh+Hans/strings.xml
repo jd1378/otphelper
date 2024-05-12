@@ -52,4 +52,7 @@
     <string name="wont_detect_code_from_this_app">不会再次检测来自此应用程序的代码</string>
     <string name="ignore_tag">忽略标签</string>
     <string name="ignore_app">忽略应用程序</string>
+    <string name="permission_revoked_channel_description">提醒用户应用程序所需的权限</string>
+    <string name="permission_revoked">权限被撤销</string>
+    <string name="permission_revoked_notification_hint">请再次授予读取通知权限。 点击此消息可打开设置。</string>
 </resources>

@@ -52,4 +52,7 @@
     <string name="label_source_code_link">Джерельний код:</string>
     <string name="ignore_tag">Ігнорувати тег</string>
     <string name="ignore_app">Ігнорувати програму</string>
+    <string name="permission_revoked_channel_description">Нагадує користувачеві про необхідні дозволи</string>
+    <string name="permission_revoked">Дозвіл скасовано</string>
+    <string name="permission_revoked_notification_hint">Ще раз надайте дозвіл на читання сповіщень. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
 </resources>

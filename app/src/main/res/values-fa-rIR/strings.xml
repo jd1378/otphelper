@@ -52,7 +52,6 @@
     <string name="wont_detect_code_from_this_app">از این برنامه دیگر کدی تشخیص داده نمی شود</string>
     <string name="ignore_tag">نادیده گرفتن تگ</string>
     <string name="ignore_app">نادیده گرفتن برنامه</string>
-    <string name="permission_revoked_channel_name">مجوز باطل شد</string>
     <string name="permission_revoked_channel_description">مجوز های ضروری را به کاربر یادآوری می کند</string>
     <string name="permission_revoked">مجوز باطل شد</string>
     <string name="permission_revoked_notification_hint">لطفا اجازه خواندن اعلان ها را دوباره بدهید. برای باز کردن تنظیمات روی این پیام ضربه بزنید.</string>

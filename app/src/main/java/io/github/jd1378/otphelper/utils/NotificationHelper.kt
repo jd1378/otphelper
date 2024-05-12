@@ -42,7 +42,7 @@ class NotificationHelper {
       val channelId = context.getString(R.string.permission_revoked_channel_id)
       // Create the NotificationChannel only on API 26+
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        val name = context.getString(R.string.permission_revoked_channel_name)
+        val name = context.getString(R.string.permission_revoked)
         val descriptionText = context.getString(R.string.permission_revoked_channel_description)
         val importance = NotificationManager.IMPORTANCE_HIGH
         val channel =

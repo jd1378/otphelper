@@ -52,4 +52,7 @@
     <string name="wont_detect_code_from_this_app">Больше не буду обнаруживать код из этого приложения</string>
     <string name="ignore_tag">Игнорировать тег</string>
     <string name="ignore_app">Игнорировать приложение</string>
+    <string name="permission_revoked_channel_description">Напоминает пользователю о необходимых разрешениях</string>
+    <string name="permission_revoked">Разрешение отозвано</string>
+    <string name="permission_revoked_notification_hint">Пожалуйста, предоставьте разрешение на чтение уведомления еще раз. Нажмите на это сообщение, чтобы открыть настройки.</string>
 </resources>
