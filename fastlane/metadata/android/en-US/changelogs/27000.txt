@@ -1,1 +1,1 @@
-- Permission revoked permission only will be displayed on android 11 and before, since it seems they are the only affected devices.
+- updated permission revoked notification to be displayed on android 11 and before, since it seems they are the only affected devices.
