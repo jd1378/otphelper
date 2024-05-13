@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Copie Code SMS</string>
-    <string name="detected_code">Code détecter:</string>
+    <string name="detected_code">Code détecté:</string>
     <string name="code_detected_channel_name">Code détecter</string>
     <string name="code_detected_channel_description">chaque fois qu\'un code est détecté, une notification est envoyée à partir de ce canal</string>
     <string name="code_copied_to_clipboard">Copié dans le presse-papier!</string>
@@ -34,7 +34,7 @@
     <string name="send_detected_notif">Post Notification</string>
     <string name="skip">Passer</string>
     <string name="finish">Terminer</string>
-    <string name="okay">okay</string>
+    <string name="okay">d’accord</string>
     <string name="skip_warning">Pour que l\'application fonctionne correctement, vous devez fournir ces autorisations. Vous pouvez rouvrir cet écran en cliquant sur le bouton \"Permissions\" de l\'écran principal.</string>
     <string name="notice">Notice</string>
     <string name="test_notification_content">Votre code est: 230914</string>
@@ -48,7 +48,7 @@
     <string name="no_result">Pas de résultat</string>
     <string name="about">À propos</string>
     <string name="label_version">Version:</string>
-    <string name="label_license">License:</string>
+    <string name="label_license">Licence:</string>
     <string name="label_source_code_link">Code Source:</string>
     <string name="ignore_tag">Tag Ignorer</string>
     <string name="ignore_app">App Ignorer</string>
