@@ -4,7 +4,7 @@
     <string name="detected_code">Code détecté:</string>
     <string name="code_detected_channel_name">Code détecter</string>
     <string name="code_detected_channel_description">chaque fois qu\'un code est détecté, une notification est envoyée à partir de ce canal</string>
-    <string name="code_copied_to_clipboard">Copié dans le presse-papier !</string>
+    <string name="code_copied_to_clipboard">Copié dans le presse-papier!</string>
     <string name="code_failed_to_access_clipboard">Échec de l\'accès au presse-papier!</string>
     <string name="copy_to_clipboard">Copié dans le presse-papier</string>
     <string name="wont_detect_code_from_this_notif">Ne détectera plus de code depuis cette notification</string>
