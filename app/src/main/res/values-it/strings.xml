@@ -33,7 +33,7 @@
     <string name="send_detected_notif">Notifiche post</string>
     <string name="skip">Salta</string>
     <string name="finish">finisci</string>
-    <string name="okay">d’accordo</string>
+    <string name="okay">ok</string>
     <string name="skip_warning">Per permettere all\'app di funzionare corettamente, è necessario garantire i seguenti permessi. Puoi apire questa schermata cliccando su \"Permessi\" nella schermata principale.</string>
     <string name="notice">Avviso</string>
     <string name="test_notification_content">Il tuo codice è: 230914</string>
