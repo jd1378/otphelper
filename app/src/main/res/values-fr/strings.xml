@@ -47,9 +47,9 @@
     <string name="search_language">Chercher la langue</string>
     <string name="no_result">Pas de résultat</string>
     <string name="about">À propos</string>
-    <string name="label_version">Version :</string>
-    <string name="label_license">Licence :</string>
-    <string name="label_source_code_link">Code source :</string>
+    <string name="label_version">Version:</string>
+    <string name="label_license">Licence:</string>
+    <string name="label_source_code_link">Code Source:</string>
     <string name="ignore_tag">Tag Ignorer</string>
     <string name="ignore_app">App Ignorer</string>
     <string name="permission_revoked_channel_description">Rappelle à l\'utilisateur les autorisations requises</string>
