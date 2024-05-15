@@ -14,9 +14,11 @@ class BootReceiver : BroadcastReceiver() {
           .contains(context.packageName)) {
         context.startService(Intent(context, NotificationListener::class.java))
       }
-      if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q ||
-          Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
-        NotificationHelper.sendPermissionRevokedNotif(context)
+      when (Build.VERSION.SDK_INT) {
+        Build.VERSION_CODES.Q,
+        Build.VERSION_CODES.R -> {
+          NotificationHelper.sendPermissionRevokedNotif(context)
+        }
       }
     }
   }
