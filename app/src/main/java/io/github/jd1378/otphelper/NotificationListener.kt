@@ -27,7 +27,8 @@ class NotificationListener : NotificationListenerService() {
     if (mNotification != null) {
       // ignore notifications that are foreground service
       val isForegroundService = (mNotification.flags and Notification.FLAG_FOREGROUND_SERVICE) != 0
-      if (isForegroundService) return
+      val isOngoing = (mNotification.flags and Notification.FLAG_ONGOING_EVENT) != 0
+      if (isForegroundService || isOngoing) return
 
       val extras = mNotification.extras
       val notifyTexts = StringBuilder()
