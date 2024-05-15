@@ -1,2 +1,2 @@
-- app now inform the user to re-grant the notification read permission on reboot on android 10 and 11 regardless of permission status.
+- app now informs the user to re-grant the notification read permission on reboot on android 10 and 11 regardless of permission status.
 
