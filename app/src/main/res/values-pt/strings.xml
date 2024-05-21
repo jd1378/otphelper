@@ -24,7 +24,7 @@
     <string name="open">Abrir</string>
     <string name="permission_todo_post_notifications">1. Postar Notificações</string>
     <string name="permission_todo_read_notifications">2. Ler Notificações</string>
-    <string name="grant">Garantir</string>
+    <string name="grant">Conceder</string>
     <string name="permission_todo_autostart">4. Permitir \'autostart\'</string>
     <string name="send_detected_notif">Postar Notificação</string>
     <string name="skip">Pular</string>
