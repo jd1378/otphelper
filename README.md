@@ -89,6 +89,14 @@ Ukrainian:
 
 - [@balaraz](https://github.com/balaraz)
 
+Portuguese:
+
+- [@HackerSinhos](https://github.com/HackerSinhos)
+
+Polish:
+
+- [@pakin1](https://github.com/pakin1)
+
 You can help translate this app to your langauge on weblate:
 
 <a href="https://hosted.weblate.org/engage/copy-sms-code-otp-helper/">
