@@ -36,7 +36,7 @@ class CodeExtractor {
             "\\bvahvistuskoodi", // "confirmation code" in finnish
             "\\bkod\\W", // PL
             "\\bautoryzacji\\W", // PL
-            "Parol\s+dlya\s+podtverzhdeniya", // russian
+            "Parol\\s+dlya\\s+podtverzhdeniya", // russian
         )
 
     private val ignoredWords =
