@@ -27,7 +27,8 @@ class CodeDetectionUnitTest {
 
   @Test
   fun pasargadCode() {
-    val msg = """پاسارگاد
+    val msg =
+        """پاسارگاد
 خرید
 اسنپ فود
 مبلغ:1,555,000
@@ -40,7 +41,8 @@ class CodeDetectionUnitTest {
 
   @Test
   fun randomMovePooyaCode() {
-    val msg = """انتقال به کارت
+    val msg =
+        """انتقال به کارت
 000000*0000
 5,555,555
 رمز پویا 1122334455"""
@@ -51,7 +53,8 @@ class CodeDetectionUnitTest {
 
   @Test
   fun pasargadCodeWithRamzArzKeyword() {
-    val msg = """پاسارگاد
+    val msg =
+        """پاسارگاد
 خرید
 سایت رمز-ارز یه چیزی 12421
 مبلغ:1,555,000
@@ -64,7 +67,8 @@ class CodeDetectionUnitTest {
 
   @Test
   fun samanCode() {
-    val msg = """بانک سامان
+    val msg =
+        """بانک سامان
 خريد
 اسنپ
 مبلغ 450,000 ريال
@@ -130,7 +134,8 @@ https://www.digikala.com/transaction/rate/?RatingCode=x123456
 
   @Test
   fun iranKetabCode() {
-    val msg = """کد فعالسازی شما در سایت ایران کتاب 
+    val msg =
+        """کد فعالسازی شما در سایت ایران کتاب 
 Code: 123456
 www.iranketab.ir
 لغو11"""
@@ -273,7 +278,8 @@ www.iranketab.ir
 
   @Test
   fun gitubCode() {
-    val msg = """123456 is your GitHub authentication code.
+    val msg =
+        """123456 is your GitHub authentication code.
 
 @github.com #123456"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
@@ -512,7 +518,8 @@ code: 123456
 
   @Test
   fun japaneseMercari() {
-    val msg = """[ログイン] 認証番号：123456
+    val msg =
+        """[ログイン] 認証番号：123456
 
 ログインが実行されます
 心当たりがない場合は詐欺に注意して下さい
@@ -530,7 +537,8 @@ code: 123456
 
   @Test
   fun japaneseJapanRailwaySmartEX() {
-    val msg = """
+    val msg =
+        """
 【スマートEX】ワンタイムパスワード:123456
 この番号を入力してください。
 有効期限は5分間です。
@@ -541,7 +549,8 @@ code: 123456
 
   @Test
   fun japaneseJCB3DSecure() {
-    val msg = """パスワード：123456
+    val msg =
+        """パスワード：123456
 ご利用金額：JPY 54,321
 株式会社ジェーシービー"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
@@ -550,7 +559,8 @@ code: 123456
 
   @Test
   fun japaneseJapanPostBank() {
-    val msg = """【ゆうちょ銀行】確認コードは12345です。
+    val msg =
+        """【ゆうちょ銀行】確認コードは12345です。
 このコードを、メールやSMSで誘導された先の偽サイトに入力しないよう、ご注意ください。"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("12345", CodeExtractor.getCode(msg))
@@ -655,6 +665,13 @@ If you didn't request this code by trying to log in on another device, simply ig
   @Test
   fun plCode2() {
     val msg = "Twoje hasło do autoryzacji to: 123456."
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
+  fun russianCode2() {
+    val msg = "10.04.2024 10:18 Parol dlya podtverzhdeniya: 123456. Perevod 800.00 RUB."
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
