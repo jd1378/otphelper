@@ -1,0 +1,1 @@
+- made notification a little more compact to prevent clipping on some phones
