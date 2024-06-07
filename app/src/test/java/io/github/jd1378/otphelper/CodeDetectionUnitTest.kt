@@ -222,6 +222,14 @@ www.iranketab.ir
   }
 
   @Test
+  fun spanishPINCode() {
+    val msg = "Para acceder a su información del SCSALUD introduzca el siguiente PIN: 12345678"
+    val expectedCode = "12345678"
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals(expectedCode, CodeExtractor.getCode(msg))
+  }
+
+  @Test
   fun shouldNotExtractAnythingFromWordsContainingOTP() {
     val msg = "123456 is your foOTPath."
     val msg2 = "your foOTPath is 123456."
