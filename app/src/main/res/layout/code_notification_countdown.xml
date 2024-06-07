@@ -21,7 +21,7 @@
         android:text="@string/detected_code"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textColor="@color/notif_secondary" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:text="00000000"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/notif_primary"
         tools:ignore="HardcodedText" />
 
@@ -45,7 +45,7 @@
     <ImageView
         android:id="@+id/action_image"
         android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
         android:src="@drawable/baseline_content_copy_24"
         android:contentDescription="@string/copy_to_clipboard" />
 
@@ -55,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/copied"
+        android:textSize="12sp"
         android:textColor="@color/notif_secondary" />
 
     <TextView
@@ -62,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/copy"
+        android:textSize="12sp"
         android:textColor="@color/notif_secondary" />
   </LinearLayout>
 </LinearLayout>
