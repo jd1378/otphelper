@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="detected_code">Codi detectat:</string>
+    <string name="code_detected_channel_name">Codi detectat</string>
+    <string name="code_copied_to_clipboard">Copiat al porta-retalls!</string>
+    <string name="code_failed_to_access_clipboard">Error en accedir al porta-retalls!</string>
+    <string name="copied">Copiat</string>
+    <string name="copy_to_clipboard">Copia al porta-retalls</string>
+    <string name="wont_detect_code_from_this_app">No es detectaran més codis d\'aquesta aplicació</string>
+    <string name="send_test_notification">Envia notificació de prova</string>
+    <string name="delete">Esborra</string>
+    <string name="label_back">Torna</string>
+    <string name="HOME_ROUTE">Inici</string>
+    <string name="list_is_empty">La llista està buida</string>
+    <string name="copy">Copia</string>
+    <string name="ignore">Ignora</string>
+    <string name="PERMISSION_ROUTE">Permisos</string>
+    <string name="auto_copy">Auto-copia</string>
+    <string name="open">Obre</string>
+    <string name="permission_todo_post_notifications">1. Enviar notificacions</string>
+    <string name="send_detected_notif">Envia notificació</string>
+    <string name="skip">Omet</string>
+    <string name="finish">Acaba</string>
+    <string name="okay">d\'acord</string>
+    <string name="permission_todo_remain_open">3. Romandre oberta</string>
+    <string name="permission_todo_allow_restricted_settings">- Permet configuracions restringides</string>
+    <string name="notice">Avís</string>
+    <string name="failed_to_open_app_settings">No s\'ha pogut obrir les configuracions de l\'aplicació</string>
+    <string name="about">Quant a</string>
+    <string name="search_language">Cerca idioma</string>
+    <string name="language">Idioma</string>
+    <string name="system_default">Predeterminat pel sistema</string>
+    <string name="label_version">Versió:</string>
+    <string name="label_license">Llicència:</string>
+    <string name="label_source_code_link">Codi font:</string>
+    <string name="ignore_app">Ignora aplicació</string>
+    <string name="grant">Permet</string>
+    <string name="permission_todo_read_notifications">2. Llegir notificacions</string>
+    <string name="permission_todo_autostart">4. Permet iniciar automàticament</string>
+    <string name="wont_detect_code_from_this_notif">No es detectaran més codis d\'aquesta notificació</string>
+</resources>
