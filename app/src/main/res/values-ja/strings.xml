@@ -51,7 +51,7 @@
     <string name="code_detected_channel_description">コードが検出されると、通知がこのチャンネルから送信されます</string>
     <string name="wont_detect_code_from_this_notif">この通知からはコードを検出しません</string>
     <string name="send_test_notification">テスト通知を送信</string>
-    <string name="perm_extra_desc">Xiaomi、Huaweiなど一部のデバイスでは、スマートフォンの再起動時にアプリが起動可能となるよう、アプリの自動起動の権限を手動で付与する必要があります。この権限が付与されているかどうかの設定はアプリから判別することができません。</string>
+    <string name="perm_extra_desc">Xiaomi、Huaweiなど一部のデバイスでは、スマートフォンの再起動時にアプリが起動可能となるよう、アプリの自動起動の権限を手動で付与する必要があります。アプリからは、この権限が付与されているかどうかを判別することができません。</string>
     <string name="perm_restricted_desc">手順2で通知の読み取りの許可ができなかった場合は、アプリ設定で「制限付き設定を許可」を有効にしてみてください</string>
     <string name="ignored_list_description">コード検出時に送信される通知上の「除外」ボタンを押すと、コードとして検出されなくなり、このリストに表示されます。</string>
     <string name="permission_todo_read_notifications">2. 通知の読み取り</string>
