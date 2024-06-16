@@ -18,7 +18,7 @@
     <string name="HOME_ROUTE">Home</string>
     <string name="IGNORED_LIST_ROUTE">Lista ignorati</string>
     <string name="list_is_empty">La lista è vuota</string>
-    <string name="ignored_list_description">Quando premi il bottone ignora su una notifica inviata quando un codice è rilevato, non verranno più rilevati come codici ed appariranno qua</string>
+    <string name="ignored_list_description">Quando premi il bottone ignora su una notifica inviata quando un codice è rilevato, non verranno più rilevati come codici ed appariranno qua.</string>
     <string name="copy">Copia</string>
     <string name="ignore">Ignora</string>
     <string name="PERMISSION_ROUTE">Permessi</string>
