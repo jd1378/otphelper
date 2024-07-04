@@ -55,4 +55,10 @@
     <string name="label_source_code_link">Kod źródłowy:</string>
     <string name="ignore_tag">Ignoruj Tag</string>
     <string name="ignore_app">Ignoruj Aplikację</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification">Powiadomienie</string>
+    <string name="settings">Ustawienia</string>
+    <string name="application">Aplikacja</string>
+    <string name="notification_id">ID</string>
+    <string name="error">Błąd</string>
 </resources>
