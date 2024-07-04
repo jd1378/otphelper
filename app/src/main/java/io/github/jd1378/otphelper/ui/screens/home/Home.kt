@@ -4,16 +4,11 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,46 +54,38 @@ fun Home(
 
   Scaffold(
       modifier = modifier,
-      topBar = {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-          IconButton(onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false) }) {
-            Icon(
-                imageVector = Icons.Outlined.Info,
-                contentDescription = stringResource(R.string.about))
-          }
-        }
-      }) { padding ->
-        Column(
-            modifier = Modifier.fillMaxSize().padding(padding),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-          Column(
-              Modifier.width(IntrinsicSize.Max),
-              verticalArrangement = Arrangement.spacedBy(8.dp),
-          ) {
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, false) }) {
-                  Text(text = stringResource(R.string.PERMISSION_ROUTE))
-                }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, false) }) {
-                  Text(text = stringResource(R.string.ignored_list))
-                }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, false) }) {
-                  Text(text = stringResource(R.string.settings))
-                }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { viewModel.onSendTestNotifPressed(context) },
-            ) {
-              Text(text = stringResource(R.string.send_test_notification))
+  ) { padding ->
+    Column(
+        modifier = Modifier.fillMaxSize().padding(padding),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+      Column(
+          Modifier.width(IntrinsicSize.Max),
+          verticalArrangement = Arrangement.spacedBy(8.dp),
+      ) {
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, false) }) {
+              Text(text = stringResource(R.string.PERMISSION_ROUTE))
             }
-          }
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, false) }) {
+              Text(text = stringResource(R.string.ignored_list))
+            }
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, false) }) {
+              Text(text = stringResource(R.string.settings))
+            }
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { viewModel.onSendTestNotifPressed(context) },
+        ) {
+          Text(text = stringResource(R.string.send_test_notification))
         }
       }
+    }
+  }
 }

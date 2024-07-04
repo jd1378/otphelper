@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -107,6 +110,32 @@ fun Settings(
                   Switch(
                       checked = userSettings.isPostNotifEnabled,
                       onCheckedChange = { viewModel.onPostNotifToggle() })
+                }
+              }
+            }
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceContainer,
+                shape = MaterialTheme.shapes.large,
+                onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false) },
+            ) {
+              Column(
+                  modifier = Modifier.fillMaxWidth(),
+                  horizontalAlignment = Alignment.CenterHorizontally,
+              ) {
+                Row(
+                    modifier =
+                        Modifier.padding(
+                            horizontal = dimensionResource(R.dimen.padding_li_h),
+                            vertical = dimensionResource(R.dimen.padding_medium),
+                        ),
+                    horizontalArrangement =
+                        Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                  Icon(
+                      imageVector = Icons.Outlined.Info,
+                      contentDescription = stringResource(R.string.about))
+                  Text(stringResource(R.string.about))
                 }
               }
             }
