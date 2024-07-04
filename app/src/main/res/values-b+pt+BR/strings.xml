@@ -55,4 +55,9 @@
     <string name="label_source_code_link">Código Fonte:</string>
     <string name="ignore_app">Ignorar Aplicativo</string>
     <string name="permission_revoked_channel_description">Lembra o usuário sobre as permissões necessárias</string>
+    <string name="settings">Configurações</string>
+    <string name="application">Aplicação</string>
+    <string name="notification_tag">Notificação em</string>
+    <string name="notification_id">Notificação em</string>
+    <string name="error">Erro</string>
 </resources>
