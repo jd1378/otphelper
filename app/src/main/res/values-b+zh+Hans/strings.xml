@@ -55,4 +55,10 @@
     <string name="permission_revoked_channel_description">提醒用户应用程序所需的权限</string>
     <string name="permission_revoked">权限被撤销</string>
     <string name="permission_revoked_notification_hint">请再次授予读取通知权限。 点击此消息可打开设置。</string>
+    <string name="settings">设置</string>
+    <string name="application">应用</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification_id">身份证</string>
+    <string name="error">错误</string>
+    <string name="notification">通知</string>
 </resources>
