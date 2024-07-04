@@ -78,8 +78,9 @@
   <string name="pt_rBR" translatable="false">Português (Brasil)</string>
   <string name="settings">Settings</string>
   <string name="application">Application</string>
-  <string name="notification_tag">Notification Tag</string>
-  <string name="notification_id">Notification ID</string>
+  <string name="notification">Notification</string>
+  <string name="notification_tag">Tag</string>
+  <string name="notification_id">ID</string>
   <string name="error">Error</string>
   <string name="ignore_id">Ignore ID</string>
   <string name="jp" translatable="false">日本語</string>
