@@ -14,33 +14,26 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
-import io.github.jd1378.otphelper.data.SettingsRepository
+import io.github.jd1378.otphelper.UserSettings
+import io.github.jd1378.otphelper.copy
+import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
-
-data class HomeUiState(
-    val isSetupFinished: Boolean = true,
-)
 
 @HiltViewModel
 class HomeViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val settingsRepository: SettingsRepository
+    userSettingsRepository: UserSettingsRepository
 ) : ViewModel() {
 
-  val uiState: StateFlow<HomeUiState> =
-      settingsRepository
-          .getIsSetupFinishedStream()
-          .map { isSetupFinished -> HomeUiState(isSetupFinished) }
-          .stateIn(
-              scope = viewModelScope,
-              started = SharingStarted.WhileSubscribed(5_000),
-              initialValue = HomeUiState())
+  val userSettings =
+      userSettingsRepository.userSettings.stateIn(
+          scope = viewModelScope,
+          started = SharingStarted.WhileSubscribed(5_000),
+          initialValue = UserSettings.getDefaultInstance().copy { isSetupFinished = true })
 
   fun onSendTestNotifPressed(context: Context) {
     if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==

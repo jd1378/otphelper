@@ -16,7 +16,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -38,8 +37,7 @@ fun NavGraphBuilder.addSettingsGraph(upPress: () -> Unit) {
 @Composable
 fun Settings(upPress: () -> Unit, viewModel: SettingsViewModel) {
 
-  val uiState by viewModel.uiState.collectAsState()
-  val context = LocalContext.current
+  val userSettings by viewModel.userSettings.collectAsState()
 
   Scaffold(
       modifier = Modifier.fillMaxSize(),
@@ -65,7 +63,7 @@ fun Settings(upPress: () -> Unit, viewModel: SettingsViewModel) {
             ) {
               Text(text = stringResource(R.string.auto_copy), Modifier.padding(horizontal = 10.dp))
               Switch(
-                  checked = uiState.isAutoCopyEnabled,
+                  checked = userSettings.isAutoCopyEnabled,
                   onCheckedChange = { viewModel.onAutoCopyToggle() })
             }
             Row(
@@ -77,7 +75,7 @@ fun Settings(upPress: () -> Unit, viewModel: SettingsViewModel) {
                   text = stringResource(R.string.send_detected_notif),
                   Modifier.padding(horizontal = 10.dp))
               Switch(
-                  checked = uiState.isPostNotifEnabled,
+                  checked = userSettings.isPostNotifEnabled,
                   onCheckedChange = { viewModel.onPostNotifToggle() })
             }
           }

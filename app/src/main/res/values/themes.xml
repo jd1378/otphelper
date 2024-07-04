@@ -6,4 +6,13 @@
     <item name="android:navigationBarColor">@android:color/transparent</item>
   </style>
 
+  <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+    <!-- Set the splash screen background, animated icon, and animation
+    duration. -->
+    <item name="windowSplashScreenBackground">?android:colorBackground</item>
+
+    <!-- Set the theme of the Activity that directly follows your splash
+    screen. This is required. -->
+    <item name="postSplashScreenTheme">@style/Theme.OtpHelper</item>
+  </style>
 </resources>

@@ -140,7 +140,7 @@ class NotificationHelper {
                   context.getString(R.string.ignore_app),
                   ignoreAppPendingIntent)
 
-      if (extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG) != null) {
+      if (!extras.getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_TAG).isNullOrEmpty()) {
         val ignoreTagPendingIntent =
             PendingIntentCompat.getBroadcast(
                 context,
@@ -157,7 +157,9 @@ class NotificationHelper {
             R.drawable.baseline_visibility_off_24,
             context.getString(R.string.ignore_tag),
             ignoreTagPendingIntent)
-      } else if (extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_NID) != null) {
+      } else if (!extras
+          .getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_ID)
+          .isNullOrEmpty()) {
         val ignoreNidPendingIntent =
             PendingIntentCompat.getBroadcast(
                 context,
@@ -172,7 +174,7 @@ class NotificationHelper {
 
         notificationBuilder.addAction(
             R.drawable.baseline_visibility_off_24,
-            context.getString(R.string.ignore_tag),
+            context.getString(R.string.ignore_id),
             ignoreNidPendingIntent)
       }
 

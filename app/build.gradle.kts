@@ -1,6 +1,8 @@
 import com.android.build.gradle.api.ApplicationVariant
 import com.android.build.gradle.api.BaseVariantOutput
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+import org.gradle.configurationcache.extensions.capitalized
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   id("com.android.application")
@@ -76,6 +78,11 @@ dependencies {
   ksp("com.google.dagger:hilt-compiler:2.50")
   // hilt for navigation compose
   implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+  // hilt for work manager
+  implementation("androidx.hilt:hilt-work:1.2.0")
+  ksp("androidx.hilt:hilt-compiler:1.2.0")
+  implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
+  implementation("androidx.work:work-runtime-ktx:2.9.0")
   // app compat (for locales)
   val appcompatVersion = "1.7.0"
   implementation("androidx.appcompat:appcompat:$appcompatVersion")
@@ -92,10 +99,12 @@ dependencies {
   implementation("androidx.paging:paging-compose:$pagingVersion")
 
   // datastore
-
   implementation("androidx.datastore:datastore:1.1.1")
   implementation("com.google.protobuf:protobuf-javalite:$protobufVersion")
   implementation("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
+
+  // for splash screen
+  implementation("androidx.core:core-splashscreen:1.1.0-rc01")
 }
 
 hilt { enableAggregatingTask = true }
@@ -148,6 +157,17 @@ class ApplicationVariantAction : Action<ApplicationVariant> {
 
         output.outputFileName =
             "otp-helper-${flavor}-${builtType}-${versionName}-${architecture}-${versionCode}.apk"
+      }
+    }
+  }
+}
+
+androidComponents {
+  onVariants(selector().all()) { variant ->
+    afterEvaluate {
+      val capName = variant.name.capitalized()
+      tasks.getByName<KotlinCompile>("ksp${capName}Kotlin") {
+        setSource(tasks.getByName("generate${capName}Proto").outputs)
       }
     }
   }

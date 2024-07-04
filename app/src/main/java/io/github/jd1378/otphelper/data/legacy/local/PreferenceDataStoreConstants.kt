@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.data.local
+package io.github.jd1378.otphelper.data.legacy.local
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey

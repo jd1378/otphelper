@@ -8,7 +8,8 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
+import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -19,7 +20,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotifActionReceiver : BroadcastReceiver() {
 
-  @Inject lateinit var ignoredNotifSetRepository: IgnoredNotifSetRepository
+  @Inject lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
 
   companion object {
     const val INTENT_ACTION_CODE_COPY = "io.github.jd1378.otphelper.actions.code_copy"
@@ -55,43 +56,40 @@ class NotifActionReceiver : BroadcastReceiver() {
 
     val notif = getActiveNotification(context, R.id.code_detected_notify_id)
     if (notif != null) {
+      val ignoredPackageName =
+          notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_PACKAGE_NAME)!!
+      val ignoredType: IgnoredNotifType
+      val ignoredTypeData: String?
+
       when (intent.action) {
-        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG,
-        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID -> {
-
-          val ignoreWord =
-              if (intent.action == INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG) {
-                notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG)
-              } else {
-                notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_NID)
-              }
-
-          if (ignoreWord != null) {
-
-            @OptIn(DelicateCoroutinesApi::class)
-            GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
-
-            NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
-
-            Toast.makeText(context, R.string.wont_detect_code_from_this_notif, Toast.LENGTH_LONG)
-                .show()
-          }
-        }
         INTENT_ACTION_IGNORE_NOTIFICATION_APP -> {
-          val ignoreWord = notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP)
-
-          if (ignoreWord != null) {
-
-            @OptIn(DelicateCoroutinesApi::class)
-            GlobalScope.launch { ignoredNotifSetRepository.addIgnoredNotif(ignoreWord) }
-
-            NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id)
-
-            Toast.makeText(context, R.string.wont_detect_code_from_this_app, Toast.LENGTH_LONG)
-                .show()
-          }
+          ignoredType = IgnoredNotifType.APPLICATION
+          ignoredTypeData = null
+          Toast.makeText(context, R.string.wont_detect_code_from_this_app, Toast.LENGTH_LONG).show()
         }
-        else -> {}
+        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG -> {
+          ignoredType = IgnoredNotifType.NOTIFICATION_TAG
+          ignoredTypeData =
+              notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_TAG)
+          Toast.makeText(context, R.string.wont_detect_code_from_this_notif, Toast.LENGTH_LONG)
+              .show()
+        }
+        INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID -> {
+          ignoredType = IgnoredNotifType.NOTIFICATION_ID
+          ignoredTypeData =
+              notif.extras.getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_ID)
+          Toast.makeText(context, R.string.wont_detect_code_from_this_notif, Toast.LENGTH_LONG)
+              .show()
+        }
+        else -> {
+          return
+        }
+      }
+
+      @OptIn(DelicateCoroutinesApi::class)
+      GlobalScope.launch {
+        ignoredNotifsRepository.setIgnored(
+            packageName = ignoredPackageName, type = ignoredType, typeData = ignoredTypeData)
       }
     }
 

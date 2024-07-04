@@ -13,7 +13,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import com.example.compose.md_theme_dark_background
 import com.example.compose.md_theme_dark_error
 import com.example.compose.md_theme_dark_errorContainer
@@ -158,13 +158,11 @@ fun OtpHelperTheme(
   val view = LocalView.current
   if (!view.isInEditMode) {
     SideEffect {
-      (view.context as Activity).window.statusBarColor = colorScheme.background.toArgb()
-      (view.context as Activity)
-          .window
-          .decorView
-          .setBackgroundColor(colorScheme.background.toArgb())
+      val window = (view.context as Activity).window
 
-      ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = !darkTheme
+      window.statusBarColor = colorScheme.background.toArgb()
+      window.decorView.setBackgroundColor(colorScheme.background.toArgb())
+      WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
     }
   }
 

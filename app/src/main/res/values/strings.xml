@@ -80,4 +80,6 @@
   <string name="application">Application</string>
   <string name="notification_tag">Notification Tag</string>
   <string name="notification_id">Notification ID</string>
+  <string name="error">Error</string>
+  <string name="ignore_id">Ignore ID</string>
 </resources>

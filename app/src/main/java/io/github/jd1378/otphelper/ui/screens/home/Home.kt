@@ -44,11 +44,11 @@ fun NavGraphBuilder.addHomeGraph(
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: HomeViewModel) {
-  val uiState by viewModel.uiState.collectAsState()
+  val userSettings by viewModel.userSettings.collectAsState()
   val context = LocalContext.current
 
-  LaunchedEffect(uiState.isSetupFinished) {
-    if (!uiState.isSetupFinished) {
+  LaunchedEffect(userSettings.isSetupFinished) {
+    if (!userSettings.isSetupFinished) {
       onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true")
     }
   }

@@ -1,14 +1,17 @@
 package io.github.jd1378.otphelper
 
 import android.app.Notification
+import android.content.ComponentName
 import android.content.Intent
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
+import android.util.Log
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import io.github.jd1378.otphelper.utils.CodeIgnore
 
 class NotificationListener : NotificationListenerService() {
   companion object {
+    val TAG = "NotificationListener"
     val notification_text_keys =
         listOf(
             // Notification.EXTRA_TITLE, // removed due to causing false positives.
@@ -23,11 +26,13 @@ class NotificationListener : NotificationListenerService() {
   }
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
-    val mNotification = sbn?.notification
-    if (mNotification != null) {
+    super.onNotificationPosted(sbn)
+    if (sbn != null) {
+      val mNotification = sbn.notification
       // ignore notifications that are foreground service
       val isForegroundService = (mNotification.flags and Notification.FLAG_FOREGROUND_SERVICE) != 0
       val isOngoing = (mNotification.flags and Notification.FLAG_ONGOING_EVENT) != 0
+
       if (isForegroundService || isOngoing) return
 
       val extras = mNotification.extras
@@ -57,21 +62,29 @@ class NotificationListener : NotificationListenerService() {
           val intent = Intent(CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED)
           intent.putExtra("code", code)
 
-          val ignoreTag =
-              if (sbn.tag?.contains(":") == true) {
-                "tag:${sbn.tag}"
-              } else {
-                null
-              }
-          val ignoreApp = "app:${sbn.packageName}"
-          val ignoreNid = "app:${sbn.packageName}:nid:${sbn.id}"
-          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_TAG, ignoreTag)
-          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_APP, ignoreApp)
-          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_IGNORE_NID, ignoreNid)
+          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_PACKAGE_NAME, sbn.packageName)
+          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_ID, sbn.id.toString())
+          if (sbn.tag?.contains(":") == true) {
+            intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_TAG, sbn.tag)
+          }
 
           sendBroadcast(intent, CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED_PERMISSION)
         }
       }
     }
+  }
+
+  override fun onListenerDisconnected() {
+    super.onListenerDisconnected()
+    // Handle the listener disconnected event
+    Log.i(TAG, "Notification listener disconnected. attempting to rebind.")
+
+    // Request to rebind the service
+    val componentName =
+        ComponentName(
+            this,
+            NotificationListener::class.java,
+        )
+    requestRebind(componentName)
   }
 }

@@ -1,13 +1,13 @@
-package io.github.jd1378.otphelper.data
+package io.github.jd1378.otphelper.data.legacy
 
-import io.github.jd1378.otphelper.data.local.PreferenceDataStoreConstants
-import io.github.jd1378.otphelper.data.local.PreferenceDataStoreHelper
+import io.github.jd1378.otphelper.data.legacy.local.PreferenceDataStoreConstants
+import io.github.jd1378.otphelper.data.legacy.local.PreferenceDataStoreHelper
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 
 @Singleton
-class SettingsRepository
+class OldSettingsRepository
 @Inject
 constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
 
@@ -29,6 +29,11 @@ constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
   suspend fun getIsAutoCopyEnabled(): Boolean {
     return preferenceDataStoreHelper.getFirstPreference(
         PreferenceDataStoreConstants.IS_AUTO_COPY_ENABLED, false)
+  }
+
+  suspend fun getIsSetupFinished(): Boolean {
+    return preferenceDataStoreHelper.getFirstPreference(
+        PreferenceDataStoreConstants.IS_SETUP_FINISHED, false)
   }
 
   suspend fun getIsPostNotifEnabled(): Boolean {

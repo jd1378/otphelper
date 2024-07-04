@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
-import io.github.jd1378.otphelper.data.SettingsRepository
+import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
 import io.github.jd1378.otphelper.utils.combine
@@ -41,7 +41,7 @@ class PermissionsViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val settingsRepository: SettingsRepository,
+    private val userSettingsRepository: UserSettingsRepository,
 ) : ViewModel() {
 
   private val _hasNotifPerm = MutableStateFlow(false)
@@ -117,7 +117,7 @@ constructor(
   fun onSetupFinish(upPress: () -> Unit) {
     _showSkipWarning.update { false }
     viewModelScope.launch {
-      settingsRepository.setIsSetupFinished(true)
+      userSettingsRepository.setIsSetupFinished(true)
       upPress()
     }
   }

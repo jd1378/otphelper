@@ -1,13 +1,13 @@
-package io.github.jd1378.otphelper.data
+package io.github.jd1378.otphelper.data.legacy
 
-import io.github.jd1378.otphelper.data.local.PreferenceDataStoreConstants
-import io.github.jd1378.otphelper.data.local.PreferenceDataStoreHelper
-import kotlinx.coroutines.flow.Flow
+import io.github.jd1378.otphelper.data.legacy.local.PreferenceDataStoreConstants
+import io.github.jd1378.otphelper.data.legacy.local.PreferenceDataStoreHelper
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
 
 @Singleton
-class IgnoredNotifSetRepository
+class OldIgnoredNotifSetRepository
 @Inject
 constructor(private val preferenceDataStoreHelper: PreferenceDataStoreHelper) {
 

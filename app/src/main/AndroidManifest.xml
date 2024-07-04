@@ -19,12 +19,11 @@
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
       android:supportsRtl="true"
-      android:theme="@style/Theme.OtpHelper"
       tools:targetApi="31">
     <activity
         android:name=".MainActivity"
         android:exported="true"
-        android:theme="@style/Theme.OtpHelper"
+        android:theme="@style/Theme.App.Starting"
         android:excludeFromRecents="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -75,6 +74,11 @@
         <action android:name="android.intent.action.BOOT_COMPLETED" />
       </intent-filter>
     </receiver>
+
+    <provider
+        android:name="androidx.startup.InitializationProvider"
+        android:authorities="${applicationId}.androidx-startup"
+        tools:node="remove" />
   </application>
 
 </manifest>

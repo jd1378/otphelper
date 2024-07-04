@@ -22,6 +22,7 @@ object MainDestinations {
   const val PERMISSIONS_ROUTE = "permissions"
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"
   const val ABOUT_ROUTE = "about"
+  const val SETTINGS_ROUTE = "settings"
 }
 
 @Composable

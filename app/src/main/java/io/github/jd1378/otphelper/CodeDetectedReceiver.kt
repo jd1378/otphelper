@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
-import io.github.jd1378.otphelper.data.SettingsRepository
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
+import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -17,45 +17,47 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CodeDetectedReceiver : BroadcastReceiver() {
 
-  @Inject lateinit var ignoredNotifSetRepository: IgnoredNotifSetRepository
-  @Inject lateinit var settingsRepository: SettingsRepository
+  @Inject lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
+  @Inject lateinit var userSettingsRepository: UserSettingsRepository
 
   companion object {
     const val INTENT_ACTION_CODE_DETECTED = "io.github.jd1378.otphelper.code_detected"
     const val INTENT_ACTION_CODE_DETECTED_PERMISSION =
         "io.github.jd1378.otphelper.permission.RECEIVE_CODE"
     const val NOTIFICATION_TIMEOUT = 60_000L
-    const val INTENT_EXTRA_IGNORE_TAG = "ignore_tag"
-    const val INTENT_EXTRA_IGNORE_APP = "ignore_app"
-    const val INTENT_EXTRA_IGNORE_NID = "ignore_nid"
+    const val INTENT_EXTRA_PACKAGE_NAME = "package_name"
+    const val INTENT_EXTRA_NOTIFICATION_ID = "notification_id"
+    const val INTENT_EXTRA_NOTIFICATION_TAG = "notification_tag"
 
     const val TAG = "CodeDetectedReceiver"
   }
 
   override fun onReceive(context: Context?, intent: Intent?) {
     if (intent?.extras !== null && context !== null) {
-      val intentIgnoreTag = intent.extras!!.getString(INTENT_EXTRA_IGNORE_TAG)
-      val intentIgnoreApp = intent.extras!!.getString(INTENT_EXTRA_IGNORE_APP)
-      val intentIgnoreNid = intent.extras!!.getString(INTENT_EXTRA_IGNORE_NID)
+      val notifPackageName = intent.extras!!.getString(INTENT_EXTRA_PACKAGE_NAME)!!
+      val notifId = intent.extras!!.getString(INTENT_EXTRA_NOTIFICATION_ID)!!
+      val notifTag = intent.extras!!.getString(INTENT_EXTRA_NOTIFICATION_TAG)
 
       @OptIn(DelicateCoroutinesApi::class)
       GlobalScope.launch() {
         try {
-          if (ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreTag) ||
-              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreApp) ||
-              ignoredNotifSetRepository.hasIgnoredNotif(intentIgnoreNid)) {
+          if (ignoredNotifsRepository.isIgnored(
+              packageName = notifPackageName,
+              notificationId = notifId,
+              notificationTag = notifTag)) {
             return@launch
           }
 
           val code = intent.extras!!.getString("code")
           if (code.isNullOrEmpty()) return@launch
 
-          val autoCopyEnabled = settingsRepository.getIsAutoCopyEnabled()
-          if (autoCopyEnabled) {
+          val settings = userSettingsRepository.fetchSettings()
+          if (settings.isAutoCopyEnabled) {
             Clipboard.copyCodeToClipboard(context, code)
           }
-          if (settingsRepository.getIsPostNotifEnabled()) {
-            NotificationHelper.sendDetectedNotif(context, intent.extras!!, code, autoCopyEnabled)
+          if (settings.isPostNotifEnabled) {
+            NotificationHelper.sendDetectedNotif(
+                context, intent.extras!!, code, settings.isAutoCopyEnabled)
           }
         } catch (e: Exception) {
           Log.e(TAG, e.stackTraceToString())

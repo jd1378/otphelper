@@ -1,50 +1,36 @@
 package io.github.jd1378.otphelper.ui.screens.ignored_list
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.jd1378.otphelper.data.IgnoredNotifSetRepository
-import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
+import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import kotlinx.coroutines.launch
-
-data class IgnoredListUiState(
-    val ignoredNotifs: List<String> = emptyList(),
-    var deleting: Boolean = false
-)
+import javax.inject.Inject
 
 @HiltViewModel
 class IgnoredListViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val ignoredNotifSetRepository: IgnoredNotifSetRepository
+    private val ignoredNotifsRepository: IgnoredNotifsRepository
 ) : ViewModel() {
 
-  private val _ignoredNotifs = ignoredNotifSetRepository.getIgnoredNotifSetStream()
-  private val _isDeleting = MutableStateFlow(false)
+  val ignoredNotifs = ignoredNotifsRepository.get().cachedIn(viewModelScope)
+  var isDeleting by mutableStateOf(false)
+    private set
 
-  val uiState: StateFlow<IgnoredListUiState> =
-      combine(_ignoredNotifs, _isDeleting) { ignoredNotifs, isDeleting ->
-            IgnoredListUiState(ignoredNotifs.toList(), isDeleting)
-          }
-          .stateIn(
-              scope = viewModelScope,
-              started = SharingStarted.WhileSubscribed(5_000),
-              initialValue = IgnoredListUiState())
-
-  fun removeIgnoredNotif(ignoredNotif: String) {
-    if (_isDeleting.value) return
+  fun removeIgnoredNotif(ignoredNotif: IgnoredNotif) {
+    if (isDeleting) return
     viewModelScope.launch {
-      _isDeleting.update { true }
-      ignoredNotifSetRepository.removeIgnoredNotif(ignoredNotif)
-      _isDeleting.update { false }
+      isDeleting = true
+      ignoredNotifsRepository.deleteIgnored(ignoredNotif)
+      isDeleting = false
     }
   }
 }
