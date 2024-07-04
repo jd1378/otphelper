@@ -690,4 +690,14 @@ If you didn't request this code by trying to log in on another device, simply ig
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals("123456", CodeExtractor.getCode(msg))
   }
+
+  @Test
+  fun charteredCode() {
+    val msg = """QJL - 123456 is the One Time P/W (OTP) for online transaction on your card. ...............
+
+Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTAC is 12345678901. ........."""
+
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
 }
