@@ -82,4 +82,5 @@
   <string name="notification_id">Notification ID</string>
   <string name="error">Error</string>
   <string name="ignore_id">Ignore ID</string>
+  <string name="jp" translatable="false">日本語</string>
 </resources>
