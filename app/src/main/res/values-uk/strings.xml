@@ -57,6 +57,8 @@
     <string name="permission_revoked_notification_hint">Ще раз надайте дозвіл на читання сповіщень. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
     <string name="settings">Налаштування</string>
     <string name="application">Застосунок</string>
-    <string name="notification_id">Сповіщення</string>
+    <string name="notification_id"></string>
     <string name="error">Помилка</string>
+    <string name="notification_tag">TAG</string>
+    <string name="notification">Сповіщення</string>
 </resources>
