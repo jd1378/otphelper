@@ -37,7 +37,7 @@ import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 fun NavGraphBuilder.addPermissionsGraph(
-    onNavigateToRoute: (String) -> Unit,
+    onNavigateToRoute: (String, Boolean) -> Unit,
     upPress: () -> Unit,
 ) {
   composable(
@@ -54,7 +54,7 @@ fun NavGraphBuilder.addPermissionsGraph(
 
 @Composable
 fun Permissions(
-    onNavigateToRoute: (String) -> Unit,
+    onNavigateToRoute: (String, Boolean) -> Unit,
     upPress: () -> Unit,
     viewModel: PermissionsViewModel,
     setupMode: Boolean = false
@@ -79,7 +79,7 @@ fun Permissions(
   }
   LaunchedEffect(uiState.userSettings.isSetupFinished) {
     if (uiState.userSettings.isSetupFinished) {
-      onNavigateToRoute(MainDestinations.HOME_ROUTE)
+      onNavigateToRoute(MainDestinations.HOME_ROUTE, true)
     }
   }
 
@@ -94,7 +94,9 @@ fun Permissions(
                     modifier =
                         Modifier.padding(
                             start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
-                    onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
+                    onClick = {
+                      onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false)
+                    }) {
                       Text(text = stringResource(R.string.language))
                     }
               }

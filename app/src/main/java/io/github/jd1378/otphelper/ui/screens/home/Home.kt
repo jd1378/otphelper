@@ -32,7 +32,7 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 fun NavGraphBuilder.addHomeGraph(
-    onNavigateToRoute: (String) -> Unit,
+    onNavigateToRoute: (String, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
   composable(MainDestinations.HOME_ROUTE) {
@@ -43,13 +43,17 @@ fun NavGraphBuilder.addHomeGraph(
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: HomeViewModel) {
+fun Home(
+    onNavigateToRoute: (String, Boolean) -> Unit,
+    modifier: Modifier,
+    viewModel: HomeViewModel
+) {
   val userSettings by viewModel.userSettings.collectAsState()
   val context = LocalContext.current
 
   LaunchedEffect(userSettings.isSetupFinished) {
     if (!userSettings.isSetupFinished) {
-      onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true")
+      onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true", true)
     }
   }
 
@@ -57,7 +61,7 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
       modifier = modifier,
       topBar = {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-          IconButton(onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE) }) {
+          IconButton(onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false) }) {
             Icon(
                 imageVector = Icons.Outlined.Info,
                 contentDescription = stringResource(R.string.about))
@@ -75,8 +79,18 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
           ) {
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE) }) {
+                onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, false) }) {
                   Text(text = stringResource(R.string.PERMISSION_ROUTE))
+                }
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, false) }) {
+                  Text(text = stringResource(R.string.ignored_list))
+                }
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, false) }) {
+                  Text(text = stringResource(R.string.settings))
                 }
             Button(
                 modifier = Modifier.fillMaxWidth(),
@@ -84,21 +98,6 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
             ) {
               Text(text = stringResource(R.string.send_test_notification))
             }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE) }) {
-                  Text(text = stringResource(R.string.ignored_list))
-                }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE) }) {
-                  Text(text = stringResource(R.string.settings))
-                }
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
-                  Text(text = stringResource(R.string.language))
-                }
           }
         }
       }

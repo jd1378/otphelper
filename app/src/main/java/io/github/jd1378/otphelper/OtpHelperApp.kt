@@ -61,14 +61,14 @@ fun OtpHelperApp() {
 
 private fun NavGraphBuilder.otphelperNavGraph(
     upPress: () -> Unit,
-    onNavigateToRoute: (String) -> Unit
+    onNavigateToRoute: (String, Boolean) -> Unit
 ) {
   addHomeGraph(onNavigateToRoute)
   addLanguageSelectionGraph(upPress)
   addIgnoredListGraph(upPress)
   addPermissionsGraph(onNavigateToRoute, upPress)
   addAboutGraph(upPress)
-  addSettingsGraph(upPress)
+  addSettingsGraph(onNavigateToRoute, upPress)
   // for nested navigation (example):
   //  navigation(route = MainDestinations.HOME_ROUTE, startDestination =
   //          HomeSections.FEED.route) {

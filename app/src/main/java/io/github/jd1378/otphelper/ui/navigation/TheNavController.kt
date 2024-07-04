@@ -56,14 +56,16 @@ class TheNavController(
     navController.navigateUp()
   }
 
-  fun navigateToRoute(route: String) {
+  fun navigateToRoute(route: String, popToStart: Boolean = false) {
     if (route != currentRoute) {
       navController.navigate(route) {
         launchSingleTop = true
         restoreState = true
-        // Pop up backstack to the first destination and save state. This makes going back
-        // to the start destination when pressing back in any other route
-        popUpTo(findStartDestination(navController.graph).id) { saveState = true }
+        if (popToStart) {
+          // Pop up backstack to the first destination and save state. This makes going back
+          // to the start destination when pressing back in any other route
+          popUpTo(findStartDestination(navController.graph).id) { saveState = true }
+        }
       }
     }
   }
