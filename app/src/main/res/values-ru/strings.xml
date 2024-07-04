@@ -58,5 +58,7 @@
     <string name="settings">Настройки</string>
     <string name="application">Приложение</string>
     <string name="error">Ошибка</string>
-    <string name="notification_id">Уведомление</string>
+    <string name="notification_id">ID</string>
+    <string name="notification">Уведомление</string>
+    <string name="notification_tag">Тег</string>
 </resources>
