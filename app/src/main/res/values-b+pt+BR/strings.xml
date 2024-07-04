@@ -60,6 +60,6 @@
     <string name="notification_tag">Tag</string>
     <string name="notification_id">ID</string>
     <string name="error">Erro</string>
-    <string name="notification">Notificação</string>
+    <string name="notification">Notificações</string>
     <string name="ignore_id">Ignore ID</string>
 </resources>
