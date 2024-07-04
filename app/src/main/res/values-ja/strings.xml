@@ -28,7 +28,7 @@
     <string name="skip">後で</string>
     <string name="test_notification_content">あなたのコード： 230914</string>
     <string name="test_notification_title">これはテスト通知です</string>
-    <string name="permission_todo_allow_restricted_settings">- 制限付き設定を許可</string>
+    <string name="permission_todo_allow_restricted_settings">制限付き設定を許可</string>
     <string name="failed_to_open_app_settings">アプリ設定を開くことができません</string>
     <string name="detected_code">検出されたコード：</string>
     <string name="app_name">Copy SMS Code</string>
