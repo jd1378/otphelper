@@ -55,4 +55,10 @@
     <string name="permission_revoked_channel_description">مجوز های ضروری را به کاربر یادآوری می کند</string>
     <string name="permission_revoked">مجوز باطل شد</string>
     <string name="permission_revoked_notification_hint">لطفا اجازه خواندن اعلان ها را دوباره بدهید. برای باز کردن تنظیمات روی این پیام ضربه بزنید.</string>
+    <string name="settings">پیکربندی</string>
+    <string name="application">کاره</string>
+    <string name="notification_id">شناسه</string>
+    <string name="error">خطا</string>
+    <string name="notification">اعلان</string>
+    <string name="notification_tag">برچسب</string>
 </resources>
