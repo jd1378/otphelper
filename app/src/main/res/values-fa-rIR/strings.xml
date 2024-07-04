@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">کپی رمز پیامک</string>
     <string name="detected_code">کد شناسایی شده:</string>
@@ -61,4 +61,5 @@
     <string name="error">خطا</string>
     <string name="notification">اعلان</string>
     <string name="notification_tag">برچسب</string>
+    <string name="ignore_id">Ignore ID</string>
 </resources>

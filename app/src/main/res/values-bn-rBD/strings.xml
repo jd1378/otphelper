@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">এসএমএস কোড কপি</string>
     <string name="detected_code">সনাক্ত করা কোড:</string>
@@ -59,4 +59,7 @@
     <string name="application">অ্যাপ্লিকেশন</string>
     <string name="error">ভুল</string>
     <string name="notification">বিজ্ঞপ্তি</string>
+    <string name="ignore_id">Ignore ID</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification_id">ID</string>
 </resources>

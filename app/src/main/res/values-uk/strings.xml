@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Копіювання SMS кодів</string>
     <string name="detected_code">Виявлено код:</string>
@@ -60,4 +60,6 @@
     <string name="error">Помилка</string>
     <string name="notification_tag">TAG</string>
     <string name="notification">Сповіщення</string>
+    <string name="ignore_id">Ignore ID</string>
+    <string name="notification_id">ID</string>
 </resources>

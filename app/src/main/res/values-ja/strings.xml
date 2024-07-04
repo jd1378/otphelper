@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="code_detected_channel_name">検出されたコード</string>
     <string name="code_copied_to_clipboard">クリップボードにコピーしました！</string>
@@ -61,4 +61,5 @@
     <string name="notification_tag">タグ</string>
     <string name="notification_id">ID</string>
     <string name="error">エラー</string>
+    <string name="ignore_id">Ignore ID</string>
 </resources>

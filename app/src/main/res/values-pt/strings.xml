@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="permission_todo_allow_restricted_settings">Permitir configurações restritas</string>
     <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações no etapa 2, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
@@ -61,4 +61,5 @@
     <string name="application">Aplicativo</string>
     <string name="notification_tag">Etiqueta</string>
     <string name="notification_id">ID</string>
+    <string name="ignore_id">Ignore ID</string>
 </resources>

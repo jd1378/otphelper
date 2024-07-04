@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="detected_code">Codi detectat:</string>
     <string name="code_detected_channel_name">Codi detectat</string>
@@ -48,4 +48,18 @@
     <string name="IGNORED_LIST_ROUTE">Llista d\'ignorats</string>
     <string name="no_result">No hi ha resultats</string>
     <string name="ignore_tag">Ignorar etiquetes</string>
+    <string name="app_name">Copy SMS Code</string>
+    <string name="code_detected_channel_description">whenever a code is detected, a notification will be sent from this channel</string>
+    <string name="open_notification_permission">Open Notification Permission</string>
+    <string name="ignored_list_description">Ignored messages will be shown here after you hit the ignore button.</string>
+    <string name="permissions_desc">To make sure app can detect codes from notifications correctly all the time, you have to grant the following permissions:</string>
+    <string name="perm_extra_desc">On some devices, like Xiaomi, Huawei, etc, to allow app to start when phone is restarted, you have to manually grant autostart permission. We cannot detect if you have or not.</string>
+    <string name="skip_warning">To ensure app can function correctly, you have to provide these permissions. You can open this screen again using \"Permissions\" button in main screen.</string>
+    <string name="test_notification_content">Your code is: 230914</string>
+    <string name="test_notification_title">This is a test notification</string>
+    <string name="perm_restricted_desc">If you could not allow reading notifications in step 2, try enabling \"Allow restricted settings\" in application settings</string>
+    <string name="ignore_id">Ignore ID</string>
+    <string name="permission_revoked_channel_description">Reminds the user about required permissions</string>
+    <string name="permission_revoked">Permission Revoked</string>
+    <string name="permission_revoked_notification_hint">Please grant read notification permission again. Tap this message to open settings.</string>
 </resources>

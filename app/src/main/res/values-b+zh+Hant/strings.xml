@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">簡訊驗證碼小幫手</string>
     <string name="detected_code">驗證碼：</string>
@@ -61,4 +61,5 @@
     <string name="notification_id">ID</string>
     <string name="error">錯誤</string>
     <string name="notification">通知</string>
+    <string name="ignore_id">Ignore ID</string>
 </resources>

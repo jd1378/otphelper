@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Copie Code SMS</string>
     <string name="detected_code">Code détecté:</string>
@@ -61,4 +61,5 @@
     <string name="notification_id">ID</string>
     <string name="error">Erreur</string>
     <string name="notification">Notification</string>
+    <string name="ignore_id">Ignore ID</string>
 </resources>

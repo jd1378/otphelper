@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">نسخ رموز التحقق</string>
     <string name="detected_code">رمز مكتشف:</string>
@@ -60,4 +60,6 @@
     <string name="notification_tag">علامة</string>
     <string name="error">خطأ</string>
     <string name="notification">تنبيه</string>
+    <string name="ignore_id">Ignore ID</string>
+    <string name="notification_id">ID</string>
 </resources>
