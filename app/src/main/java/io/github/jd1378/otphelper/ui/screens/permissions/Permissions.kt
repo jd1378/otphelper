@@ -87,8 +87,8 @@ fun Permissions(
               if (setupMode) {
                 Button(
                     modifier =
-                        Modifier.fillMaxWidth()
-                            .padding(start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
+                        Modifier.padding(
+                            start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
                     onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
                       Text(text = stringResource(R.string.language))
                     }
@@ -111,72 +111,73 @@ fun Permissions(
             }
           }
         }
-      }) { padding ->
-        Column(
-            Modifier.padding(padding)
-                .padding(top = 10.dp)
-                .padding(horizontal = dimensionResource(R.dimen.padding_small))
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-          Text(
-              stringResource(R.string.permissions_desc),
-              modifier =
-                  Modifier.fillMaxWidth()
-                      .padding(horizontal = dimensionResource(R.dimen.padding_small)),
-              fontSize = 15.sp)
+      },
+  ) { padding ->
+    Column(
+        Modifier.padding(padding)
+            .padding(top = 10.dp)
+            .padding(horizontal = dimensionResource(R.dimen.padding_small))
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+      Text(
+          stringResource(R.string.permissions_desc),
+          modifier =
+              Modifier.fillMaxWidth()
+                  .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+          fontSize = 15.sp)
 
-          TodoItem(
-              stringResource(R.string.permission_todo_post_notifications),
-              actionText = stringResource(R.string.grant),
-              enabled = !uiState.hasNotifPerm,
-              checked = uiState.hasNotifPerm) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                  permLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
-                }
-              }
-          TodoItem(
-              stringResource(R.string.permission_todo_read_notifications),
-              checked = uiState.hasNotifListenerPerm) {
-                viewModel.onOpenReadNotificationsPressed(context)
-              }
-          TodoItem(
-              stringResource(R.string.permission_todo_remain_open),
-              checked = uiState.isIgnoringBatteryOptimizations) {
-                viewModel.onOpenBatteryOptimizationsPressed(context)
-              }
-
-          if (uiState.hasAutostartSettings) {
-            Text(
-                stringResource(R.string.perm_extra_desc),
-                modifier =
-                    Modifier.fillMaxWidth()
-                        .padding(horizontal = dimensionResource(R.dimen.padding_small)),
-                fontSize = 15.sp)
-
-            TodoItem(
-                stringResource(R.string.permission_todo_autostart),
-                intermediate = true,
-                checked = true) {
-                  viewModel.onOpenAutostartPressed(context)
-                }
+      TodoItem(
+          stringResource(R.string.permission_todo_post_notifications),
+          actionText = stringResource(R.string.grant),
+          enabled = !uiState.hasNotifPerm,
+          checked = uiState.hasNotifPerm) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+              permLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+            }
+          }
+      TodoItem(
+          stringResource(R.string.permission_todo_read_notifications),
+          checked = uiState.hasNotifListenerPerm) {
+            viewModel.onOpenReadNotificationsPressed(context)
+          }
+      TodoItem(
+          stringResource(R.string.permission_todo_remain_open),
+          checked = uiState.isIgnoringBatteryOptimizations) {
+            viewModel.onOpenBatteryOptimizationsPressed(context)
           }
 
-          if (uiState.hasRestrictedSettings) {
-            Text(
-                stringResource(R.string.perm_restricted_desc),
-                modifier =
-                    Modifier.fillMaxWidth()
-                        .padding(horizontal = dimensionResource(R.dimen.padding_small)),
-                fontSize = 15.sp)
+      if (uiState.hasAutostartSettings) {
+        Text(
+            stringResource(R.string.perm_extra_desc),
+            modifier =
+                Modifier.fillMaxWidth()
+                    .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+            fontSize = 15.sp)
 
-            TodoItem(
-                stringResource(R.string.permission_todo_allow_restricted_settings),
-                intermediate = true,
-                checked = true) {
-                  viewModel.onOpenAppSettings(context)
-                }
-          }
-        }
+        TodoItem(
+            stringResource(R.string.permission_todo_autostart),
+            intermediate = true,
+            checked = true) {
+              viewModel.onOpenAutostartPressed(context)
+            }
       }
+
+      if (uiState.hasRestrictedSettings) {
+        Text(
+            stringResource(R.string.perm_restricted_desc),
+            modifier =
+                Modifier.fillMaxWidth()
+                    .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+            fontSize = 15.sp)
+
+        TodoItem(
+            stringResource(R.string.permission_todo_allow_restricted_settings),
+            intermediate = true,
+            checked = true) {
+              viewModel.onOpenAppSettings(context)
+            }
+      }
+    }
+  }
 }

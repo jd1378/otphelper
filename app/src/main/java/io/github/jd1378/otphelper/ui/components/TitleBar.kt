@@ -1,23 +1,20 @@
 package io.github.jd1378.otphelper.ui.components
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.utils.mirroringBackIcon
 
@@ -33,24 +30,27 @@ private fun Up(upPress: () -> Unit) {
       }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TitleBar(
     upPress: () -> Unit,
     text: String,
     showBackBtn: Boolean = true,
-    content: @Composable () -> Unit = {}
+    content: @Composable () -> Unit = {},
 ) {
-  Row(
-      Modifier.fillMaxWidth().statusBarsPadding().padding(top = 5.dp),
-      verticalAlignment = Alignment.CenterVertically,
-  ) {
-    if (showBackBtn) {
-      Up(upPress)
-    } else {
-      Box(Modifier.width(10.dp).height(56.dp))
-    }
-    Text(text = text, fontSize = 20.sp, modifier = Modifier.padding(end = 15.dp))
-    Spacer(Modifier.weight(1f))
-    content()
-  }
+  val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+
+  TopAppBar(
+      scrollBehavior = scrollBehavior,
+      colors =
+          TopAppBarDefaults.topAppBarColors(
+              scrolledContainerColor = MaterialTheme.colorScheme.surface),
+      title = { Text(text) },
+      navigationIcon = {
+        if (showBackBtn) {
+          Up(upPress)
+        }
+      },
+      actions = { content() },
+  )
 }
