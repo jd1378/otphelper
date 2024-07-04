@@ -79,7 +79,7 @@ fun Permissions(
   }
   LaunchedEffect(uiState.userSettings.isSetupFinished) {
     if (uiState.userSettings.isSetupFinished) {
-      onNavigateToRoute(MainDestinations.HOME_ROUTE, true)
+      onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true)
     }
   }
 
