@@ -35,6 +35,7 @@ class CodeExtractor {
             "認証番号", // "authentication number" in japanese
             "ワンタイム", // "one time" in japanese
             "\\bvahvistuskoodi", // "confirmation code" in finnish
+            "\\bkertakäyttökoodisi", // "your single-use code" in finnish
             "\\bkod\\W", // PL
             "\\bautoryzacji\\W", // PL
             "Parol\\s+dlya\\s+podtverzhdeniya", // russian
