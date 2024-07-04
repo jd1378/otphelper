@@ -37,6 +37,7 @@ val localeOptions =
         LocaleOption("uk", R.string.uk, "українська,ukrainian"),
         LocaleOption("pt", R.string.pt, "Português,Portuguese"),
         LocaleOption("pt-BR", R.string.pt_rBR, "Português,Portuguese,brasil,brazil"),
+        LocaleOption("jp", R.string.jp, "Japanese,nihongo,日本語"),
     )
 
 data class LanguageSelectionUiState(

@@ -97,6 +97,10 @@ Polish:
 
 - [@pakin1](https://github.com/pakin1)
 
+Japanese:
+
+- [KAWASAKICHIRO](https://github.com/KAWASAKICHIRO)
+
 You can help translate this app to your langauge on weblate:
 
 <a href="https://hosted.weblate.org/engage/copy-sms-code-otp-helper/">
