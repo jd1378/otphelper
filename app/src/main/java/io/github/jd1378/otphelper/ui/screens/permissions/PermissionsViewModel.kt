@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.UserSettings
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
@@ -34,6 +35,7 @@ data class PermissionsUiState(
     val hasRestrictedSettings: Boolean = false,
     val showSkipWarning: Boolean = false,
     val hasDoneAllSteps: Boolean = false,
+    val userSettings: UserSettings = UserSettings.getDefaultInstance(),
 )
 
 @HiltViewModel
@@ -59,13 +61,15 @@ constructor(
               _hasAutoStartSettings,
               _hasRestrictedSettings,
               _showSkipWarning,
+              userSettingsRepository.userSettings,
           ) {
               hasNotifPerm,
               hasNotifListenerPerm,
               isIgnoringBatteryOptimizations,
               hasAutostartSettings,
               hasRestrictedSettings,
-              showSkipWarning ->
+              showSkipWarning,
+              userSettings ->
             PermissionsUiState(
                 hasNotifPerm,
                 hasNotifListenerPerm,
@@ -73,7 +77,9 @@ constructor(
                 hasAutostartSettings,
                 hasRestrictedSettings,
                 showSkipWarning,
-                hasNotifPerm && hasNotifListenerPerm && isIgnoringBatteryOptimizations)
+                hasNotifPerm && hasNotifListenerPerm && isIgnoringBatteryOptimizations,
+                userSettings,
+            )
           }
           .stateIn(
               scope = viewModelScope,
@@ -114,12 +120,9 @@ constructor(
     }
   }
 
-  fun onSetupFinish(upPress: () -> Unit) {
+  fun onSetupFinish() {
     _showSkipWarning.update { false }
-    viewModelScope.launch {
-      userSettingsRepository.setIsSetupFinished(true)
-      upPress()
-    }
+    viewModelScope.launch { userSettingsRepository.setIsSetupFinished(true) }
   }
 
   fun onSetupSkipPressed() {

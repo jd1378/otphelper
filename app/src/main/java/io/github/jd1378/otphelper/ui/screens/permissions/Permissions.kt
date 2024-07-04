@@ -77,6 +77,11 @@ fun Permissions(
       else -> {}
     }
   }
+  LaunchedEffect(uiState.userSettings.isSetupFinished) {
+    if (uiState.userSettings.isSetupFinished) {
+      onNavigateToRoute(MainDestinations.HOME_ROUTE)
+    }
+  }
 
   Scaffold(
       topBar = {
@@ -97,11 +102,11 @@ fun Permissions(
       },
       bottomBar = {
         if (setupMode) {
-          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish(upPress) }
+          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish() }
           Row(Modifier.navigationBarsPadding().padding(10.dp)) {
             Spacer(modifier = Modifier.weight(1f))
             if (uiState.hasDoneAllSteps) {
-              Button(onClick = { viewModel.onSetupFinish(upPress) }) {
+              Button(onClick = { viewModel.onSetupFinish() }) {
                 Text(text = stringResource(R.string.finish))
               }
             } else {
