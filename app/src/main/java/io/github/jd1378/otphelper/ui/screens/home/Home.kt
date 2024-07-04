@@ -15,7 +15,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -81,36 +80,20 @@ fun Home(onNavigateToRoute: (String) -> Unit, modifier: Modifier, viewModel: Hom
                 }
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { viewModel.onSendTestNotifPressed(context) }) {
-                  Text(text = stringResource(R.string.send_test_notification))
-                }
+                onClick = { viewModel.onSendTestNotifPressed(context) },
+            ) {
+              Text(text = stringResource(R.string.send_test_notification))
+            }
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE) }) {
                   Text(text = stringResource(R.string.ignored_list))
                 }
-            Row(
+            Button(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-              Text(text = stringResource(R.string.auto_copy), Modifier.padding(horizontal = 10.dp))
-              Switch(
-                  checked = uiState.isAutoCopyEnabled,
-                  onCheckedChange = { viewModel.onAutoCopyToggle() })
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-              Text(
-                  text = stringResource(R.string.send_detected_notif),
-                  Modifier.padding(horizontal = 10.dp))
-              Switch(
-                  checked = uiState.isPostNotifEnabled,
-                  onCheckedChange = { viewModel.onPostNotifToggle() })
-            }
+                onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE) }) {
+                  Text(text = stringResource(R.string.settings))
+                }
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {

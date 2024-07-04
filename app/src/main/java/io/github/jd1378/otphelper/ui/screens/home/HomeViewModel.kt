@@ -15,16 +15,13 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.SettingsRepository
-import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 data class HomeUiState(
-    val isAutoCopyEnabled: Boolean = false,
-    val isPostNotifEnabled: Boolean = true,
     val isSetupFinished: Boolean = true,
 )
 
@@ -37,39 +34,13 @@ constructor(
 ) : ViewModel() {
 
   val uiState: StateFlow<HomeUiState> =
-      combine(
-              settingsRepository.getIsAutoCopyEnabledStream(),
-              settingsRepository.getIsPostNotifEnabledStream(),
-              settingsRepository.getIsSetupFinishedStream()) {
-                  isAutoCopyEnabled,
-                  isPostNotifEnabled,
-                  isSetupFinished ->
-                HomeUiState(isAutoCopyEnabled, isPostNotifEnabled, isSetupFinished)
-              }
+      settingsRepository
+          .getIsSetupFinishedStream()
+          .map { isSetupFinished -> HomeUiState(isSetupFinished) }
           .stateIn(
               scope = viewModelScope,
               started = SharingStarted.WhileSubscribed(5_000),
               initialValue = HomeUiState())
-
-  fun onAutoCopyToggle() {
-    val newValue = !uiState.value.isAutoCopyEnabled
-    viewModelScope.launch {
-      settingsRepository.setIsAutoCopyEnabled(newValue)
-      if (!newValue && !uiState.value.isPostNotifEnabled) {
-        settingsRepository.setIsPostNotifEnabled(true)
-      }
-    }
-  }
-
-  fun onPostNotifToggle() {
-    val currentValue = uiState.value.isPostNotifEnabled
-    viewModelScope.launch {
-      if (currentValue) {
-        settingsRepository.setIsAutoCopyEnabled(true)
-      }
-      settingsRepository.setIsPostNotifEnabled(!currentValue)
-    }
-  }
 
   fun onSendTestNotifPressed(context: Context) {
     if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
