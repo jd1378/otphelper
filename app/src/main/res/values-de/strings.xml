@@ -56,8 +56,9 @@
     <string name="permission_revoked">Permission Revoked</string>
     <string name="permission_revoked_notification_hint">Bitte erteilen Sie erneut die Berechtigung zum Lesen der Benachrichtigung. Tippen Sie auf diese Nachricht, um die Einstellungen zu öffnen.</string>
     <string name="settings">Einstellungen</string>
-    <string name="application">Applikation</string>
-    <string name="notification_tag">Benachrichtigung ein</string>
-    <string name="notification_id">Benachrichtigung ein</string>
+    <string name="application">Anwendung</string>
+    <string name="notification_tag">Schlagwort</string>
+    <string name="notification_id">ID</string>
     <string name="error">Fehler</string>
+    <string name="notification">Benachrichtigung</string>
 </resources>
