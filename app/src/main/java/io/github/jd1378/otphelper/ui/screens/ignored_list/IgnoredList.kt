@@ -94,12 +94,13 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
                   }
               else -> {
                 if (ignoredNotifs.itemCount == 0) {
-                  Row(Modifier.padding(padding)) {
+                  Row {
                     Text(
                         stringResource(R.string.list_is_empty),
                         modifier = Modifier.fillMaxSize(),
-                        fontSize = 25.sp,
-                        textAlign = TextAlign.Center)
+                        fontSize = 24.sp,
+                        textAlign = TextAlign.Center,
+                    )
                   }
                 } else {
                   LazyColumn(
