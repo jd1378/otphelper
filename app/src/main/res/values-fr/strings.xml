@@ -61,5 +61,5 @@
     <string name="notification_id">ID</string>
     <string name="error">Erreur</string>
     <string name="notification">Notification</string>
-    <string name="ignore_id">Ignore ID</string>
+    <string name="ignore_id">ID Ignorer</string>
 </resources>
