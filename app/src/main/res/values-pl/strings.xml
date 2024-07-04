@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="code_detected_channel_description">Kiedy kod zostanie wykryty, powiadomienie będzie wysłane z tego kanału</string>
     <string name="code_failed_to_access_clipboard">Nie udało się uzyskać dostępu do schowka!</string>

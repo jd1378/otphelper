@@ -33,8 +33,11 @@ def prettify(element, indent="    "):
         queue[0:0] = children
 
 def save_xml(tree, file_path):
-    prettify(tree.getroot())
-    tree.write(file_path, encoding="utf-8", xml_declaration=True)
+    prettify(tree.getroot()) 
+    xml_declaration = '<?xml version="1.0" encoding="utf-8"?>\n'
+    xml_content = ET.tostring(tree.getroot(), encoding="unicode")
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(xml_declaration + xml_content)
     print(f"Updated strings file saved at {file_path}")
 
 def main():
