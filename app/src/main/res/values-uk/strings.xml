@@ -55,4 +55,8 @@
     <string name="permission_revoked_channel_description">Нагадує користувачеві про необхідні дозволи</string>
     <string name="permission_revoked">Дозвіл скасовано</string>
     <string name="permission_revoked_notification_hint">Ще раз надайте дозвіл на читання сповіщень. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
+    <string name="settings">Налаштування</string>
+    <string name="application">Застосунок</string>
+    <string name="notification_id">Сповіщення</string>
+    <string name="error">Помилка</string>
 </resources>
