@@ -51,8 +51,12 @@
     <string name="label_source_code_link">উৎস কোড:</string>
     <string name="wont_detect_code_from_this_app">এই অ্যাপ থেকে কোড আর সনাক্ত করা হবে না।</string>
     <string name="ignore_tag">ট্যাগ উপেক্ষা করুন</string>
-    <string name="ignore_app">অ্যাপকে উপেক্ষা করুন</string> 
+    <string name="ignore_app">অ্যাপকে উপেক্ষা করুন</string>
     <string name="permission_revoked_channel_description">প্রয়োজনীয় অনুমতি সম্পর্কে ব্যবহারকারীকে মনে করিয়ে দেয়</string>
     <string name="permission_revoked">Permission Revoked</string>
     <string name="permission_revoked_notification_hint">অনুগ্রহ করে পুনরায় বিজ্ঞপ্তি পড়ার অনুমতি দিন। সেটিংস খুলতে এই বার্তাটি আলতো চাপুন৷</string>
+    <string name="settings">সেটিংস</string>
+    <string name="application">অ্যাপ্লিকেশন</string>
+    <string name="error">ভুল</string>
+    <string name="notification">বিজ্ঞপ্তি</string>
 </resources>

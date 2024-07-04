@@ -55,4 +55,10 @@
     <string name="perm_restricted_desc">手順2で通知の読み取りの許可ができなかった場合は、アプリ設定で「制限付き設定を許可」を有効にしてみてください</string>
     <string name="ignored_list_description">コード検出時に送信される通知上の「除外」ボタンを押すと、コードとして検出されなくなり、このリストに表示されます。</string>
     <string name="permission_todo_read_notifications">2. 通知の読み取り</string>
+    <string name="settings">設定</string>
+    <string name="application">アプリケーション</string>
+    <string name="notification">通知</string>
+    <string name="notification_tag">タグ</string>
+    <string name="notification_id">ID</string>
+    <string name="error">エラー</string>
 </resources>

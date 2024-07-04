@@ -55,4 +55,10 @@
     <string name="permission_revoked_channel_description">Nhắc nhở người dùng về các quyền cần thiết</string>
     <string name="permission_revoked">Đã thu hồi quyền</string>
     <string name="permission_revoked_notification_hint">Vui lòng cấp lại quyền đọc thông báo. Nhấn vào thông báo này để mở cài đặt.</string>
+    <string name="settings">Thiết đặt</string>
+    <string name="application">Ứng dụng</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification_id">MÃ SỐ</string>
+    <string name="error">Lỗi</string>
+    <string name="notification">Thông báo</string>
 </resources>

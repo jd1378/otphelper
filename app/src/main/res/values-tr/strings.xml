@@ -55,4 +55,10 @@
     <string name="permission_revoked_channel_description">Kullanıcıya gerekli izinleri hatırlatır</string>
     <string name="permission_revoked">İzin İptal Edildi</string>
     <string name="permission_revoked_notification_hint">Lütfen okuma bildirimi iznini tekrar verin. Ayarları açmak için bu mesaja dokunun.</string>
+    <string name="notification_id">Kimlik</string>
+    <string name="error">Hata</string>
+    <string name="settings">Ayarlar</string>
+    <string name="application">Uygulama</string>
+    <string name="notification_tag">Etiket</string>
+    <string name="notification">Bildirim</string>
 </resources>

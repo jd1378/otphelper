@@ -55,4 +55,10 @@
     <string name="permission_revoked_channel_description">उपयोगकर्ता को आवश्यक अनुमतियों के बारे में याद दिलाता है</string>
     <string name="permission_revoked">अनुमति रद्द कर दी गई</string>
     <string name="permission_revoked_notification_hint">कृपया पुनः अधिसूचना पढ़ने की अनुमति प्रदान करें। सेटिंग्स खोलने के लिए इस संदेश को टैप करें।</string>
+    <string name="error">त्रुटि</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="application">अनुप्रयोग</string>
+    <string name="notification_tag">टैग</string>
+    <string name="notification_id">ID</string>
+    <string name="notification">सूचनाएं</string>
 </resources>
