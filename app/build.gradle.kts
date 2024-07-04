@@ -7,6 +7,7 @@ plugins {
   id("org.jetbrains.kotlin.android")
   id("com.google.devtools.ksp")
   id("com.google.dagger.hilt.android")
+  id("com.google.protobuf") version "0.9.4"
 }
 
 android {
@@ -35,7 +36,8 @@ android {
     targetCompatibility = JavaVersion.VERSION_1_8
   }
   kotlinOptions { jvmTarget = "1.8" }
-  buildFeatures { compose = true
+  buildFeatures {
+    compose = true
     buildConfig = true
   }
   composeOptions { kotlinCompilerExtensionVersion = "1.5.14" }
@@ -44,6 +46,8 @@ android {
 
   applicationVariants.all(ApplicationVariantAction())
 }
+
+val protobufVersion = "3.25.3"
 
 dependencies {
   implementation(platform("androidx.compose:compose-bom:2024.06.00"))
@@ -86,9 +90,35 @@ dependencies {
   val pagingVersion = "3.3.0"
   implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
   implementation("androidx.paging:paging-compose:$pagingVersion")
+
+  // datastore
+
+  implementation("androidx.datastore:datastore:1.1.1")
+  implementation("com.google.protobuf:protobuf-javalite:$protobufVersion")
+  implementation("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
 }
 
 hilt { enableAggregatingTask = true }
+
+ksp { arg("room.schemaLocation", "$projectDir/schemas") }
+
+protobuf {
+  protoc { artifact = "com.google.protobuf:protoc:$protobufVersion" }
+
+  // Generates the java Protobuf-lite code for the Protobufs in this project. See
+  // https://github.com/google/protobuf-gradle-plugin#customizing-protobuf-compilation
+  // for more information.
+  generateProtoTasks {
+    all().forEach { task ->
+      task.builtins {
+        // Configures the task output type
+        // Lite has smaller code size and is recommended for Android
+        create("java") { option("lite") }
+        create("kotlin") { option("lite") }
+      }
+    }
+  }
+}
 
 class ApplicationVariantAction : Action<ApplicationVariant> {
   override fun execute(variant: ApplicationVariant) {

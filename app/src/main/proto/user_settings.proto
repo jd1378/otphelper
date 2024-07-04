@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "io.github.jd1378.otphelper";
+option java_multiple_files = true;
+
+message UserSettings {
+  bool is_migration_done = 1;
+  bool is_setup_finished = 2;
+  bool is_auto_copy_enabled = 3;
+  bool is_post_notif_enabled = 4;
+  bool is_copied_toast_enabled = 5;
+}
