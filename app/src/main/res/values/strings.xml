@@ -20,7 +20,7 @@
   <string name="HOME_ROUTE">Home</string>
   <string name="IGNORED_LIST_ROUTE">Ignored List</string>
   <string name="list_is_empty">List is empty</string>
-  <string name="ignored_list_description">When you press ignore button on the notification that is sent when a code is detected, it won\'t be detected as code anymore and will appear here.</string>
+  <string name="ignored_list_description">Ignored messages will be shown here after you hit the ignore button.</string>
   <string name="copy">Copy</string>
   <string name="ignore">Ignore</string>
   <string name="PERMISSION_ROUTE">Permissions</string>
