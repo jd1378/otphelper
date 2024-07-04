@@ -121,15 +121,13 @@ fun Permissions(
     Column(
         Modifier.padding(padding)
             .padding(top = 10.dp)
-            .padding(horizontal = dimensionResource(R.dimen.padding_small))
+            .padding(horizontal = dimensionResource(R.dimen.padding_page))
             .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_page)),
     ) {
       Text(
           stringResource(R.string.permissions_desc),
-          modifier =
-              Modifier.fillMaxWidth()
-                  .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+          modifier = Modifier.fillMaxWidth(),
           fontSize = 15.sp)
 
       TodoItem(
@@ -155,9 +153,7 @@ fun Permissions(
       if (uiState.hasAutostartSettings) {
         Text(
             stringResource(R.string.perm_extra_desc),
-            modifier =
-                Modifier.fillMaxWidth()
-                    .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+            modifier = Modifier.fillMaxWidth(),
             fontSize = 15.sp)
 
         TodoItem(
@@ -171,9 +167,7 @@ fun Permissions(
       if (uiState.hasRestrictedSettings) {
         Text(
             stringResource(R.string.perm_restricted_desc),
-            modifier =
-                Modifier.fillMaxWidth()
-                    .padding(horizontal = dimensionResource(R.dimen.padding_small)),
+            modifier = Modifier.fillMaxWidth(),
             fontSize = 15.sp)
 
         TodoItem(
