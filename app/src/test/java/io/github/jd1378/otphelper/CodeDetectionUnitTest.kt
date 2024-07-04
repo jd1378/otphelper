@@ -631,6 +631,13 @@ code: 123456
   }
 
   @Test
+  fun finnishOTPCode() {
+    val msg = """Kirjautumisen kertakäyttökoodisi on 123456"""
+    assertEquals(false, CodeIgnore.shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor.getCode(msg))
+  }
+
+  @Test
   fun mTanNotWorkingIssue65() {
     val msg = """mTan-Code: 123456"""
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
