@@ -37,7 +37,7 @@
     <string name="notice">ملاحظة</string>
     <string name="test_notification_content">الرمز الخاص بك هو: 230914</string>
     <string name="test_notification_title">هذا إشعار اختباري</string>
-    <string name="permission_todo_allow_restricted_settings">- السماح بالإعدادات المقيدة</string>
+    <string name="permission_todo_allow_restricted_settings">السماح بالإعدادات المقيدة</string>
     <string name="failed_to_open_app_settings">فشل في فتح إعدادات التطبيق</string>
     <string name="perm_restricted_desc">إذا لم تتمكن من السماح بقراءة الإشعارات في الخطوة 2، فحاول تمكين السماح بالإعدادات المقيدة في إعدادات ‏تطبيق ( نسخ رموز التحقق ) داخل إعدادات الهاتف</string>
     <string name="language">اللغة</string>

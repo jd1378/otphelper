@@ -38,7 +38,7 @@
     <string name="notice">Notice</string>
     <string name="test_notification_content">Ваш код: 230914</string>
     <string name="test_notification_title">Это пробное уведомление</string>
-    <string name="permission_todo_allow_restricted_settings">- Разрешить ограниченные настройки</string>
+    <string name="permission_todo_allow_restricted_settings">Разрешить ограниченные настройки</string>
     <string name="failed_to_open_app_settings">Не удалось открыть настройки</string>
     <string name="perm_restricted_desc">Если вы не можете разрешить чтение уведомлений на 2 этапе, то попробуйте включить Разрешить ограниченные настройки» в настройках приложения</string>
     <string name="language">Язык</string>

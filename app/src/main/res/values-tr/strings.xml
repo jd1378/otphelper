@@ -38,7 +38,7 @@
     <string name="notice">Bildirim</string>
     <string name="test_notification_content">Kodunuz: 230914</string>
     <string name="test_notification_title">Bu bir test bildirimidir</string>
-    <string name="permission_todo_allow_restricted_settings">- Kısıtlanmış ayarlara izin ver</string>
+    <string name="permission_todo_allow_restricted_settings">Kısıtlanmış ayarlara izin ver</string>
     <string name="failed_to_open_app_settings">Uygulama ayarları açılamadı</string>
     <string name="perm_restricted_desc">2. adımda bildirimlerin okunmasına izin veremediyseniz uygulama ayarlarında \"Kısıtlanmış ayarlara izin ver\" seçeneğini etkinleştirmeyi deneyin</string>
     <string name="language">Dil</string>

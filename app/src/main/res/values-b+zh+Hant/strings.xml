@@ -39,7 +39,7 @@
     <string name="notice">通知</string>
     <string name="test_notification_content">您的驗證碼為：230914，切勿將驗證碼洩漏給他人。</string>
     <string name="test_notification_title">這是一條用來測試驗證碼偵測的通知</string>
-    <string name="permission_todo_allow_restricted_settings">- 允許受限制的設定</string>
+    <string name="permission_todo_allow_restricted_settings">允許受限制的設定</string>
     <string name="failed_to_open_app_settings">無法開啟系統設定</string>
     <string name="perm_restricted_desc">如果在步驟 2 中無法允許讀取通知的權限，請嘗試在系統設定中的應用程式設定中開啟「允許受限制的設定」</string>
     <string name="language">切換語言</string>

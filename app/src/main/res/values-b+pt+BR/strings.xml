@@ -49,7 +49,7 @@
     <string name="notice">Aviso</string>
     <string name="test_notification_content">Seu código é: 230914</string>
     <string name="test_notification_title">Esta é uma notificação de teste</string>
-    <string name="permission_todo_allow_restricted_settings">- Permitir configurações restritas</string>
+    <string name="permission_todo_allow_restricted_settings">Permitir configurações restritas</string>
     <string name="failed_to_open_app_settings">Falha ao abrir as configurações do aplicativo</string>
     <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações no etapa 2, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
     <string name="label_source_code_link">Código Fonte:</string>

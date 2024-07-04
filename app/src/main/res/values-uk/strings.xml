@@ -39,7 +39,7 @@
     <string name="notice">Повідомлення</string>
     <string name="test_notification_content">Ваш код: 230914</string>
     <string name="test_notification_title">Це тестове повідомлення</string>
-    <string name="permission_todo_allow_restricted_settings">- Дозволити обмежені налаштування</string>
+    <string name="permission_todo_allow_restricted_settings">Дозволити обмежені налаштування</string>
     <string name="failed_to_open_app_settings">Не вдалося відкрити налаштування програми</string>
     <string name="perm_restricted_desc">Якщо ви не змогли дозволити читання сповіщень на кроці 2, спробуйте увімкнути \"Дозволити обмежені налаштування\" у налаштуваннях програми</string>
     <string name="language">Мова</string>

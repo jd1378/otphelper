@@ -38,7 +38,7 @@
     <string name="notice">Thông báo</string>
     <string name="test_notification_content">Your code is: 230914</string>
     <string name="test_notification_title">Đây là thông báo test</string>
-    <string name="permission_todo_allow_restricted_settings">- Cho phép cài đặt bị hạn chế</string>
+    <string name="permission_todo_allow_restricted_settings">Cho phép cài đặt bị hạn chế</string>
     <string name="failed_to_open_app_settings">Không mở được cài đặt ứng dụng</string>
     <string name="perm_restricted_desc">Nếu bạn không thể cho phép đọc thông báo ở bước 2, hãy thử bật \"Cho phép cài đặt bị hạn chế\" trong cài đặt ứng dụng</string>
     <string name="language">Ngôn ngữ</string>

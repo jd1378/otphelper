@@ -38,7 +38,7 @@
     <string name="notice">توجه</string>
     <string name="test_notification_content">کد شما: 230914</string>
     <string name="test_notification_title">این یک اعلان آزمایشی است</string>
-    <string name="permission_todo_allow_restricted_settings">- استفاده از تنظیمات محدودشده</string>
+    <string name="permission_todo_allow_restricted_settings">استفاده از تنظیمات محدودشده</string>
     <string name="failed_to_open_app_settings">خطا هنگاه باز کردن تنظیمات برنامه</string>
     <string name="perm_restricted_desc">اگر نتوانستید مرحله دوم را انجام دهید، گزینه \"اجازه دادن به تنظیمات محدود شده\" را در تنظیمات برنامه فعال کنید</string>
     <string name="language">زبان</string>

@@ -46,7 +46,7 @@
     <string name="test_notification_title">To jest powiadomienie testowe</string>
     <string name="search_language">Szukaj języka</string>
     <string name="permission_revoked_notification_hint">Ponownie nadaj uprawnienia do odczytu powiadomień. Dotknij tej wiadomości, aby otworzyć ustawienia.</string>
-    <string name="permission_todo_allow_restricted_settings">- Zezwalaj na ograniczone ustawienia</string>
+    <string name="permission_todo_allow_restricted_settings">Zezwalaj na ograniczone ustawienia</string>
     <string name="no_result">Brak wyników</string>
     <string name="about">O Nas</string>
     <string name="label_version">Wersja:</string>

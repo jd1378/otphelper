@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="permission_todo_allow_restricted_settings">- Permitir configurações restritas</string>
+    <string name="permission_todo_allow_restricted_settings">Permitir configurações restritas</string>
     <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações no etapa 2, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
     <string name="app_name">Copiar Código do SMS</string>
     <string name="code_detected_channel_name">Código Detectado</string>

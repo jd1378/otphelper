@@ -39,7 +39,7 @@
     <string name="notice">सूचना</string>
     <string name="test_notification_content">आपका कोड है: 230914</string>
     <string name="test_notification_title">यह एक परीक्षण नोटिफिकेशन है</string>
-    <string name="permission_todo_allow_restricted_settings">- प्रतिबंधित सेटिंग्स की अनुमति दें</string>
+    <string name="permission_todo_allow_restricted_settings">प्रतिबंधित सेटिंग्स की अनुमति दें</string>
     <string name="failed_to_open_app_settings">ऐप सेटिंग खोलने में विफल</string>
     <string name="perm_restricted_desc">यदि आप चरण 2 में सूचनाएं पढ़ने की अनुमति नहीं दे सकते हैं, तो एप्लिकेशन सेटिंग्स में \"प्रतिबंधित सेटिंग्स की अनुमति दें\" को सक्षम करने का प्रयास करें</string>
     <string name="language">भाषा</string>

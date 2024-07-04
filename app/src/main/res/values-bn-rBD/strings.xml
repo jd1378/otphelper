@@ -38,7 +38,7 @@
     <string name="notice">ঘোষণা</string>
     <string name="test_notification_content">আপনার কোড হল: ২৩০৯১৪</string>
     <string name="test_notification_title">এটি একটি পরীক্ষার নোটিফিকেশন</string>
-    <string name="permission_todo_allow_restricted_settings">- সীমাবদ্ধ সেটিংসের অনুমতি দিন</string>
+    <string name="permission_todo_allow_restricted_settings">সীমাবদ্ধ সেটিংসের অনুমতি দিন</string>
     <string name="failed_to_open_app_settings">অ্যাপ সেটিংস খুলতে ব্যর্থ হয়েছে</string>
     <string name="perm_restricted_desc">আপনি যদি ২ ধাপে নোটিফিকেশন পড়ার অনুমতি না দিতে পারেন, তাহলে অ্যাপ্লিকেশন সেটিংসে \"সীমাবদ্ধ সেটিংসের অনুমতি দিন\" সক্ষম করার চেষ্টা করুন ।</string>
     <string name="language">ভাষা</string>
