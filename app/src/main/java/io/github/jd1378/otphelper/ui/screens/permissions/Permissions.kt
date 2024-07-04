@@ -88,7 +88,7 @@ fun Permissions(
                 Button(
                     modifier =
                         Modifier.fillMaxWidth()
-                            .padding(start = 40.dp, end = dimensionResource(R.dimen.small_padding)),
+                            .padding(start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
                     onClick = { onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE) }) {
                       Text(text = stringResource(R.string.language))
                     }
@@ -115,7 +115,7 @@ fun Permissions(
         Column(
             Modifier.padding(padding)
                 .padding(top = 10.dp)
-                .padding(horizontal = dimensionResource(R.dimen.small_padding))
+                .padding(horizontal = dimensionResource(R.dimen.padding_small))
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
@@ -123,7 +123,7 @@ fun Permissions(
               stringResource(R.string.permissions_desc),
               modifier =
                   Modifier.fillMaxWidth()
-                      .padding(horizontal = dimensionResource(R.dimen.small_padding)),
+                      .padding(horizontal = dimensionResource(R.dimen.padding_small)),
               fontSize = 15.sp)
 
           TodoItem(
@@ -151,7 +151,7 @@ fun Permissions(
                 stringResource(R.string.perm_extra_desc),
                 modifier =
                     Modifier.fillMaxWidth()
-                        .padding(horizontal = dimensionResource(R.dimen.small_padding)),
+                        .padding(horizontal = dimensionResource(R.dimen.padding_small)),
                 fontSize = 15.sp)
 
             TodoItem(
@@ -167,7 +167,7 @@ fun Permissions(
                 stringResource(R.string.perm_restricted_desc),
                 modifier =
                     Modifier.fillMaxWidth()
-                        .padding(horizontal = dimensionResource(R.dimen.small_padding)),
+                        .padding(horizontal = dimensionResource(R.dimen.padding_small)),
                 fontSize = 15.sp)
 
             TodoItem(

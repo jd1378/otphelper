@@ -56,8 +56,8 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
           SearchBar(
               modifier =
                   Modifier.fillMaxWidth()
-                      .padding(horizontal = dimensionResource(R.dimen.medium_padding))
-                      .padding(bottom = dimensionResource(R.dimen.extra_small_padding)),
+                      .padding(horizontal = dimensionResource(R.dimen.padding_medium))
+                      .padding(bottom = dimensionResource(R.dimen.padding_xs)),
               query = uiState.searchTerm,
               onSearch = {},
               onQueryChange = { viewModel.setSearchTerm(it) },
@@ -68,7 +68,7 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
                 Icon(imageVector = Icons.Default.Search, contentDescription = null)
               }) {}
           LazyColumn(
-              Modifier.padding(horizontal = dimensionResource(R.dimen.small_padding)),
+              Modifier.padding(horizontal = dimensionResource(R.dimen.padding_small)),
           ) {
             items(items = uiState.locales, key = { locale -> locale.code }) { locale ->
               Row(
@@ -80,7 +80,7 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
                         text = stringResource(locale.label),
                         Modifier.fillMaxWidth()
                             .padding(
-                                horizontal = dimensionResource(R.dimen.small_padding),
+                                horizontal = dimensionResource(R.dimen.padding_small),
                                 vertical = 14.dp))
                   }
             }
@@ -92,7 +92,7 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
                     modifier =
                         Modifier.fillMaxWidth()
                             .padding(
-                                horizontal = dimensionResource(R.dimen.small_padding),
+                                horizontal = dimensionResource(R.dimen.padding_small),
                                 vertical = 14.dp))
               }
             }

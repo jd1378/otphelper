@@ -67,7 +67,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
       }) { padding ->
         Column(
             Modifier.padding(padding)
-                .padding(horizontal = dimensionResource(R.dimen.medium_padding)),
+                .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
         ) {
           Text(
               stringResource(R.string.ignored_list_description),
@@ -75,13 +75,13 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
               fontSize = 15.sp)
 
           HorizontalDivider(
-              Modifier.padding(top = dimensionResource(R.dimen.medium_padding))
-                  .padding(horizontal = dimensionResource(R.dimen.medium_padding)),
+              Modifier.padding(top = dimensionResource(R.dimen.padding_medium))
+                  .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
           )
 
           Box(
               modifier =
-                  Modifier.fillMaxSize().padding(top = dimensionResource(R.dimen.medium_padding)),
+                  Modifier.fillMaxSize().padding(top = dimensionResource(R.dimen.padding_medium)),
           ) {
             when (ignoredNotifs.loadState.refresh) {
               is LoadState.Loading ->
@@ -107,7 +107,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
                       modifier = Modifier.fillMaxSize(),
                       horizontalAlignment = Alignment.CenterHorizontally,
                       verticalArrangement =
-                          Arrangement.spacedBy(dimensionResource(R.dimen.medium_padding)),
+                          Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
                   ) {
                     items(
                         count = ignoredNotifs.itemCount,
@@ -142,12 +142,11 @@ fun IgnoredListItem(ignoredNotif: IgnoredNotif, delete: (ignoredNotif: IgnoredNo
     Spacer(Modifier.size(10.dp))
     Column(
         modifier = Modifier.width(0.dp).weight(1f).fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.extra_small_padding)),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
     ) {
       AppLabel(ignoredNotif.packageName)
       Row(
-          horizontalArrangement =
-              Arrangement.spacedBy(dimensionResource(R.dimen.extra_small_padding)),
+          horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
       ) {
         Text(text = ignoredNotif.type.getTranslation())
         if (!ignoredNotif.typeData.isNullOrEmpty()) {
