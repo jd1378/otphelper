@@ -56,8 +56,9 @@
     <string name="ignore_app">Ignorar Aplicativo</string>
     <string name="permission_revoked_channel_description">Lembra o usuário sobre as permissões necessárias</string>
     <string name="settings">Configurações</string>
-    <string name="application">Aplicação</string>
-    <string name="notification_tag">Notificação em</string>
-    <string name="notification_id">Notificação em</string>
+    <string name="application">Aplicativo</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification_id">ID</string>
     <string name="error">Erro</string>
+    <string name="notification">Notificação</string>
 </resources>
