@@ -20,7 +20,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -31,7 +30,7 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.SettingPageLink
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-import java.util.Locale
+import io.github.jd1378.otphelper.ui.utils.getCurrentLocale
 
 fun NavGraphBuilder.addSettingsGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
@@ -142,10 +141,4 @@ fun Settings(
           }
         }
       }
-}
-
-@Composable
-fun getCurrentLocale(): Locale {
-  val context = LocalContext.current
-  return context.resources.configuration.locales[0]
 }
