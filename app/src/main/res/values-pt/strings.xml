@@ -55,4 +55,10 @@
     <string name="ignored_list_description">Ao pressionar o botão ignorar na notificação enviada quando um código é detectado, ele não será mais detectado como código e aparecerá aqui.</string>
     <string name="perm_extra_desc">Em alguns dispositivos, como a Xiaomi, Huawei, etc, para permitir que o aplicativo inicie quando o telefone for reiniciado, você deve manualmente garantir a permissão de \'autostart\'. Não podemos detectar se você tem ou não.</string>
     <string name="permission_revoked_channel_description">Lembra o usuário sobre as permissões necessárias</string>
+    <string name="notification">Notificação</string>
+    <string name="error">Erro</string>
+    <string name="settings">Configurações</string>
+    <string name="application">Aplicativo</string>
+    <string name="notification_tag">Etiqueta</string>
+    <string name="notification_id">ID</string>
 </resources>
