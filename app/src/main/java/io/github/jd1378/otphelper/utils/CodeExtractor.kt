@@ -14,6 +14,7 @@ class CodeExtractor {
             "contraseña",
             "c[oó]digo",
             "clave",
+            "\\bPIN\\W",
             "验证码",
             "校验码",
             "識別碼",
