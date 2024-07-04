@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraphBuilder
@@ -61,47 +62,41 @@ fun About(upPress: () -> Unit) {
               verticalArrangement = Arrangement.spacedBy(20.dp),
               horizontalAlignment = Alignment.CenterHorizontally,
           ) {
-            Text(
-                stringResource(R.string.app_name),
-                modifier = Modifier.padding(PaddingValues(10.dp)),
-                fontSize = 26.sp)
-
             Image(
                 painter = painterResource(R.drawable.logo_round),
                 contentDescription = null,
                 modifier = Modifier.size(128.dp).shadow(3.dp, shape = CircleShape),
             )
 
+            Text(
+                stringResource(R.string.app_name),
+                modifier = Modifier.padding(PaddingValues(10.dp)),
+                fontSize = 28.sp)
+
             val labelStyle =
-                LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.onSurfaceVariant)
+                LocalTextStyle.current.copy(
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium)
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center) {
-                  Text(
-                      text = stringResource(R.string.label_version),
-                      fontSize = 16.sp,
-                      style = labelStyle)
+                  Text(text = stringResource(R.string.label_version), style = labelStyle)
                   Text(BuildConfig.VERSION_NAME, fontSize = 20.sp)
                 }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center) {
-                  Text(
-                      text = stringResource(R.string.label_license),
-                      fontSize = 16.sp,
-                      style = labelStyle)
+                  Text(text = stringResource(R.string.label_license), style = labelStyle)
                   Text(stringResource(R.string.license_type), fontSize = 20.sp)
                 }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center) {
-                  Text(
-                      text = stringResource(R.string.label_source_code_link),
-                      fontSize = 16.sp,
-                      style = labelStyle)
+                  Text(text = stringResource(R.string.label_source_code_link), style = labelStyle)
 
                   val uriHandler = LocalUriHandler.current
 
