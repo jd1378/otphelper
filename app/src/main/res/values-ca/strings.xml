@@ -38,7 +38,7 @@
     <string name="permission_todo_read_notifications">2. Llegir notificacions</string>
     <string name="permission_todo_autostart">4. Permet iniciar automàticament</string>
     <string name="wont_detect_code_from_this_notif">No es detectaran més codis d\'aquesta notificació</string>
-    <string name="settings">Configuració</string>
+    <string name="settings">Paràmetres</string>
     <string name="application">Aplicació</string>
     <string name="notification_tag">Etiqueta</string>
     <string name="notification_id">Id</string>
