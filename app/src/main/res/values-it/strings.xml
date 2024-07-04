@@ -55,4 +55,9 @@
     <string name="permission_revoked_channel_description">Ricorda all\'utente le autorizzazioni necessarie</string>
     <string name="permission_revoked">Autorizzazione revocata</string>
     <string name="permission_revoked_notification_hint">Concedere nuovamente l\'autorizzazione alla notifica di lettura. Tocca questo messaggio per aprire le impostazioni.</string>
+    <string name="settings">Impostazioni</string>
+    <string name="application">Applicazione</string>
+    <string name="error">Errore</string>
+    <string name="notification_tag">Tag</string>
+    <string name="notification">Notifica</string>
 </resources>
