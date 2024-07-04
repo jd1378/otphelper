@@ -35,6 +35,7 @@ import androidx.navigation.navArgument
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
 fun NavGraphBuilder.addPermissionsGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
@@ -77,7 +78,8 @@ fun Permissions(
       else -> {}
     }
   }
-  LaunchedEffect(uiState.userSettings.isSetupFinished) {
+
+  SkipFirstLaunchedEffect(uiState.userSettings.isSetupFinished) {
     if (uiState.userSettings.isSetupFinished) {
       onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true)
     }

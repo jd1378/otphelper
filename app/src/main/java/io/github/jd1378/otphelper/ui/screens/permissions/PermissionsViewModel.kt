@@ -15,6 +15,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.UserSettings
+import io.github.jd1378.otphelper.copy
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
@@ -35,7 +36,8 @@ data class PermissionsUiState(
     val hasRestrictedSettings: Boolean = false,
     val showSkipWarning: Boolean = false,
     val hasDoneAllSteps: Boolean = false,
-    val userSettings: UserSettings = UserSettings.getDefaultInstance(),
+    val userSettings: UserSettings =
+        UserSettings.getDefaultInstance().copy { isSetupFinished = true },
 )
 
 @HiltViewModel
