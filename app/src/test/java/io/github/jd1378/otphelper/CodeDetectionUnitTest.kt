@@ -223,8 +223,8 @@ www.iranketab.ir
 
   @Test
   fun spanishPINCode() {
-    val msg = "Para acceder a su información del SCSALUD introduzca el siguiente PIN: 12345678"
-    val expectedCode = "12345678"
+    val msg = "Para acceder a su información del SCSALUD introduzca el siguiente PIN: 123456"
+    val expectedCode = "123456"
     assertEquals(false, CodeIgnore.shouldIgnore(msg))
     assertEquals(expectedCode, CodeExtractor.getCode(msg))
   }
