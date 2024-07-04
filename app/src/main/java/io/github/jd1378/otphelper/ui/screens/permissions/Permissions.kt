@@ -35,7 +35,6 @@ import androidx.navigation.navArgument
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
 fun NavGraphBuilder.addPermissionsGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
@@ -79,12 +78,6 @@ fun Permissions(
     }
   }
 
-  SkipFirstLaunchedEffect(uiState.userSettings.isSetupFinished) {
-    if (uiState.userSettings.isSetupFinished) {
-      onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true)
-    }
-  }
-
   Scaffold(
       topBar = {
         TitleBar(
@@ -106,7 +99,10 @@ fun Permissions(
       },
       bottomBar = {
         if (setupMode) {
-          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish() }
+          SkipDialog(show = uiState.showSkipWarning) {
+            viewModel.onSetupFinish()
+            upPress()
+          }
           Row(Modifier.navigationBarsPadding().padding(10.dp)) {
             Spacer(modifier = Modifier.weight(1f))
             if (uiState.hasDoneAllSteps) {

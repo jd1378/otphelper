@@ -12,8 +12,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,10 +19,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
 fun NavGraphBuilder.addHomeGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
@@ -43,10 +43,10 @@ fun Home(
     modifier: Modifier,
     viewModel: HomeViewModel
 ) {
-  val userSettings by viewModel.userSettings.collectAsState()
+  val userSettings by viewModel.userSettings.collectAsStateWithLifecycle()
   val context = LocalContext.current
 
-  LaunchedEffect(userSettings.isSetupFinished) {
+  SkipFirstLaunchedEffect(userSettings.isSetupFinished) {
     if (!userSettings.isSetupFinished) {
       onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true", true)
     }
@@ -66,17 +66,17 @@ fun Home(
       ) {
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, false) }) {
+            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, true) }) {
               Text(text = stringResource(R.string.PERMISSION_ROUTE))
             }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, false) }) {
+            onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, true) }) {
               Text(text = stringResource(R.string.ignored_list))
             }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, false) }) {
+            onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true) }) {
               Text(text = stringResource(R.string.settings))
             }
         Button(
