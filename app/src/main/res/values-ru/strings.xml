@@ -55,4 +55,8 @@
     <string name="permission_revoked_channel_description">Напоминает пользователю о необходимых разрешениях</string>
     <string name="permission_revoked">Разрешение отозвано</string>
     <string name="permission_revoked_notification_hint">Пожалуйста, предоставьте разрешение на чтение уведомления еще раз. Нажмите на это сообщение, чтобы открыть настройки.</string>
+    <string name="settings">Настройки</string>
+    <string name="application">Приложение</string>
+    <string name="error">Ошибка</string>
+    <string name="notification_id">Уведомление</string>
 </resources>
