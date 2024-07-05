@@ -18,7 +18,7 @@
     <string name="HOME_ROUTE">首页</string>
     <string name="IGNORED_LIST_ROUTE">黑名单</string>
     <string name="list_is_empty">暂无黑名单</string>
-    <string name="ignored_list_description">当你点击此应用的验证码通知中的“忽略”按钮时，此应用不会再检测对应的验证码。</string>
+    <string name="ignored_list_description">点击“忽略”按钮后，被忽略的消息将显示在此处。</string>
     <string name="copy">复制</string>
     <string name="ignore">忽略</string>
     <string name="PERMISSION_ROUTE">权限管理</string>
