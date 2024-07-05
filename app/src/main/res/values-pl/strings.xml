@@ -10,7 +10,7 @@
     <string name="send_test_notification">Wyślij testowe powiadomienie</string>
     <string name="wont_detect_code_from_this_app">Nie wykryję ponownie kodu z tej aplikacji</string>
     <string name="list_is_empty">Lista jest pusta</string>
-    <string name="ignored_list_description">Jeśli naciśniesz przycisk ignoruj w powiadomieniu kiedy kod zostanie wykryty, nie będzie dalej wykrywany i pojawi się tutaj.</string>
+    <string name="ignored_list_description">Zignorowane wiadomości zostaną wyświetlone tutaj po naciśnięciu przycisku ignoruj.</string>
     <string name="copy">Kopiuj</string>
     <string name="open">Otwórz</string>
     <string name="permission_todo_post_notifications">1. Wysyłanie powiadomień</string>
@@ -55,7 +55,7 @@
     <string name="label_source_code_link">Kod źródłowy:</string>
     <string name="ignore_tag">Ignoruj Tag</string>
     <string name="ignore_app">Ignoruj Aplikację</string>
-    <string name="notification_tag">Tag</string>
+    <string name="notification_tag">Znacznik</string>
     <string name="notification">Powiadomienie</string>
     <string name="settings">Ustawienia</string>
     <string name="application">Aplikacja</string>
