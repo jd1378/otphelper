@@ -35,7 +35,7 @@ def prettify(element, indent="    "):
 def save_xml(tree, file_path):
     prettify(tree.getroot()) 
     xml_declaration = '<?xml version="1.0" encoding="utf-8"?>\n'
-    xml_content = ET.tostring(tree.getroot(), encoding="unicode")
+    xml_content = ET.tostring(tree.getroot(), encoding="uft-8")
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(xml_declaration + xml_content)
     print(f"Updated strings file saved at {file_path}")
