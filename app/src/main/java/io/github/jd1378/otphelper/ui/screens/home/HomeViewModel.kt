@@ -26,7 +26,7 @@ constructor(
   val userSettings =
       userSettingsRepository.userSettings.stateIn(
           scope = viewModelScope,
-          started = SharingStarted.WhileSubscribed(5_000),
+          started = SharingStarted.Eagerly,
           initialValue = UserSettings.getDefaultInstance().copy { isSetupFinished = true })
 
   fun onSendTestNotifPressed(context: Context) {
