@@ -99,14 +99,11 @@ fun Permissions(
       },
       bottomBar = {
         if (setupMode) {
-          SkipDialog(show = uiState.showSkipWarning) {
-            viewModel.onSetupFinish()
-            upPress()
-          }
+          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish(upPress) }
           Row(Modifier.navigationBarsPadding().padding(10.dp)) {
             Spacer(modifier = Modifier.weight(1f))
             if (uiState.hasDoneAllSteps) {
-              Button(onClick = { viewModel.onSetupFinish() }) {
+              Button(onClick = { viewModel.onSetupFinish(upPress) }) {
                 Text(text = stringResource(R.string.finish))
               }
             } else {

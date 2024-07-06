@@ -119,9 +119,12 @@ constructor(
     }
   }
 
-  fun onSetupFinish() {
+  fun onSetupFinish(upPress: () -> Unit) {
     _showSkipWarning.update { false }
-    viewModelScope.launch { userSettingsRepository.setIsSetupFinished(true) }
+    viewModelScope.launch {
+      userSettingsRepository.setIsSetupFinished(true)
+      upPress()
+    }
   }
 
   fun onSetupSkipPressed() {
