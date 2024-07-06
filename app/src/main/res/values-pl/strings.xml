@@ -65,7 +65,7 @@
     <string name="see_details">See Details</string>
     <string name="history">History</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
-    <string name="replace_code_in_history">Replace code in history</string>
+    <string name="replace_code_in_history">Replace detected code with zeroes in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
     <string name="show_toast">Show Toast</string>
     <string name="show_toast_help">Shows \"%1$s\" after copying the code.</string>
