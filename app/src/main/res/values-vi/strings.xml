@@ -62,8 +62,8 @@
     <string name="error">Lỗi</string>
     <string name="notification">Thông báo</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="show_details">Xem chi tiết</string>
-    <string name="history">Lịch sử</string>
+    <string name="show_details">Hiển thị chi tiết</string>
+    <string name="history">Nhật ký</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
