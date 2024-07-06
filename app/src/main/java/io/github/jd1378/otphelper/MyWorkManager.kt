@@ -5,7 +5,6 @@ import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.OutOfQuotaPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import io.github.jd1378.otphelper.utils.getTimeToMidnightMillis
@@ -17,10 +16,7 @@ import java.util.concurrent.TimeUnit
 
 object MyWorkManager {
   fun doDataMigration(context: Context) {
-    val migrateWork =
-        OneTimeWorkRequestBuilder<MigrateWorker>()
-            .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
-            .build()
+    val migrateWork = OneTimeWorkRequestBuilder<MigrateWorker>().build()
     WorkManager.getInstance(context)
         .enqueueUniqueWork(
             migrateWorkName,
