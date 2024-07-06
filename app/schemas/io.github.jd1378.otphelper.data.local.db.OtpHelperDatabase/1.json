@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "89cbf0da7c050c1de9a0436d5d8f4fbe",
+    "identityHash": "61ab67bdc148741aebd7483b9024be2d",
     "entities": [
       {
         "tableName": "IgnoredNotif",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `packageName` TEXT NOT NULL, `type` TEXT NOT NULL, `typeData` TEXT, `createdAt` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `packageName` TEXT NOT NULL, `type` TEXT NOT NULL, `typeData` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -30,7 +30,7 @@
             "fieldPath": "typeData",
             "columnName": "typeData",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "createdAt",
@@ -142,7 +142,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '89cbf0da7c050c1de9a0436d5d8f4fbe')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '61ab67bdc148741aebd7483b9024be2d')"
     ]
   }
 }

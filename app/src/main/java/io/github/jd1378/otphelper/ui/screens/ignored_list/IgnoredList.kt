@@ -148,15 +148,11 @@ fun IgnoredListItem(ignoredNotif: IgnoredNotif, delete: (ignoredNotif: IgnoredNo
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
     ) {
       AppLabel(ignoredNotif.packageName)
-      Row(
-          horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
-      ) {
+      Column {
         Text(text = ignoredNotif.type.getTranslation())
-        if (!ignoredNotif.typeData.isNullOrEmpty()) {
-          Text(
-              text = "(" + ignoredNotif.typeData + ")",
-          )
-        }
+        Text(
+            text = ignoredNotif.typeData,
+        )
       }
     }
 

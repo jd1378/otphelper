@@ -20,6 +20,6 @@ data class IgnoredNotif(
     val packageName: String,
     val type: IgnoredNotifType,
     /** Not null when type is anything other than IgnoredNotifType.APPLICATION */
-    val typeData: String? = null,
+    val typeData: String = "",
     val createdAt: Date = Date(),
 )
