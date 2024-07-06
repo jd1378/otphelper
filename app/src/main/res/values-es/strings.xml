@@ -62,11 +62,11 @@
     <string name="notification">Notificación</string>
     <string name="notification_tag">Etiqueta</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="see_details">See Details</string>
-    <string name="history">History</string>
-    <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
-    <string name="replace_code_in_history">Replace code in history</string>
-    <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
+    <string name="see_details">Mostrar detalles</string>
+    <string name="history">Historial</string>
+    <string name="history_help">El historial se eliminará automáticamente a medianoche todos los días, excepto las últimas 10 entradas.</string>
+    <string name="replace_code_in_history">Reemplazar código en el historial</string>
+    <string name="replace_code_in_history_help">Reemplaza el código detectado en el historial con ceros.</string>
     <string name="show_toast">Show Toast</string>
     <string name="show_toast_help">Shows \"%1$s\" after copying the code.</string>
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
@@ -78,7 +78,7 @@
     <string name="no">No</string>
     <string name="options">Options</string>
     <string name="history_detail">History Detail</string>
-    <string name="allow_id">Allow ID</string>
-    <string name="allow_tag">Allow Tag</string>
-    <string name="allow_app">Allow App</string>
+    <string name="allow_id">Permitir ID</string>
+    <string name="allow_tag">Permitir etiqueta</string>
+    <string name="allow_app">Permitir aplicación</string>
 </resources>
