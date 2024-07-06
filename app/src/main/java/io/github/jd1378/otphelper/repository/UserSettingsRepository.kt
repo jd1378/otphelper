@@ -22,4 +22,8 @@ interface UserSettingsRepository {
   suspend fun setIsPostNotifEnabled(value: Boolean)
 
   suspend fun setIsCopiedToastEnabled(value: Boolean)
+
+  suspend fun setIsHistoryDisabled(value: Boolean)
+
+  suspend fun setShouldReplaceCodeInHistory(value: Boolean)
 }

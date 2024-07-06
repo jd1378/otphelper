@@ -54,14 +54,30 @@ constructor(
   override suspend fun setIgnored(
       packageName: String,
       type: IgnoredNotifType,
-      typeData: String?,
+      typeData: String,
   ) {
     otpHelperDatabase
         .ignoredNotifDao()
         .insert(IgnoredNotif(packageName = packageName, type = type, typeData = typeData))
   }
 
+  override suspend fun exists(
+      packageName: String,
+      type: IgnoredNotifType,
+      typeData: String,
+  ): Flow<Boolean> {
+    return otpHelperDatabase.ignoredNotifDao().exists(packageName, type, typeData)
+  }
+
   override suspend fun deleteIgnored(ignoredNotif: IgnoredNotif) {
     otpHelperDatabase.ignoredNotifDao().delete(ignoredNotif)
+  }
+
+  override suspend fun deleteIgnored(
+      packageName: String,
+      type: IgnoredNotifType,
+      typeData: String,
+  ) {
+    otpHelperDatabase.ignoredNotifDao().delete(packageName, type, typeData)
   }
 }

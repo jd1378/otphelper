@@ -1,13 +1,15 @@
 package io.github.jd1378.otphelper.ui.components
 
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun AppLabel(packageName: String, modifier: Modifier = Modifier) {
+fun AppLabel(packageName: String, textStyle: TextStyle = LocalTextStyle.current, modifier: Modifier = Modifier) {
   val context = LocalContext.current
   var label: String? = null
 
@@ -19,7 +21,7 @@ fun AppLabel(packageName: String, modifier: Modifier = Modifier) {
     e.printStackTrace()
   }
 
-  label?.let { Text(label, modifier = modifier) }
+  label?.let { Text(label, style = textStyle, modifier = modifier) }
 }
 
 @Preview(showBackground = true)

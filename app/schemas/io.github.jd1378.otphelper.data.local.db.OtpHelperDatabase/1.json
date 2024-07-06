@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4ef5ae7c7edf642fed3eeae87991edd2",
+    "identityHash": "89cbf0da7c050c1de9a0436d5d8f4fbe",
     "entities": [
       {
         "tableName": "IgnoredNotif",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `packageName` TEXT NOT NULL, `type` TEXT NOT NULL, `typeData` TEXT, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `packageName` TEXT NOT NULL, `type` TEXT NOT NULL, `typeData` TEXT, `createdAt` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -40,7 +40,7 @@
           }
         ],
         "primaryKey": {
-          "autoGenerate": false,
+          "autoGenerate": true,
           "columnNames": [
             "id"
           ]
@@ -65,14 +65,75 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_IgnoredNotif_packageName` ON `${TABLE_NAME}` (`packageName`)"
           },
           {
-            "name": "index_IgnoredNotif_packageName_type",
-            "unique": false,
+            "name": "index_IgnoredNotif_packageName_type_typeData",
+            "unique": true,
             "columnNames": [
               "packageName",
-              "type"
+              "type",
+              "typeData"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_IgnoredNotif_packageName_type` ON `${TABLE_NAME}` (`packageName`, `type`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_IgnoredNotif_packageName_type_typeData` ON `${TABLE_NAME}` (`packageName`, `type`, `typeData`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "DetectedCode",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `packageName` TEXT NOT NULL, `notificationId` TEXT NOT NULL, `notificationTag` TEXT NOT NULL, `text` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "packageName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notificationId",
+            "columnName": "notificationId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notificationTag",
+            "columnName": "notificationTag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_DetectedCode_createdAt",
+            "unique": false,
+            "columnNames": [
+              "createdAt"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_DetectedCode_createdAt` ON `${TABLE_NAME}` (`createdAt`)"
           }
         ],
         "foreignKeys": []
@@ -81,7 +142,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4ef5ae7c7edf642fed3eeae87991edd2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '89cbf0da7c050c1de9a0436d5d8f4fbe')"
     ]
   }
 }

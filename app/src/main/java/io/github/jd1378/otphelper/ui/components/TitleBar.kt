@@ -3,6 +3,8 @@ package io.github.jd1378.otphelper.ui.components
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -16,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import io.github.jd1378.otphelper.R
-import io.github.jd1378.otphelper.utils.mirroringBackIcon
 
 @Composable
 private fun Up(upPress: () -> Unit) {
@@ -25,7 +26,7 @@ private fun Up(upPress: () -> Unit) {
       modifier =
           Modifier.statusBarsPadding().padding(horizontal = 16.dp, vertical = 10.dp).size(36.dp)) {
         Icon(
-            imageVector = mirroringBackIcon(),
+            imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
             contentDescription = stringResource(R.string.label_back))
       }
 }

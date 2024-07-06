@@ -9,7 +9,10 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -139,6 +142,15 @@ private val darkColors =
         scrim = md_theme_dark_scrim,
     )
 
+data class CustomColors(val codeHighlight: Color, val phraseHighlight: Color)
+
+val LocalCustomColors = compositionLocalOf {
+  CustomColors(
+      phraseHighlight = Color.Unspecified,
+      codeHighlight = Color.Unspecified,
+  )
+}
+
 @Composable
 fun OtpHelperTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -166,5 +178,20 @@ fun OtpHelperTheme(
     }
   }
 
-  MaterialTheme(colorScheme = colorScheme, typography = Typography, content = content)
+  val customColors =
+      if (darkTheme) {
+        CustomColors(
+            phraseHighlight = Color(0.384f, 0.788f, 0.969f, 1.0f),
+            codeHighlight = Color(0.357f, 0.859f, 0.541f, 1.0f),
+        )
+      } else {
+        CustomColors(
+            phraseHighlight = Color(0.227f, 0.565f, 0.714f, 1.0f),
+            codeHighlight = Color(0.231f, 0.639f, 0.38f, 1.0f),
+        )
+      }
+
+  CompositionLocalProvider(LocalCustomColors provides customColors) {
+    MaterialTheme(colorScheme = colorScheme, typography = Typography, content = content)
+  }
 }

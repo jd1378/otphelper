@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
-import io.github.jd1378.otphelper.CodeDetectedReceiver
 import io.github.jd1378.otphelper.INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS
 import io.github.jd1378.otphelper.MainActivity
 import io.github.jd1378.otphelper.NotifActionReceiver
@@ -118,6 +117,21 @@ class NotificationHelper {
               false,
           )
 
+      val seeOptionsPendingIntent =
+          PendingIntentCompat.getBroadcast(
+              context,
+              0,
+              Intent(NotifActionReceiver.INTENT_ACTION_SEE_DETAILS).apply {
+                setPackage(context.packageName)
+                putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                putExtra("historyId", extras.getLong("historyId", 0L))
+              },
+              0,
+              false,
+          )
+
+      val notificationTimeout = 60_000L
+
       val notificationBuilder =
           NotificationCompat.Builder(context, channelId)
               .setExtras(extras)
@@ -129,10 +143,10 @@ class NotificationHelper {
               .setUsesChronometer(true)
               .setChronometerCountDown(true)
               .setShowWhen(true)
-              .setWhen(Date().time + CodeDetectedReceiver.NOTIFICATION_TIMEOUT)
+              .setWhen(Date().time + notificationTimeout)
               .setCategory(Notification.CATEGORY_SERVICE)
               .setSortKey("0")
-              .setTimeoutAfter(CodeDetectedReceiver.NOTIFICATION_TIMEOUT)
+              .setTimeoutAfter(notificationTimeout)
               .setSilent(true)
               .setVibrate(null)
               .addAction(
@@ -140,42 +154,51 @@ class NotificationHelper {
                   context.getString(R.string.ignore_app),
                   ignoreAppPendingIntent)
 
-      if (!extras.getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_TAG).isNullOrEmpty()) {
-        val ignoreTagPendingIntent =
-            PendingIntentCompat.getBroadcast(
-                context,
-                0,
-                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG).apply {
-                  setPackage(context.packageName)
-                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
-                },
-                0,
-                false,
-            )
-
+      val historyId = extras.getLong("historyId", 0L)
+      if (historyId > 0L) {
         notificationBuilder.addAction(
             R.drawable.baseline_visibility_off_24,
-            context.getString(R.string.ignore_tag),
-            ignoreTagPendingIntent)
-      } else if (!extras
-          .getString(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_ID)
-          .isNullOrEmpty()) {
-        val ignoreNidPendingIntent =
-            PendingIntentCompat.getBroadcast(
-                context,
-                0,
-                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID).apply {
-                  setPackage(context.packageName)
-                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
-                },
-                0,
-                false,
-            )
+            context.getString(R.string.see_details),
+            seeOptionsPendingIntent)
+      } else {
+        val notificationId = extras.getString("notificationId")
+        val notificationTag = extras.getString("notificationTag")
 
-        notificationBuilder.addAction(
-            R.drawable.baseline_visibility_off_24,
-            context.getString(R.string.ignore_id),
-            ignoreNidPendingIntent)
+        if (!notificationTag.isNullOrEmpty() && notificationTag.contains(':')) {
+          val ignoreTagPendingIntent =
+              PendingIntentCompat.getBroadcast(
+                  context,
+                  0,
+                  Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG).apply {
+                    setPackage(context.packageName)
+                    putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                  },
+                  0,
+                  false,
+              )
+
+          notificationBuilder.addAction(
+              R.drawable.baseline_visibility_off_24,
+              context.getString(R.string.ignore_tag),
+              ignoreTagPendingIntent)
+        } else if (!notificationId.isNullOrEmpty()) {
+          val ignoreNidPendingIntent =
+              PendingIntentCompat.getBroadcast(
+                  context,
+                  0,
+                  Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID).apply {
+                    setPackage(context.packageName)
+                    putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                  },
+                  0,
+                  false,
+              )
+
+          notificationBuilder.addAction(
+              R.drawable.baseline_visibility_off_24,
+              context.getString(R.string.ignore_id),
+              ignoreNidPendingIntent)
+        }
       }
 
       NotificationManagerCompat.from(context)
@@ -186,7 +209,7 @@ class NotificationHelper {
         Handler(Looper.getMainLooper())
             .postDelayed(
                 { NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id) },
-                CodeDetectedReceiver.NOTIFICATION_TIMEOUT)
+                notificationTimeout)
       }
     }
 
@@ -228,6 +251,35 @@ class NotificationHelper {
 
       NotificationManagerCompat.from(context)
           .notify(R.id.permission_revoked_notify_id, notificationBuilder.build())
+    }
+
+    fun sendTestNotif(context: Context) {
+      if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+          PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+          val name = context.getString(R.string.code_detected_channel_name)
+          val descriptionText = context.getString(R.string.code_detected_channel_description)
+          val importance = NotificationManager.IMPORTANCE_DEFAULT
+          val channel =
+              NotificationChannel("test_chan", name, importance).apply {
+                description = descriptionText
+              }
+          // Register the channel with the system
+          val notificationManager: NotificationManager =
+              context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+          notificationManager.createNotificationChannel(channel)
+        }
+
+        val notification =
+            NotificationCompat.Builder(context, "test_chan")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(context.getString(R.string.test_notification_title))
+                .setContentText(context.getString(R.string.test_notification_content))
+                .build()
+
+        NotificationManagerCompat.from(context).notify(10, notification)
+      }
     }
   }
 }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="padding_xs">5dp</dimen>
+  <dimen name="padding_xs">8dp</dimen>
   <dimen name="padding_small">10dp</dimen>
   <dimen name="padding_medium">15dp</dimen>
   <dimen name="padding_page">14dp</dimen>
+  <dimen name="padding_sections">10dp</dimen>
   <dimen name="padding_li_h">16dp</dimen>
-  <dimen name="padding_li_v">8dp</dimen>
+  <dimen name="padding_li_v">12dp</dimen>
+  <dimen name="padding_settings">16dp</dimen>
 </resources>

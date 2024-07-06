@@ -66,8 +66,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
         )
       }) { padding ->
         Column(
-            Modifier.padding(padding)
-                .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
+            Modifier.padding(padding).padding(dimensionResource(R.dimen.padding_page)),
         ) {
           Text(
               stringResource(R.string.ignored_list_description),
@@ -88,7 +87,10 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
                   CircularProgressIndicator(modifier = Modifier.align(Alignment.Center).size(40.dp))
               is LoadState.Error ->
                   Card {
-                    Column(Modifier.padding(vertical = 70.dp, horizontal = 20.dp)) {
+                    Column(
+                        Modifier.padding(vertical = 70.dp, horizontal = 20.dp).fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
                       Text(stringResource(R.string.error))
                     }
                   }

@@ -33,6 +33,7 @@ import io.github.jd1378.otphelper.ui.components.LinkText
 import io.github.jd1378.otphelper.ui.components.LinkTextData
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import kotlinx.collections.immutable.persistentListOf
 
 fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
   composable(
@@ -103,7 +104,7 @@ fun About(upPress: () -> Unit) {
                   Row(verticalAlignment = Alignment.CenterVertically) {
                     LinkText(
                         linkTextData =
-                            listOf(
+                            persistentListOf(
                                 LinkTextData(
                                     text = stringResource(R.string.github),
                                     tag = "github_homepage",

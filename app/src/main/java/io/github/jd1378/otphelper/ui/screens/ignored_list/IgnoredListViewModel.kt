@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.ui.screens.ignored_list
 
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -13,6 +14,7 @@ import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Stable
 @HiltViewModel
 class IgnoredListViewModel
 @Inject

@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import io.github.jd1378.otphelper.R
 
 @Composable
@@ -20,7 +19,7 @@ fun SettingPageLink(
 ) {
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).then(modifier),
-      headlineContent = { Text(title, fontWeight = FontWeight.Medium) },
+      headlineContent = { SettingLabel(title) },
       supportingContent = { Text(subtitle, color = MaterialTheme.colorScheme.primary) },
       trailingContent = { Icon(painterResource(R.drawable.baseline_navigate_next_24), null) },
       colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.surfaceContainer),

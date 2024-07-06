@@ -1,5 +1,14 @@
 package io.github.jd1378.otphelper.utils
 
+import androidx.compose.runtime.Immutable
+
+@Immutable
+data class CodeExtractorResult(
+    val matchResult: MatchResult,
+    val phraseGroup: Int,
+    val codeGroup: Int,
+)
+
 class CodeExtractor {
   companion object {
     private val sensitiveWords =
@@ -61,7 +70,7 @@ class CodeExtractor {
         )
 
     private val generalCodeMatcher =
-        """(?:${sensitiveWords.joinToString("|")})(?:\s*(?!${
+        """(${sensitiveWords.joinToString("|")})(?:\s*(?!${
                 ignoredWords.joinToString("|")
             })(?:[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9\-]|[\d\u0660-\u0669\u06F0-\u06F9,\s]+(?:${currencyIndicators.joinToString("|")})|[\d\u0660-\u0669\u06F0-\u06F9][^\d\u0660-\u0669\u06F0-\u06F9]))*\s*:?\s*(["'「]?)${""
               // this comment is to separate parts
@@ -73,19 +82,19 @@ class CodeExtractor {
                 ))
 
     private val specialCodeMatcher =
-        """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(?:${sensitiveWords.joinToString("|")})"""
+        """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(${sensitiveWords.joinToString("|")})"""
             .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     fun getCode(str: String): String? {
-      val results = generalCodeMatcher.findAll(str).filter { it.groups[2]?.value != null }
+      val results = generalCodeMatcher.findAll(str).filter { it.groups[3]?.value != null }
       if (results.count() > 0) {
         // generalCodeMatcher also detects if the text contains "code" keyword
         // so we only run google's regex only if general regex did not capture the "code" group
         val foundCode =
             results
-                .find { it.groups[2]!!.value.isNotEmpty() }
+                .find { it.groups[3]!!.value.isNotEmpty() }
                 ?.groups
-                ?.get(2)
+                ?.get(3)
                 ?.value
                 ?.replace(" ", "")
                 ?.replace("-", "")
@@ -94,6 +103,26 @@ class CodeExtractor {
         }
         return toEnglishNumbers(
             specialCodeMatcher.find(str)?.groups?.get(1)?.value?.replace(" ", ""))
+      }
+      return null
+    }
+
+    fun getCodeMatch(str: String?): CodeExtractorResult? {
+      if (str.isNullOrEmpty()) return null
+
+      val results = generalCodeMatcher.findAll(str).filter { it.groups[3]?.value != null }
+      if (results.count() > 0) {
+        // generalCodeMatcher also detects if the text contains "code" keyword
+        // so we only run google's regex only if general regex did not capture the "code" group
+        var match = results.find { it.groups[3]!!.value.isNotEmpty() }
+        val foundCode = match?.groups?.get(3)?.value?.replace(" ", "")?.replace("-", "")
+        if (foundCode !== null) {
+          return CodeExtractorResult(match!!, 1, 3)
+        }
+        match = specialCodeMatcher.find(str)
+        if (match?.groups?.get(1)?.value?.replace(" ", "")?.isNotBlank() == true) {
+          return CodeExtractorResult(match, 2, 1)
+        }
       }
       return null
     }

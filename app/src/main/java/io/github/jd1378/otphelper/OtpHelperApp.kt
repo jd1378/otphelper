@@ -7,11 +7,16 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.ui.navigation.rememberTheNavController
 import io.github.jd1378.otphelper.ui.screens.about.addAboutGraph
+import io.github.jd1378.otphelper.ui.screens.history.addHistoryGraph
+import io.github.jd1378.otphelper.ui.screens.historydetail.addHistoryDetailGraph
 import io.github.jd1378.otphelper.ui.screens.home.addHomeGraph
 import io.github.jd1378.otphelper.ui.screens.ignored_list.addIgnoredListGraph
 import io.github.jd1378.otphelper.ui.screens.language_selection.addLanguageSelectionGraph
@@ -20,9 +25,21 @@ import io.github.jd1378.otphelper.ui.screens.settings.addSettingsGraph
 import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 
 @Composable
-fun OtpHelperApp() {
+fun OtpHelperApp(
+    deepLinkHandler: DeepLinkHandler,
+) {
   OtpHelperTheme {
     val theNavController = rememberTheNavController()
+    val event by deepLinkHandler.event.collectAsState()
+
+    LaunchedEffect(event) {
+      when (val currentEvent = event) {
+        is Event.NavigateWithDeepLink ->
+            theNavController.navController.handleDeepLink(currentEvent.intent)
+        Event.None -> Unit
+      }
+      deepLinkHandler.consumeEvent()
+    }
 
     NavHost(
         navController = theNavController.navController,
@@ -69,6 +86,8 @@ private fun NavGraphBuilder.otphelperNavGraph(
   addPermissionsGraph(onNavigateToRoute, upPress)
   addAboutGraph(upPress)
   addSettingsGraph(onNavigateToRoute, upPress)
+  addHistoryGraph(onNavigateToRoute = onNavigateToRoute, upPress = upPress)
+  addHistoryDetailGraph(upPress = upPress)
   // for nested navigation (example):
   //  navigation(route = MainDestinations.HOME_ROUTE, startDestination =
   //          HomeSections.FEED.route) {

@@ -20,8 +20,16 @@ interface IgnoredNotifsRepository {
   suspend fun setIgnored(
       packageName: String,
       type: IgnoredNotifType,
-      typeData: String? = null,
+      typeData: String = "",
   )
 
+  suspend fun exists(
+      packageName: String,
+      type: IgnoredNotifType,
+      typeData: String = "",
+  ): Flow<Boolean>
+
   suspend fun deleteIgnored(ignoredNotif: IgnoredNotif)
+
+  suspend fun deleteIgnored(packageName: String, type: IgnoredNotifType, typeData: String)
 }

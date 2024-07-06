@@ -64,6 +64,8 @@ constructor(
           isAutoCopyEnabled = oldSettingsRepository.getIsAutoCopyEnabled()
           isPostNotifEnabled = oldSettingsRepository.getIsPostNotifEnabled()
           isCopiedToastEnabled = true
+          isHistoryDisabled = false
+          shouldReplaceCodeInHistory = true
         })
     return Result.success()
   }

@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +25,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
 fun NavGraphBuilder.addHomeGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
@@ -46,7 +46,7 @@ fun Home(
   val userSettings by viewModel.userSettings.collectAsStateWithLifecycle()
   val context = LocalContext.current
 
-  SkipFirstLaunchedEffect(userSettings.isSetupFinished) {
+  LaunchedEffect(userSettings) {
     if (!userSettings.isSetupFinished) {
       onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true", true)
     }
@@ -74,6 +74,13 @@ fun Home(
             onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, true) }) {
               Text(text = stringResource(R.string.ignored_list))
             }
+        if (!userSettings.isHistoryDisabled) {
+          Button(
+              modifier = Modifier.fillMaxWidth(),
+              onClick = { onNavigateToRoute(MainDestinations.HISTORY_ROUTE, true) }) {
+                Text(text = stringResource(R.string.history))
+              }
+        }
         Button(
             modifier = Modifier.fillMaxWidth(),
             onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true) }) {

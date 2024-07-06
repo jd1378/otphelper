@@ -15,11 +15,11 @@ import io.github.jd1378.otphelper.R
 class Clipboard {
   companion object {
     /** returns true if successful */
-    fun copyCodeToClipboard(context: Context, code: String): Boolean {
-      var clipboardManager =
+    fun copyCodeToClipboard(context: Context, code: String, showToast: Boolean = true): Boolean {
+      val clipboardManager =
           context.getSystemService(Activity.CLIPBOARD_SERVICE) as? ClipboardManager
 
-      var toastText: Int =
+      val toastText: Int =
           if (clipboardManager !== null) {
             clipboardManager.setPrimaryClip(
                 ClipData.newPlainText(code, code).apply {
@@ -36,8 +36,10 @@ class Clipboard {
           } else {
             R.string.code_failed_to_access_clipboard
           }
-      Handler(Looper.getMainLooper()).post {
-        Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show()
+      if (showToast) {
+        Handler(Looper.getMainLooper()).post {
+          Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show()
+        }
       }
       return toastText == R.string.code_copied_to_clipboard
     }

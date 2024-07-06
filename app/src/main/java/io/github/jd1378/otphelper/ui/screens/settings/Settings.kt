@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -20,16 +23,24 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.repository.UserSettingsRepositoryMock
+import io.github.jd1378.otphelper.ui.components.SettingHelp
+import io.github.jd1378.otphelper.ui.components.SettingLabel
 import io.github.jd1378.otphelper.ui.components.SettingPageLink
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 import io.github.jd1378.otphelper.ui.utils.getCurrentLocale
 
 fun NavGraphBuilder.addSettingsGraph(
@@ -52,6 +63,7 @@ fun Settings(
 ) {
 
   val userSettings by viewModel.userSettings.collectAsState()
+  val context = LocalContext.current
 
   Scaffold(
       modifier = Modifier.fillMaxSize(),
@@ -68,7 +80,8 @@ fun Settings(
                     .padding(horizontal = dimensionResource(R.dimen.padding_page)),
         ) {
           Column(
-              verticalArrangement = Arrangement.spacedBy(8.dp),
+              verticalArrangement =
+                  Arrangement.spacedBy(dimensionResource(R.dimen.padding_sections)),
           ) {
             SettingPageLink(
                 modifier =
@@ -78,40 +91,154 @@ fun Settings(
                 title = stringResource(R.string.language),
                 subtitle = getCurrentLocale().displayLanguage,
             )
+
             Surface(
                 color = MaterialTheme.colorScheme.surfaceContainer,
                 shape = MaterialTheme.shapes.large,
             ) {
               Column(
-                  verticalArrangement = Arrangement.spacedBy(8.dp),
+                  verticalArrangement =
+                      Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
                   modifier =
                       Modifier.padding(
                           horizontal = dimensionResource(R.dimen.padding_li_h),
                           vertical = dimensionResource(R.dimen.padding_li_v),
                       ),
               ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                Column(
+                    verticalArrangement =
+                        Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
                 ) {
-                  Text(text = stringResource(R.string.auto_copy))
-                  Switch(
-                      checked = userSettings.isAutoCopyEnabled,
-                      onCheckedChange = { viewModel.onAutoCopyToggle() })
+                  Row(
+                      modifier = Modifier.fillMaxWidth(),
+                      verticalAlignment = Alignment.CenterVertically,
+                      horizontalArrangement = Arrangement.SpaceBetween,
+                  ) {
+                    SettingLabel(stringResource(R.string.auto_copy))
+                    Switch(
+                        modifier = Modifier.height(32.dp),
+                        checked = userSettings.isAutoCopyEnabled,
+                        onCheckedChange = { viewModel.onAutoCopyToggle() })
+                  }
+
+                  SettingHelp(stringResource(R.string.auto_copy_help))
                 }
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
+
+                Column(
+                    verticalArrangement =
+                        Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
                 ) {
-                  Text(text = stringResource(R.string.send_detected_notif))
-                  Switch(
-                      checked = userSettings.isPostNotifEnabled,
-                      onCheckedChange = { viewModel.onPostNotifToggle() })
+                  Row(
+                      modifier = Modifier.fillMaxWidth(),
+                      verticalAlignment = Alignment.CenterVertically,
+                      horizontalArrangement = Arrangement.SpaceBetween,
+                  ) {
+                    SettingLabel(stringResource(R.string.send_detected_notif))
+                    Switch(
+                        modifier = Modifier.height(32.dp),
+                        checked = userSettings.isPostNotifEnabled,
+                        onCheckedChange = { viewModel.onPostNotifToggle() })
+                  }
+                  SettingHelp(stringResource(R.string.send_detected_notif_help))
+                }
+
+                Column(
+                    verticalArrangement =
+                        Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+                ) {
+                  Row(
+                      modifier = Modifier.fillMaxWidth(),
+                      verticalAlignment = Alignment.CenterVertically,
+                      horizontalArrangement = Arrangement.SpaceBetween,
+                  ) {
+                    SettingLabel(stringResource(R.string.show_toast))
+                    Switch(
+                        modifier = Modifier.height(32.dp),
+                        checked = userSettings.isCopiedToastEnabled,
+                        onCheckedChange = { viewModel.onCopiedToastToggle() })
+                  }
+                  SettingHelp(
+                      stringResource(
+                          R.string.show_toast_help,
+                          stringResource(R.string.code_copied_to_clipboard)))
+                }
+
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    elevation =
+                        ButtonDefaults.elevatedButtonElevation(
+                            defaultElevation = 1.dp,
+                            pressedElevation = 0.dp,
+                            disabledElevation = 0.dp,
+                        ),
+                    onClick = { viewModel.onSendTestNotifPressed(context) },
+                    colors =
+                        ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer),
+                ) {
+                  Text(
+                      stringResource(R.string.send_test_notification),
+                      fontWeight = FontWeight.Medium)
                 }
               }
             }
+
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceContainer,
+                shape = MaterialTheme.shapes.large,
+            ) {
+              Column(
+                  verticalArrangement =
+                      Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
+                  modifier =
+                      Modifier.padding(
+                          horizontal = dimensionResource(R.dimen.padding_li_h),
+                          vertical = dimensionResource(R.dimen.padding_li_v),
+                      ),
+              ) {
+                Column(
+                    verticalArrangement =
+                    Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+                ) {
+                  Row(
+                      modifier = Modifier.fillMaxWidth(),
+                      verticalAlignment = Alignment.CenterVertically,
+                      horizontalArrangement = Arrangement.SpaceBetween,
+                  ) {
+                    SettingLabel(stringResource(R.string.history))
+                    Switch(
+                        modifier = Modifier.height(32.dp),
+                        checked = !userSettings.isHistoryDisabled,
+                        onCheckedChange = { viewModel.onHistoryToggle(context) })
+                  }
+                  SettingHelp(stringResource(R.string.history_help))
+                }
+
+
+                Column(
+                    verticalArrangement =
+                    Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+                ) {
+                  Row(
+                      modifier = Modifier.fillMaxWidth(),
+                      verticalAlignment = Alignment.CenterVertically,
+                      horizontalArrangement = Arrangement.SpaceBetween,
+                  ) {
+                    SettingLabel(stringResource(R.string.replace_code_in_history))
+                    Switch(
+                        enabled = !userSettings.isHistoryDisabled,
+                        modifier = Modifier.height(32.dp),
+                        checked = userSettings.shouldReplaceCodeInHistory,
+                        onCheckedChange = { viewModel.onShouldReplaceCodeInHistoryToggle() })
+                  }
+
+                  SettingHelp(stringResource(R.string.replace_code_in_history_help))
+                }
+
+              }
+            }
+
             Surface(
                 color = MaterialTheme.colorScheme.surfaceContainer,
                 shape = MaterialTheme.shapes.large,
@@ -124,7 +251,7 @@ fun Settings(
                 Row(
                     modifier =
                         Modifier.padding(
-                            horizontal = dimensionResource(R.dimen.padding_li_h),
+                            horizontal = dimensionResource(R.dimen.padding_settings),
                             vertical = dimensionResource(R.dimen.padding_medium),
                         ),
                     horizontalArrangement =
@@ -141,4 +268,16 @@ fun Settings(
           }
         }
       }
+}
+
+@Preview
+@Composable
+fun SettingsPreview() {
+  OtpHelperTheme {
+    Settings(
+        onNavigateToRoute = { _, _ -> {} },
+        upPress = {},
+        viewModel = SettingsViewModel(SavedStateHandle(), UserSettingsRepositoryMock()),
+    )
+  }
 }

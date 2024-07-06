@@ -8,6 +8,8 @@ import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
 import android.widget.Toast
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -26,6 +28,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Immutable
 data class PermissionsUiState(
     val hasNotifPerm: Boolean = false,
     val hasNotifListenerPerm: Boolean = false,
@@ -36,6 +39,7 @@ data class PermissionsUiState(
     val hasDoneAllSteps: Boolean = false,
 )
 
+@Stable
 @HiltViewModel
 class PermissionsViewModel
 @Inject

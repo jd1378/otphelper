@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.StateFlow
 
 // this file is made using help from compose-samples/Jetsnack
 
-/** Destinations used in the [OtpHelperApp]]. */
 object MainDestinations {
   const val HOME_ROUTE = "home"
   const val LANGUAGE_SELECTION_ROUTE = "language_selection"
@@ -23,6 +22,12 @@ object MainDestinations {
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"
   const val ABOUT_ROUTE = "about"
   const val SETTINGS_ROUTE = "settings"
+  const val HISTORY_ROUTE = "history"
+  const val HISTORY_DETAIL_ROUTE = "history_detail"
+}
+
+object NavArgs {
+  const val HISTORY_ID = "historyId"
 }
 
 @Composable

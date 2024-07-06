@@ -11,22 +11,23 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
+import kotlinx.collections.immutable.PersistentList
 
 // from: https://stackoverflow.com/a/69636806/3542461
 
 @Immutable
 data class LinkTextData(
-  val text: String,
-  val tag: String? = null,
-  val annotation: String? = null,
-  val onClick: ((str: AnnotatedString.Range<String>) -> Unit)? = null,
+    val text: String,
+    val tag: String? = null,
+    val annotation: String? = null,
+    val onClick: ((str: AnnotatedString.Range<String>) -> Unit)? = null,
 )
 
 @Composable
 fun LinkText(
-  linkTextData: List<LinkTextData>,
-  modifier: Modifier = Modifier,
-  fontSize: TextUnit = TextUnit.Unspecified,
+    linkTextData: PersistentList<LinkTextData>,
+    modifier: Modifier = Modifier,
+    fontSize: TextUnit = TextUnit.Unspecified,
 ) {
   val annotatedString = createAnnotatedString(linkTextData)
 
@@ -52,7 +53,7 @@ fun LinkText(
 }
 
 @Composable
-private fun createAnnotatedString(data: List<LinkTextData>): AnnotatedString {
+private fun createAnnotatedString(data: PersistentList<LinkTextData>): AnnotatedString {
   return buildAnnotatedString {
     data.forEach { linkTextData ->
       if (linkTextData.tag != null && linkTextData.annotation != null) {

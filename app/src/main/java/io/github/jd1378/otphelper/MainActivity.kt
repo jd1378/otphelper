@@ -7,16 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import androidx.work.ExistingWorkPolicy
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.OutOfQuotaPolicy
-import androidx.work.WorkManager
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.jd1378.otphelper.MyWorkManager.doDataMigration
+import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.ActivityHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
-import io.github.jd1378.otphelper.worker.MigrateWorker
-import io.github.jd1378.otphelper.worker.migrateWorkName
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,6 +23,7 @@ const val INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS =
 class MainActivity : AppCompatActivity() {
 
   @Inject lateinit var userSettingsRepository: UserSettingsRepository
+  @Inject lateinit var deepLinkHandler: DeepLinkHandler
 
   companion object {
     const val scale = 1.15f
@@ -50,26 +47,27 @@ class MainActivity : AppCompatActivity() {
 
       // setup initial settings
       if (!settings.isMigrationDone) {
-        val workRequest =
-            OneTimeWorkRequestBuilder<MigrateWorker>()
-                .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
-                .build()
-        WorkManager.getInstance(applicationContext)
-            .enqueueUniqueWork(
-                migrateWorkName,
-                ExistingWorkPolicy.KEEP,
-                workRequest,
-            )
+        doDataMigration(applicationContext)
+        enableHistoryCleanup(applicationContext)
       }
     }
 
-    setContent { OtpHelperApp() }
+    setContent { OtpHelperApp(deepLinkHandler) }
   }
 
   override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
     if (intent.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
       SettingsHelper.openNotificationListenerSettings(this)
+    } else {
+      deepLinkHandler.handleDeepLink(intent)
     }
+  }
+
+  override fun onStart() {
+    super.onStart()
+    deepLinkHandler.handleDeepLink(intent)
+    // consume the deeplink
+    intent = null
   }
 }

@@ -1,12 +1,15 @@
 package io.github.jd1378.otphelper.ui.screens.language_selection
 
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.R
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -15,10 +18,10 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
-data class LocaleOption(val code: String, val label: Int, val tag: String = "")
+@Immutable data class LocaleOption(val code: String, val label: Int, val tag: String = "")
 
 val localeOptions =
-    listOf(
+    persistentListOf(
         LocaleOption("default", R.string.system_default, "default"),
         LocaleOption("ar", R.string.ar, "العربية,arabic"),
         LocaleOption("bn-BD", R.string.bn_BD, "bangla,bangladesh"),
@@ -40,11 +43,13 @@ val localeOptions =
         LocaleOption("jp", R.string.jp, "Japanese,nihongo,日本語"),
     )
 
+@Immutable
 data class LanguageSelectionUiState(
     val locales: List<LocaleOption> = localeOptions,
     val searchTerm: String = "",
 )
 
+@Stable
 @HiltViewModel
 class LanguageSelectionViewModel
 @Inject

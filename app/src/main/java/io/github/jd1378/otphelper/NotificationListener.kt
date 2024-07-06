@@ -2,12 +2,15 @@ package io.github.jd1378.otphelper
 
 import android.app.Notification
 import android.content.ComponentName
-import android.content.Intent
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import io.github.jd1378.otphelper.utils.CodeIgnore
+import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 
 class NotificationListener : NotificationListenerService() {
   companion object {
@@ -58,17 +61,17 @@ class NotificationListener : NotificationListenerService() {
 
       if (notificationText.isNotEmpty()) {
         val code = CodeExtractor.getCode(notificationText)
-        if (code != null) {
-          val intent = Intent(CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED)
-          intent.putExtra("code", code)
-
-          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_PACKAGE_NAME, sbn.packageName)
-          intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_ID, sbn.id.toString())
-          if (sbn.tag?.contains(":") == true) {
-            intent.putExtra(CodeDetectedReceiver.INTENT_EXTRA_NOTIFICATION_TAG, sbn.tag)
-          }
-
-          sendBroadcast(intent, CodeDetectedReceiver.INTENT_ACTION_CODE_DETECTED_PERMISSION)
+        if (!code.isNullOrEmpty()) {
+          val data =
+              workDataOf(
+                  "packageName" to sbn.packageName,
+                  "notificationId" to sbn.id.toString(),
+                  "notificationTag" to sbn.tag,
+                  "text" to notificationText,
+                  "code" to code,
+              )
+          val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
+          WorkManager.getInstance(applicationContext).enqueue(work)
         }
       }
     }

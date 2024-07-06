@@ -69,4 +69,16 @@ constructor(
       currentSettings.toBuilder().setIsCopiedToastEnabled(value).build()
     }
   }
+
+  override suspend fun setIsHistoryDisabled(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsHistoryDisabled(value).build()
+    }
+  }
+
+  override suspend fun setShouldReplaceCodeInHistory(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setShouldReplaceCodeInHistory(value).build()
+    }
+  }
 }

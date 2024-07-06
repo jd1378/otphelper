@@ -23,12 +23,23 @@
     <activity
         android:name=".MainActivity"
         android:exported="true"
+        android:launchMode="singleTask"
         android:theme="@style/Theme.App.Starting"
         android:excludeFromRecents="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+            android:scheme="otphelper"
+            android:host="history_detail" />
       </intent-filter>
     </activity>
 
@@ -51,20 +62,11 @@
     </service>
 
     <receiver
-        android:name=".CodeDetectedReceiver"
-        android:exported="true">
-      <intent-filter>
-        <action android:name="io.github.jd1378.otphelper.code_detected" />
-      </intent-filter>
-    </receiver>
-    <receiver
         android:name=".NotifActionReceiver"
         android:exported="true">
       <intent-filter>
         <action android:name="io.github.jd1378.otphelper.actions.code_copy" />
-        <action android:name="io.github.jd1378.otphelper.actions.ignore_notif_app" />
-        <action android:name="io.github.jd1378.otphelper.actions.ignore_notif_tag" />
-        <action android:name="io.github.jd1378.otphelper.actions.ignore_notif_nid" />
+        <action android:name="io.github.jd1378.otphelper.actions.see_details" />
       </intent-filter>
     </receiver>
     <receiver

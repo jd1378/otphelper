@@ -105,6 +105,9 @@ dependencies {
 
   // for splash screen
   implementation("androidx.core:core-splashscreen:1.1.0-rc01")
+
+  // immutable collections (for compose stability fix)
+  implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
 }
 
 hilt { enableAggregatingTask = true }
