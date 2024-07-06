@@ -18,7 +18,7 @@
     <string name="HOME_ROUTE">خانه</string>
     <string name="IGNORED_LIST_ROUTE">لیست سیاه</string>
     <string name="list_is_empty">لیست خالی است</string>
-    <string name="ignored_list_description">هنگامی که شما دکمه \"نادیده بگیر\" را بر روی اعلانی که کد شناسایی شده را نمایش می دهد بزنید، آن اعلان دیگر برای شناسایی کد بررسی نمی شود و در این لیست نمایش داده می شود.</string>
+    <string name="ignored_list_description">پس از زدن دکمه نادیده گرفتن پیام های نادیده گرفته شده در اینجا نشان داده می شوند.</string>
     <string name="copy">کپی</string>
     <string name="ignore">نادیده بگیر</string>
     <string name="PERMISSION_ROUTE">مجوز ها</string>
@@ -55,16 +55,16 @@
     <string name="permission_revoked_channel_description">مجوز های ضروری را به کاربر یادآوری می کند</string>
     <string name="permission_revoked">مجوز باطل شد</string>
     <string name="permission_revoked_notification_hint">لطفا اجازه خواندن اعلان ها را دوباره بدهید. برای باز کردن تنظیمات روی این پیام ضربه بزنید.</string>
-    <string name="settings">پیکربندی</string>
-    <string name="application">کاره</string>
+    <string name="settings">تنظیمات</string>
+    <string name="application">برنامه</string>
     <string name="notification_id">شناسه</string>
     <string name="error">خطا</string>
     <string name="notification">اعلان</string>
     <string name="notification_tag">برچسب</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="see_details">See Details</string>
-    <string name="history">History</string>
-    <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
+    <string name="see_details">دیدن جزئیات</string>
+    <string name="history">تاریخ</string>
+    <string name="history_help">تاریخچه هر نیمه شب به صورت خودکار به جز 10 مورد آخر پاک می شود.</string>
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
     <string name="show_toast">Show Toast</string>
@@ -78,7 +78,7 @@
     <string name="no">No</string>
     <string name="options">Options</string>
     <string name="history_detail">History Detail</string>
-    <string name="allow_id">Allow ID</string>
-    <string name="allow_tag">Allow Tag</string>
-    <string name="allow_app">Allow App</string>
+    <string name="allow_id">اجازه به ID</string>
+    <string name="allow_tag">اجازه به Tag</string>
+    <string name="allow_app">اجازه به برنامه</string>
 </resources>
