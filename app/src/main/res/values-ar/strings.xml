@@ -62,8 +62,8 @@
     <string name="notification">تنبيه</string>
     <string name="ignore_id">Ignore ID</string>
     <string name="notification_id">ID</string>
-    <string name="see_details">See Details</string>
-    <string name="history">History</string>
+    <string name="see_details">اعرض التفاصيل</string>
+    <string name="history">سجل البحث</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
@@ -72,11 +72,11 @@
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
     <string name="auto_copy_help">Automatically copies the detected code.</string>
     <string name="history_desc">Recently detected codes will be shown here.</string>
-    <string name="clear_history">Clear history</string>
+    <string name="clear_history">مسح السجل</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="options">Options</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="options">خيارات</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
