@@ -73,10 +73,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
               modifier = Modifier.fillMaxWidth(),
               fontSize = 15.sp)
 
-          HorizontalDivider(
-              Modifier.padding(top = dimensionResource(R.dimen.padding_medium))
-                  .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
-          )
+          HorizontalDivider(Modifier.padding(top = dimensionResource(R.dimen.padding_page)))
 
           Box(
               modifier =
