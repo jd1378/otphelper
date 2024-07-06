@@ -63,7 +63,7 @@
     <string name="notification">通知</string>
     <string name="ignore_id">Ignore ID</string>
     <string name="show_details">显示详情</string>
-    <string name="history">历史记录</string>
+    <string name="history">历史</string>
     <string name="history_help">每日子时会自动删去除最近 10 个条目之外的所有历史记录。</string>
     <string name="replace_code_in_history">替换历史记录中的代码</string>
     <string name="replace_code_in_history_help">用 0 替换历史记录中检测到的代码。</string>
