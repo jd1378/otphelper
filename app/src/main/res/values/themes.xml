@@ -10,6 +10,7 @@
     <!-- Set the splash screen background, animated icon, and animation
     duration. -->
     <item name="windowSplashScreenBackground">?android:colorBackground</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/splash</item>
 
     <!-- Set the theme of the Activity that directly follows your splash
     screen. This is required. -->
