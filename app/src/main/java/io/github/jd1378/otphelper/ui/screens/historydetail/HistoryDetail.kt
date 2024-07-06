@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.LocalTextStyle
@@ -113,6 +115,7 @@ fun HistoryDetail(
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
           Row(
+              Modifier.weight(1f),
               horizontalArrangement =
                   Arrangement.spacedBy(
                       dimensionResource(R.dimen.padding_page),
@@ -173,7 +176,7 @@ fun HistoryDetail(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-          Column {
+          Column(Modifier.weight(1f)) {
             Text(
                 stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
                 fontWeight = FontWeight.Medium,
@@ -207,7 +210,7 @@ fun HistoryDetail(
               verticalAlignment = Alignment.CenterVertically,
               horizontalArrangement = Arrangement.SpaceBetween,
           ) {
-            Column {
+            Column(Modifier.weight(1f)) {
               Text(
                   stringResource(R.string.notification_tag) + ":",
                   fontWeight = FontWeight.Medium,
@@ -239,40 +242,44 @@ fun HistoryDetail(
 
         val customColors = LocalCustomColors.current
 
-        SelectionContainer {
-          Text(
-              buildAnnotatedString {
-                append(detectedCode.text)
-                if (codeExtractorResult.value != null) {
-                  val phraseGroupRange =
-                      codeExtractorResult.value!!
-                          .matchResult
-                          .groups[codeExtractorResult.value!!.phraseGroup]!!
-                          .range
-                  val codeGroupRange =
-                      codeExtractorResult.value!!
-                          .matchResult
-                          .groups[codeExtractorResult.value!!.codeGroup]!!
-                          .range
-                  addStyle(
-                      style =
-                          SpanStyle(
-                              color = customColors.phraseHighlight,
-                              fontWeight = FontWeight.ExtraBold,
-                          ),
-                      start = phraseGroupRange.first,
-                      end = phraseGroupRange.last + 1)
-                  addStyle(
-                      style =
-                          SpanStyle(
-                              color = customColors.codeHighlight,
-                              fontWeight = FontWeight.ExtraBold,
-                          ),
-                      start = codeGroupRange.first,
-                      end = codeGroupRange.last + 1)
-                }
-              },
-          )
+        val scrollState = rememberScrollState()
+
+        Column(Modifier.verticalScroll(scrollState)) {
+          SelectionContainer {
+            Text(
+                buildAnnotatedString {
+                  append(detectedCode.text)
+                  if (codeExtractorResult.value != null) {
+                    val phraseGroupRange =
+                        codeExtractorResult.value!!
+                            .matchResult
+                            .groups[codeExtractorResult.value!!.phraseGroup]!!
+                            .range
+                    val codeGroupRange =
+                        codeExtractorResult.value!!
+                            .matchResult
+                            .groups[codeExtractorResult.value!!.codeGroup]!!
+                            .range
+                    addStyle(
+                        style =
+                            SpanStyle(
+                                color = customColors.phraseHighlight,
+                                fontWeight = FontWeight.ExtraBold,
+                            ),
+                        start = phraseGroupRange.first,
+                        end = phraseGroupRange.last + 1)
+                    addStyle(
+                        style =
+                            SpanStyle(
+                                color = customColors.codeHighlight,
+                                fontWeight = FontWeight.ExtraBold,
+                            ),
+                        start = codeGroupRange.first,
+                        end = codeGroupRange.last + 1)
+                  }
+                },
+            )
+          }
         }
       }
     }

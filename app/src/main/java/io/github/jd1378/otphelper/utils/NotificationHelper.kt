@@ -265,11 +265,15 @@ class NotificationHelper {
               NotificationChannel("test_chan", name, importance).apply {
                 description = descriptionText
               }
+
           // Register the channel with the system
           val notificationManager: NotificationManager =
               context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
           notificationManager.createNotificationChannel(channel)
         }
+
+        val tag =
+            "A very long tag to test the ignore behavior and see what happens when a very long tag is shown."
 
         val notification =
             NotificationCompat.Builder(context, "test_chan")
@@ -278,7 +282,7 @@ class NotificationHelper {
                 .setContentText(context.getString(R.string.test_notification_content))
                 .build()
 
-        NotificationManagerCompat.from(context).notify(10, notification)
+        NotificationManagerCompat.from(context).notify(tag, 10, notification)
       }
     }
   }
