@@ -2,6 +2,7 @@ package io.github.jd1378.otphelper
 
 import android.app.Notification
 import android.content.ComponentName
+import android.provider.Settings
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
@@ -79,15 +80,35 @@ class NotificationListener : NotificationListenerService() {
 
   override fun onListenerDisconnected() {
     super.onListenerDisconnected()
-    // Handle the listener disconnected event
-    Log.i(TAG, "Notification listener disconnected. attempting to rebind.")
 
-    // Request to rebind the service
-    val componentName =
-        ComponentName(
-            this,
-            NotificationListener::class.java,
-        )
-    requestRebind(componentName)
+    // Handle the listener disconnected event
+    Log.i(TAG, "Notification listener disconnected.")
+
+    if (isNotificationServiceEnabled()) {
+      Log.d(TAG, "Rebinding to the service")
+      val componentName =
+          ComponentName(
+              this,
+              NotificationListener::class.java,
+          )
+      requestRebind(componentName)
+    }
+  }
+
+  private fun isNotificationServiceEnabled(): Boolean {
+    val pkgName = packageName
+    val flat = Settings.Secure.getString(contentResolver, "enabled_notification_listeners")
+    if (!flat.isNullOrEmpty()) {
+      val names = flat.split(":").toTypedArray()
+      for (name in names) {
+        val componentName = ComponentName.unflattenFromString(name)
+        if (componentName != null) {
+          if (pkgName == componentName.packageName) {
+            return true
+          }
+        }
+      }
+    }
+    return false
   }
 }
