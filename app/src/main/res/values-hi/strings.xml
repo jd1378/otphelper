@@ -62,7 +62,7 @@
     <string name="notification_id">ID</string>
     <string name="notification">सूचनाएं</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="show_details">विवरण देखें</string>
+    <string name="show_details">विवरण दिखाएं</string>
     <string name="history">इतिहास</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
