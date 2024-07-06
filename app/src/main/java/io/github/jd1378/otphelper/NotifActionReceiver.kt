@@ -31,7 +31,7 @@ class NotifActionReceiver : BroadcastReceiver() {
         "io.github.jd1378.otphelper.actions.ignore_notif_nid"
     const val INTENT_ACTION_IGNORE_NOTIFICATION_APP =
         "io.github.jd1378.otphelper.actions.ignore_notif_app"
-    const val INTENT_ACTION_SEE_DETAILS = "io.github.jd1378.otphelper.actions.see_details"
+    const val INTENT_ACTION_SHOW_DETAILS = "io.github.jd1378.otphelper.actions.show_details"
 
     fun getActiveNotification(context: Context, notificationId: Int): Notification? {
       val notificationManager =
@@ -68,7 +68,7 @@ class NotifActionReceiver : BroadcastReceiver() {
           ignoredType = IgnoredNotifType.APPLICATION
           Toast.makeText(context, R.string.wont_detect_code_from_this_app, Toast.LENGTH_LONG).show()
         }
-        INTENT_ACTION_SEE_DETAILS -> {
+        INTENT_ACTION_SHOW_DETAILS -> {
           val historyId = notif.extras.getLong("historyId", 0L)
           if (historyId > 0L) {
             val pendingIntent =

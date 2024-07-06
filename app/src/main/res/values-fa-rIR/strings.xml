@@ -62,7 +62,7 @@
     <string name="notification">اعلان</string>
     <string name="notification_tag">برچسب</string>
     <string name="ignore_id">نادیده گرفتن شناسه</string>
-    <string name="see_details">دیدن جزئیات</string>
+    <string name="show_details">دیدن جزئیات</string>
     <string name="history">تاریخ</string>
     <string name="history_help">تاریخچه هر نیمه شب به صورت خودکار به جز 10 مورد آخر پاک می شود.</string>
     <string name="replace_code_in_history">جاگزین کردن کد در تاریخچه</string>

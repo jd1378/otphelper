@@ -62,7 +62,7 @@
     <string name="error">Erreur</string>
     <string name="notification">Notification</string>
     <string name="ignore_id">ID Ignorer</string>
-    <string name="see_details">Voir les détails</string>
+    <string name="show_details">Voir les détails</string>
     <string name="history">Historique</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>

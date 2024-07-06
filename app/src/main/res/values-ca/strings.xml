@@ -62,7 +62,7 @@
     <string name="permission_revoked_channel_description">Reminds the user about required permissions</string>
     <string name="permission_revoked">Permission Revoked</string>
     <string name="permission_revoked_notification_hint">Please grant read notification permission again. Tap this message to open settings.</string>
-    <string name="see_details">Vegeu els detalls</string>
+    <string name="show_details">Vegeu els detalls</string>
     <string name="history">Història</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>

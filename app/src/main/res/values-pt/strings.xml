@@ -62,7 +62,7 @@
     <string name="notification_tag">Etiqueta</string>
     <string name="notification_id">ID</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="see_details">Ver detalhes</string>
+    <string name="show_details">Ver detalhes</string>
     <string name="history">Histórico</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>

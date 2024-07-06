@@ -121,7 +121,7 @@ class NotificationHelper {
           PendingIntentCompat.getBroadcast(
               context,
               0,
-              Intent(NotifActionReceiver.INTENT_ACTION_SEE_DETAILS).apply {
+              Intent(NotifActionReceiver.INTENT_ACTION_SHOW_DETAILS).apply {
                 setPackage(context.packageName)
                 putExtra("cancel_notif_id", R.id.code_detected_notify_id)
                 putExtra("historyId", extras.getLong("historyId", 0L))
@@ -158,7 +158,7 @@ class NotificationHelper {
       if (historyId > 0L) {
         notificationBuilder.addAction(
             R.drawable.baseline_visibility_off_24,
-            context.getString(R.string.see_details),
+            context.getString(R.string.show_details),
             seeOptionsPendingIntent)
       } else {
         val notificationId = extras.getString("notificationId")

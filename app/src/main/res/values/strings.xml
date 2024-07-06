@@ -87,7 +87,7 @@
   <string name="notification_id">ID</string>
   <string name="error">Error</string>
   <string name="jp" translatable="false">日本語</string>
-  <string name="see_details">See Details</string>
+  <string name="show_details">Show Details</string>
   <string name="history">History</string>
   <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
   <string name="replace_code_in_history">Replace code in history</string>
