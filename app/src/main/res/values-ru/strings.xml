@@ -62,7 +62,7 @@
     <string name="notification">Уведомление</string>
     <string name="notification_tag">Тег</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="show_details">Посмотреть подробности</string>
+    <string name="show_details">Показать детали</string>
     <string name="history">История</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
