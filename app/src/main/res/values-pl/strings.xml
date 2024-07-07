@@ -81,4 +81,5 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Zezwalaj aplikacjom</string>
+    <string name="n_items">%1$d items</string>
 </resources>

@@ -81,4 +81,5 @@
     <string name="allow_id">Permitir ID</string>
     <string name="allow_tag">Permitir etiqueta</string>
     <string name="allow_app">Permitir aplicación</string>
+    <string name="n_items">%1$d items</string>
 </resources>
