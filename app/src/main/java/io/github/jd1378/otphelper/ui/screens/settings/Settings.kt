@@ -29,10 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.SavedStateHandle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.repository.UserSettingsRepositoryMock
 import io.github.jd1378.otphelper.ui.components.SettingHelp
@@ -42,18 +39,6 @@ import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 import io.github.jd1378.otphelper.ui.utils.getCurrentLocale
-
-fun NavGraphBuilder.addSettingsGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
-    upPress: () -> Unit
-) {
-  composable(
-      MainDestinations.SETTINGS_ROUTE,
-  ) {
-    val viewModel = hiltViewModel<SettingsViewModel>()
-    Settings(onNavigateToRoute, upPress, viewModel)
-  }
-}
 
 @Composable
 fun Settings(

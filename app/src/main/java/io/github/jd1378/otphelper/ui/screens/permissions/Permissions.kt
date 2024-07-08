@@ -26,31 +26,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-
-fun NavGraphBuilder.addPermissionsGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
-    upPress: () -> Unit,
-) {
-  composable(
-      MainDestinations.PERMISSIONS_SETUP_ROUTE,
-      arguments = listOf(navArgument("setup") { nullable = true })) { backStackEntry ->
-        val viewModel = hiltViewModel<PermissionsViewModel>()
-        Permissions(
-            onNavigateToRoute,
-            upPress,
-            viewModel,
-            backStackEntry.arguments?.containsKey("setup") ?: false)
-      }
-}
 
 @Composable
 fun Permissions(

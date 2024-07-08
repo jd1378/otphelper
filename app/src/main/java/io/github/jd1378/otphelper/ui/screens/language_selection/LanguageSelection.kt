@@ -23,22 +23,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-
-fun NavGraphBuilder.addLanguageSelectionGraph(upPress: () -> Unit) {
-  composable(
-      MainDestinations.LANGUAGE_SELECTION_ROUTE,
-  ) {
-    val viewModel = hiltViewModel<LanguageSelectionViewModel>()
-    LanguageSelection(upPress, viewModel)
-  }
-}
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable

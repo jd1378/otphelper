@@ -25,23 +25,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.BuildConfig
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.LinkText
 import io.github.jd1378.otphelper.ui.components.LinkTextData
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import kotlinx.collections.immutable.persistentListOf
-
-fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
-  composable(
-      MainDestinations.ABOUT_ROUTE,
-  ) {
-    About(upPress)
-  }
-}
 
 @Composable
 fun About(upPress: () -> Unit) {

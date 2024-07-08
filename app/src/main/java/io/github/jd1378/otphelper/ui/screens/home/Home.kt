@@ -19,22 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-
-fun NavGraphBuilder.addHomeGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
-    modifier: Modifier = Modifier
-) {
-  composable(MainDestinations.HOME_ROUTE) {
-    val viewModel = hiltViewModel<HomeViewModel>()
-    Home(onNavigateToRoute, modifier, viewModel)
-  }
-}
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

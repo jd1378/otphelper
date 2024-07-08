@@ -45,10 +45,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
@@ -60,17 +57,6 @@ import io.github.jd1378.otphelper.ui.components.DangerousActionDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-
-fun NavGraphBuilder.addHistoryGraph(
-    modifier: Modifier = Modifier,
-    onNavigateToRoute: (String, Boolean) -> Unit,
-    upPress: () -> Unit
-) {
-  composable(MainDestinations.HISTORY_ROUTE) {
-    val viewModel = hiltViewModel<HistoryViewModel>()
-    History(modifier, onNavigateToRoute, upPress, viewModel)
-  }
-}
 
 @Composable
 fun History(

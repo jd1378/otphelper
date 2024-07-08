@@ -34,9 +34,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
@@ -44,16 +41,6 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-
-fun NavGraphBuilder.addIgnoredAppListGraph(upPress: () -> Unit) {
-  composable(
-      MainDestinations.IGNORED_LIST_ROUTE,
-  ) {
-    val viewModel = hiltViewModel<IgnoredAppListViewModel>()
-    IgnoredAppList(upPress, viewModel)
-  }
-}
 
 @Composable
 fun IgnoredAppList(upPress: () -> Unit, viewModel: IgnoredAppListViewModel) {

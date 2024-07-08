@@ -33,44 +33,14 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavType
-import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
-import androidx.navigation.navDeepLink
-import io.github.jd1378.otphelper.OTPHELPER_APP_SCHEME
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
-import io.github.jd1378.otphelper.ui.navigation.NavArgs
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 import io.github.jd1378.otphelper.utils.CodeExtractor
-
-fun NavGraphBuilder.addHistoryDetailGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
-  composable(
-      "${MainDestinations.HISTORY_DETAIL_ROUTE}/{${NavArgs.HISTORY_ID}}",
-      deepLinks =
-          listOf(
-              navDeepLink {
-                uriPattern =
-                    "$OTPHELPER_APP_SCHEME://${MainDestinations.HISTORY_DETAIL_ROUTE}/{${NavArgs.HISTORY_ID}}"
-              }),
-      arguments = listOf(navArgument(NavArgs.HISTORY_ID) { type = NavType.LongType })) {
-          backStackEntry ->
-        val historyId = backStackEntry.arguments?.getLong(NavArgs.HISTORY_ID)
-        if (historyId == 0L) {
-          upPress()
-        } else {
-          val viewModel = hiltViewModel<HistoryDetailViewModel>()
-          HistoryDetail(modifier, upPress, viewModel)
-        }
-      }
-}
 
 @Composable
 fun HistoryDetail(
