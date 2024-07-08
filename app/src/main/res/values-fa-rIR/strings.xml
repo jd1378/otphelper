@@ -81,5 +81,5 @@
     <string name="allow_id">اجازه به شناسه</string>
     <string name="allow_tag">اجازه به برچسب</string>
     <string name="allow_app">اجازه به برنامه</string>
-    <string name="n_items">%1$d items</string>
+    <string name="n_items">%1$d مورد</string>
 </resources>

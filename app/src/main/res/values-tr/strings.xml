@@ -62,7 +62,7 @@
     <string name="notification_tag">Etiket</string>
     <string name="notification">Bildirim</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="show_details">Ayrıntıları Göster</string>
+    <string name="show_details">Detayları göster</string>
     <string name="history">Geçmiş</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
@@ -75,11 +75,11 @@
     <string name="clear_history">Geçmişi temizle</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Evet</string>
-    <string name="no">Yok</string>
+    <string name="no">Hayır</string>
     <string name="options">Seçenekler</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Uygulamalara izin ver</string>
-    <string name="n_items">%1$d items</string>
+    <string name="n_items">%1$s öge</string>
 </resources>

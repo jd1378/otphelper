@@ -56,7 +56,7 @@
     <string name="permission_revoked">Autorizzazione revocata</string>
     <string name="permission_revoked_notification_hint">Concedere nuovamente l\'autorizzazione alla notifica di lettura. Tocca questo messaggio per aprire le impostazioni.</string>
     <string name="settings">Impostazioni</string>
-    <string name="application">Applicazione</string>
+    <string name="application">Applicazioni</string>
     <string name="error">Errore</string>
     <string name="notification_tag">Tag</string>
     <string name="notification">Notifica</string>
@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
     <string name="auto_copy_help">Automatically copies the detected code.</string>
     <string name="history_desc">Recently detected codes will be shown here.</string>
-    <string name="clear_history">Pulisci chat</string>
+    <string name="clear_history">Svuota cronologia</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
@@ -81,5 +81,5 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Consenti app</string>
-    <string name="n_items">%1$d items</string>
+    <string name="n_items">%1$d oggetti</string>
 </resources>

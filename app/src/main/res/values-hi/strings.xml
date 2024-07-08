@@ -81,5 +81,5 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">ऐप्स को अनुमति दें</string>
-    <string name="n_items">%1$d items</string>
+    <string name="n_items">%1$sवस्तु</string>
 </resources>

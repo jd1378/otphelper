@@ -81,5 +81,5 @@
     <string name="allow_id">允许 ID</string>
     <string name="allow_tag">允许标签</string>
     <string name="allow_app">允许应用</string>
-    <string name="n_items">%1$d items</string>
+    <string name="n_items">%1$d 个项目</string>
 </resources>
