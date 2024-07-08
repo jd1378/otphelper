@@ -63,7 +63,7 @@
     <string name="notification">通知</string>
     <string name="ignore_id">Ignore ID</string>
     <string name="show_details">顯示細節</string>
-    <string name="history">記錄</string>
+    <string name="history">歷史記錄</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
@@ -74,7 +74,7 @@
     <string name="history_desc">Recently detected codes will be shown here.</string>
     <string name="clear_history">清除歷史</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
-    <string name="yes">是</string>
+    <string name="yes">確定</string>
     <string name="no">否</string>
     <string name="options">選項</string>
     <string name="history_detail">History Detail</string>
