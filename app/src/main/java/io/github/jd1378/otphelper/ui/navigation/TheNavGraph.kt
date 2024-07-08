@@ -21,7 +21,8 @@ import io.github.jd1378.otphelper.ui.screens.language_selection.LanguageSelectio
 import io.github.jd1378.otphelper.ui.screens.language_selection.LanguageSelectionViewModel
 import io.github.jd1378.otphelper.ui.screens.permissions.Permissions
 import io.github.jd1378.otphelper.ui.screens.permissions.PermissionsViewModel
-import io.github.jd1378.otphelper.ui.screens.settings.addSettingsGraph
+import io.github.jd1378.otphelper.ui.screens.settings.Settings
+import io.github.jd1378.otphelper.ui.screens.settings.SettingsViewModel
 
 fun NavGraphBuilder.otphelperNavGraph(
     upPress: () -> Unit,
@@ -86,6 +87,18 @@ fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
       MainDestinations.ABOUT_ROUTE,
   ) {
     About(upPress)
+  }
+}
+
+fun NavGraphBuilder.addSettingsGraph(
+    onNavigateToRoute: (String, Boolean) -> Unit,
+    upPress: () -> Unit
+) {
+  composable(
+      MainDestinations.SETTINGS_ROUTE,
+  ) {
+    val viewModel = hiltViewModel<SettingsViewModel>()
+    Settings(onNavigateToRoute, upPress, viewModel)
   }
 }
 
