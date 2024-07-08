@@ -35,11 +35,6 @@ fun NavGraphBuilder.otphelperNavGraph(
   addSettingsGraph(onNavigateToRoute, upPress)
   addHistoryGraph(onNavigateToRoute = onNavigateToRoute, upPress = upPress)
   addHistoryDetailGraph(upPress = upPress)
-  // for nested navigation (example):
-  //  navigation(route = MainDestinations.HOME_ROUTE, startDestination =
-  //          HomeSections.FEED.route) {
-  //
-  //  }
 }
 
 fun NavGraphBuilder.addHomeGraph(
