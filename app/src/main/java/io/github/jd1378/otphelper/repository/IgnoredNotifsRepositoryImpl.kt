@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.model.IgnoredNotifsOfPackageName
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -29,6 +30,16 @@ constructor(
             pagingSourceFactory = {
               otpHelperDatabase.ignoredNotifDao().ignoredNotifSortedByCreatedAtPagingSource()
             },
+        )
+        .flow
+  }
+
+  override fun getGroupedByPackageName(
+      pageSize: Int
+  ): Flow<PagingData<IgnoredNotifsOfPackageName>> {
+    return Pager(
+            config = PagingConfig(pageSize = pageSize),
+            pagingSourceFactory = { otpHelperDatabase.ignoredNotifDao().getGroupedByPackageName() },
         )
         .flow
   }

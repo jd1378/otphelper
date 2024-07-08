@@ -11,8 +11,8 @@ import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @Stable
 @HiltViewModel
@@ -23,7 +23,7 @@ constructor(
     private val ignoredNotifsRepository: IgnoredNotifsRepository
 ) : ViewModel() {
 
-  val ignoredNotifs = ignoredNotifsRepository.get().cachedIn(viewModelScope)
+  val ignoredNotifs = ignoredNotifsRepository.getGroupedByPackageName().cachedIn(viewModelScope)
   var isDeleting by mutableStateOf(false)
     private set
 

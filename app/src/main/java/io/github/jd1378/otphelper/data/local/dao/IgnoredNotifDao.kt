@@ -6,6 +6,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.model.IgnoredNotifsOfPackageName
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -30,4 +31,7 @@ abstract class IgnoredNotifDao : BaseDao<IgnoredNotif> {
   @Query(
       "DELETE FROM IgnoredNotif WHERE packageName = :packageName AND type = :type AND typeData = :typeData")
   abstract suspend fun delete(packageName: String, type: IgnoredNotifType, typeData: String)
+
+  @Query("SELECT packageName, count(*) as totalItems FROM IgnoredNotif GROUP BY packageName")
+  abstract fun getGroupedByPackageName(): PagingSource<Int, IgnoredNotifsOfPackageName>
 }

@@ -4,12 +4,15 @@ import androidx.compose.runtime.Stable
 import androidx.paging.PagingData
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.model.IgnoredNotifsOfPackageName
 import kotlinx.coroutines.flow.Flow
 
 @Stable
 interface IgnoredNotifsRepository {
 
   fun get(pageSize: Int = 10): Flow<PagingData<IgnoredNotif>>
+
+  fun getGroupedByPackageName(pageSize: Int = 10): Flow<PagingData<IgnoredNotifsOfPackageName>>
 
   suspend fun isIgnored(
       packageName: String,
