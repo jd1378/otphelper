@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.historydetail
+package io.github.jd1378.otphelper.ui.screens
 
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.SavedStateHandle

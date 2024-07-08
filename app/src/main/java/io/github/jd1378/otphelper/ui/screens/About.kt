@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.about
+package io.github.jd1378.otphelper.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

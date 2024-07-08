@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.permissions
+package io.github.jd1378.otphelper.ui.screens
 
 import android.Manifest
 import android.os.Build

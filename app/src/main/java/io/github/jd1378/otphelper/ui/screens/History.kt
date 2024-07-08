@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.history
+package io.github.jd1378.otphelper.ui.screens
 
 import android.text.format.DateUtils
 import androidx.compose.foundation.border

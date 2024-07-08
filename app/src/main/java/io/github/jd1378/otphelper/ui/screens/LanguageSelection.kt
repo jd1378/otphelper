@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.language_selection
+package io.github.jd1378.otphelper.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable

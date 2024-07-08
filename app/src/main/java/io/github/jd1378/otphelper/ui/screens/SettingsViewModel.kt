@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.settings
+package io.github.jd1378.otphelper.ui.screens
 
 import android.content.Context
 import androidx.compose.runtime.Stable

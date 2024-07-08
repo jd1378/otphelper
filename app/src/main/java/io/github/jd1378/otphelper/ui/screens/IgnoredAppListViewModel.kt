@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.ignored_app_list
+package io.github.jd1378.otphelper.ui.screens
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue

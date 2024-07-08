@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.ignored_app_list
+package io.github.jd1378.otphelper.ui.screens
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable

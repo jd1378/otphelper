@@ -8,21 +8,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import io.github.jd1378.otphelper.OTPHELPER_APP_SCHEME
-import io.github.jd1378.otphelper.ui.screens.about.About
-import io.github.jd1378.otphelper.ui.screens.history.History
-import io.github.jd1378.otphelper.ui.screens.history.HistoryViewModel
-import io.github.jd1378.otphelper.ui.screens.historydetail.HistoryDetail
-import io.github.jd1378.otphelper.ui.screens.historydetail.HistoryDetailViewModel
-import io.github.jd1378.otphelper.ui.screens.home.Home
-import io.github.jd1378.otphelper.ui.screens.home.HomeViewModel
-import io.github.jd1378.otphelper.ui.screens.ignored_app_list.IgnoredAppList
-import io.github.jd1378.otphelper.ui.screens.ignored_app_list.IgnoredAppListViewModel
-import io.github.jd1378.otphelper.ui.screens.language_selection.LanguageSelection
-import io.github.jd1378.otphelper.ui.screens.language_selection.LanguageSelectionViewModel
-import io.github.jd1378.otphelper.ui.screens.permissions.Permissions
-import io.github.jd1378.otphelper.ui.screens.permissions.PermissionsViewModel
-import io.github.jd1378.otphelper.ui.screens.settings.Settings
-import io.github.jd1378.otphelper.ui.screens.settings.SettingsViewModel
+import io.github.jd1378.otphelper.ui.screens.About
+import io.github.jd1378.otphelper.ui.screens.History
+import io.github.jd1378.otphelper.ui.screens.HistoryDetail
+import io.github.jd1378.otphelper.ui.screens.HistoryDetailViewModel
+import io.github.jd1378.otphelper.ui.screens.HistoryViewModel
+import io.github.jd1378.otphelper.ui.screens.Home
+import io.github.jd1378.otphelper.ui.screens.HomeViewModel
+import io.github.jd1378.otphelper.ui.screens.IgnoredAppList
+import io.github.jd1378.otphelper.ui.screens.IgnoredAppListViewModel
+import io.github.jd1378.otphelper.ui.screens.LanguageSelection
+import io.github.jd1378.otphelper.ui.screens.LanguageSelectionViewModel
+import io.github.jd1378.otphelper.ui.screens.Permissions
+import io.github.jd1378.otphelper.ui.screens.PermissionsViewModel
+import io.github.jd1378.otphelper.ui.screens.Settings
+import io.github.jd1378.otphelper.ui.screens.SettingsViewModel
 
 fun NavGraphBuilder.otphelperNavGraph(
     upPress: () -> Unit,
