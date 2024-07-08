@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.permissions
+package io.github.jd1378.otphelper.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

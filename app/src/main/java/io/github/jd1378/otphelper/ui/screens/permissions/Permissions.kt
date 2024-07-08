@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.ui.screens.permissions
 
+import android.Manifest
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,7 +30,9 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.ui.components.SkipDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.ui.components.TodoItem
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
@@ -113,7 +116,7 @@ fun Permissions(
           enabled = !uiState.hasNotifPerm,
           checked = uiState.hasNotifPerm) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-              permLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+              permLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
           }
       TodoItem(
