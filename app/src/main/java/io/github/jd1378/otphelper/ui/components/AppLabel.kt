@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.ui.components
 
+import android.content.Context
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -8,18 +9,26 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 
-@Composable
-fun AppLabel(packageName: String, textStyle: TextStyle = LocalTextStyle.current, modifier: Modifier = Modifier) {
-  val context = LocalContext.current
-  var label: String? = null
-
+/** returns the package name if app label is not found. */
+fun getAppLabel(context: Context, packageName: String?): String {
+  if (packageName.isNullOrEmpty()) return ""
   try {
     val packageManager = context.packageManager
     val applicationInfo = packageManager.getApplicationInfo(packageName, 0)
-    label = packageManager.getApplicationLabel(applicationInfo).toString()
+    return packageManager.getApplicationLabel(applicationInfo).toString()
   } catch (e: Exception) {
-    e.printStackTrace()
+    return packageName
   }
+}
+
+@Composable
+fun AppLabel(
+    packageName: String,
+    textStyle: TextStyle = LocalTextStyle.current,
+    modifier: Modifier = Modifier
+) {
+  val context = LocalContext.current
+  var label: String? = getAppLabel(context, packageName)
 
   label?.let { Text(label, style = textStyle, modifier = modifier) }
 }
