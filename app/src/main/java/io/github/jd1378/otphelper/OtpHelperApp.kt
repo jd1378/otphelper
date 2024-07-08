@@ -18,7 +18,7 @@ import io.github.jd1378.otphelper.ui.screens.about.addAboutGraph
 import io.github.jd1378.otphelper.ui.screens.history.addHistoryGraph
 import io.github.jd1378.otphelper.ui.screens.historydetail.addHistoryDetailGraph
 import io.github.jd1378.otphelper.ui.screens.home.addHomeGraph
-import io.github.jd1378.otphelper.ui.screens.ignored_list.addIgnoredListGraph
+import io.github.jd1378.otphelper.ui.screens.ignored_app_list.addIgnoredAppListGraph
 import io.github.jd1378.otphelper.ui.screens.language_selection.addLanguageSelectionGraph
 import io.github.jd1378.otphelper.ui.screens.permissions.addPermissionsGraph
 import io.github.jd1378.otphelper.ui.screens.settings.addSettingsGraph
@@ -82,7 +82,7 @@ private fun NavGraphBuilder.otphelperNavGraph(
 ) {
   addHomeGraph(onNavigateToRoute)
   addLanguageSelectionGraph(upPress)
-  addIgnoredListGraph(upPress)
+  addIgnoredAppListGraph(upPress)
   addPermissionsGraph(onNavigateToRoute, upPress)
   addAboutGraph(upPress)
   addSettingsGraph(onNavigateToRoute, upPress)

@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.ignored_list
+package io.github.jd1378.otphelper.ui.screens.ignored_app_list
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -46,18 +46,18 @@ import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
-fun NavGraphBuilder.addIgnoredListGraph(upPress: () -> Unit) {
+fun NavGraphBuilder.addIgnoredAppListGraph(upPress: () -> Unit) {
   composable(
       MainDestinations.IGNORED_LIST_ROUTE,
   ) {
-    val viewModel = hiltViewModel<IgnoredListViewModel>()
-    IgnoredList(upPress, viewModel)
+    val viewModel = hiltViewModel<IgnoredAppListViewModel>()
+    IgnoredAppList(upPress, viewModel)
   }
 }
 
 @Composable
-fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
-  val ignoredNotifs = viewModel.ignoredNotifs.collectAsLazyPagingItems()
+fun IgnoredAppList(upPress: () -> Unit, viewModel: IgnoredAppListViewModel) {
+  val ignoredApps = viewModel.ignoredApps.collectAsLazyPagingItems()
   val listState = rememberLazyListState()
 
   Scaffold(
@@ -81,7 +81,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
               modifier =
                   Modifier.fillMaxSize().padding(top = dimensionResource(R.dimen.padding_medium)),
           ) {
-            when (ignoredNotifs.loadState.refresh) {
+            when (ignoredApps.loadState.refresh) {
               is LoadState.Loading ->
                   CircularProgressIndicator(modifier = Modifier.align(Alignment.Center).size(40.dp))
               is LoadState.Error ->
@@ -94,7 +94,7 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
                     }
                   }
               else -> {
-                if (ignoredNotifs.itemCount == 0) {
+                if (ignoredApps.itemCount == 0) {
                   Row {
                     Text(
                         stringResource(R.string.list_is_empty),
@@ -112,18 +112,18 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
                           Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
                   ) {
                     items(
-                        count = ignoredNotifs.itemCount,
-                        key = ignoredNotifs.itemKey { it.packageName },
+                        count = ignoredApps.itemCount,
+                        key = ignoredApps.itemKey { it.packageName },
                     ) { index ->
-                      val ignoredNotif = ignoredNotifs[index]
+                      val ignoredNotif = ignoredApps[index]
                       if (ignoredNotif != null) {
-                        IgnoredListItem(ignoredNotif.packageName, ignoredNotif.totalItems) {
+                        IgnoredAppListItem(ignoredNotif.packageName, ignoredNotif.totalItems) {
                           // TODO: move to ignored list detail
                         }
                       }
                     }
                     item {
-                      if (ignoredNotifs.loadState.append == LoadState.Loading) {
+                      if (ignoredApps.loadState.append == LoadState.Loading) {
                         CircularProgressIndicator(modifier = Modifier.padding(16.dp))
                       }
                     }
@@ -137,7 +137,11 @@ fun IgnoredList(upPress: () -> Unit, viewModel: IgnoredListViewModel) {
 }
 
 @Composable
-fun IgnoredListItem(packageName: String, totalItems: Long, onClick: (packageName: String) -> Unit) {
+fun IgnoredAppListItem(
+    packageName: String,
+    totalItems: Long,
+    onClick: (packageName: String) -> Unit
+) {
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).clickable { onClick(packageName) },
       leadingContent = {

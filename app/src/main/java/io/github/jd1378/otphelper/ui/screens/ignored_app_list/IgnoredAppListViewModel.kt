@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.ignored_list
+package io.github.jd1378.otphelper.ui.screens.ignored_app_list
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -11,19 +11,19 @@ import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @Stable
 @HiltViewModel
-class IgnoredListViewModel
+class IgnoredAppListViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
     private val ignoredNotifsRepository: IgnoredNotifsRepository
 ) : ViewModel() {
 
-  val ignoredNotifs = ignoredNotifsRepository.getGroupedByPackageName().cachedIn(viewModelScope)
+  val ignoredApps = ignoredNotifsRepository.getGroupedByPackageName().cachedIn(viewModelScope)
   var isDeleting by mutableStateOf(false)
     private set
 
