@@ -1,4 +1,4 @@
-package io.github.jd1378.otphelper.ui.screens.history
+package io.github.jd1378.otphelper.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Warning

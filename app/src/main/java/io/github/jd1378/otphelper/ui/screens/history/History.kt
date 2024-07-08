@@ -56,6 +56,7 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.AppLabel
+import io.github.jd1378.otphelper.ui.components.DangerousActionDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
