@@ -86,6 +86,8 @@ fun HistoryDetail(
     derivedStateOf { CodeExtractor.getCodeMatch(state.value?.text) }
   }
 
+  val scrollState = rememberScrollState()
+
   SkipFirstLaunchedEffect(state.value) {
     if (state.value == null) {
       upPress()
@@ -106,7 +108,8 @@ fun HistoryDetail(
       Column(
           Modifier.padding(padding)
               .padding(horizontal = dimensionResource(R.dimen.padding_page))
-              .padding(top = dimensionResource(R.dimen.padding_page)),
+              .padding(top = dimensionResource(R.dimen.padding_page))
+              .verticalScroll(scrollState),
           verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
       ) {
         Row(
@@ -242,9 +245,7 @@ fun HistoryDetail(
 
         val customColors = LocalCustomColors.current
 
-        val scrollState = rememberScrollState()
-
-        Column(Modifier.verticalScroll(scrollState)) {
+        Column() {
           SelectionContainer {
             Text(
                 buildAnnotatedString {
