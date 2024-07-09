@@ -1,6 +1,5 @@
 package io.github.jd1378.otphelper.ui.screens
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,7 +25,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -145,10 +143,7 @@ fun IgnoredAppListItem(
       leadingContent = {
         AppImage(
             packageName,
-            modifier =
-                Modifier.size(64.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .border(1.dp, Color(0.5f, 0.5f, 0.5f, 0.5f), RoundedCornerShape(10.dp)),
+            modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
       headlineContent = { Text(appLabel) },

@@ -1,7 +1,6 @@
 package io.github.jd1378.otphelper.ui.screens
 
 import android.text.format.DateUtils
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -38,7 +37,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -184,10 +182,7 @@ fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCo
       leadingContent = {
         AppImage(
             detectedCode.packageName,
-            modifier =
-                Modifier.size(64.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .border(1.dp, Color(0.5f, 0.5f, 0.5f, 0.5f), RoundedCornerShape(10.dp)),
+            modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
       headlineContent = { AppLabel(packageName = detectedCode.packageName) },
