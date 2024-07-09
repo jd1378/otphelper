@@ -83,4 +83,9 @@
     <string name="allow_app">اجازه به برنامه</string>
     <string name="n_items">%1$d مورد</string>
     <string name="app_label_not_visible_reason">نام برنامه در دسترس نیست، احتمالا بخاطر این که پاک شده است.</string>
+    <string name="add">اضافه کردن</string>
+    <string name="learn_more">دانستن بیش‌تر</string>
+    <string name="reset_to_default">تنظیم به عنوان پیش فرض</string>
+    <string name="cancel">لغو‌کردن</string>
+    <string name="clear_list">پاک کردن لیست</string>
 </resources>
