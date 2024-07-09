@@ -83,4 +83,9 @@
     <string name="allow_app">Разрешить приложения</string>
     <string name="n_items">%1$d элемент</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="reset_to_default">Сбросить настройки</string>
+    <string name="add">Добавить</string>
+    <string name="learn_more">Learn more</string>
+    <string name="cancel">Отмена</string>
+    <string name="clear_list">Очистить недавние</string>
 </resources>
