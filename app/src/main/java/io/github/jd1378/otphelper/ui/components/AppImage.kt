@@ -3,6 +3,7 @@ package io.github.jd1378.otphelper.ui.components
 import android.graphics.drawable.Drawable
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,8 +31,10 @@ fun AppImage(packageName: String?, modifier: Modifier = Modifier) {
     appLabel = packageName ?: ""
   }
 
-  drawable?.let {
-    val bitmap = drawableToBitmap(it)
+  if (drawable == null) {
+    Box(modifier)
+  } else {
+    val bitmap = drawableToBitmap(drawable)
     val painter = bitmapToPainter(bitmap)
     Image(painter = painter, contentDescription = appLabel, modifier = modifier)
   }
