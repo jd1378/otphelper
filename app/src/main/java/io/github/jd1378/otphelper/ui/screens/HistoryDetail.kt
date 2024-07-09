@@ -41,7 +41,6 @@ import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
-import io.github.jd1378.otphelper.utils.CodeExtractor
 
 @Composable
 fun HistoryDetail(
@@ -54,7 +53,7 @@ fun HistoryDetail(
   val isNotifIdIgnored = viewModel.isNotifIdIgnored.collectAsStateWithLifecycle()
   val isNotifTagIgnored = viewModel.isNotifTagIgnored.collectAsStateWithLifecycle()
   val codeExtractorResult = remember {
-    derivedStateOf { CodeExtractor.getCodeMatch(state.value?.text) }
+    derivedStateOf { viewModel.autoUpdatingCodeExtractor.instance?.getCodeMatch(state.value?.text) }
   }
 
   val scrollState = rememberScrollState()
@@ -110,8 +109,7 @@ fun HistoryDetail(
                       LocalTextStyle.current.copy(
                           fontWeight = FontWeight.Medium,
                           fontSize = 16.sp,
-                      )
-              )
+                      ))
 
               Text(
                   text =

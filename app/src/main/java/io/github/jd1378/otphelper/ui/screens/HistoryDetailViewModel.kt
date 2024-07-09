@@ -10,6 +10,7 @@ import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.repository.DetectedCodeRepository
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.ui.navigation.NavArgs
+import io.github.jd1378.otphelper.utils.AutoUpdatingCodeExtractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
@@ -27,6 +28,7 @@ constructor(
     private val savedStateHandle: SavedStateHandle,
     private val detectedCodeRepository: DetectedCodeRepository,
     private val ignoredNotifsRepository: IgnoredNotifsRepository,
+    val autoUpdatingCodeExtractor: AutoUpdatingCodeExtractor
 ) : ViewModel() {
 
   private val historyId = savedStateHandle.getStateFlow<Long?>(NavArgs.HISTORY_ID, null)

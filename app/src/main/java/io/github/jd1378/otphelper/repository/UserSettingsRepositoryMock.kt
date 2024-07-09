@@ -43,4 +43,8 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   override suspend fun setShouldReplaceCodeInHistory(value: Boolean) {
     TODO("Not yet implemented")
   }
+
+  override suspend fun setSensitivePhrases(list: List<String>) {
+    TODO("Not yet implemented")
+  }
 }

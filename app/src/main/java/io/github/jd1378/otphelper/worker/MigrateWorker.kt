@@ -7,7 +7,6 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import io.github.jd1378.otphelper.UserSettings
-import io.github.jd1378.otphelper.copy
 import io.github.jd1378.otphelper.data.legacy.OldIgnoredNotifSetRepository
 import io.github.jd1378.otphelper.data.legacy.OldSettingsRepository
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
@@ -16,6 +15,7 @@ import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.getDeepLinkPendingIntent
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.utils.CodeExtractorDefaults
 
 const val migrateWorkName = "migrate_work"
 
@@ -68,15 +68,18 @@ constructor(
                 .filterNotNull())
 
     userSettingsRepository.saveSettings(
-        UserSettings.getDefaultInstance().copy {
-          isMigrationDone = true
-          isSetupFinished = oldSettingsRepository.getIsSetupFinished()
-          isAutoCopyEnabled = oldSettingsRepository.getIsAutoCopyEnabled()
-          isPostNotifEnabled = oldSettingsRepository.getIsPostNotifEnabled()
-          isCopiedToastEnabled = true
-          isHistoryDisabled = false
-          shouldReplaceCodeInHistory = true
-        })
+        UserSettings.getDefaultInstance()
+            .toBuilder()
+            .setIsMigrationDone(true)
+            .setIsSetupFinished(oldSettingsRepository.getIsSetupFinished())
+            .setIsAutoCopyEnabled(oldSettingsRepository.getIsAutoCopyEnabled())
+            .setIsPostNotifEnabled(oldSettingsRepository.getIsPostNotifEnabled())
+            .setIsCopiedToastEnabled(true)
+            .setIsHistoryDisabled(false)
+            .setShouldReplaceCodeInHistory(true)
+            .clearSensitivePhrases()
+            .addAllSensitivePhrases(CodeExtractorDefaults.sensitivePhrases)
+            .build())
 
     val isSetupFinished = userSettingsRepository.fetchSettings().isSetupFinished
     if (isSetupFinished) {

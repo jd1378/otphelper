@@ -77,6 +77,14 @@ fun Settings(
                 subtitle = getCurrentLocale().displayLanguage,
             )
 
+            SettingPageLink(
+                modifier =
+                    Modifier.clickable {
+                      onNavigateToRoute(MainDestinations.SENSITIVE_PHRASES_ROUTE, false)
+                    },
+                title = stringResource(R.string.sensitive_phrases),
+            )
+
             Surface(
                 color = MaterialTheme.colorScheme.surfaceContainer,
                 shape = MaterialTheme.shapes.large,

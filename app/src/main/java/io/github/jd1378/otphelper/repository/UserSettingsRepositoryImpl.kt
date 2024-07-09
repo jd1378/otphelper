@@ -81,4 +81,10 @@ constructor(
       currentSettings.toBuilder().setShouldReplaceCodeInHistory(value).build()
     }
   }
+
+  override suspend fun setSensitivePhrases(list: List<String>) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().clearSensitivePhrases().addAllSensitivePhrases(list).build()
+    }
+  }
 }

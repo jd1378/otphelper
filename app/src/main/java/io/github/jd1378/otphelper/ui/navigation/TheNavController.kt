@@ -25,6 +25,7 @@ object MainDestinations {
   const val SETTINGS_ROUTE = "settings"
   const val HISTORY_ROUTE = "history"
   const val HISTORY_DETAIL_ROUTE = "history_detail"
+  const val SENSITIVE_PHRASES_ROUTE = "sensitive_phrases"
 }
 
 object NavArgs {

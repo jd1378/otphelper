@@ -26,4 +26,6 @@ interface UserSettingsRepository {
   suspend fun setIsHistoryDisabled(value: Boolean)
 
   suspend fun setShouldReplaceCodeInHistory(value: Boolean)
+
+  suspend fun setSensitivePhrases(list: List<String>)
 }

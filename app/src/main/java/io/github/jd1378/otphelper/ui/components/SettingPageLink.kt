@@ -15,12 +15,16 @@ import io.github.jd1378.otphelper.R
 fun SettingPageLink(
     modifier: Modifier = Modifier,
     title: String,
-    subtitle: String,
+    subtitle: String? = null,
 ) {
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).then(modifier),
       headlineContent = { SettingLabel(title) },
-      supportingContent = { Text(subtitle, color = MaterialTheme.colorScheme.primary) },
+      supportingContent = {
+        if (!subtitle.isNullOrEmpty()) {
+          Text(subtitle, color = MaterialTheme.colorScheme.primary)
+        }
+      },
       trailingContent = { Icon(painterResource(R.drawable.baseline_navigate_next_24), null) },
       colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
   )

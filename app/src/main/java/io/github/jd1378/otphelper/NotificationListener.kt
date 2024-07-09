@@ -9,11 +9,17 @@ import android.util.Log
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import io.github.jd1378.otphelper.utils.CodeExtractor
+import dagger.hilt.android.AndroidEntryPoint
+import io.github.jd1378.otphelper.utils.AutoUpdatingCodeExtractor
 import io.github.jd1378.otphelper.utils.CodeIgnore
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class NotificationListener : NotificationListenerService() {
+
+  @Inject lateinit var autoUpdatingCodeExtractor: AutoUpdatingCodeExtractor
+
   companion object {
     val TAG = "NotificationListener"
     val notification_text_keys =
@@ -61,7 +67,7 @@ class NotificationListener : NotificationListenerService() {
       val notificationText = notifyTexts.toString()
 
       if (notificationText.isNotEmpty()) {
-        val code = CodeExtractor.getCode(notificationText)
+        val code = autoUpdatingCodeExtractor.instance?.getCode(notificationText)
         if (!code.isNullOrEmpty()) {
           val data =
               workDataOf(

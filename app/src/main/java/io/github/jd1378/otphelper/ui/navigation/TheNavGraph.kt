@@ -23,6 +23,8 @@ import io.github.jd1378.otphelper.ui.screens.LanguageSelection
 import io.github.jd1378.otphelper.ui.screens.LanguageSelectionViewModel
 import io.github.jd1378.otphelper.ui.screens.Permissions
 import io.github.jd1378.otphelper.ui.screens.PermissionsViewModel
+import io.github.jd1378.otphelper.ui.screens.SensitivePhrases
+import io.github.jd1378.otphelper.ui.screens.SensitivePhrasesViewModel
 import io.github.jd1378.otphelper.ui.screens.Settings
 import io.github.jd1378.otphelper.ui.screens.SettingsViewModel
 
@@ -39,6 +41,7 @@ fun NavGraphBuilder.otphelperNavGraph(
   addSettingsGraph(onNavigateToRoute, upPress)
   addHistoryGraph(onNavigateToRoute = onNavigateToRoute, upPress = upPress)
   addHistoryDetailGraph(upPress = upPress)
+  addSensitivePhrasesGraph(upPress = upPress)
 }
 
 fun NavGraphBuilder.addHomeGraph(
@@ -160,4 +163,11 @@ fun NavGraphBuilder.addHistoryDetailGraph(modifier: Modifier = Modifier, upPress
           HistoryDetail(modifier, upPress, viewModel)
         }
       }
+}
+
+fun NavGraphBuilder.addSensitivePhrasesGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
+  composable(MainDestinations.SENSITIVE_PHRASES_ROUTE) {
+    val viewModel = hiltViewModel<SensitivePhrasesViewModel>()
+    SensitivePhrases(modifier, upPress, viewModel)
+  }
 }
