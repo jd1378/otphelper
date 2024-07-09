@@ -37,9 +37,9 @@
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
 
-        <data
-            android:scheme="otphelper"
-            android:host="history_detail" />
+        <data android:scheme="otphelper" />
+        <data android:host="history_detail" />
+        <data android:host="home" />
       </intent-filter>
     </activity>
 

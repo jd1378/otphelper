@@ -13,7 +13,9 @@ import io.github.jd1378.otphelper.data.legacy.OldSettingsRepository
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.getDeepLinkPendingIntent
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 const val migrateWorkName = "migrate_work"
 
@@ -67,6 +69,12 @@ constructor(
           isHistoryDisabled = false
           shouldReplaceCodeInHistory = true
         })
+
+    val isSetupFinished = userSettingsRepository.fetchSettings().isSetupFinished
+    if (isSetupFinished) {
+      getDeepLinkPendingIntent(applicationContext, MainDestinations.HOME_ROUTE).send()
+    }
+
     return Result.success()
   }
 }

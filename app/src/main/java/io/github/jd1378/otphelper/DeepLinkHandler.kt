@@ -40,7 +40,11 @@ sealed interface Event {
 
 const val OTPHELPER_APP_SCHEME = "otphelper"
 
-fun getDeepLinkPendingIntent(context: Context, route: String, navArgValue: String?): PendingIntent {
+fun getDeepLinkPendingIntent(
+    context: Context,
+    route: String,
+    navArgValue: String? = null,
+): PendingIntent {
   var baseUri = "$OTPHELPER_APP_SCHEME://$route"
   if (!navArgValue.isNullOrEmpty()) {
     baseUri += "/$navArgValue"
