@@ -22,10 +22,19 @@ fun getAppLabel(context: Context, packageName: String?): String {
 }
 
 @Composable
+fun getAppLabel(packageName: String?, trim: Int? = null): String {
+  val appLabel = getAppLabel(LocalContext.current, packageName)
+  if (trim != null) {
+    return if (appLabel.length > trim) appLabel.substring(0, trim) + "..." else appLabel
+  }
+  return appLabel
+}
+
+@Composable
 fun AppLabel(
-  modifier: Modifier = Modifier,
-  packageName: String,
-  textStyle: TextStyle = LocalTextStyle.current
+    modifier: Modifier = Modifier,
+    packageName: String,
+    textStyle: TextStyle = LocalTextStyle.current
 ) {
   val context = LocalContext.current
   var label: String? = getAppLabel(context, packageName)

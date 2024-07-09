@@ -39,8 +39,8 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
-import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.ui.components.getAppLabel
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
@@ -138,6 +138,8 @@ fun IgnoredAppListItem(
     totalItems: Long,
     onClick: (packageName: String) -> Unit
 ) {
+  val appLabel = getAppLabel(packageName, 40)
+
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).clickable { onClick(packageName) },
       leadingContent = {
@@ -149,7 +151,7 @@ fun IgnoredAppListItem(
                     .border(1.dp, Color(0.5f, 0.5f, 0.5f, 0.5f), RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { AppLabel(packageName = packageName) },
+      headlineContent = { Text(appLabel) },
       supportingContent = {
         Text(
             text = stringResource(R.string.n_items, totalItems),
