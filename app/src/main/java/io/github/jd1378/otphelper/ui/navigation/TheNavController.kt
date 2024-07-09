@@ -17,7 +17,8 @@ import kotlinx.coroutines.flow.StateFlow
 object MainDestinations {
   const val HOME_ROUTE = "home"
   const val LANGUAGE_SELECTION_ROUTE = "language_selection"
-  const val IGNORED_LIST_ROUTE = "ignored_list"
+  const val IGNORED_APP_LIST_ROUTE = "ignored_app_list"
+  const val IGNORED_APP_DETAIL_ROUTE = "ignored_app_detail"
   const val PERMISSIONS_ROUTE = "permissions"
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"
   const val ABOUT_ROUTE = "about"
@@ -28,6 +29,7 @@ object MainDestinations {
 
 object NavArgs {
   const val HISTORY_ID = "historyId"
+  const val PACKAGE_NAME = "packageName"
 }
 
 @Composable

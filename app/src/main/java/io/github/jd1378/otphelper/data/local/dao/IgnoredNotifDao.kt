@@ -22,6 +22,11 @@ abstract class IgnoredNotifDao : BaseDao<IgnoredNotif> {
   @Query("SELECT * FROM IgnoredNotif WHERE packageName = :packageName")
   abstract suspend fun ignoredNotifByPackageName(packageName: String): List<IgnoredNotif>
 
+  @Query("SELECT * FROM IgnoredNotif WHERE packageName = :packageName ORDER BY type ASC")
+  abstract fun ignoredNotifByPackageNamePagingSource(
+      packageName: String
+  ): PagingSource<Int, IgnoredNotif>
+
   @Query(
       "SELECT 1 FROM IgnoredNotif WHERE packageName = :packageName AND type = :type AND typeData = :typeData LIMIT 1")
   abstract fun exists(packageName: String, type: IgnoredNotifType, typeData: String?): Flow<Boolean>

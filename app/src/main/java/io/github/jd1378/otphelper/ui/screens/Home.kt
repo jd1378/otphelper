@@ -58,7 +58,7 @@ fun Home(
             }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.IGNORED_LIST_ROUTE, true) }) {
+            onClick = { onNavigateToRoute(MainDestinations.IGNORED_APP_LIST_ROUTE, true) }) {
               Text(text = stringResource(R.string.ignored_list))
             }
         if (!userSettings.isHistoryDisabled) {

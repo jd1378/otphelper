@@ -41,9 +41,14 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
-fun IgnoredAppList(upPress: () -> Unit, viewModel: IgnoredAppListViewModel) {
+fun IgnoredAppList(
+    onNavigateToRoute: (String, Boolean) -> Unit,
+    upPress: () -> Unit,
+    viewModel: IgnoredAppListViewModel
+) {
   val ignoredApps = viewModel.ignoredApps.collectAsLazyPagingItems()
   val listState = rememberLazyListState()
 
@@ -105,7 +110,11 @@ fun IgnoredAppList(upPress: () -> Unit, viewModel: IgnoredAppListViewModel) {
                       val ignoredNotif = ignoredApps[index]
                       if (ignoredNotif != null) {
                         IgnoredAppListItem(ignoredNotif.packageName, ignoredNotif.totalItems) {
-                          // TODO: move to ignored list detail
+                          onNavigateToRoute(
+                              MainDestinations.IGNORED_APP_DETAIL_ROUTE +
+                                  "/" +
+                                  ignoredNotif.packageName,
+                              false)
                         }
                       }
                     }

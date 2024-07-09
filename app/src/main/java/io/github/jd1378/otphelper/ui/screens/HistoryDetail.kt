@@ -12,11 +12,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +35,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.AppLabel
+import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
+import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
+import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
@@ -124,22 +125,7 @@ fun HistoryDetail(
             }
           }
 
-          OutlinedButton(
-              onClick = { viewModel.toggleAppIgnore(detectedCode) },
-              colors =
-                  if (isAppIgnored.value) ButtonDefaults.outlinedButtonColors()
-                  else
-                      ButtonDefaults.outlinedButtonColors()
-                          .copy(
-                              contentColor = MaterialTheme.colorScheme.error,
-                          ),
-          ) {
-            if (isAppIgnored.value) {
-              Text(stringResource(R.string.allow_app))
-            } else {
-              Text(stringResource(R.string.ignore_app))
-            }
-          }
+          IgnoreAppButton(isAppIgnored.value) { viewModel.toggleAppIgnore(detectedCode) }
         }
 
         HorizontalDivider()
@@ -157,21 +143,8 @@ fun HistoryDetail(
             )
           }
 
-          OutlinedButton(
-              onClick = { viewModel.toggleNotifIdIgnore(detectedCode) },
-              colors =
-                  if (isNotifIdIgnored.value) ButtonDefaults.outlinedButtonColors()
-                  else
-                      ButtonDefaults.outlinedButtonColors()
-                          .copy(
-                              contentColor = MaterialTheme.colorScheme.error,
-                          ),
-          ) {
-            if (isNotifIdIgnored.value) {
-              Text(stringResource(R.string.allow_id))
-            } else {
-              Text(stringResource(R.string.ignore_id))
-            }
+          IgnoreNotifIdButton(isNotifIdIgnored.value) {
+            viewModel.toggleNotifIdIgnore(detectedCode)
           }
         }
 
@@ -192,21 +165,8 @@ fun HistoryDetail(
               Text(detectedCode.notificationTag)
             }
 
-            OutlinedButton(
-                onClick = { viewModel.toggleNotifTagIgnore(detectedCode) },
-                colors =
-                    if (isNotifTagIgnored.value) ButtonDefaults.outlinedButtonColors()
-                    else
-                        ButtonDefaults.outlinedButtonColors()
-                            .copy(
-                                contentColor = MaterialTheme.colorScheme.error,
-                            ),
-            ) {
-              if (isNotifTagIgnored.value) {
-                Text(stringResource(R.string.allow_tag))
-              } else {
-                Text(stringResource(R.string.ignore_tag))
-              }
+            IgnoreNotifTagButton(isNotifTagIgnored.value) {
+              viewModel.toggleNotifTagIgnore(detectedCode)
             }
           }
         }

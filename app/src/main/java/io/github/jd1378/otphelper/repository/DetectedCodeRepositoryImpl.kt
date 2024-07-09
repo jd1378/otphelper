@@ -24,7 +24,7 @@ constructor(
 
   override fun get(pageSize: Int): Flow<PagingData<DetectedCode>> {
     return Pager(
-            config = PagingConfig(pageSize = pageSize),
+            config = PagingConfig(pageSize = pageSize, enablePlaceholders = false),
             pagingSourceFactory = {
               otpHelperDatabase.detectedCodeDao().detectedCodeSortedByCreatedAtPagingSource()
             },

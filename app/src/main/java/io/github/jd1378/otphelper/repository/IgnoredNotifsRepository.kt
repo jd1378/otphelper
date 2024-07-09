@@ -14,6 +14,8 @@ interface IgnoredNotifsRepository {
 
   fun getGroupedByPackageName(pageSize: Int = 10): Flow<PagingData<IgnoredNotifsOfPackageName>>
 
+  fun getByPackageName(packageName: String, pageSize: Int = 10): Flow<PagingData<IgnoredNotif>>
+
   suspend fun isIgnored(
       packageName: String,
       notificationId: String,

@@ -15,6 +15,8 @@ import io.github.jd1378.otphelper.ui.screens.HistoryDetailViewModel
 import io.github.jd1378.otphelper.ui.screens.HistoryViewModel
 import io.github.jd1378.otphelper.ui.screens.Home
 import io.github.jd1378.otphelper.ui.screens.HomeViewModel
+import io.github.jd1378.otphelper.ui.screens.IgnoredAppDetail
+import io.github.jd1378.otphelper.ui.screens.IgnoredAppDetailViewModel
 import io.github.jd1378.otphelper.ui.screens.IgnoredAppList
 import io.github.jd1378.otphelper.ui.screens.IgnoredAppListViewModel
 import io.github.jd1378.otphelper.ui.screens.LanguageSelection
@@ -30,7 +32,8 @@ fun NavGraphBuilder.otphelperNavGraph(
 ) {
   addHomeGraph(onNavigateToRoute)
   addLanguageSelectionGraph(upPress)
-  addIgnoredAppListGraph(upPress)
+  addIgnoredAppListGraph(onNavigateToRoute, upPress)
+  addIgnoredAppDetailGraph(upPress = upPress)
   addPermissionsGraph(onNavigateToRoute, upPress)
   addAboutGraph(upPress)
   addSettingsGraph(onNavigateToRoute, upPress)
@@ -57,13 +60,31 @@ fun NavGraphBuilder.addLanguageSelectionGraph(upPress: () -> Unit) {
   }
 }
 
-fun NavGraphBuilder.addIgnoredAppListGraph(upPress: () -> Unit) {
+fun NavGraphBuilder.addIgnoredAppListGraph(
+    onNavigateToRoute: (String, Boolean) -> Unit,
+    upPress: () -> Unit
+) {
   composable(
-      MainDestinations.IGNORED_LIST_ROUTE,
+      MainDestinations.IGNORED_APP_LIST_ROUTE,
   ) {
     val viewModel = hiltViewModel<IgnoredAppListViewModel>()
-    IgnoredAppList(upPress, viewModel)
+    IgnoredAppList(onNavigateToRoute, upPress, viewModel)
   }
+}
+
+fun NavGraphBuilder.addIgnoredAppDetailGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
+  composable(
+      "${MainDestinations.IGNORED_APP_DETAIL_ROUTE}/{${NavArgs.PACKAGE_NAME}}",
+      arguments = listOf(navArgument(NavArgs.PACKAGE_NAME) { type = NavType.StringType })) {
+          backStackEntry ->
+        val historyId = backStackEntry.arguments?.getString(NavArgs.PACKAGE_NAME)
+        if (historyId.isNullOrEmpty()) {
+          upPress()
+        } else {
+          val viewModel = hiltViewModel<IgnoredAppDetailViewModel>()
+          IgnoredAppDetail(modifier, upPress, viewModel)
+        }
+      }
 }
 
 fun NavGraphBuilder.addPermissionsGraph(

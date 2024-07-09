@@ -155,15 +155,13 @@ fun History(
                     count = historyItems.itemCount,
                     key = historyItems.itemKey { it.id },
                 ) { index ->
-                  val detectedCode = historyItems[index]
-                  if (detectedCode != null) {
-                    DetectedCodeListItem(
-                        Modifier.clickable {
-                          onNavigateToRoute(
-                              MainDestinations.HISTORY_DETAIL_ROUTE + "/" + detectedCode.id, false)
-                        },
-                        detectedCode)
-                  }
+                  val detectedCode = historyItems[index]!! // because enablePlaceholders = false
+                  DetectedCodeListItem(
+                      Modifier.clickable {
+                        onNavigateToRoute(
+                            MainDestinations.HISTORY_DETAIL_ROUTE + "/" + detectedCode.id, false)
+                      },
+                      detectedCode)
                 }
                 item {
                   if (historyItems.loadState.append == LoadState.Loading) {

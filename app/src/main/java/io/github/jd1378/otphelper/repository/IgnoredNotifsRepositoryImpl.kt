@@ -26,7 +26,7 @@ constructor(
 
   override fun get(pageSize: Int): Flow<PagingData<IgnoredNotif>> {
     return Pager(
-            config = PagingConfig(pageSize = pageSize),
+            config = PagingConfig(pageSize = pageSize, enablePlaceholders = false),
             pagingSourceFactory = {
               otpHelperDatabase.ignoredNotifDao().ignoredNotifSortedByCreatedAtPagingSource()
             },
@@ -38,8 +38,21 @@ constructor(
       pageSize: Int
   ): Flow<PagingData<IgnoredNotifsOfPackageName>> {
     return Pager(
-            config = PagingConfig(pageSize = pageSize),
+            config = PagingConfig(pageSize = pageSize, enablePlaceholders = false),
             pagingSourceFactory = { otpHelperDatabase.ignoredNotifDao().getGroupedByPackageName() },
+        )
+        .flow
+  }
+
+  override fun getByPackageName(
+      packageName: String,
+      pageSize: Int
+  ): Flow<PagingData<IgnoredNotif>> {
+    return Pager(
+            config = PagingConfig(pageSize = pageSize, enablePlaceholders = false),
+            pagingSourceFactory = {
+              otpHelperDatabase.ignoredNotifDao().ignoredNotifByPackageNamePagingSource(packageName)
+            },
         )
         .flow
   }
