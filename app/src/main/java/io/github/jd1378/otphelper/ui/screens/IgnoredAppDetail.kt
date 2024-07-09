@@ -134,7 +134,8 @@ fun IgnoredAppDetailItem(
         IgnoredNotifType.APPLICATION -> {
           AppLabel(
               packageName = ignoredNotif.packageName,
-              textStyle = LocalTextStyle.current.copy(fontWeight = FontWeight.Bold))
+              textStyle = LocalTextStyle.current.copy(fontWeight = FontWeight.Bold)
+          )
 
           IgnoreAppButton(true, onDelete)
         }

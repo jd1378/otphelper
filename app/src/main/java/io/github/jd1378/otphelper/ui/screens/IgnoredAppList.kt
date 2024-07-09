@@ -149,7 +149,7 @@ fun IgnoredAppListItem(
                     .border(1.dp, Color(0.5f, 0.5f, 0.5f, 0.5f), RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { AppLabel(packageName) },
+      headlineContent = { AppLabel(packageName = packageName) },
       supportingContent = {
         Text(
             text = stringResource(R.string.n_items, totalItems),

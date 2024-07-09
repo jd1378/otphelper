@@ -105,12 +105,13 @@ fun HistoryDetail(
 
             Column() {
               AppLabel(
-                  detectedCode.packageName,
+                  packageName = detectedCode.packageName,
                   textStyle =
                       LocalTextStyle.current.copy(
                           fontWeight = FontWeight.Medium,
                           fontSize = 16.sp,
-                      ))
+                      )
+              )
 
               Text(
                   text =

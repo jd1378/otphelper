@@ -190,7 +190,7 @@ fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCo
                     .border(1.dp, Color(0.5f, 0.5f, 0.5f, 0.5f), RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { AppLabel(detectedCode.packageName) },
+      headlineContent = { AppLabel(packageName = detectedCode.packageName) },
       supportingContent = {
         Text(
             text =

@@ -23,9 +23,9 @@ fun getAppLabel(context: Context, packageName: String?): String {
 
 @Composable
 fun AppLabel(
-    packageName: String,
-    textStyle: TextStyle = LocalTextStyle.current,
-    modifier: Modifier = Modifier
+  modifier: Modifier = Modifier,
+  packageName: String,
+  textStyle: TextStyle = LocalTextStyle.current
 ) {
   val context = LocalContext.current
   var label: String? = getAppLabel(context, packageName)
