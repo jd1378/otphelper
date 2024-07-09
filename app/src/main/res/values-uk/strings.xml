@@ -83,4 +83,9 @@
     <string name="allow_app">Дозволити застосунки</string>
     <string name="n_items">%1$d елемент</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="reset_to_default">Скинути параметри до стандартних</string>
+    <string name="add">Додати</string>
+    <string name="learn_more">Дізнатися більше</string>
+    <string name="cancel">Скасувати</string>
+    <string name="clear_list">Очистити журнал</string>
 </resources>
