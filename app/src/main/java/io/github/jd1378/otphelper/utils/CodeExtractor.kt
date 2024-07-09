@@ -82,7 +82,7 @@ object CodeExtractorDefaults {
 }
 
 class CodeExtractor // this comment is to separate parts
-(val sensitivePhrases: List<String>) {
+(private val sensitivePhrases: List<String>) {
 
   val generalCodeMatcher: Regex =
       """(${sensitivePhrases.joinToString("|")})(?:\s*(?!${
@@ -175,6 +175,7 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   private val scope = CoroutineScope(Dispatchers.IO + exceptionHandler)
 
   var instance: CodeExtractor? = null
+    private set
 
   init {
     scope.launch {

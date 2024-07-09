@@ -115,4 +115,6 @@
   <string name="your_new_phrase">Your new phrase</string>
   <string name="cancel">Cancel</string>
   <string name="clear_list">Clear list</string>
+  <string name="copy_general_regex">Copy general regex</string>
+  <string name="copy_special_regex">Copy special regex</string>
 </resources>

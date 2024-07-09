@@ -83,4 +83,16 @@
     <string name="allow_app">Allow App</string>
     <string name="n_items">%1$d itens</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="sensitive_phrases">Sensitive Phrases</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="add">Add</string>
+    <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
+    <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
+    <string name="learn_more">Learn more</string>
+    <string name="new_sensitive_phrase">New Sensitive Phrase</string>
+    <string name="your_new_phrase">Your new phrase</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear_list">Clear list</string>
+    <string name="copy_general_regex">Copy general regex</string>
+    <string name="copy_special_regex">Copy special regex</string>
 </resources>

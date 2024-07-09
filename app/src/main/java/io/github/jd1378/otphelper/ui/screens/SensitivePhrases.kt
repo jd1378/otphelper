@@ -34,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -50,6 +51,7 @@ import io.github.jd1378.otphelper.ui.components.DangerousActionDialog
 import io.github.jd1378.otphelper.ui.components.NewSensitivePhraseDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
+import io.github.jd1378.otphelper.utils.Clipboard
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -59,6 +61,8 @@ fun SensitivePhrases(
     viewModel: SensitivePhrasesViewModel
 ) {
   val uriHandler = LocalUriHandler.current
+  val context = LocalContext.current
+
   val phrases by viewModel.sensitivePhrases.collectAsStateWithLifecycle()
   val listState = rememberLazyListState()
   val showResetToDefaultDialog = viewModel.showResetToDefaultDialog.collectAsStateWithLifecycle()
@@ -99,6 +103,39 @@ fun SensitivePhrases(
                     expanded = false
                   },
                   leadingIcon = { Icon(Icons.Default.Delete, contentDescription = null) },
+              )
+              HorizontalDivider()
+              DropdownMenuItem(
+                  text = { Text(stringResource(R.string.copy_general_regex)) },
+                  onClick = {
+                    Clipboard.copyToClipboard(
+                        context,
+                        viewModel.autoUpdatingCodeExtractor.instance?.generalCodeMatcher?.toString()
+                            ?: "",
+                        false)
+                    expanded = false
+                  },
+                  leadingIcon = {
+                    Icon(
+                        painterResource(R.drawable.baseline_content_copy_24),
+                        contentDescription = null)
+                  },
+              )
+              DropdownMenuItem(
+                  text = { Text(stringResource(R.string.copy_special_regex)) },
+                  onClick = {
+                    Clipboard.copyToClipboard(
+                        context,
+                        viewModel.autoUpdatingCodeExtractor.instance?.specialCodeMatcher?.toString()
+                            ?: "",
+                        false)
+                    expanded = false
+                  },
+                  leadingIcon = {
+                    Icon(
+                        painterResource(R.drawable.baseline_content_copy_24),
+                        contentDescription = null)
+                  },
               )
             }
           }
