@@ -62,8 +62,8 @@
     <string name="notification">اعلان</string>
     <string name="notification_tag">برچسب</string>
     <string name="ignore_id">نادیده گرفتن شناسه</string>
-    <string name="show_details">نمایش جزییات</string>
-    <string name="history">تاریخ</string>
+    <string name="show_details">نمایش جزئیات</string>
+    <string name="history">تاریخچه</string>
     <string name="history_help">تاریخچه هر نیمه شب به صورت خودکار به جز 10 مورد آخر پاک می شود.</string>
     <string name="replace_code_in_history">جاگزین کردن کد در تاریخچه</string>
     <string name="replace_code_in_history_help">کد شناسایی شده را در تاریخچه با اعداد صفر جایگذاری می‌کند.</string>
@@ -82,5 +82,5 @@
     <string name="allow_tag">اجازه به برچسب</string>
     <string name="allow_app">اجازه به برنامه</string>
     <string name="n_items">%1$d مورد</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">نام برنامه در دسترس نیست، احتمالا بخاطر این که پاک شده است.</string>
 </resources>
