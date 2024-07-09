@@ -83,4 +83,9 @@
     <string name="allow_app">Zezwalaj aplikacjom</string>
     <string name="n_items">%1$s - lista</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="add">Dodaj</string>
+    <string name="learn_more">Dowiedz się więcej</string>
+    <string name="reset_to_default">Przywróć ustawienia domyślne</string>
+    <string name="cancel">Anuluj</string>
+    <string name="clear_list">Wyczyść listę</string>
 </resources>
