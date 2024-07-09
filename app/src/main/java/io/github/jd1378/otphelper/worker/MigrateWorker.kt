@@ -47,13 +47,21 @@ constructor(
                   val splitIgnore = it.split(":")
                   val packageName = if (splitIgnore[0] == "app") splitIgnore[1] else null
                   if (!packageName.isNullOrEmpty()) {
-                    val type =
-                        if (splitIgnore.size > 2 && splitIgnore[2] == "nid") {
-                          IgnoredNotifType.NOTIFICATION_ID
-                        } else {
-                          IgnoredNotifType.APPLICATION
-                        }
-                    return@map IgnoredNotif(packageName = packageName, type = type)
+                    var typeData: String = ""
+                    val type: IgnoredNotifType
+
+                    if (splitIgnore.size > 2 && splitIgnore[2] == "nid") {
+                      type = IgnoredNotifType.NOTIFICATION_ID
+                      typeData = splitIgnore[3]
+                    } else {
+                      type = IgnoredNotifType.APPLICATION
+                    }
+
+                    return@map IgnoredNotif(
+                        packageName = packageName,
+                        type = type,
+                        typeData = typeData,
+                    )
                   }
                   return@map null
                 }
