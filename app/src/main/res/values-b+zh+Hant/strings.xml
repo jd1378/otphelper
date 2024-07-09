@@ -74,7 +74,7 @@
     <string name="history_desc">Recently detected codes will be shown here.</string>
     <string name="clear_history">清除歷史</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
-    <string name="yes">確定</string>
+    <string name="yes">是</string>
     <string name="no">否</string>
     <string name="options">選項</string>
     <string name="history_detail">History Detail</string>
