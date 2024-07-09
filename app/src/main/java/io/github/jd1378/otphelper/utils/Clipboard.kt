@@ -14,24 +14,32 @@ import io.github.jd1378.otphelper.R
 
 class Clipboard {
   companion object {
-    /** returns true if successful */
-    fun copyCodeToClipboard(context: Context, code: String, showToast: Boolean = true): Boolean {
+    fun copyToClipboard(context: Context, code: String, isSensitive: Boolean = false): Boolean {
       val clipboardManager =
           context.getSystemService(Activity.CLIPBOARD_SERVICE) as? ClipboardManager
 
+      return if (clipboardManager !== null) {
+        clipboardManager.setPrimaryClip(
+            ClipData.newPlainText(code, code).apply {
+              description.extras =
+                  PersistableBundle().apply {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                      putBoolean(ClipDescription.EXTRA_IS_SENSITIVE, isSensitive)
+                    } else {
+                      putBoolean("android.content.extra.IS_SENSITIVE", isSensitive)
+                    }
+                  }
+            })
+        true
+      } else {
+        false
+      }
+    }
+
+    /** returns true if successful */
+    fun copyCodeToClipboard(context: Context, code: String, showToast: Boolean = true): Boolean {
       val toastText: Int =
-          if (clipboardManager !== null) {
-            clipboardManager.setPrimaryClip(
-                ClipData.newPlainText(code, code).apply {
-                  description.extras =
-                      PersistableBundle().apply {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                          putBoolean(ClipDescription.EXTRA_IS_SENSITIVE, true)
-                        } else {
-                          putBoolean("android.content.extra.IS_SENSITIVE", true)
-                        }
-                      }
-                })
+          if (copyToClipboard(context, code, true)) {
             R.string.code_copied_to_clipboard
           } else {
             R.string.code_failed_to_access_clipboard
