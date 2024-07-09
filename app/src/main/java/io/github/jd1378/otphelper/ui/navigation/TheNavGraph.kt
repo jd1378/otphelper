@@ -45,7 +45,14 @@ fun NavGraphBuilder.addHomeGraph(
     onNavigateToRoute: (String, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-  composable(MainDestinations.HOME_ROUTE) {
+  composable(
+      MainDestinations.HOME_ROUTE,
+      deepLinks =
+          listOf(
+              navDeepLink {
+                uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.HOME_ROUTE}"
+              }),
+  ) {
     val viewModel = hiltViewModel<HomeViewModel>()
     Home(onNavigateToRoute, modifier, viewModel)
   }
