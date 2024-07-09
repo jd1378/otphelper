@@ -3,4 +3,5 @@
 - Created settings page and moved settings inside
 - Moved language to settings
 - You can now disable "Copied to clipboard!" toast from settings.
+- You can now add your own sensitive phrases!
 - Made notification a little more compact to prevent clipping on some phones
