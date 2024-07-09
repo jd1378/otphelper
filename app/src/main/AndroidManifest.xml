@@ -66,6 +66,7 @@
         android:exported="true">
       <intent-filter>
         <action android:name="io.github.jd1378.otphelper.actions.code_copy" />
+        <action android:name="io.github.jd1378.otphelper.actions.ignore_notif_app" />
         <action android:name="io.github.jd1378.otphelper.actions.show_details" />
       </intent-filter>
     </receiver>
