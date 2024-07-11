@@ -83,11 +83,11 @@
     <string name="allow_app">Разрешить приложения</string>
     <string name="n_items">%1$d элемент</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
-    <string name="reset_to_default">Сбросить настройки</string>
+    <string name="reset_to_default">Сброс к настройкам по умолчанию</string>
     <string name="add">Добавить</string>
     <string name="learn_more">Learn more</string>
     <string name="cancel">Отмена</string>
-    <string name="clear_list">Очистить недавние</string>
+    <string name="clear_list">Очистить список</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
