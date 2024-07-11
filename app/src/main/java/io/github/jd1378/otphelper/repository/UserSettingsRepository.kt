@@ -32,4 +32,8 @@ interface UserSettingsRepository {
   suspend fun setIgnoredPhrases(list: List<String>)
 
   suspend fun setVersion(version: Int)
+
+  suspend fun setIsAutoDismissEnabled(value: Boolean)
+
+  suspend fun setIsAutoMarkAsReadEnabled(value: Boolean)
 }

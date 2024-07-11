@@ -99,4 +99,8 @@
     <string name="copy_ignore_regex">Copy ignore regex</string>
     <string name="ignored_phrases_desc">If any of these phrases are found in a message, the message will be completely ignored.</string>
     <string name="new_ignored_phrase">New Ignored Phrase</string>
+    <string name="auto_dismiss">Auto Dismiss</string>
+    <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
+    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>

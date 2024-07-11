@@ -80,4 +80,16 @@ constructor(
   fun onSendTestNotifPressed(context: Context) {
     NotificationHelper.sendTestNotif(context)
   }
+
+  fun onAutoDismissToggle() {
+    viewModelScope.launch {
+      userSettingsRepository.setIsAutoDismissEnabled(!userSettings.value.isAutoDismissEnabled)
+    }
+  }
+
+  fun onAutoMarkAsReadToggle() {
+    viewModelScope.launch {
+      userSettingsRepository.setIsAutoMarkAsReadEnabled(!userSettings.value.isAutoMarkAsReadEnabled)
+    }
+  }
 }

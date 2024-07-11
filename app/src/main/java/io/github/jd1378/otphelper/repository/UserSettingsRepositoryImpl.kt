@@ -99,4 +99,16 @@ constructor(
       currentSettings.toBuilder().setVersion(version).build()
     }
   }
+
+  override suspend fun setIsAutoDismissEnabled(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsAutoDismissEnabled(value).build()
+    }
+  }
+
+  override suspend fun setIsAutoMarkAsReadEnabled(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsAutoMarkAsReadEnabled(value).build()
+    }
+  }
 }

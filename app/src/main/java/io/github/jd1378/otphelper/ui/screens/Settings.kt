@@ -235,6 +235,56 @@ fun Settings(
           Surface(
               color = MaterialTheme.colorScheme.surfaceContainer,
               shape = MaterialTheme.shapes.large,
+          ) {
+            Column(
+                verticalArrangement =
+                    Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
+                modifier =
+                    Modifier.padding(
+                        horizontal = dimensionResource(R.dimen.padding_li_h),
+                        vertical = dimensionResource(R.dimen.padding_li_v),
+                    ),
+            ) {
+              Column(
+                  verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+              ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                  SettingLabel(stringResource(R.string.auto_dismiss))
+                  Switch(
+                      modifier = Modifier.height(32.dp),
+                      checked = userSettings.isAutoDismissEnabled,
+                      onCheckedChange = { viewModel.onAutoDismissToggle() })
+                }
+                SettingHelp(stringResource(R.string.auto_dismiss_desc))
+              }
+
+              Column(
+                  verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+              ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                  SettingLabel(stringResource(R.string.auto_mark_as_read))
+                  Switch(
+                      modifier = Modifier.height(32.dp),
+                      checked = userSettings.isAutoMarkAsReadEnabled,
+                      onCheckedChange = { viewModel.onAutoMarkAsReadToggle() })
+                }
+
+                SettingHelp(stringResource(R.string.auto_mark_as_read_help))
+              }
+            }
+          }
+
+          Surface(
+              color = MaterialTheme.colorScheme.surfaceContainer,
+              shape = MaterialTheme.shapes.large,
               onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false) },
           ) {
             Column(

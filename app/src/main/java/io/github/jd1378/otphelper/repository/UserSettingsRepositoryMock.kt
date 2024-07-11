@@ -55,4 +55,12 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   override suspend fun setVersion(version: Int) {
     TODO("Not yet implemented")
   }
+
+  override suspend fun setIsAutoDismissEnabled(value: Boolean) {
+    TODO("Not yet implemented")
+  }
+
+  override suspend fun setIsAutoMarkAsReadEnabled(value: Boolean) {
+    TODO("Not yet implemented")
+  }
 }

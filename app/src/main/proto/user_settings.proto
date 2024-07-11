@@ -14,4 +14,6 @@ message UserSettings {
   repeated string sensitive_phrases = 8;
   repeated string ignored_phrases = 9;
   int32 version = 10;
+  bool is_auto_dismiss_enabled = 11;
+  bool is_auto_mark_as_read_enabled = 12;
 }

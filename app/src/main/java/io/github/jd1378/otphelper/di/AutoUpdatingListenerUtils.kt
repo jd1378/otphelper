@@ -4,12 +4,12 @@ import android.util.Log
 import androidx.compose.runtime.Stable
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractor
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
-import javax.inject.Singleton
 
 @Singleton
 @Stable
@@ -29,10 +29,18 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   var codeExtractor: CodeExtractor? = null
     private set
 
+  var isAutoDismissEnabled: Boolean = false
+    private set
+
+  var isAutoMarkAsReadEnabled: Boolean = false
+    private set
+
   init {
     scope.launch {
       userSettingsRepository.userSettings.collect {
         codeExtractor = CodeExtractor(it.sensitivePhrasesList, it.ignoredPhrasesList)
+        isAutoDismissEnabled = it.isAutoDismissEnabled
+        isAutoMarkAsReadEnabled = it.isAutoMarkAsReadEnabled
       }
     }
   }

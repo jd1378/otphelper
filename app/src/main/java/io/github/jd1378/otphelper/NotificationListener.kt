@@ -2,6 +2,7 @@ package io.github.jd1378.otphelper
 
 import android.app.Notification
 import android.content.ComponentName
+import android.os.Build
 import android.provider.Settings
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
@@ -42,6 +43,9 @@ class NotificationListener : NotificationListenerService() {
 
     if (sbn != null) {
       val mNotification = sbn.notification
+      if (sbn.packageName == BuildConfig.APPLICATION_ID && sbn.id == R.id.code_detected_notify_id)
+          return
+
       // ignore notifications that are foreground service
       val isForegroundService = (mNotification.flags and Notification.FLAG_FOREGROUND_SERVICE) != 0
       val isOngoing = (mNotification.flags and Notification.FLAG_ONGOING_EVENT) != 0
@@ -82,6 +86,33 @@ class NotificationListener : NotificationListenerService() {
               )
           val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
           WorkManager.getInstance(applicationContext).enqueue(work)
+
+          if (autoUpdatingListenerUtils.isAutoMarkAsReadEnabled) {
+            val actions = mNotification.actions
+            if (actions != null) {
+              for (action in mNotification.actions) {
+                val isReadAction =
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                        action.semanticAction == Notification.Action.SEMANTIC_ACTION_MARK_AS_READ) {
+                      true
+                    } else {
+                      val title = action.title.toString().lowercase()
+                      title.contains("mark") && title.contains("read")
+                    }
+                if (isReadAction) {
+                  try {
+                    action.actionIntent.send()
+                  } catch (e: Throwable) {
+                    Log.d(TAG, "failed to use notification action '${action.title}'")
+                  }
+                }
+              }
+            }
+          }
+
+          if (autoUpdatingListenerUtils.isAutoDismissEnabled) {
+            cancelNotification(sbn.key)
+          }
         }
       }
     }
