@@ -18,8 +18,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -51,7 +53,8 @@ fun IgnoredAppDetail(
   val ignoreItems = viewModel.ignoredItems.collectAsLazyPagingItems()
   val packageName = viewModel.packageName.collectAsStateWithLifecycle()
   val listState = rememberLazyListState()
-  val appLabelResult = getAppLabel(packageName.value, null)
+  val context = LocalContext.current
+  val appLabelResult = remember(packageName.value) { getAppLabel(context, packageName.value, null) }
 
   SkipFirstLaunchedEffect(ignoreItems.itemCount) {
     if (ignoreItems.itemCount == 0) {
@@ -137,6 +140,12 @@ fun IgnoredAppDetailItem(
     addDivider: Boolean = false,
     onDelete: () -> Unit
 ) {
+  val context = LocalContext.current
+  val appLabel =
+      remember(ignoredNotif.packageName) {
+        getAppLabel(context, ignoredNotif.packageName, 40).label
+      }
+
   Column(modifier) {
     Row(
         Modifier.fillMaxWidth(),
@@ -145,10 +154,9 @@ fun IgnoredAppDetailItem(
     ) {
       when (ignoredNotif.type) {
         IgnoredNotifType.APPLICATION -> {
-          val appLabelResult = getAppLabel(ignoredNotif.packageName, 40)
           Text(
               modifier = Modifier.weight(1f),
-              text = appLabelResult.label,
+              text = appLabel,
               fontWeight = FontWeight.Bold,
           )
           Spacer(Modifier.padding(5.dp))

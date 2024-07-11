@@ -37,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -172,6 +173,10 @@ fun History(
 
 @Composable
 fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCode) {
+  val context = LocalContext.current
+  val appLabel =
+      remember(detectedCode.packageName) { getAppLabel(context, detectedCode.packageName).label }
+
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).then(modifier),
       leadingContent = {
@@ -180,7 +185,7 @@ fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCo
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { Text(getAppLabel(detectedCode.packageName).label) },
+      headlineContent = { Text(appLabel) },
       supportingContent = {
         Text(
             text =
