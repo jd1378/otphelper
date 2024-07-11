@@ -80,11 +80,11 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Uygulamalara izin ver</string>
-    <string name="n_items">%1$s öge</string>
+    <string name="n_items">%1$d öge</string>
     <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
     <string name="notification_id">Kimlik</string>
     <string name="add">Ekle</string>
-    <string name="reset_to_default">Varsayılanlara sıfırla</string>
+    <string name="reset_to_default">Varsayılana sıfırla</string>
     <string name="learn_more">Daha çoğunu öğren</string>
     <string name="cancel">İptal</string>
     <string name="clear_list">Listeyi temizle</string>
