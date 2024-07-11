@@ -108,6 +108,9 @@ dependencies {
 
   // immutable collections (for compose stability fix)
   implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
+
+  // cache
+  implementation("io.github.reactivecircus.cache4k:cache4k:0.13.0")
 }
 
 hilt { enableAggregatingTask = true }
