@@ -86,13 +86,13 @@
     <string name="learn_more">Más información</string>
     <string name="cancel">Cancelar</string>
     <string name="clear_list">Limpiar lista</string>
-    <string name="reset_to_default">Restablecer a predeterminado</string> 
+    <string name="reset_to_default">Restablecer a predeterminado</string>
     <string name="add">Add</string>
-    <string name="sensitive_phrases">Sensitive Phrases</string> 
+    <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
-    <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string> 
+    <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
     <string name="new_sensitive_phrase">New Sensitive Phrase</string>
-    <string name="your_new_phrase">Your new phrase</string>  
+    <string name="your_new_phrase">Your new phrase</string>
     <string name="copy_general_regex">Copy general regex</string>
     <string name="copy_special_regex">Copy special regex</string>
 </resources>
