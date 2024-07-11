@@ -32,7 +32,7 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   init {
     scope.launch {
       userSettingsRepository.userSettings.collect {
-        codeExtractor = CodeExtractor(it.sensitivePhrasesList)
+        codeExtractor = CodeExtractor(it.sensitivePhrasesList, it.ignoredPhrasesList)
       }
     }
   }

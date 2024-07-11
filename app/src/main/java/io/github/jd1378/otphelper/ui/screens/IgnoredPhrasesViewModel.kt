@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @Stable
 @HiltViewModel
-class SensitivePhrasesViewModel
+class IgnoredPhrasesViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
@@ -28,12 +28,12 @@ constructor(
     val autoUpdatingListenerUtils: AutoUpdatingListenerUtils,
 ) : ViewModel() {
   val showResetToDefaultDialog = MutableStateFlow(false)
-  val showNewSensitivePhraseDialog = MutableStateFlow(false)
+  val showNewIgnoredPhraseDialog = MutableStateFlow(false)
   val showClearListDialog = MutableStateFlow(false)
 
-  val sensitivePhrases =
+  val ignoredPhrases =
       userSettingsRepository.userSettings
-          .map { it.sensitivePhrasesList.toPersistentList() }
+          .map { it.ignoredPhrasesList.toPersistentList() }
           .stateIn(
               scope = viewModelScope,
               started = SharingStarted.WhileSubscribed(5000),
@@ -43,36 +43,36 @@ constructor(
   fun resetToDefault() {
     showResetToDefaultDialog.value = false
     viewModelScope.launch {
-      userSettingsRepository.setSensitivePhrases(CodeExtractorDefaults.sensitivePhrases)
+      userSettingsRepository.setIgnoredPhrases(CodeExtractorDefaults.ignoredPhrases)
     }
   }
 
   fun clearList() {
     showClearListDialog.value = false
-    viewModelScope.launch { userSettingsRepository.setSensitivePhrases(listOf()) }
+    viewModelScope.launch { userSettingsRepository.setIgnoredPhrases(listOf()) }
   }
 
   fun addNewPhrase(it: String) {
-    showNewSensitivePhraseDialog.value = false
+    showNewIgnoredPhraseDialog.value = false
     viewModelScope.launch {
-      if (sensitivePhrases.value.indexOf(it) == -1) {
-        val newList = sensitivePhrases.value.add(it)
-        userSettingsRepository.setSensitivePhrases(newList)
+      if (ignoredPhrases.value.indexOf(it) == -1) {
+        val newList = ignoredPhrases.value.add(it)
+        userSettingsRepository.setIgnoredPhrases(newList)
       }
     }
   }
 
   fun deletePhrase(index: Int) {
     viewModelScope.launch {
-      val newList = sensitivePhrases.value.removeAt(index)
-      userSettingsRepository.setSensitivePhrases(newList)
+      val newList = ignoredPhrases.value.removeAt(index)
+      userSettingsRepository.setIgnoredPhrases(newList)
     }
   }
 
-  fun isSensitivePhraseParsable(str: String): Boolean {
+  fun isIgnoredPhraseParsable(str: String): Boolean {
     if (str.isBlank()) return false
     return try {
-      CodeExtractor(listOf(str, "code")).getCode("Code: 123456") == "123456"
+      CodeExtractor(listOf("code"), listOf(str, "a_b_c_d_e")).shouldIgnore("a_b_c_d_e")
     } catch (e: Throwable) {
       false
     }

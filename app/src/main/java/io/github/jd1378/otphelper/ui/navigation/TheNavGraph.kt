@@ -19,6 +19,8 @@ import io.github.jd1378.otphelper.ui.screens.IgnoredAppDetail
 import io.github.jd1378.otphelper.ui.screens.IgnoredAppDetailViewModel
 import io.github.jd1378.otphelper.ui.screens.IgnoredAppList
 import io.github.jd1378.otphelper.ui.screens.IgnoredAppListViewModel
+import io.github.jd1378.otphelper.ui.screens.IgnoredPhrases
+import io.github.jd1378.otphelper.ui.screens.IgnoredPhrasesViewModel
 import io.github.jd1378.otphelper.ui.screens.LanguageSelection
 import io.github.jd1378.otphelper.ui.screens.LanguageSelectionViewModel
 import io.github.jd1378.otphelper.ui.screens.Permissions
@@ -42,6 +44,7 @@ fun NavGraphBuilder.otphelperNavGraph(
   addHistoryGraph(onNavigateToRoute = onNavigateToRoute, upPress = upPress)
   addHistoryDetailGraph(upPress = upPress)
   addSensitivePhrasesGraph(upPress = upPress)
+  addIgnoredPhrasesGraph(upPress = upPress)
 }
 
 fun NavGraphBuilder.addHomeGraph(
@@ -169,5 +172,12 @@ fun NavGraphBuilder.addSensitivePhrasesGraph(modifier: Modifier = Modifier, upPr
   composable(MainDestinations.SENSITIVE_PHRASES_ROUTE) {
     val viewModel = hiltViewModel<SensitivePhrasesViewModel>()
     SensitivePhrases(modifier, upPress, viewModel)
+  }
+}
+
+fun NavGraphBuilder.addIgnoredPhrasesGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
+  composable(MainDestinations.IGNORED_PHRASES_ROUTE) {
+    val viewModel = hiltViewModel<IgnoredPhrasesViewModel>()
+    IgnoredPhrases(modifier, upPress, viewModel)
   }
 }

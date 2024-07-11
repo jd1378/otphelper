@@ -31,25 +31,17 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
-import io.github.jd1378.otphelper.utils.CodeExtractor
-
-fun isPhraseParsable(str: String): Boolean {
-  if (str.isBlank()) return false
-  return try {
-    CodeExtractor(listOf(str, "code")).getCode("Code: 123456") == "123456"
-  } catch (e: Throwable) {
-    false
-  }
-}
 
 @Composable
-fun NewSensitivePhraseDialog(
+fun NewPhraseDialog(
+    title: String,
+    validationPredicate: (String) -> Boolean,
     onDismissRequest: () -> Unit = {},
     onConfirm: (String) -> Unit = {},
 ) {
   var newPhrase by remember { mutableStateOf("") }
 
-  val confirmEnabled = remember { derivedStateOf { isPhraseParsable(newPhrase) } }
+  val confirmEnabled = remember { derivedStateOf { validationPredicate(newPhrase) } }
 
   Dialog(
       onDismissRequest = { onDismissRequest() },
@@ -59,7 +51,7 @@ fun NewSensitivePhraseDialog(
           Modifier.padding(dimensionResource(R.dimen.padding_large)),
           verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_large)),
       ) {
-        Text(text = stringResource(R.string.new_sensitive_phrase), fontSize = 20.sp)
+        Text(text = title, fontSize = 20.sp)
         OutlinedTextField(
             modifier = Modifier.heightIn(min = 120.dp),
             value = newPhrase,
@@ -103,6 +95,11 @@ fun NewSensitivePhraseDialog(
 
 @Preview(showBackground = true, widthDp = 300, locale = "en")
 @Composable
-fun NewSensitivePhraseDialogPreview() {
-  OtpHelperTheme { NewSensitivePhraseDialog() {} }
+fun NewPhraseDialogPreview() {
+  OtpHelperTheme {
+    NewPhraseDialog(
+        title = stringResource(R.string.new_ignored_phrase),
+        validationPredicate = { true },
+    ) {}
+  }
 }

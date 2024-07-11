@@ -55,19 +55,19 @@ import io.github.jd1378.otphelper.utils.Clipboard
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SensitivePhrases(
+fun IgnoredPhrases(
     modifier: Modifier = Modifier,
     upPress: () -> Unit,
-    viewModel: SensitivePhrasesViewModel
+    viewModel: IgnoredPhrasesViewModel
 ) {
   val uriHandler = LocalUriHandler.current
   val context = LocalContext.current
 
-  val phrases by viewModel.sensitivePhrases.collectAsStateWithLifecycle()
+  val phrases by viewModel.ignoredPhrases.collectAsStateWithLifecycle()
   val listState = rememberLazyListState()
   val showResetToDefaultDialog = viewModel.showResetToDefaultDialog.collectAsStateWithLifecycle()
-  val showNewSensitivePhraseDialog =
-      viewModel.showNewSensitivePhraseDialog.collectAsStateWithLifecycle()
+  val showNewIgnoredPhraseDialog =
+      viewModel.showNewIgnoredPhraseDialog.collectAsStateWithLifecycle()
   val showClearListDialog = viewModel.showClearListDialog.collectAsStateWithLifecycle()
 
   Scaffold(
@@ -75,7 +75,7 @@ fun SensitivePhrases(
       topBar = {
         TitleBar(
             upPress = upPress,
-            text = stringResource(R.string.sensitive_phrases),
+            text = stringResource(R.string.ignored_phrases),
         ) {
           var expanded by remember { mutableStateOf(false) }
 
@@ -106,29 +106,12 @@ fun SensitivePhrases(
               )
               HorizontalDivider()
               DropdownMenuItem(
-                  text = { Text(stringResource(R.string.copy_general_regex)) },
+                  text = { Text(stringResource(R.string.copy_ignore_regex)) },
                   onClick = {
                     Clipboard.copyToClipboard(
                         context,
                         viewModel.autoUpdatingListenerUtils.codeExtractor
-                            ?.generalCodeMatcher
-                            ?.toString() ?: "",
-                        false)
-                    expanded = false
-                  },
-                  leadingIcon = {
-                    Icon(
-                        painterResource(R.drawable.baseline_content_copy_24),
-                        contentDescription = null)
-                  },
-              )
-              DropdownMenuItem(
-                  text = { Text(stringResource(R.string.copy_special_regex)) },
-                  onClick = {
-                    Clipboard.copyToClipboard(
-                        context,
-                        viewModel.autoUpdatingListenerUtils.codeExtractor
-                            ?.specialCodeMatcher
+                            ?.ignoredPhrasesRegex
                             ?.toString() ?: "",
                         false)
                     expanded = false
@@ -145,7 +128,7 @@ fun SensitivePhrases(
       },
       floatingActionButton = {
         FloatingActionButton(
-            onClick = { viewModel.showNewSensitivePhraseDialog.value = true },
+            onClick = { viewModel.showNewIgnoredPhraseDialog.value = true },
         ) {
           Icon(Icons.Filled.Add, stringResource(R.string.add))
         }
@@ -172,11 +155,11 @@ fun SensitivePhrases(
           viewModel.clearList()
         }
       }
-      if (showNewSensitivePhraseDialog.value) {
+      if (showNewIgnoredPhraseDialog.value) {
         NewPhraseDialog(
-            title = stringResource(R.string.new_sensitive_phrase),
-            validationPredicate = viewModel::isSensitivePhraseParsable,
-            onDismissRequest = { viewModel.showNewSensitivePhraseDialog.value = false },
+            title = stringResource(R.string.new_ignored_phrase),
+            validationPredicate = viewModel::isIgnoredPhraseParsable,
+            onDismissRequest = { viewModel.showNewIgnoredPhraseDialog.value = false },
         ) {
           viewModel.addNewPhrase(it)
         }
@@ -185,7 +168,7 @@ fun SensitivePhrases(
       val hyperlinkText = stringResource(R.string.learn_more)
       val annotatedString = buildAnnotatedString {
         pushStyle(SpanStyle(fontSize = 15.sp, color = MaterialTheme.colorScheme.onBackground))
-        append(stringResource(R.string.sensitive_phrases_desc))
+        append(stringResource(R.string.ignored_phrases_desc))
         append(" ")
         append(stringResource(R.string.sensitive_phrases_desc_regex))
         append(" ")

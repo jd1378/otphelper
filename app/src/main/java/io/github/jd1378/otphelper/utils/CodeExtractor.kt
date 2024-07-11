@@ -174,6 +174,7 @@ class CodeExtractor // this comment is to separate parts
   }
 
   fun shouldIgnore(str: String): Boolean {
+    if (ignoredPhrases.isEmpty()) return false
     return str.contains(ignoredPhrasesRegex)
   }
 }

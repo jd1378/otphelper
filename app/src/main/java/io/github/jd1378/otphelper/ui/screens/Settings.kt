@@ -85,6 +85,14 @@ fun Settings(
               title = stringResource(R.string.sensitive_phrases),
           )
 
+          SettingPageLink(
+              modifier =
+                  Modifier.clickable {
+                    onNavigateToRoute(MainDestinations.IGNORED_PHRASES_ROUTE, false)
+                  },
+              title = stringResource(R.string.ignored_phrases),
+          )
+
           Surface(
               color = MaterialTheme.colorScheme.surfaceContainer,
               shape = MaterialTheme.shapes.large,
