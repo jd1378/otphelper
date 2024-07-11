@@ -87,7 +87,7 @@
     <string name="reset_to_default">Reset to default</string>
     <string name="add">Thêm</string>
     <string name="learn_more">Tìm hiểu thêm</string>
-    <string name="cancel">Hủy bỏ</string>
+    <string name="cancel">Hủy</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
