@@ -82,7 +82,7 @@ object CodeExtractorDefaults {
 }
 
 class CodeExtractor // this comment is to separate parts
-(private val sensitivePhrases: List<String>) {
+(private val sensitivePhrases: List<String> = CodeExtractorDefaults.sensitivePhrases) {
 
   val generalCodeMatcher: Regex =
       """(${sensitivePhrases.joinToString("|")})(?:\s*(?!${
