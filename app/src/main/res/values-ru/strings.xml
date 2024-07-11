@@ -82,7 +82,7 @@
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Разрешить приложения</string>
     <string name="n_items">%1$d элемент</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Сброс к настройкам по умолчанию</string>
     <string name="add">Добавить</string>
     <string name="learn_more">Learn more</string>

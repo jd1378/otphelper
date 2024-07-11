@@ -82,7 +82,7 @@
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">ऐप्स को अनुमति दें</string>
     <string name="n_items">%1$sवस्तु</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">डिफ़ॉल्ट पर रीसेट</string>
     <string name="add">जोड़ें</string>
     <string name="learn_more">अधिक जानें</string>

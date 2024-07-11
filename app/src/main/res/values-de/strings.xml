@@ -82,7 +82,7 @@
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Anwendungen zulassen</string>
     <string name="n_items">%1$d Objekte</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Zurücksetzen auf Standard</string>
     <string name="add">Hinzufügen</string>
     <string name="learn_more">Weitere Informationen</string>

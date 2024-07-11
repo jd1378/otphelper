@@ -82,7 +82,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="n_items">%1$d items</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="learn_more">আরও জানুন</string>
     <string name="cancel">বাতিল</string>
     <string name="reset_to_default">ডিফল্টে রিসেট করুন</string>

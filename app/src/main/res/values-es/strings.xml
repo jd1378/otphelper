@@ -82,7 +82,7 @@
     <string name="allow_tag">Permitir etiqueta</string>
     <string name="allow_app">Permitir aplicación</string>
     <string name="n_items">%1$d elemento(s)</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="learn_more">Aprender más</string>
     <string name="cancel">Cancelar</string>
     <string name="clear_list">Limpiar lista</string>

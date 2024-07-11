@@ -82,7 +82,7 @@
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Allow App</string>
     <string name="n_items">%1$d عنصر</string>
-    <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="learn_more">معرفة المزيد</string>
     <string name="cancel">إلغاء</string>
     <string name="clear_list">إلغاء جميع القائمة</string>
