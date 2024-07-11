@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -35,7 +34,6 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.model.getTranslation
-import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
@@ -53,8 +51,7 @@ fun IgnoredAppDetail(
   val ignoreItems = viewModel.ignoredItems.collectAsLazyPagingItems()
   val packageName = viewModel.packageName.collectAsStateWithLifecycle()
   val listState = rememberLazyListState()
-
-  val appLabel = getAppLabel(packageName.value, 40)
+  val appLabelResult = getAppLabel(packageName.value, null)
 
   SkipFirstLaunchedEffect(ignoreItems.itemCount) {
     if (ignoreItems.itemCount == 0) {
@@ -66,14 +63,14 @@ fun IgnoredAppDetail(
       topBar = {
         TitleBar(
             upPress = upPress,
-            text = appLabel,
+            text = appLabelResult.label,
         )
       },
   ) { padding ->
     Column(
         modifier.padding(padding).padding(dimensionResource(R.dimen.padding_page)),
     ) {
-      if (appLabel.endsWith("...")) {
+      if (appLabelResult.failed) {
         Text(
             stringResource(R.string.app_label_not_visible_reason),
             fontSize = 14.sp,
@@ -148,10 +145,12 @@ fun IgnoredAppDetailItem(
     ) {
       when (ignoredNotif.type) {
         IgnoredNotifType.APPLICATION -> {
-          AppLabel(
+          val appLabelResult = getAppLabel(ignoredNotif.packageName, 40)
+          Text(
               modifier = Modifier.weight(1f),
-              packageName = ignoredNotif.packageName,
-              textStyle = LocalTextStyle.current.copy(fontWeight = FontWeight.Bold))
+              text = appLabelResult.label,
+              fontWeight = FontWeight.Bold,
+          )
           Spacer(Modifier.padding(5.dp))
           IgnoreAppButton(true, onDelete)
         }

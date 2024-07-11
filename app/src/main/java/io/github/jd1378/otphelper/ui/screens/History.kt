@@ -50,10 +50,10 @@ import androidx.paging.compose.itemKey
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
 import io.github.jd1378.otphelper.ui.components.AppImage
-import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.DangerousActionDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
+import io.github.jd1378.otphelper.ui.components.getAppLabel
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
@@ -161,11 +161,6 @@ fun History(
                       },
                       detectedCode)
                 }
-                item {
-                  if (historyItems.loadState.append == LoadState.Loading) {
-                    CircularProgressIndicator(modifier = Modifier.padding(16.dp))
-                  }
-                }
               }
             }
           }
@@ -185,7 +180,7 @@ fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCo
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { AppLabel(packageName = detectedCode.packageName) },
+      headlineContent = { Text(getAppLabel(detectedCode.packageName).label) },
       supportingContent = {
         Text(
             text =

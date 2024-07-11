@@ -12,7 +12,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,16 +26,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
-import io.github.jd1378.otphelper.ui.components.AppLabel
 import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.ui.components.getAppLabel
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
@@ -75,6 +75,8 @@ fun HistoryDetail(
   ) { padding ->
     if (state.value != null) {
       val detectedCode = state.value!!
+      val appLabelResult = getAppLabel(detectedCode.packageName, null)
+
       Column(
           Modifier.padding(padding)
               .padding(horizontal = dimensionResource(R.dimen.padding_page))
@@ -82,6 +84,18 @@ fun HistoryDetail(
               .verticalScroll(scrollState),
           verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
       ) {
+        if (appLabelResult.failed) {
+          Text(
+              stringResource(R.string.app_label_not_visible_reason),
+              fontSize = 14.sp,
+              textAlign = TextAlign.Center,
+              modifier =
+                  Modifier.fillMaxWidth()
+                      .padding(vertical = dimensionResource(R.dimen.padding_settings)),
+              color = MaterialTheme.colorScheme.tertiary,
+          )
+        }
+
         Row(
             Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -100,13 +114,11 @@ fun HistoryDetail(
             )
 
             Column() {
-              AppLabel(
-                  packageName = detectedCode.packageName,
-                  textStyle =
-                      LocalTextStyle.current.copy(
-                          fontWeight = FontWeight.Medium,
-                          fontSize = 16.sp,
-                      ))
+              Text(
+                  text = appLabelResult.label,
+                  fontWeight = FontWeight.Medium,
+                  fontSize = 16.sp,
+              )
 
               Text(
                   text =

@@ -104,7 +104,7 @@
   <string name="options">Options</string>
   <string name="history_detail">History Detail</string>
   <string name="n_items">%1$d items</string>
-  <string name="app_label_not_visible_reason">The application name is not available, probably because it was uninstalled.</string>
+  <string name="app_label_not_visible_reason">The application name is not available.</string>
   <string name="sensitive_phrases">Sensitive Phrases</string>
   <string name="reset_to_default">Reset to default</string>
   <string name="add">Add</string>

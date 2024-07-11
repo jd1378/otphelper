@@ -146,7 +146,7 @@ fun IgnoredAppListItem(
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { Text(appLabel) },
+      headlineContent = { Text(appLabel.label) },
       supportingContent = {
         Text(
             text = stringResource(R.string.n_items, totalItems),

@@ -1,49 +1,31 @@
 package io.github.jd1378.otphelper.ui.components
 
 import android.content.Context
-import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.Text
+import android.text.TextUtils.substring
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
+
+data class AppLabelResult(val label: String, val failed: Boolean)
 
 /** returns the package name if app label is not found. */
-fun getAppLabel(context: Context, packageName: String?): String {
-  if (packageName.isNullOrEmpty()) return ""
+fun getAppLabel(context: Context, packageName: String?): AppLabelResult {
+  if (packageName.isNullOrEmpty()) return AppLabelResult("", true)
   try {
     val packageManager = context.packageManager
     val applicationInfo = packageManager.getApplicationInfo(packageName, 0)
-    return packageManager.getApplicationLabel(applicationInfo).toString()
+    return AppLabelResult(packageManager.getApplicationLabel(applicationInfo).toString(), false)
   } catch (e: Exception) {
-    return packageName
+    return AppLabelResult(packageName, true)
   }
 }
 
 @Composable
-fun getAppLabel(packageName: String?, trim: Int? = null): String {
-  val appLabel = getAppLabel(LocalContext.current, packageName)
+fun getAppLabel(packageName: String?, trim: Int? = 40): AppLabelResult {
+  val result = getAppLabel(LocalContext.current, packageName)
   if (trim != null) {
-    return if (appLabel.length > trim) appLabel.substring(0, trim) + "..." else appLabel
+    return if (result.label.length > trim)
+        result.copy(label = result.label.substring(0, trim) + "...")
+    else result
   }
-  return appLabel
-}
-
-@Composable
-fun AppLabel(
-    modifier: Modifier = Modifier,
-    packageName: String,
-    textStyle: TextStyle = LocalTextStyle.current
-) {
-  val context = LocalContext.current
-  var label: String? = getAppLabel(context, packageName)
-
-  label?.let { Text(label, style = textStyle, modifier = modifier) }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun AppLabelPreview() {
-  AppLabel(packageName = "io.github.jd1378.otphelper")
+  return result
 }
