@@ -7,10 +7,10 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
+import io.github.jd1378.otphelper.di.AutoUpdatingCodeExtractor
 import io.github.jd1378.otphelper.repository.DetectedCodeRepository
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.ui.navigation.NavArgs
-import io.github.jd1378.otphelper.utils.AutoUpdatingCodeExtractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted

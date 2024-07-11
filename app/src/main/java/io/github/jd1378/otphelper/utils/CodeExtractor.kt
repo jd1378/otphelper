@@ -1,18 +1,9 @@
 package io.github.jd1378.otphelper.utils
 
-import android.util.Log
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
-import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.currencyIndicators
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.ignoredWords
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlinx.collections.immutable.persistentListOf
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @Immutable
 data class CodeExtractorResult(
@@ -157,32 +148,5 @@ class CodeExtractor // this comment is to separate parts
       chars[i] = ch
     }
     return String(chars)
-  }
-}
-
-@Singleton
-@Stable
-class AutoUpdatingCodeExtractor
-@Inject
-constructor(private val userSettingsRepository: UserSettingsRepository) {
-  companion object {
-    const val TAG = "AutoUpdatingCodeExtractor"
-  }
-
-  private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
-    Log.d(TAG, exception.message ?: exception.toString())
-  }
-
-  private val scope = CoroutineScope(Dispatchers.IO + exceptionHandler)
-
-  var instance: CodeExtractor? = null
-    private set
-
-  init {
-    scope.launch {
-      userSettingsRepository.userSettings.collect {
-        instance = CodeExtractor(it.sensitivePhrasesList)
-      }
-    }
   }
 }

@@ -10,7 +10,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.jd1378.otphelper.utils.AutoUpdatingCodeExtractor
+import io.github.jd1378.otphelper.di.AutoUpdatingCodeExtractor
 import io.github.jd1378.otphelper.utils.CodeIgnore
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
