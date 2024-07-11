@@ -4,12 +4,12 @@ import android.util.Log
 import androidx.compose.runtime.Stable
 import androidx.datastore.core.DataStore
 import io.github.jd1378.otphelper.UserSettings
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
 
 @Singleton
 @Stable
@@ -85,6 +85,18 @@ constructor(
   override suspend fun setSensitivePhrases(list: List<String>) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().clearSensitivePhrases().addAllSensitivePhrases(list).build()
+    }
+  }
+
+  override suspend fun setIgnoredPhrases(list: List<String>) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().clearIgnoredPhrases().addAllIgnoredPhrases(list).build()
+    }
+  }
+
+  override suspend fun setVersion(version: Int) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setVersion(version).build()
     }
   }
 }

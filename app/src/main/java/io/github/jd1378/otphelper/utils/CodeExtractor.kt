@@ -2,7 +2,7 @@ package io.github.jd1378.otphelper.utils
 
 import androidx.compose.runtime.Immutable
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.currencyIndicators
-import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.ignoredWords
+import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.skipPhrases
 import kotlinx.collections.immutable.persistentListOf
 
 @Immutable
@@ -53,7 +53,7 @@ object CodeExtractorDefaults {
           "\\bпароль\\W" // russian
           )
 
-  val ignoredWords =
+  val skipPhrases =
       persistentListOf(
           "مقدار",
           "مبلغ",
@@ -71,14 +71,33 @@ object CodeExtractorDefaults {
           "GBP",
           "[$€£]",
       )
+
+  val ignoredPhrases =
+      persistentListOf(
+          "تخفیف",
+          "takhfif",
+          "off",
+          "اشتباه وارد شده",
+          "RatingCode",
+          "vscode",
+          "versionCode",
+          "unicode",
+          "discount code",
+          "\\bfancode",
+          "\\bencode",
+          "\\bdecode",
+      )
 }
 
 class CodeExtractor // this comment is to separate parts
-(private val sensitivePhrases: List<String> = CodeExtractorDefaults.sensitivePhrases) {
+(
+    private val sensitivePhrases: List<String> = CodeExtractorDefaults.sensitivePhrases,
+    private val ignoredPhrases: List<String> = CodeExtractorDefaults.ignoredPhrases,
+) {
 
   val generalCodeMatcher: Regex =
       """(${sensitivePhrases.joinToString("|")})(?:\s*(?!${
-        ignoredWords.joinToString("|")
+        skipPhrases.joinToString("|")
       })(?:[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9\-]|[\d\u0660-\u0669\u06F0-\u06F9,\s]+(?:${currencyIndicators.joinToString("|")})|[\d\u0660-\u0669\u06F0-\u06F9][^\d\u0660-\u0669\u06F0-\u06F9]))*\s*:?\s*(["'「]?)${""
 // this comment is to separate parts
       }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1?(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
@@ -90,6 +109,10 @@ class CodeExtractor // this comment is to separate parts
 
   val specialCodeMatcher =
       """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(${sensitivePhrases.joinToString("|")})"""
+          .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
+
+  val ignoredPhrasesRegex =
+      """\b(${ignoredPhrases.joinToString("|")})\b"""
           .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
   fun getCode(str: String): String? {
@@ -148,5 +171,9 @@ class CodeExtractor // this comment is to separate parts
       chars[i] = ch
     }
     return String(chars)
+  }
+
+  fun shouldIgnore(str: String): Boolean {
+    return str.contains(ignoredPhrasesRegex)
   }
 }

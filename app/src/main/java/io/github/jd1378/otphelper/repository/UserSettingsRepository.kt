@@ -28,4 +28,8 @@ interface UserSettingsRepository {
   suspend fun setShouldReplaceCodeInHistory(value: Boolean)
 
   suspend fun setSensitivePhrases(list: List<String>)
+
+  suspend fun setIgnoredPhrases(list: List<String>)
+
+  suspend fun setVersion(version: Int)
 }

@@ -47,4 +47,12 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   override suspend fun setSensitivePhrases(list: List<String>) {
     TODO("Not yet implemented")
   }
+
+  override suspend fun setIgnoredPhrases(list: List<String>) {
+    TODO("Not yet implemented")
+  }
+
+  override suspend fun setVersion(version: Int) {
+    TODO("Not yet implemented")
+  }
 }

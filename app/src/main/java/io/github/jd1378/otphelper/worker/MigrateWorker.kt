@@ -70,6 +70,7 @@ constructor(
     userSettingsRepository.saveSettings(
         UserSettings.getDefaultInstance()
             .toBuilder()
+            .setVersion(1)
             .setIsMigrationDone(true)
             .setIsSetupFinished(oldSettingsRepository.getIsSetupFinished())
             .setIsAutoCopyEnabled(oldSettingsRepository.getIsAutoCopyEnabled())
@@ -79,6 +80,8 @@ constructor(
             .setShouldReplaceCodeInHistory(true)
             .clearSensitivePhrases()
             .addAllSensitivePhrases(CodeExtractorDefaults.sensitivePhrases)
+            .clearIgnoredPhrases()
+            .addAllIgnoredPhrases(CodeExtractorDefaults.ignoredPhrases)
             .build())
 
     val isSetupFinished = userSettingsRepository.fetchSettings().isSetupFinished

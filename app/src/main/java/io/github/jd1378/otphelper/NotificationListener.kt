@@ -11,7 +11,6 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
-import io.github.jd1378.otphelper.utils.CodeIgnore
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
 
@@ -37,6 +36,10 @@ class NotificationListener : NotificationListenerService() {
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
     super.onNotificationPosted(sbn)
+    if (autoUpdatingListenerUtils.codeExtractor == null) return
+
+    val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
+
     if (sbn != null) {
       val mNotification = sbn.notification
       // ignore notifications that are foreground service
@@ -50,7 +53,7 @@ class NotificationListener : NotificationListenerService() {
       for (key in notification_text_keys) {
         val str = extras.getCharSequence(key)?.toString()
         if (!str.isNullOrEmpty()) {
-          if (CodeIgnore.shouldIgnore(str)) return
+          if (codeExtractor.shouldIgnore(str)) return
           notifyTexts.append(str)
           notifyTexts.append("\n")
         }
@@ -67,7 +70,7 @@ class NotificationListener : NotificationListenerService() {
       val notificationText = notifyTexts.toString()
 
       if (notificationText.isNotEmpty()) {
-        val code = autoUpdatingListenerUtils.codeExtractor?.getCode(notificationText)
+        val code = codeExtractor.getCode(notificationText)
         if (!code.isNullOrEmpty()) {
           val data =
               workDataOf(

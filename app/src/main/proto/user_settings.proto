@@ -12,4 +12,6 @@ message UserSettings {
   bool is_history_disabled = 6;
   bool should_replace_code_in_history = 7;
   repeated string sensitive_phrases = 8;
+  repeated string ignored_phrases = 9;
+  int32 version = 10;
 }
