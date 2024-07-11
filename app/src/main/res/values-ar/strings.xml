@@ -55,7 +55,7 @@
     <string name="permission_revoked_channel_description">تذكير المستخدم بالأذونات المطلوبة</string>
     <string name="permission_revoked">تم إلغاء الإذن</string>
     <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. اضغط على هذه الرسالة لفتح الإعدادات.</string>
-    <string name="settings">اعدادات</string>
+    <string name="settings">الإعدادات</string>
     <string name="application">تطبيق</string>
     <string name="notification_tag">علامة</string>
     <string name="error">خطأ</string>
