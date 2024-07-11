@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
   override fun onStart() {
     super.onStart()
-    if (intent.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
+    if (intent?.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
       SettingsHelper.openNotificationListenerSettings(this)
     } else {
       deepLinkHandler.handleDeepLink(intent)
