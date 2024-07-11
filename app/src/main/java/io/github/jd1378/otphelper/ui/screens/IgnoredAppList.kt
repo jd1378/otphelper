@@ -39,7 +39,8 @@ import androidx.paging.compose.itemKey
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.components.getAppLabel
+import io.github.jd1378.otphelper.ui.components.getAppInfo
+import io.github.jd1378.otphelper.ui.components.shortenAppLabel
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
@@ -138,17 +139,17 @@ fun IgnoredAppListItem(
     onClick: (packageName: String) -> Unit
 ) {
   val context = LocalContext.current
-  val appLabel = remember(packageName) { getAppLabel(context, packageName, 40) }
+  val appInfo = remember(packageName) { getAppInfo(context, packageName) }
 
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).clickable { onClick(packageName) },
       leadingContent = {
         AppImage(
-            packageName,
+            appInfo.icon,
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { Text(appLabel.label) },
+      headlineContent = { Text(appInfo.shortenAppLabel(40)) },
       supportingContent = {
         Text(
             text = stringResource(R.string.n_items, totalItems),

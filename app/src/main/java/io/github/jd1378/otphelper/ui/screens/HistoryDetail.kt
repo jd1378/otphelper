@@ -37,7 +37,7 @@ import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.components.getAppLabel
+import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
@@ -76,10 +76,8 @@ fun HistoryDetail(
   ) { padding ->
     if (state.value != null) {
       val detectedCode = state.value!!
-      val appLabelResult =
-          remember(detectedCode.packageName) {
-            getAppLabel(context, detectedCode.packageName, null)
-          }
+      val appInfoResult =
+          remember(detectedCode.packageName) { getAppInfo(context, detectedCode.packageName) }
 
       Column(
           Modifier.padding(padding)
@@ -88,7 +86,7 @@ fun HistoryDetail(
               .verticalScroll(scrollState),
           verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
       ) {
-        if (appLabelResult.failed) {
+        if (appInfoResult.failed) {
           Text(
               stringResource(R.string.app_label_not_visible_reason),
               fontSize = 14.sp,
@@ -113,13 +111,13 @@ fun HistoryDetail(
                   ),
           ) {
             AppImage(
-                detectedCode.packageName,
+                appInfoResult.icon,
                 modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
             )
 
             Column() {
               Text(
-                  text = appLabelResult.label,
+                  text = appInfoResult.appLabel,
                   fontWeight = FontWeight.Medium,
                   fontSize = 16.sp,
               )

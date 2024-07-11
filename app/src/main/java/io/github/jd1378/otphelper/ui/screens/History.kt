@@ -54,7 +54,7 @@ import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.DangerousActionDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
-import io.github.jd1378.otphelper.ui.components.getAppLabel
+import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
@@ -174,18 +174,17 @@ fun History(
 @Composable
 fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCode) {
   val context = LocalContext.current
-  val appLabel =
-      remember(detectedCode.packageName) { getAppLabel(context, detectedCode.packageName).label }
+  val appInfo = remember(detectedCode.packageName) { getAppInfo(context, detectedCode.packageName) }
 
   ListItem(
       modifier = Modifier.clip(MaterialTheme.shapes.large).then(modifier),
       leadingContent = {
         AppImage(
-            detectedCode.packageName,
+            appInfo.icon,
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { Text(appLabel) },
+      headlineContent = { Text(appInfo.appLabel) },
       supportingContent = {
         Text(
             text =

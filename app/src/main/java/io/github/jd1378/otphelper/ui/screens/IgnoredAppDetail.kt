@@ -36,11 +36,13 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.model.getTranslation
+import io.github.jd1378.otphelper.ui.components.AppInfoResult
 import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
-import io.github.jd1378.otphelper.ui.components.getAppLabel
+import io.github.jd1378.otphelper.ui.components.getAppInfo
+import io.github.jd1378.otphelper.ui.components.shortenAppLabel
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -54,7 +56,7 @@ fun IgnoredAppDetail(
   val packageName = viewModel.packageName.collectAsStateWithLifecycle()
   val listState = rememberLazyListState()
   val context = LocalContext.current
-  val appLabelResult = remember(packageName.value) { getAppLabel(context, packageName.value, null) }
+  val appInfoResult = remember(packageName.value) { getAppInfo(context, packageName.value) }
 
   SkipFirstLaunchedEffect(ignoreItems.itemCount) {
     if (ignoreItems.itemCount == 0) {
@@ -66,14 +68,14 @@ fun IgnoredAppDetail(
       topBar = {
         TitleBar(
             upPress = upPress,
-            text = appLabelResult.label,
+            text = appInfoResult.appLabel,
         )
       },
   ) { padding ->
     Column(
         modifier.padding(padding).padding(dimensionResource(R.dimen.padding_page)),
     ) {
-      if (appLabelResult.failed) {
+      if (appInfoResult.failed) {
         Text(
             stringResource(R.string.app_label_not_visible_reason),
             fontSize = 14.sp,
@@ -114,6 +116,7 @@ fun IgnoredAppDetail(
                   IgnoredAppDetailItem(
                       Modifier.animateItemPlacement(),
                       ignoredNotif,
+                      appInfoResult,
                       addDivider = index < ignoreItems.itemCount - 1,
                   ) {
                     viewModel.removeIgnoredNotif(ignoredNotif)
@@ -137,15 +140,10 @@ fun IgnoredAppDetail(
 fun IgnoredAppDetailItem(
     modifier: Modifier = Modifier,
     ignoredNotif: IgnoredNotif,
+    appInfoResult: AppInfoResult,
     addDivider: Boolean = false,
     onDelete: () -> Unit
 ) {
-  val context = LocalContext.current
-  val appLabel =
-      remember(ignoredNotif.packageName) {
-        getAppLabel(context, ignoredNotif.packageName, 40).label
-      }
-
   Column(modifier) {
     Row(
         Modifier.fillMaxWidth(),
@@ -156,7 +154,7 @@ fun IgnoredAppDetailItem(
         IgnoredNotifType.APPLICATION -> {
           Text(
               modifier = Modifier.weight(1f),
-              text = appLabel,
+              text = appInfoResult.shortenAppLabel(40),
               fontWeight = FontWeight.Bold,
           )
           Spacer(Modifier.padding(5.dp))
