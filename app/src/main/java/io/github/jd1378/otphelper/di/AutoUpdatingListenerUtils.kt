@@ -2,7 +2,6 @@ package io.github.jd1378.otphelper.di
 
 import android.util.Log
 import androidx.compose.runtime.Stable
-import io.github.jd1378.otphelper.UserSettings
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -14,7 +13,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Stable
-class AutoUpdatingCodeExtractor
+class AutoUpdatingListenerUtils
 @Inject
 constructor(private val userSettingsRepository: UserSettingsRepository) {
   companion object {
@@ -27,17 +26,13 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
 
   private val scope = CoroutineScope(Dispatchers.IO + exceptionHandler)
 
-  var instance: CodeExtractor? = null
-    private set
-
-  var userSettings: UserSettings? = null
+  var codeExtractor: CodeExtractor? = null
     private set
 
   init {
     scope.launch {
       userSettingsRepository.userSettings.collect {
-        userSettings = it
-        instance = CodeExtractor(it.sensitivePhrasesList)
+        codeExtractor = CodeExtractor(it.sensitivePhrasesList)
       }
     }
   }

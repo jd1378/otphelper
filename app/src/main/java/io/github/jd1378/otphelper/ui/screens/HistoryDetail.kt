@@ -51,7 +51,9 @@ fun HistoryDetail(
   val isNotifIdIgnored = viewModel.isNotifIdIgnored.collectAsStateWithLifecycle()
   val isNotifTagIgnored = viewModel.isNotifTagIgnored.collectAsStateWithLifecycle()
   val codeExtractorResult = remember {
-    derivedStateOf { viewModel.autoUpdatingCodeExtractor.instance?.getCodeMatch(state.value?.text) }
+    derivedStateOf {
+      viewModel.autoUpdatingListenerUtils.codeExtractor?.getCodeMatch(state.value?.text)
+    }
   }
 
   val scrollState = rememberScrollState()

@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.jd1378.otphelper.di.AutoUpdatingCodeExtractor
+import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults
 import kotlinx.collections.immutable.persistentListOf
@@ -24,7 +24,7 @@ class SensitivePhrasesViewModel
 constructor(
     private val savedStateHandle: SavedStateHandle,
     private val userSettingsRepository: UserSettingsRepository,
-    val autoUpdatingCodeExtractor: AutoUpdatingCodeExtractor,
+    val autoUpdatingListenerUtils: AutoUpdatingListenerUtils,
 ) : ViewModel() {
   val showResetToDefaultDialog = MutableStateFlow(false)
   val showNewSensitivePhraseDialog = MutableStateFlow(false)

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
-import io.github.jd1378.otphelper.di.AutoUpdatingCodeExtractor
+import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.repository.DetectedCodeRepository
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.ui.navigation.NavArgs
@@ -28,7 +28,7 @@ constructor(
     private val savedStateHandle: SavedStateHandle,
     private val detectedCodeRepository: DetectedCodeRepository,
     private val ignoredNotifsRepository: IgnoredNotifsRepository,
-    val autoUpdatingCodeExtractor: AutoUpdatingCodeExtractor
+    val autoUpdatingListenerUtils: AutoUpdatingListenerUtils
 ) : ViewModel() {
 
   private val historyId = savedStateHandle.getStateFlow<Long?>(NavArgs.HISTORY_ID, null)

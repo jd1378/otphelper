@@ -110,8 +110,9 @@ fun SensitivePhrases(
                   onClick = {
                     Clipboard.copyToClipboard(
                         context,
-                        viewModel.autoUpdatingCodeExtractor.instance?.generalCodeMatcher?.toString()
-                            ?: "",
+                        viewModel.autoUpdatingListenerUtils.codeExtractor
+                            ?.generalCodeMatcher
+                            ?.toString() ?: "",
                         false)
                     expanded = false
                   },
@@ -126,8 +127,9 @@ fun SensitivePhrases(
                   onClick = {
                     Clipboard.copyToClipboard(
                         context,
-                        viewModel.autoUpdatingCodeExtractor.instance?.specialCodeMatcher?.toString()
-                            ?: "",
+                        viewModel.autoUpdatingListenerUtils.codeExtractor
+                            ?.specialCodeMatcher
+                            ?.toString() ?: "",
                         false)
                     expanded = false
                   },

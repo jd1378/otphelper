@@ -10,7 +10,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.jd1378.otphelper.di.AutoUpdatingCodeExtractor
+import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.utils.CodeIgnore
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotificationListener : NotificationListenerService() {
 
-  @Inject lateinit var autoUpdatingCodeExtractor: AutoUpdatingCodeExtractor
+  @Inject lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
 
   companion object {
     val TAG = "NotificationListener"
@@ -67,7 +67,7 @@ class NotificationListener : NotificationListenerService() {
       val notificationText = notifyTexts.toString()
 
       if (notificationText.isNotEmpty()) {
-        val code = autoUpdatingCodeExtractor.instance?.getCode(notificationText)
+        val code = autoUpdatingListenerUtils.codeExtractor?.getCode(notificationText)
         if (!code.isNullOrEmpty()) {
           val data =
               workDataOf(
