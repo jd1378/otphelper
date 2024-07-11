@@ -6,13 +6,13 @@ import androidx.compose.runtime.Stable
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.currencyIndicators
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults.ignoredWords
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
-import javax.inject.Singleton
 
 @Immutable
 data class CodeExtractorResult(
@@ -59,7 +59,8 @@ object CodeExtractorDefaults {
           "\\bkod\\W", // PL
           "\\bautoryzacji\\W", // PL
           "Parol\\s+dlya\\s+podtverzhdeniya", // russian
-      )
+          "\\bпароль\\W" // russian
+          )
 
   val ignoredWords =
       persistentListOf(
