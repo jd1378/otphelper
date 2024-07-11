@@ -13,8 +13,8 @@ import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.ActivityHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 const val INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS =
     "INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS"
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     ActivityHelper.adjustFontSize(this, scale)
 
-    if (intent.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
+    if (intent?.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
       SettingsHelper.openNotificationListenerSettings(this)
     }
 
