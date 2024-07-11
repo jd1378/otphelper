@@ -83,9 +83,9 @@ object CodeExtractorDefaults {
           "versionCode",
           "unicode",
           "discount code",
-          "\\bfancode",
-          "\\bencode",
-          "\\bdecode",
+          "fancode",
+          "encode",
+          "decode",
       )
 }
 
