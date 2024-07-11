@@ -95,4 +95,8 @@
     <string name="clear_list">Clear list</string>
     <string name="copy_general_regex">Copy general regex</string>
     <string name="copy_special_regex">Copy special regex</string>
+    <string name="ignored_phrases">Ignored Phrases</string>
+    <string name="copy_ignore_regex">Copy ignore regex</string>
+    <string name="ignored_phrases_desc">If any of these phrases are found in a message, the message will be completely ignored.</string>
+    <string name="new_ignored_phrase">New Ignored Phrase</string>
 </resources>
