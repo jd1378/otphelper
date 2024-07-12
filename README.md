@@ -45,7 +45,7 @@ Spanish:
 
 - [@nilp0inter](https://github.com/nilp0inter)
 
-Turksih:
+Turkish:
 
 - [@SirCrownguard](https://github.com/SirCrownguard)
 
