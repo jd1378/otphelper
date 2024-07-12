@@ -3,11 +3,13 @@ package io.github.jd1378.otphelper
 import android.app.Notification
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
-import android.provider.Settings
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import androidx.core.app.NotificationManagerCompat
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
@@ -35,23 +37,37 @@ class NotificationListener : NotificationListenerService() {
         )
     val notification_text_arrays_keys = listOf(Notification.EXTRA_TEXT_LINES)
 
-    fun isNotificationServiceEnabled(context: Context): Boolean {
-      val pkgName = context.packageName
-      val flat =
-          Settings.Secure.getString(context.contentResolver, "enabled_notification_listeners")
-      if (!flat.isNullOrEmpty()) {
-        val names = flat.split(":").toTypedArray()
-        for (name in names) {
-          val componentName = ComponentName.unflattenFromString(name)
-          if (componentName != null) {
-            if (pkgName == componentName.packageName) {
-              return true
-            }
-          }
-        }
-      }
-      return false
+    fun isNotificationListenerServiceEnabled(context: Context): Boolean {
+      return NotificationManagerCompat.getEnabledListenerPackages(context)
+          .contains(context.packageName)
     }
+
+    fun tryReEnableNotificationListener(context: Context) {
+      if (isNotificationListenerServiceEnabled(context)) {
+        // Rebind the service if it's already enabled
+        val componentName =
+            ComponentName(
+                context,
+                NotificationListener::class.java,
+            )
+        val pm = context.packageManager
+        pm.setComponentEnabledSetting(
+            componentName,
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+            PackageManager.DONT_KILL_APP,
+        )
+        pm.setComponentEnabledSetting(
+            componentName,
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+            PackageManager.DONT_KILL_APP,
+        )
+      }
+    }
+  }
+
+  override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    super.onStartCommand(intent, flags, startId)
+    return START_STICKY
   }
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
@@ -142,7 +158,7 @@ class NotificationListener : NotificationListenerService() {
     // Handle the listener disconnected event
     Log.i(TAG, "Notification listener disconnected.")
 
-    if (isNotificationServiceEnabled(applicationContext)) {
+    if (isNotificationListenerServiceEnabled(applicationContext)) {
       Log.d(TAG, "Rebinding to the service")
       val componentName =
           ComponentName(
