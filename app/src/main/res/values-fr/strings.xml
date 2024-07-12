@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">Nouvelle phrase ignorée</string>
     <string name="auto_dismiss">Rejet automatique</string>
     <string name="auto_dismiss_desc">Rejete automatiquement la notification à partir de laquelle le code a été détecté.</string>
-    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read">Marquer comme lu</string>
     <string name="auto_mark_as_read_help">Tenter d\'utiliser l\'action « marquer comme lu » sur la notification lorsque cela est possible.</string>
 </resources>
