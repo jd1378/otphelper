@@ -37,8 +37,7 @@ class NotificationListener : NotificationListenerService() {
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
     super.onNotificationPosted(sbn)
-    if (autoUpdatingListenerUtils.codeExtractor == null) return
-
+    autoUpdatingListenerUtils.awaitCodeExtractor()
     val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
 
     if (sbn != null) {
