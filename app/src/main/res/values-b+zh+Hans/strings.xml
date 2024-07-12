@@ -93,8 +93,8 @@
     <string name="sensitive_phrases_desc_regex">短语必须是有效的正则表达式。</string>
     <string name="your_new_phrase">新短语</string>
     <string name="new_sensitive_phrase">新建敏感短语</string>
-    <string name="copy_general_regex">Copy general regex</string>
-    <string name="copy_special_regex">Copy special regex</string>
+    <string name="copy_general_regex">复制常规正则表达式</string>
+    <string name="copy_special_regex">复制特殊正则表达式</string>
     <string name="ignored_phrases">Ignored Phrases</string>
     <string name="copy_ignore_regex">Copy ignore regex</string>
     <string name="ignored_phrases_desc">If any of these phrases are found in a message, the message will be completely ignored.</string>

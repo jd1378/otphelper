@@ -59,7 +59,7 @@
     <string name="settings">सेटिंग्स</string>
     <string name="application">अनुप्रयोग</string>
     <string name="notification_tag">टैग</string>
-    <string name="notification_id">ID</string>
+    <string name="notification_id">आईडी</string>
     <string name="notification">सूचनाएं</string>
     <string name="ignore_id">Ignore ID</string>
     <string name="show_details">विवरण दिखाएं</string>
@@ -76,7 +76,7 @@
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">हाँ</string>
     <string name="no">नहीं</string>
-    <string name="options">Options</string>
+    <string name="options">विकल्प</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
@@ -86,7 +86,7 @@
     <string name="reset_to_default">डिफ़ॉल्ट पर रीसेट</string>
     <string name="add">जोड़ें</string>
     <string name="learn_more">अधिक जानें</string>
-    <string name="cancel">निरस्त करना</string>
+    <string name="cancel">रद्द करें</string>
     <string name="clear_list">सूची साफ़ करें</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>

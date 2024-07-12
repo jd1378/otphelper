@@ -62,7 +62,7 @@
     <string name="error">Erro</string>
     <string name="notification">Notificação</string>
     <string name="ignore_id">Ignore ID</string>
-    <string name="show_details">Exibir detalhes</string>
+    <string name="show_details">Mostrar Detalhes</string>
     <string name="history">History</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
@@ -84,7 +84,7 @@
     <string name="n_items">%1$d itens</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Restaurar para predefinido</string>
-    <string name="add">Adicionar</string>
+    <string name="add">Add</string>
     <string name="learn_more">Saiba mais</string>
     <string name="cancel">Cancelar</string>
     <string name="clear_list">Limpar lista</string>

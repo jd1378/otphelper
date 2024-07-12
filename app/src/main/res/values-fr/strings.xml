@@ -55,7 +55,7 @@
     <string name="permission_revoked_channel_description">Rappelle à l\'utilisateur les autorisations requises</string>
     <string name="permission_revoked">Autorisation révoquée</string>
     <string name="permission_revoked_notification_hint">Veuillez accorder à nouveau l\'autorisation de notification de lecture. Appuyez sur ce message pour ouvrir les paramètres.</string>
-    <string name="settings">Réglages</string>
+    <string name="settings">Paramètres</string>
     <string name="application">Application</string>
     <string name="notification_tag">Tag</string>
     <string name="notification_id">ID</string>
@@ -63,7 +63,7 @@
     <string name="notification">Notification</string>
     <string name="ignore_id">ID Ignorer</string>
     <string name="show_details">Afficher les détails</string>
-    <string name="history">Historique</string>
+    <string name="history">Histoire</string>
     <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries.</string>
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
     <string name="auto_copy_help">Automatically copies the detected code.</string>
     <string name="history_desc">Recently detected codes will be shown here.</string>
-    <string name="clear_history">Effacer l\'historique</string>
+    <string name="clear_history">Vider l\'historique</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
@@ -81,10 +81,10 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Autoriser</string>
-    <string name="n_items">%1$s composants</string>
+    <string name="n_items">%1$d élément</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="learn_more">En savoir plus</string>
-    <string name="reset_to_default">Réinitialiser aux valeurs par défaut</string>
+    <string name="learn_more">En apprendre davantage</string>
+    <string name="reset_to_default">Réinitialiser par défaut</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
     <string name="clear_list">Effacer la liste</string>
