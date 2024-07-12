@@ -19,7 +19,7 @@
     <string name="HOME_ROUTE">首頁</string>
     <string name="IGNORED_LIST_ROUTE">忽略名單</string>
     <string name="list_is_empty">暫無忽略名單</string>
-    <string name="ignored_list_description">當您點擊此驗證碼通知中的「忽略」按鈕時，我們不會再偵測此通知的驗證碼。</string>
+    <string name="ignored_list_description">點擊「忽略」按鈕時，將會在此處顯示被忽略的訊息。</string>
     <string name="copy">複製</string>
     <string name="ignore">忽略</string>
     <string name="PERMISSION_ROUTE">權限管理</string>
@@ -78,9 +78,9 @@
     <string name="no">否</string>
     <string name="options">選項</string>
     <string name="history_detail">History Detail</string>
-    <string name="allow_id">Allow ID</string>
-    <string name="allow_tag">Allow Tag</string>
-    <string name="allow_app">放行應用程式</string>
+    <string name="allow_id">允許 ID</string>
+    <string name="allow_tag">允許標籤</string>
+    <string name="allow_app">允許應用程式</string>
     <string name="n_items">%1$d 個項目</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">重設為預設值</string>
