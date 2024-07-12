@@ -18,7 +18,7 @@
     <string name="HOME_ROUTE">Home</string>
     <string name="IGNORED_LIST_ROUTE">Ignorieren Liste</string>
     <string name="list_is_empty">Liste ist leer</string>
-    <string name="ignored_list_description">Wenn du den Ignorieren Knopf in der \"Code gefunden\"-Benachrichtigung drückst, wird diese Art Code nicht mehr detektiert und erscheint hier.</string>
+    <string name="ignored_list_description">Wenn du \"Ignorieren\" in der \"Code gefunden\"-Benachrichtigung drückst, wird diese Art Code nicht mehr detektiert und erscheint hier.</string>
     <string name="copy">Kopieren</string>
     <string name="ignore">Ignorieren</string>
     <string name="PERMISSION_ROUTE">Berechtigungen</string>
@@ -78,9 +78,9 @@
     <string name="no">Nein</string>
     <string name="options">Optionen</string>
     <string name="history_detail">History Detail</string>
-    <string name="allow_id">Allow ID</string>
-    <string name="allow_tag">Allow Tag</string>
-    <string name="allow_app">Anwendungen zulassen</string>
+    <string name="allow_id">ID erlauben</string>
+    <string name="allow_tag">Tag erlauben</string>
+    <string name="allow_app">Anwendung zulassen</string>
     <string name="n_items">%1$d Objekte</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Zurücksetzen auf Standard</string>
