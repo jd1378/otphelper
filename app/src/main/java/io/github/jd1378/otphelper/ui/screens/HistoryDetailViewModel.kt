@@ -11,6 +11,7 @@ import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.repository.DetectedCodeRepository
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.ui.navigation.NavArgs
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
@@ -18,7 +19,6 @@ import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @Stable
 @HiltViewModel
@@ -62,7 +62,7 @@ constructor(
           .flatMapMerge {
             it?.let {
               ignoredNotifsRepository.exists(
-                  it.packageName, IgnoredNotifType.NOTIFICATION_TAG, it.notificationTag ?: "")
+                  it.packageName, IgnoredNotifType.NOTIFICATION_TAG, it.notificationTag)
             } ?: flow { emit(false) }
           }
           .stateIn(
