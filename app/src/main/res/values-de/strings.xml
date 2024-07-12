@@ -56,7 +56,7 @@
     <string name="permission_revoked">Permission Revoked</string>
     <string name="permission_revoked_notification_hint">Bitte erteilen Sie erneut die Berechtigung zum Lesen der Benachrichtigung. Tippen Sie auf diese Nachricht, um die Einstellungen zu öffnen.</string>
     <string name="settings">Einstellungen</string>
-    <string name="application">Applikation</string>
+    <string name="application">Anwendung</string>
     <string name="notification_tag">Schlagwort</string>
     <string name="notification_id">ID</string>
     <string name="error">Fehler</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">New Ignored Phrase</string>
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read">Als gelesen markieren</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>
