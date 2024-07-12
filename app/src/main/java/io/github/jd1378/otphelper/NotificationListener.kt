@@ -2,6 +2,7 @@ package io.github.jd1378.otphelper
 
 import android.app.Notification
 import android.content.ComponentName
+import android.content.Context
 import android.os.Build
 import android.provider.Settings
 import android.service.notification.NotificationListenerService
@@ -33,6 +34,24 @@ class NotificationListener : NotificationListenerService() {
             Notification.EXTRA_TEXT_LINES,
         )
     val notification_text_arrays_keys = listOf(Notification.EXTRA_TEXT_LINES)
+
+    fun isNotificationServiceEnabled(context: Context): Boolean {
+      val pkgName = context.packageName
+      val flat =
+          Settings.Secure.getString(context.contentResolver, "enabled_notification_listeners")
+      if (!flat.isNullOrEmpty()) {
+        val names = flat.split(":").toTypedArray()
+        for (name in names) {
+          val componentName = ComponentName.unflattenFromString(name)
+          if (componentName != null) {
+            if (pkgName == componentName.packageName) {
+              return true
+            }
+          }
+        }
+      }
+      return false
+    }
   }
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
@@ -123,7 +142,7 @@ class NotificationListener : NotificationListenerService() {
     // Handle the listener disconnected event
     Log.i(TAG, "Notification listener disconnected.")
 
-    if (isNotificationServiceEnabled()) {
+    if (isNotificationServiceEnabled(applicationContext)) {
       Log.d(TAG, "Rebinding to the service")
       val componentName =
           ComponentName(
@@ -132,22 +151,5 @@ class NotificationListener : NotificationListenerService() {
           )
       requestRebind(componentName)
     }
-  }
-
-  private fun isNotificationServiceEnabled(): Boolean {
-    val pkgName = packageName
-    val flat = Settings.Secure.getString(contentResolver, "enabled_notification_listeners")
-    if (!flat.isNullOrEmpty()) {
-      val names = flat.split(":").toTypedArray()
-      for (name in names) {
-        val componentName = ComponentName.unflattenFromString(name)
-        if (componentName != null) {
-          if (pkgName == componentName.packageName) {
-            return true
-          }
-        }
-      }
-    }
-    return false
   }
 }
