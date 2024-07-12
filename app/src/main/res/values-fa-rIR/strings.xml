@@ -82,7 +82,7 @@
     <string name="allow_tag">اجازه به برچسب</string>
     <string name="allow_app">اجازه به برنامه</string>
     <string name="n_items">%1$d مورد</string>
-    <string name="app_label_not_visible_reason">نام برنامه در دسترس نیست، احتمالا بخاطر این که پاک شده است.</string>
+    <string name="app_label_not_visible_reason">نام برنامه در دسترس نیست.</string>
     <string name="add">اضافه کردن</string>
     <string name="learn_more">دانستن بیش‌تر</string>
     <string name="reset_to_default">تنظیم به عنوان پیش فرض</string>
@@ -95,12 +95,12 @@
     <string name="your_new_phrase">Your new phrase</string>
     <string name="copy_general_regex">Copy general regex</string>
     <string name="copy_special_regex">Copy special regex</string>
-    <string name="ignored_phrases">Ignored Phrases</string>
-    <string name="copy_ignore_regex">Copy ignore regex</string>
-    <string name="ignored_phrases_desc">If any of these phrases are found in a message, the message will be completely ignored.</string>
-    <string name="new_ignored_phrase">New Ignored Phrase</string>
-    <string name="auto_dismiss">Auto Dismiss</string>
-    <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Mark as read</string>
-    <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
+    <string name="ignored_phrases">عبارات نادیده گرفته شده</string>
+    <string name="copy_ignore_regex">کپی regex نادیده گرفتن</string>
+    <string name="ignored_phrases_desc">اگر هر یک از این عبارات در پیامی وجود داشته باشد، پیام نادیده گرفته خواهد شد.</string>
+    <string name="new_ignored_phrase">عبارت جدید نادیده گرفتن</string>
+    <string name="auto_dismiss">رد کردن خودکار</string>
+    <string name="auto_dismiss_desc">به صورت خودکار اعلانی که کد از آن شناسایی شده است را رد می‌کند.</string>
+    <string name="auto_mark_as_read">علامت به عنوان خوانده شده</string>
+    <string name="auto_mark_as_read_help">هر گاه ممکن باشد، سعی می کند از گزینه \"علامت گذاری به عنوان خوانده شده\" روی اعلان استفاده کند.</string>
 </resources>
