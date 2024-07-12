@@ -77,7 +77,7 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="options">Options</string>
-    <string name="history_detail">History Detail</string>
+    <string name="history_detail">Détail de l\'historique</string>
     <string name="allow_id">ID autorisé</string>
     <string name="allow_tag">Étiquette autorisée</string>
     <string name="allow_app">Autoriser App</string>
