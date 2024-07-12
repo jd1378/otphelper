@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Afficher une notification affichant le code détecté.</string>
     <string name="auto_copy_help">Copier automatiquement le code détecté.</string>
     <string name="history_desc">Les codes récemment détectés seront affichés ici.</string>
-    <string name="clear_history">Vider l\'historique</string>
+    <string name="clear_history">Effacer l’historique</string>
     <string name="irreversible_action_warning">Vous ne pouvez pas annuler cette action. Continuer ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
@@ -83,11 +83,11 @@
     <string name="allow_app">Autoriser App</string>
     <string name="n_items">%1$d élément</string>
     <string name="app_label_not_visible_reason">Le nom de l\'application n\'est pas disponible.</string>
-    <string name="learn_more">En apprendre davantage</string>
+    <string name="learn_more">En savoir plus</string>
     <string name="reset_to_default">Réinitialiser par défaut</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
-    <string name="clear_list">Effacer la liste</string>
+    <string name="clear_list">Réinitialiser la liste</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
