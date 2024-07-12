@@ -99,7 +99,7 @@ Polish:
 
 Japanese:
 
-- [KAWASAKICHIRO](https://github.com/KAWASAKICHIRO)
+- [@KAWASAKICHIRO](https://github.com/KAWASAKICHIRO)
 
 You can help translate this app to your langauge on weblate:
 
