@@ -75,7 +75,7 @@
     <string name="clear_history">Wyczyść historię</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Tak</string>
-    <string name="no">Nie</string>
+    <string name="no">No</string>
     <string name="options">Opcje</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Allow ID</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">New Ignored Phrase</string>
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read">Zaznacz Wiadomość jako przeczytany</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>
