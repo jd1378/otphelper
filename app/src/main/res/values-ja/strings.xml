@@ -81,7 +81,7 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Allow App</string>
-    <string name="n_items">%1$s アイテム</string>
+    <string name="n_items">%1$d アイテム</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">デフォルトに戻す</string>
     <string name="add">追加</string>
