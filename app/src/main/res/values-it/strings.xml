@@ -83,7 +83,7 @@
     <string name="allow_app">Consenti app</string>
     <string name="n_items">%1$d oggetti</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">Ripristino di default</string>
+    <string name="reset_to_default">Ripristina i valori predefiniti</string>
     <string name="add">Aggiungi</string>
     <string name="learn_more">Scopri di più</string>
     <string name="cancel">Annulla</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">New Ignored Phrase</string>
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read">Segna come letto</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>
