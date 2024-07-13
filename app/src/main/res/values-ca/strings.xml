@@ -86,7 +86,7 @@
     <string name="reset_to_default">Restablir a predeterminats</string>
     <string name="add">Afegeix</string>
     <string name="learn_more">Més informació</string>
-    <string name="cancel">Cancel·lar</string>
+    <string name="cancel">Cancel·la</string>
     <string name="clear_list">Esborrar la llista</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
