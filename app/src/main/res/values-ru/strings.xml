@@ -81,7 +81,7 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Разрешить приложения</string>
-    <string name="n_items">%1$sэлементов</string>
+    <string name="n_items">%1$d элементов</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Сброс к настройкам по умолчанию</string>
     <string name="add">Добавить</string>
