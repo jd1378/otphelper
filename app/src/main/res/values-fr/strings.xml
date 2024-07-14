@@ -87,7 +87,7 @@
     <string name="reset_to_default">Réinitialiser par défaut</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
-    <string name="clear_list">Vider liste</string>
+    <string name="clear_list">Réinitialiser la liste</string>
     <string name="sensitive_phrases">Phrases de détection</string>
     <string name="sensitive_phrases_desc">Ici, vous pouvez ajouter des phrases qui déclenchent la détection de code.</string>
     <string name="sensitive_phrases_desc_regex">Les phrases doivent être des expressions régulières valides.</string>
