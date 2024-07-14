@@ -1,3 +1,4 @@
+- Important reliability fixes
 - Added History screen
 - Improved Ignored List
 - Created settings page and moved settings inside
@@ -5,6 +6,6 @@
 - You can now disable "Copied to clipboard!" toast from settings.
 - You can now add your own sensitive phrases!
 - You can now add your own ignored phrases!
+- Made notification a little more compact to prevent clipping on some phones
 - Added auto dismiss feature
 - Added mark as read feature
-- Made notification a little more compact to prevent clipping on some phones
