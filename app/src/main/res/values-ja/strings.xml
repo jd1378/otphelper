@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">検出されたコードを示す通知を投稿します。</string>
     <string name="auto_copy_help">検出したコードを自動でコピーします。</string>
     <string name="history_desc">最近検出されたコードがここに表示されます。</string>
-    <string name="clear_history">履歴のクリア</string>
+    <string name="clear_history">履歴を全消去</string>
     <string name="irreversible_action_warning">この操作は元に戻せません。続けますか?</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
@@ -84,7 +84,7 @@
     <string name="n_items">%1$d アイテム</string>
     <string name="app_label_not_visible_reason">アプリケーション名が利用できません。</string>
     <string name="reset_to_default">デフォルトに戻す</string>
-    <string name="add">追加</string>
+    <string name="add">Add</string>
     <string name="learn_more">もっと詳しく知る</string>
     <string name="cancel">キャンセル</string>
     <string name="clear_list">リストのクリア</string>
