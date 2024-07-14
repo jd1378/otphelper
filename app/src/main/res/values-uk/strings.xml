@@ -57,7 +57,7 @@
     <string name="permission_revoked_notification_hint">Ще раз надайте дозвіл на читання сповіщень. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
     <string name="settings">Налаштування</string>
     <string name="application">Додаток</string>
-    <string name="error">Ой лишенько</string>
+    <string name="error">Помилкові</string>
     <string name="notification_tag">TAG</string>
     <string name="notification">Сповіщення</string>
     <string name="ignore_id">Ignore ID</string>
@@ -76,7 +76,7 @@
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Так</string>
     <string name="no">Ні</string>
-    <string name="options">Параметри</string>
+    <string name="options">Опції</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Дозволити ідентифікацію</string>
     <string name="allow_tag">Дозволити мітку</string>
