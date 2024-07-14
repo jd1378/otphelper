@@ -83,9 +83,9 @@
     <string name="allow_app">Zezwalaj aplikacjom</string>
     <string name="n_items">%1$d przedmiot</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="add">Dodaj</string>
+    <string name="add">Add</string>
     <string name="learn_more">Dowiedz się więcej</string>
-    <string name="reset_to_default">Resetuj ustawienia</string>
+    <string name="reset_to_default">Przywróć ustawienia domyślne</string>
     <string name="cancel">Anuluj</string>
     <string name="clear_list">Wyczyść listę</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">New Ignored Phrase</string>
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Oznacz jako przeczytane</string>
+    <string name="auto_mark_as_read">Zaznacz Wiadomość jako przeczytany</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>
