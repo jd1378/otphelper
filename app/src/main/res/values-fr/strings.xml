@@ -81,7 +81,7 @@
     <string name="allow_id">ID autorisé</string>
     <string name="allow_tag">Étiquette autorisée</string>
     <string name="allow_app">Autoriser App</string>
-    <string name="n_items">%1$s composants</string>
+    <string name="n_items">%1$d composants</string>
     <string name="app_label_not_visible_reason">Le nom de l\'application n\'est pas disponible.</string>
     <string name="learn_more">En savoir plus</string>
     <string name="reset_to_default">Réinitialiser par défaut</string>
