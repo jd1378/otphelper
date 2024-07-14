@@ -81,9 +81,9 @@
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>
     <string name="allow_app">Разрешить приложения</string>
-    <string name="n_items">%1$d элемент</string>
+    <string name="n_items">%1$sэлементов</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">Сбросить настройки</string>
+    <string name="reset_to_default">Сброс к настройкам по умолчанию</string>
     <string name="add">Добавить</string>
     <string name="learn_more">Learn more</string>
     <string name="cancel">Отмена</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">New Ignored Phrase</string>
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
-    <string name="auto_mark_as_read">Пометить как «Прочитано»</string>
+    <string name="auto_mark_as_read">пометить как прочитанные</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
 </resources>

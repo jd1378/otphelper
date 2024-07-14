@@ -76,7 +76,7 @@
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Đúng</string>
     <string name="no">Không</string>
-    <string name="options">Lựa chọn</string>
+    <string name="options">Tùy chọn</string>
     <string name="history_detail">History Detail</string>
     <string name="allow_id">Allow ID</string>
     <string name="allow_tag">Allow Tag</string>

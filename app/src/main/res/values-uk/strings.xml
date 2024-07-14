@@ -19,7 +19,7 @@
     <string name="HOME_ROUTE">Домівка</string>
     <string name="IGNORED_LIST_ROUTE">Список ігнорування</string>
     <string name="list_is_empty">Список порожній</string>
-    <string name="ignored_list_description">Якщо ви натиснете кнопку \"Ігнорувати\" в надісланому сповіщенні про виявлений код, в подальшому він не буде розпізнаватися і зʼявлятися тут.</string>
+    <string name="ignored_list_description">Ігноровані повідомлення будуть показані тут після того, як ви натиснете кнопку ігнорування.</string>
     <string name="copy">Копіювати</string>
     <string name="ignore">Ігнорувати</string>
     <string name="PERMISSION_ROUTE">Дозволи</string>
@@ -57,7 +57,7 @@
     <string name="permission_revoked_notification_hint">Ще раз надайте дозвіл на читання сповіщень. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
     <string name="settings">Налаштування</string>
     <string name="application">Додаток</string>
-    <string name="error">Помилка</string>
+    <string name="error">Помилкові</string>
     <string name="notification_tag">TAG</string>
     <string name="notification">Сповіщення</string>
     <string name="ignore_id">Ignore ID</string>
@@ -78,9 +78,9 @@
     <string name="no">Ні</string>
     <string name="options">Опції</string>
     <string name="history_detail">History Detail</string>
-    <string name="allow_id">Allow ID</string>
-    <string name="allow_tag">Allow Tag</string>
-    <string name="allow_app">Дозволити застосунки</string>
+    <string name="allow_id">Дозволити ідентифікацію</string>
+    <string name="allow_tag">Дозволити мітку</string>
+    <string name="allow_app">Дозволені застосунки</string>
     <string name="n_items">%1$d елемент</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="reset_to_default">Скинути параметри до стандартних</string>
