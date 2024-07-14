@@ -101,6 +101,10 @@ Japanese:
 
 - [@KAWASAKICHIRO](https://github.com/KAWASAKICHIRO)
 
+Korean:
+
+- [@alexkoala](https://github.com/alexkoala)
+
 You can help translate this app to your langauge on weblate:
 
 <a href="https://hosted.weblate.org/engage/copy-sms-code-otp-helper/">
