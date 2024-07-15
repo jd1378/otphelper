@@ -4,13 +4,13 @@
     <string name="detected_code">验证码:</string>
     <string name="code_detected_channel_name">检测到验证码</string>
     <string name="code_detected_channel_description">检测到验证码时，本频道会发送一条通知</string>
-    <string name="code_copied_to_clipboard">复制成功！</string>
+    <string name="code_copied_to_clipboard">复制成功</string>
     <string name="code_failed_to_access_clipboard">无法读取剪贴板!</string>
-    <string name="copy_to_clipboard">复制</string>
+    <string name="copy_to_clipboard">复制到剪贴板</string>
     <string name="wont_detect_code_from_this_notif">不会再从该通知检测验证码</string>
     <string name="copied">已复制</string>
     <string name="ignored_list">黑名单</string>
-    <string name="open_notification_permission">赋予通知权限</string>
+    <string name="open_notification_permission">授予通知权限</string>
     <string name="send_test_notification">发送测试通知</string>
     <string name="auto_copy">自动复制</string>
     <string name="delete">删除</string>
