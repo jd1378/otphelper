@@ -125,4 +125,5 @@
   <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
   <string name="auto_mark_as_read">Mark as read</string>
   <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
+  <string name="ko" translatable="false">한국어</string>
 </resources>

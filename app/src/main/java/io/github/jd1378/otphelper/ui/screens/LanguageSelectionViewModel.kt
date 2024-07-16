@@ -41,6 +41,7 @@ val localeOptions =
         LocaleOption("pt", R.string.pt, "Português,Portuguese"),
         LocaleOption("pt-BR", R.string.pt_rBR, "Português,Portuguese,brasil,brazil"),
         LocaleOption("jp", R.string.jp, "Japanese,nihongo,日本語"),
+        LocaleOption("ko", R.string.ko, "korean,한국어"),
     )
 
 @Immutable
