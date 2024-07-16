@@ -702,4 +702,12 @@ Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTA
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun koreanCode() {
+    val msg = "[한국모바일인증(주)]본인확인 인증번호[123456]입니다. \"타인노출금지\""
+
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }
