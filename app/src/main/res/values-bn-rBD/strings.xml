@@ -86,7 +86,7 @@
     <string name="learn_more">আরও জানুন</string>
     <string name="cancel">বাতিল</string>
     <string name="reset_to_default">ডিফল্টে রিসেট করুন</string>
-    <string name="add">যোগ</string>
+    <string name="add">সংযোগ</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
