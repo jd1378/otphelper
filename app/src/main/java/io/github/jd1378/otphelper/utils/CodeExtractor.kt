@@ -50,7 +50,8 @@ object CodeExtractorDefaults {
           "\\bkod\\W", // PL
           "\\bautoryzacji\\W", // PL
           "Parol\\s+dlya\\s+podtverzhdeniya", // russian
-          "\\bпароль\\W" // russian
+          "\\bпароль\\W", // russian
+          "인증번호" // "authentication number" in korean
           )
 
   val skipPhrases =
