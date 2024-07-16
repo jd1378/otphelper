@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
     <string name="auto_copy_help">Automatically copies the detected code.</string>
     <string name="history_desc">Recently detected codes will be shown here.</string>
-    <string name="clear_history">Xoá lịch sử</string>
+    <string name="clear_history">Dọn lịch sử</string>
     <string name="irreversible_action_warning">You cannot undo this action, Continue?</string>
     <string name="yes">Đúng</string>
     <string name="no">Không</string>
@@ -87,7 +87,7 @@
     <string name="reset_to_default">Reset to default</string>
     <string name="add">Thêm</string>
     <string name="learn_more">Tìm hiểu thêm</string>
-    <string name="cancel">Huỷ bỏ</string>
+    <string name="cancel">Hủy</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
