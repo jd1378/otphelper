@@ -63,7 +63,7 @@
     <string name="notification">Notification</string>
     <string name="ignore_id">ID Ignorer</string>
     <string name="show_details">Afficher les détails</string>
-    <string name="history">Historique</string>
+    <string name="history">Histoire</string>
     <string name="history_help">L\'historique sera automatiquement supprimé à minuit tous les jours, à l\'exception des 10 dernières entrées.</string>
     <string name="replace_code_in_history">Remplacer le code dans l\'historique</string>
     <string name="replace_code_in_history_help">Remplace le code détecté dans l\'historique par des zéros.</string>
@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Afficher une notification affichant le code détecté.</string>
     <string name="auto_copy_help">Copier automatiquement le code détecté.</string>
     <string name="history_desc">Les codes récemment détectés seront affichés ici.</string>
-    <string name="clear_history">Effacer l\'historique</string>
+    <string name="clear_history">Effacer l’historique</string>
     <string name="irreversible_action_warning">Vous ne pouvez pas annuler cette action. Continuer ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
@@ -87,7 +87,7 @@
     <string name="reset_to_default">Réinitialiser par défaut</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
-    <string name="clear_list">Réinitialiser la liste</string>
+    <string name="clear_list">Nettoyer la liste</string>
     <string name="sensitive_phrases">Phrases de détection</string>
     <string name="sensitive_phrases_desc">Ici, vous pouvez ajouter des phrases qui déclenchent la détection de code.</string>
     <string name="sensitive_phrases_desc_regex">Les phrases doivent être des expressions régulières valides.</string>
