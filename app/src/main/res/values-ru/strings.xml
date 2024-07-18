@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Копирование OTP-кодов</string>
+    <string name="app_name">Копирование SMS кода</string>
     <string name="detected_code">Найденный код:</string>
     <string name="code_detected_channel_name">Найден код</string>
     <string name="code_detected_channel_description">При обнаружении кода уведомление будет отправлено с этого канала</string>
