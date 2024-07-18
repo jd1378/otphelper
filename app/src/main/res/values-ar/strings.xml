@@ -17,7 +17,7 @@
     <string name="HOME_ROUTE">الرئيسية</string>
     <string name="IGNORED_LIST_ROUTE">قائمة التجاهل</string>
     <string name="list_is_empty">القائمة خالية…</string>
-    <string name="ignored_list_description">عندما تضغط على زر التجاهل في الإشعار الذي يتم إرساله عند اكتشاف رمز، فلن يتم اكتشافه كرمز بعد الآن وسيظهر هنا.</string>
+    <string name="ignored_list_description">سيتم عرض الرسائل التي تم تجاهلها هنا بعد الضغط على زر التجاهل.</string>
     <string name="copy">نسخ</string>
     <string name="ignore">تجاهل</string>
     <string name="PERMISSION_ROUTE">الأذونات</string>
