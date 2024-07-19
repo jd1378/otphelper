@@ -20,7 +20,7 @@ android {
     applicationId = "io.github.jd1378.otphelper"
     minSdk = 24
     targetSdk = 34
-    versionCode = 30
+    versionCode = 31
     versionName = "1.16.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
