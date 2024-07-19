@@ -3,7 +3,6 @@ package io.github.jd1378.otphelper
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.util.Log
 import io.github.jd1378.otphelper.NotificationListener.Companion.isNotificationListenerServiceEnabled
 import io.github.jd1378.otphelper.NotificationListener.Companion.tryReEnableNotificationListener
@@ -22,12 +21,8 @@ class BootReceiver : BroadcastReceiver() {
           )
         }
         tryReEnableNotificationListener(context)
-      }
-      when (Build.VERSION.SDK_INT) {
-        Build.VERSION_CODES.Q,
-        Build.VERSION_CODES.R -> {
-          NotificationHelper.sendPermissionRevokedNotif(context)
-        }
+      } else {
+        NotificationHelper.sendPermissionRevokedNotif(context)
       }
     }
   }
