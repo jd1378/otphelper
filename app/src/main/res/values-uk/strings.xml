@@ -88,10 +88,10 @@
     <string name="learn_more">Дізнатися більше</string>
     <string name="cancel">Скасувати</string>
     <string name="clear_list">Очистити список</string>
-    <string name="sensitive_phrases">Sensitive Phrases</string>
+    <string name="sensitive_phrases">Делікатні фрази</string>
     <string name="sensitive_phrases_desc">Тут ви можете додати фрази, які запускають визначення коду.</string>
     <string name="sensitive_phrases_desc_regex">Фрази повинні бути дійсними регулярними виразами.</string>
-    <string name="new_sensitive_phrase">New Sensitive Phrase</string>
+    <string name="new_sensitive_phrase">Нова делікатна фраза</string>
     <string name="your_new_phrase">Ваша нова фраза</string>
     <string name="copy_general_regex">Копіювати загальний, регулярний вираз</string>
     <string name="copy_special_regex">Копіювати спеціальний, регулярний вираз</string>
