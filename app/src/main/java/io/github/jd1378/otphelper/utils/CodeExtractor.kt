@@ -88,6 +88,9 @@ object CodeExtractorDefaults {
           "encode",
           "decode",
       )
+
+  val simpleDomainRegex =
+      "[a-zA-Z0-9][a-zA-Z0-9-]{0,61}\\.[a-zA-Z]{2,}(?:[.a-zA-Z]{0,3}(?=\\s+)|)".toRegex()
 }
 
 class CodeExtractor // this comment is to separate parts
@@ -99,7 +102,7 @@ class CodeExtractor // this comment is to separate parts
   val generalCodeMatcher: Regex =
       """(${sensitivePhrases.joinToString("|")})(?:\s*(?!${
         skipPhrases.joinToString("|")
-      })(?:[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9\-]|[\d\u0660-\u0669\u06F0-\u06F9,\s]+(?:${currencyIndicators.joinToString("|")})|[\d\u0660-\u0669\u06F0-\u06F9][^\d\u0660-\u0669\u06F0-\u06F9]))*\s*:?\s*(["'「]?)${""
+      })(?:[^\s:.'"\d\u0660-\u0669\u06F0-\u06F9]|[\d\u0660-\u0669\u06F0-\u06F9,\s]+(?:${currencyIndicators.joinToString("|")})|[\d\u0660-\u0669\u06F0-\u06F9][^\d\u0660-\u0669\u06F0-\u06F9]))*\s*:?\s*(["'「]?)${""
 // this comment is to separate parts
       }([\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]{4,}|(?: [\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]){4,}|)\1?(?:[^\d\u0660-\u0669\u06F0-\u06F9a-zA-Z]|${'$'})"""
           .toRegex(
@@ -118,12 +121,12 @@ class CodeExtractor // this comment is to separate parts
 
   fun getCode(str: String): String? {
     if (sensitivePhrases.isEmpty()) return null
-
-    val results = generalCodeMatcher.findAll(str).filter { it.groups[3]?.value != null }
+    val cleanStr = str.replace(CodeExtractorDefaults.simpleDomainRegex, "")
+    val results = generalCodeMatcher.findAll(cleanStr).filter { it.groups[3]?.value != null }
     if (results.count() > 0) {
       // generalCodeMatcher also detects if the text contains "code" keyword
       // so we only run google's regex only if general regex did not capture the "code" group
-      val foundCode =
+      var foundCode =
           results
               .find { it.groups[3]!!.value.isNotEmpty() }
               ?.groups
@@ -131,11 +134,16 @@ class CodeExtractor // this comment is to separate parts
               ?.value
               ?.replace(" ", "")
               ?.replace("-", "")
-      if (foundCode !== null) {
+
+      if (foundCode.isNullOrEmpty()) {
+        foundCode = specialCodeMatcher.find(cleanStr)?.groups?.get(1)?.value?.replace(" ", "")
+      }
+
+      if (!foundCode.isNullOrEmpty()) {
         return toEnglishNumbers(foundCode)
       }
-      return toEnglishNumbers(specialCodeMatcher.find(str)?.groups?.get(1)?.value?.replace(" ", ""))
     }
+
     return null
   }
 

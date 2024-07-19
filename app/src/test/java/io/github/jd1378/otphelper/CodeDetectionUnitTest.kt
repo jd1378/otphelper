@@ -697,7 +697,7 @@ If you didn't request this code by trying to log in on another device, simply ig
     val msg =
         """QJL - 123456 is the One Time P/W (OTP) for online transaction on your card. ...............
 
-Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTAC is 12345678901. ........."""
+Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTAC is 9876543210. ........."""
 
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
@@ -707,6 +707,13 @@ Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTA
   fun koreanCode() {
     val msg = "[한국모바일인증(주)]본인확인 인증번호[123456]입니다. \"타인노출금지\""
 
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun russianCode() {
+    val msg = "Сеансовый пароль Интернет-банка e-bgpb.by: 123456. Никому не сообщайте!"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
