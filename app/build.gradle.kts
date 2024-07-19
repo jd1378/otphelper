@@ -43,7 +43,7 @@ android {
     buildConfig = true
   }
   composeOptions { kotlinCompilerExtensionVersion = "1.5.14" }
-  packagingOptions { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
+  packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
   androidResources { generateLocaleConfig = true }
 
   applicationVariants.all(ApplicationVariantAction())
