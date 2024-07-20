@@ -3,10 +3,14 @@ package io.github.jd1378.otphelper.ui.screens
 import android.text.format.DateUtils
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -41,6 +45,7 @@ import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun HistoryDetail(
     modifier: Modifier = Modifier,
@@ -101,57 +106,53 @@ fun HistoryDetail(
         Row(
             Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_page)),
         ) {
-          Row(
-              Modifier.weight(1f),
-              horizontalArrangement =
-                  Arrangement.spacedBy(
-                      dimensionResource(R.dimen.padding_page),
-                  ),
-          ) {
-            AppImage(
-                appInfoResult.icon,
-                modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
+          AppImage(
+              appInfoResult.icon,
+              modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
+          )
+
+          Column() {
+            Text(
+                text = appInfoResult.appLabel,
+                fontWeight = FontWeight.Medium,
+                fontSize = 16.sp,
             )
 
-            Column() {
-              Text(
-                  text = appInfoResult.appLabel,
-                  fontWeight = FontWeight.Medium,
-                  fontSize = 16.sp,
-              )
-
-              Text(
-                  text =
-                      DateUtils.getRelativeTimeSpanString(
-                              detectedCode.createdAt.time,
-                              System.currentTimeMillis(),
-                              0L,
-                              DateUtils.FORMAT_ABBREV_ALL)
-                          .toString(),
-                  color = MaterialTheme.colorScheme.primary,
-              )
-            }
+            Text(
+                text =
+                    DateUtils.getRelativeTimeSpanString(
+                            detectedCode.createdAt.time,
+                            System.currentTimeMillis(),
+                            0L,
+                            DateUtils.FORMAT_ABBREV_ALL)
+                        .toString(),
+                color = MaterialTheme.colorScheme.primary,
+            )
           }
-
+        }
+        Row(
+            horizontalArrangement = Arrangement.End,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
           IgnoreAppButton(isAppIgnored.value) { viewModel.toggleAppIgnore(detectedCode) }
         }
 
         HorizontalDivider()
 
-        Row(
+        FlowRow(
             Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalArrangement = Arrangement.Center,
+            horizontalArrangement = Arrangement.End,
         ) {
-          Column(Modifier.weight(1f)) {
-            Text(
-                stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
-                fontWeight = FontWeight.Medium,
-                fontSize = 16.sp,
-            )
-          }
+          Text(
+              modifier =
+                  Modifier.weight(1f).width(IntrinsicSize.Max).align(Alignment.CenterVertically),
+              text = stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
+              fontWeight = FontWeight.Medium,
+              fontSize = 16.sp,
+          )
 
           IgnoreNotifIdButton(isNotifIdIgnored.value) {
             viewModel.toggleNotifIdIgnore(detectedCode)
@@ -161,12 +162,12 @@ fun HistoryDetail(
         if (detectedCode.notificationTag.isNotBlank()) {
           HorizontalDivider()
 
-          Row(
+          FlowRow(
               Modifier.fillMaxWidth(),
-              verticalAlignment = Alignment.CenterVertically,
-              horizontalArrangement = Arrangement.SpaceBetween,
+              verticalArrangement = Arrangement.Center,
+              horizontalArrangement = Arrangement.End,
           ) {
-            Column(Modifier.weight(1f)) {
+            Column(Modifier.weight(1f).width(IntrinsicSize.Max)) {
               Text(
                   stringResource(R.string.notification_tag) + ":",
                   fontWeight = FontWeight.Medium,
