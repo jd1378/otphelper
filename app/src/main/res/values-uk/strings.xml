@@ -80,7 +80,7 @@
     <string name="history_detail">Детальна інформація про історію</string>
     <string name="allow_id">Дозволити ідентифікацію</string>
     <string name="allow_tag">Дозволити мітку</string>
-    <string name="allow_app">Дозволити застосунки</string>
+    <string name="allow_app">Дозволити застосунок</string>
     <string name="n_items">%1$d елемент</string>
     <string name="app_label_not_visible_reason">Назва програми недоступна.</string>
     <string name="reset_to_default">Скинути параметри до стандартних</string>
