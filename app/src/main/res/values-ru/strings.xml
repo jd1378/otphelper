@@ -20,7 +20,7 @@
     <string name="list_is_empty">Список пуст</string>
     <string name="ignored_list_description">При нажатии кнопки «Игнорировать» в уведомлении с обнаруженным кодом оно запоминается и больше не будет обрабатываться, а также появится в этом списке.</string>
     <string name="copy">Копировать</string>
-    <string name="ignore">Пропустить</string>
+    <string name="ignore">Игнорировать</string>
     <string name="PERMISSION_ROUTE">Разрешения</string>
     <string name="permissions_desc">Чтобы приложение всегда могло правильно определять коды из уведомлений, необходимо предоставить следующие разрешения:</string>
     <string name="open">Открыть</string>
@@ -30,7 +30,7 @@
     <string name="permission_todo_remain_open">3. Оставаться открытым</string>
     <string name="perm_extra_desc">На некоторых устройствах вроде Xiaomi, Huawei и т.д., чтобы приложение запускалось при перезагрузке телефона, необходимо вручную предоставить разрешение на автозапуск. Из приложения невозможно определить, предоставлено ли это разрешение.</string>
     <string name="permission_todo_autostart">4. Разрешить автозапуск</string>
-    <string name="send_detected_notif">Показать уведомление</string>
+    <string name="send_detected_notif">Показывать уведомление</string>
     <string name="skip">Пропустить</string>
     <string name="finish">Закончить</string>
     <string name="okay">Хорошо</string>
@@ -62,7 +62,7 @@
     <string name="notification">Уведомление</string>
     <string name="notification_tag">Тег</string>
     <string name="ignore_id">Игнорировать идентификатор</string>
-    <string name="show_details">Показать подробности</string>
+    <string name="show_details">Подробно</string>
     <string name="history">История</string>
     <string name="history_help">История автоматически очищается каждую полночь за исключением последних 10 записей.</string>
     <string name="replace_code_in_history">Заменять код в истории</string>
@@ -70,7 +70,7 @@
     <string name="show_toast">Показывать всплывающее уведомление</string>
     <string name="show_toast_help">Показывать «%1$s» после копирования кода.</string>
     <string name="send_detected_notif_help">Создавать уведомление с обнаруженным кодом.</string>
-    <string name="auto_copy_help">Обнаруженный код копируется автоматически.</string>
+    <string name="auto_copy_help">Автоматически копировать обнаруженный код в буфер обмена.</string>
     <string name="history_desc">Здесь показаны недавно обнаруженные коды.</string>
     <string name="clear_history">Очистить историю</string>
     <string name="irreversible_action_warning">Это действие невозможно отменить. Продолжить?</string>
@@ -88,15 +88,15 @@
     <string name="learn_more">Узнать больше</string>
     <string name="cancel">Отмена</string>
     <string name="clear_list">Очистить список</string>
-    <string name="sensitive_phrases">Деликатные фразы</string>
+    <string name="sensitive_phrases">Ключевые фразы</string>
     <string name="sensitive_phrases_desc">Здесь можно добавить фразы, которые запускают обнаружение кода.</string>
     <string name="sensitive_phrases_desc_regex">Фразы должны быть корректными регулярными выражениями.</string>
-    <string name="new_sensitive_phrase">Новая деликатная фраза</string>
+    <string name="new_sensitive_phrase">Новая ключевая фраза</string>
     <string name="your_new_phrase">Новая фраза</string>
-    <string name="copy_general_regex">Копировать общее regex</string>
-    <string name="copy_special_regex">Копировать специальное regex</string>
+    <string name="copy_general_regex">Копировать общее рег.выражение</string>
+    <string name="copy_special_regex">Копировать специальное рег.выражение</string>
     <string name="ignored_phrases">Игнорируемые фразы</string>
-    <string name="copy_ignore_regex">Копировать игнорируемое regex</string>
+    <string name="copy_ignore_regex">Копировать игнорируемое рег.выражение</string>
     <string name="ignored_phrases_desc">Если в сообщении будет содержаться любая из этих фраз, оно будет полностью проигнорировано.</string>
     <string name="new_ignored_phrase">Новая игнорируемая фраза</string>
     <string name="auto_dismiss">Автозакрытие</string>
