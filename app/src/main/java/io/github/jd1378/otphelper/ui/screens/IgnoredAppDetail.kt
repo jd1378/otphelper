@@ -4,11 +4,14 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
@@ -136,6 +139,7 @@ fun IgnoredAppDetail(
   }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun IgnoredAppDetailItem(
     modifier: Modifier = Modifier,
@@ -145,16 +149,16 @@ fun IgnoredAppDetailItem(
     onDelete: () -> Unit
 ) {
   Column(modifier) {
-    Row(
+    FlowRow(
         Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.Center,
     ) {
       when (ignoredNotif.type) {
         IgnoredNotifType.APPLICATION -> {
           Text(
-              modifier = Modifier.weight(1f),
-              text = appInfoResult.shortenAppLabel(40),
+              modifier = Modifier.weight(1f).width(IntrinsicSize.Max),
+              text = appInfoResult.shortenAppLabel(40) + "asdas dsad sad asd asdd ad asd ",
               fontWeight = FontWeight.Bold,
           )
           Spacer(Modifier.padding(5.dp))
@@ -162,7 +166,7 @@ fun IgnoredAppDetailItem(
         }
         IgnoredNotifType.NOTIFICATION_ID,
         IgnoredNotifType.NOTIFICATION_TAG -> {
-          Column(Modifier.weight(1f)) {
+          Column(Modifier.weight(1f).width(IntrinsicSize.Max)) {
             Text(ignoredNotif.type.getTranslation(), fontWeight = FontWeight.Medium)
             Text(ignoredNotif.typeData)
           }
