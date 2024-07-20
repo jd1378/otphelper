@@ -16,6 +16,9 @@ import kotlin.time.Duration.Companion.minutes
 @Immutable data class AppInfoResult(val icon: Drawable, val appLabel: String, val failed: Boolean)
 
 fun AppInfoResult.shortenAppLabel(length: Int = 40): String {
+  if (length > this.appLabel.length) {
+    return this.appLabel
+  }
   return this.appLabel.substring(0, length) + "..."
 }
 
