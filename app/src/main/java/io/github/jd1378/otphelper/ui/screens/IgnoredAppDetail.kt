@@ -158,7 +158,7 @@ fun IgnoredAppDetailItem(
         IgnoredNotifType.APPLICATION -> {
           Text(
               modifier = Modifier.weight(1f).width(IntrinsicSize.Max),
-              text = appInfoResult.shortenAppLabel(40) + "asdas dsad sad asd asdd ad asd ",
+              text = appInfoResult.shortenAppLabel(40),
               fontWeight = FontWeight.Bold,
           )
           Spacer(Modifier.padding(5.dp))
