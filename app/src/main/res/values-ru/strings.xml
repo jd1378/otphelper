@@ -32,7 +32,7 @@
     <string name="permission_todo_autostart">4. Разрешить автозапуск</string>
     <string name="send_detected_notif">Показывать уведомление</string>
     <string name="skip">Пропустить</string>
-    <string name="finish">Закончить</string>
+    <string name="finish">Завершить</string>
     <string name="okay">Хорошо</string>
     <string name="skip_warning">Чтобы гарантировать правильную работу приложения, необходимо предоставить эти разрешения. Вы сможете снова открыть этот экран, используя кнопку «Разрешения» на главном экране.</string>
     <string name="notice">Уведомление</string>
