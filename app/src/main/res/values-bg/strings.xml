@@ -84,7 +84,7 @@
     <string name="show_details">Покажи детайли</string>
     <string name="show_toast">Покажи тост</string>
     <string name="show_toast_help">Показва \"%1$s\" след копиране на кода.</string>
-    <string name="notification">Известие</string>
+    <string name="notification">Известия</string>
     <string name="history">История</string>
     <string name="replace_code_in_history">Заменете кода в историята</string>
     <string name="send_detected_notif_help">Публикува известие, показващо открития код.</string>
