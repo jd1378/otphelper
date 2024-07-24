@@ -3,7 +3,6 @@
     <string name="detected_code">Открит код:</string>
     <string name="code_detected_channel_name">Кодът е открит</string>
     <string name="code_copied_to_clipboard">Копирано в клипборда!</string>
-    <string name="app_name"></string>
     <string name="code_failed_to_access_clipboard">Неуспешен достъп до клипборда!</string>
     <string name="wont_detect_code_from_this_app">Няма да открие код от това приложение отново</string>
     <string name="auto_copy">Автоматично копиране</string>
