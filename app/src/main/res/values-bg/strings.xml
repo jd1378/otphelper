@@ -47,7 +47,7 @@
     <string name="clear_history">Изчисти историята</string>
     <string name="irreversible_action_warning">Не можете да отмените това действие, да продължите?</string>
     <string name="yes">Да</string>
-    <string name="options">Настроики</string>
+    <string name="options">Настройки</string>
     <string name="app_label_not_visible_reason">Името на приложението не е налично.</string>
     <string name="sensitive_phrases">Чувствителни фрази</string>
     <string name="reset_to_default">Нулиране</string>
