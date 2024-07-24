@@ -31,7 +31,7 @@
     <string name="system_default">Система (по подразбиране)</string>
     <string name="about">Относно</string>
     <string name="label_version">Издание:</string>
-    <string name="label_license">Разрешително:</string>
+    <string name="label_license">Лицензия:</string>
     <string name="allow_id">Разрешаване на ID</string>
     <string name="ignore_tag">Игнориране на етикет</string>
     <string name="allow_tag">Разрешаване на етикет</string>
