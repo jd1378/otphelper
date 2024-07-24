@@ -53,7 +53,7 @@
     <string name="reset_to_default">Нулиране</string>
     <string name="add">Добавете</string>
     <string name="sensitive_phrases_desc_regex">Фразите трябва да са валиден регулярен израз.</string>
-    <string name="cancel">Отказ</string>
+    <string name="cancel">Отказване</string>
     <string name="clear_list">Празен списък</string>
     <string name="ignored_phrases">Игнорирани фрази</string>
     <string name="open_notification_permission">Отваряне на разрешение за известие</string>
