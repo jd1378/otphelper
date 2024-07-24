@@ -39,7 +39,7 @@
     <string name="permission_revoked_channel_description">Напомня на потребителя за необходимите разрешения</string>
     <string name="permission_revoked">Разрешението е отменено</string>
     <string name="application">Програма</string>
-    <string name="notification_id">ID</string>
+    <string name="notification_id">Идентификатор</string>
     <string name="error">Грешка</string>
     <string name="history_help">Историята ще се изтрива автоматично в полунощ всеки ден, с изключение на последните 10 записа.</string>
     <string name="auto_copy_help">Автоматично копира открития код.</string>
