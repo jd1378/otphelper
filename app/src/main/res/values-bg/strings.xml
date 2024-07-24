@@ -58,7 +58,7 @@
     <string name="ignored_phrases">Игнорирани фрази</string>
     <string name="open_notification_permission">Отваряне на разрешение за известие</string>
     <string name="auto_dismiss_desc">Автоматично отхвърля известието, от което е открит кодът.</string>
-    <string name="auto_mark_as_read">Маркирай като прочетено</string>
+    <string name="auto_mark_as_read">Отбележи като прочетена</string>
     <string name="code_detected_channel_description">всеки път, когато бъде открит код, ще бъде изпратено известие от този канал</string>
     <string name="copy_to_clipboard">Копиране в клипборда</string>
     <string name="wont_detect_code_from_this_notif">Няма да открие кода от това известие отново</string>
