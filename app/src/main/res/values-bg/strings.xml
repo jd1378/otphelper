@@ -23,7 +23,7 @@
     <string name="permission_todo_autostart">4. Разрешете автоматично стартиране</string>
     <string name="send_detected_notif">Публикувай известие</string>
     <string name="skip">Пропускане</string>
-    <string name="finish">Завършване</string>
+    <string name="finish">Край</string>
     <string name="okay">добре</string>
     <string name="skip_warning">За да сте сигурни, че приложението може да функционира правилно, трябва да предоставите тези разрешения. Можете да отворите този екран отново, като използвате бутона „Разрешения“ в главния екран.</string>
     <string name="notice">Забележка</string>
