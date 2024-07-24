@@ -86,7 +86,7 @@
     <string name="learn_more">আরও জানুন</string>
     <string name="cancel">বাতিল</string>
     <string name="reset_to_default">ডিফল্টে রিসেট করুন</string>
-    <string name="add">সংযোগ</string>
+    <string name="add">যুক্ত করুন</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">নতুন উপেক্ষিত বাক্যাংশ</string>
     <string name="auto_dismiss">স্বয়ংক্রিয় খারিজ</string>
     <string name="auto_dismiss_desc">স্বয়ংক্রিয়ভাবে বিজ্ঞপ্তিটি বাতিল করে যেখান থেকে কোডটি সনাক্ত করা হয়েছিল।</string>
-    <string name="auto_mark_as_read">পঠিত হিসেবে চিহ্নিত করুন</string>
+    <string name="auto_mark_as_read"></string>
     <string name="auto_mark_as_read_help">সম্ভব হলে বিজ্ঞপ্তিতে \"পঠিত হিসাবে চিহ্নিত করুন\" অ্যাকশনটি ব্যবহার করার প্রচেষ্টা।</string>
 </resources>
