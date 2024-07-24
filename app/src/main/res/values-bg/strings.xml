@@ -75,7 +75,7 @@
     <string name="language">Език</string>
     <string name="search_language">Език за търсене</string>
     <string name="no_result">Без резултат</string>
-    <string name="label_source_code_link">Програмен код:</string>
+    <string name="label_source_code_link">Програмен код</string>
     <string name="ignore_id">Игнориране на ID</string>
     <string name="allow_app">Разрешаване на приложение</string>
     <string name="permission_revoked_notification_hint">Моля, дайте отново разрешение за четене на известия. Докоснете това съобщение, за да отворите настройките.</string>
