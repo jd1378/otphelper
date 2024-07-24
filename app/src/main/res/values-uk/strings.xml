@@ -31,7 +31,7 @@
     <string name="permission_todo_remain_open">3. Залишатися відкритим</string>
     <string name="perm_extra_desc">На деяких пристроях, таких як Xiaomi, Huawei тощо, щоб дозволити програмі запускатися при перезавантаженні телефону, вам потрібно вручну надати дозвіл на автозапуск. Ми не можемо визначити, чи ви це зробили, чи ні.</string>
     <string name="permission_todo_autostart">4. Дозволити автоматичний запуск</string>
-    <string name="send_detected_notif">Опублікувати сповіщення</string>
+    <string name="send_detected_notif">Надіслати сповіщення</string>
     <string name="skip">Пропустити</string>
     <string name="finish">Завершити</string>
     <string name="okay">Гаразд</string>
@@ -95,7 +95,7 @@
     <string name="your_new_phrase">Ваша нова фраза</string>
     <string name="copy_general_regex">Копіювати загальний, регулярний вираз</string>
     <string name="copy_special_regex">Копіювати спеціальний, регулярний вираз</string>
-    <string name="ignored_phrases">Ігноровані фрази</string>
+    <string name="ignored_phrases">Фрази ігнорування</string>
     <string name="copy_ignore_regex">Копіювати регулярний вираз ігнорування</string>
     <string name="ignored_phrases_desc">Якщо будь-яка з цих фраз буде знайдена в повідомленні, повідомлення буде повністю проігноровано.</string>
     <string name="new_ignored_phrase">Нова фраза ігнорування</string>
