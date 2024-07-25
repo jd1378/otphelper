@@ -75,7 +75,7 @@
     <string name="clear_history">Dọn lịch sử</string>
     <string name="irreversible_action_warning">Bạn không thể hoàn tác hành động này, Tiếp tục?</string>
     <string name="yes">Đúng</string>
-    <string name="no">Không</string>
+    <string name="no">KHÔNG</string>
     <string name="options">Tùy chọn</string>
     <string name="history_detail">Chi tiết lịch sử</string>
     <string name="allow_id">Cho phép ID</string>
@@ -84,10 +84,10 @@
     <string name="n_items">%1$d mục</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="clear_list">Làm sạch danh sách</string>
-    <string name="reset_to_default">Đặt lại về mặc định</string>
-    <string name="add">Thêm</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="add">Thêm vào</string>
     <string name="learn_more">Tìm hiểu thêm</string>
-    <string name="cancel">Hủy</string>
+    <string name="cancel">Huỷ</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
     <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
