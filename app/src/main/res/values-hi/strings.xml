@@ -83,8 +83,8 @@
     <string name="allow_app">ऐप्स को अनुमति दें</string>
     <string name="n_items">%1$dवस्तु</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">Reset to default</string>
-    <string name="add">जोड़ें</string>
+    <string name="reset_to_default">डिफ़ॉल्ट पर रीसेट</string>
+    <string name="add">Add</string>
     <string name="learn_more">अधिक जानें</string>
     <string name="cancel">Cancel</string>
     <string name="clear_list">सूची साफ़ करें</string>
