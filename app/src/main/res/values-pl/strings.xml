@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">Wysyła powiadomienie pokazujące wykryty kod.</string>
     <string name="auto_copy_help">Automatycznie kopiuje wykryty kod.</string>
     <string name="history_desc">Tutaj zostaną wyświetlone ostatnio wykryte kody.</string>
-    <string name="clear_history">Wyczyść historie</string>
+    <string name="clear_history">Wyczyść historię</string>
     <string name="irreversible_action_warning">Nie można cofnąć tej akcji. Kontynuować?</string>
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
@@ -81,11 +81,11 @@
     <string name="allow_id">Zezwól na ID</string>
     <string name="allow_tag">Zezwalaj na Tag</string>
     <string name="allow_app">Zezwalaj aplikacjom</string>
-    <string name="n_items">%1$d przedmiot</string>
+    <string name="n_items">%1$s - lista</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="add">Dodaj</string>
     <string name="learn_more">Dowiedz się więcej</string>
-    <string name="reset_to_default">Przywróć ustawienia domyślne</string>
+    <string name="reset_to_default">Przywróć wartość domyślną</string>
     <string name="cancel">Anuluj</string>
     <string name="clear_list">Wyczyść listę</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
