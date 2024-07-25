@@ -38,9 +38,9 @@
     <string name="permission_todo_read_notifications">2. Llegir notificacions</string>
     <string name="permission_todo_autostart">4. Permet iniciar automàticament</string>
     <string name="wont_detect_code_from_this_notif">No es detectaran més codis d\'aquesta notificació</string>
-    <string name="settings">Paràmetres</string>
+    <string name="settings">Configuració</string>
     <string name="application">Aplicació</string>
-    <string name="notification_tag">TAG</string>
+    <string name="notification_tag">Etiqueta</string>
     <string name="notification_id">Id</string>
     <string name="error">Error</string>
     <string name="notification">Notificació</string>
@@ -83,9 +83,9 @@
     <string name="allow_app">Allow App</string>
     <string name="n_items">%1$d elements</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">Restaura el valor per defecte</string>
+    <string name="reset_to_default">Restablir a predeterminats</string>
     <string name="add">Afegeix</string>
-    <string name="learn_more">Més informació</string>
+    <string name="learn_more">Saber-ne més</string>
     <string name="cancel">Cancel·lar</string>
     <string name="clear_list">Esborrar la llista</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
