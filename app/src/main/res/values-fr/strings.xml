@@ -55,7 +55,7 @@
     <string name="permission_revoked_channel_description">Rappelle à l\'utilisateur les autorisations requises</string>
     <string name="permission_revoked">Autorisation révoquée</string>
     <string name="permission_revoked_notification_hint">Veuillez accorder à nouveau l\'autorisation de notification de lecture. Appuyez sur ce message pour ouvrir les paramètres.</string>
-    <string name="settings">Paramètres</string>
+    <string name="settings">Réglages</string>
     <string name="application">Application</string>
     <string name="notification_tag">Tag</string>
     <string name="notification_id">ID</string>
@@ -83,7 +83,7 @@
     <string name="allow_app">Autoriser App</string>
     <string name="n_items">%1$d composants</string>
     <string name="app_label_not_visible_reason">Le nom de l\'application n\'est pas disponible.</string>
-    <string name="learn_more">En apprendre davantage</string>
+    <string name="learn_more">En savoir plus</string>
     <string name="reset_to_default">Réinitialiser les valeurs par défaut</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
