@@ -37,7 +37,7 @@ def save_xml(tree, file_path):
     xml_declaration = '<?xml version="1.0" encoding="utf-8"?>\n'
     xml_content = ET.tostring(tree.getroot(), encoding="unicode")
     xml_content = xml_declaration + xml_content
-    xml_content = xml_content.replace('\r\n', '\n') # LF ending normalization
+    xml_content = xml_content.replace('\r\n', '\n').rstrip() # LF ending normalization
     with open(file_path, 'wb') as f:
         f.write(xml_content.encode('utf-8'))
     print(f"Updated strings file saved at {file_path}")
