@@ -72,7 +72,7 @@
     <string name="send_detected_notif_help">検出されたコードを示す通知を投稿します。</string>
     <string name="auto_copy_help">検出したコードを自動でコピーします。</string>
     <string name="history_desc">最近検出されたコードがここに表示されます。</string>
-    <string name="clear_history">履歴を全消去</string>
+    <string name="clear_history">履歴のクリア</string>
     <string name="irreversible_action_warning">この操作は元に戻せません。続けますか?</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
@@ -82,14 +82,14 @@
     <string name="allow_tag">TAGを許可する</string>
     <string name="allow_app">アプリを許可</string>
     <string name="n_items">%1$d アイテム</string>
-    <string name="app_label_not_visible_reason">アプリケーション名は使用できません。</string>
-    <string name="reset_to_default">デフォルトに戻す</string>
+    <string name="app_label_not_visible_reason">The application name is not available.</string>
+    <string name="reset_to_default">デフォルトにリセット</string>
     <string name="add">追加</string>
     <string name="learn_more">もっと詳しく知る</string>
     <string name="cancel">キャンセル</string>
     <string name="clear_list">リストのクリア</string>
-    <string name="sensitive_phrases">デリケートなフレーズ</string>
-    <string name="sensitive_phrases_desc">ここで、コード検出をトリガーするフレーズを追加できます。</string>
+    <string name="sensitive_phrases">Sensitive Phrases</string>
+    <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
     <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
     <string name="new_sensitive_phrase">New Sensitive Phrase</string>
     <string name="your_new_phrase">Your new phrase</string>

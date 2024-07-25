@@ -55,7 +55,7 @@
     <string name="permission_revoked_channel_description">تذكير المستخدم بالأذونات المطلوبة</string>
     <string name="permission_revoked">تم إلغاء الإذن</string>
     <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. اضغط على هذه الرسالة لفتح الإعدادات.</string>
-    <string name="settings">الإعدادات</string>
+    <string name="settings">اعدادات</string>
     <string name="application">التطبيق</string>
     <string name="notification_tag">العلامة</string>
     <string name="error">خطأ</string>
@@ -76,7 +76,7 @@
     <string name="irreversible_action_warning">لا يمكنك التراجع عن هذا الإجراء!! .. هل تريد المتابعة؟</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
-    <string name="options">الخيارات</string>
+    <string name="options">خيارات</string>
     <string name="history_detail">تفاصيل السجل</string>
     <string name="allow_id">السماح بالمعرّف</string>
     <string name="allow_tag">السماح بالعلامة</string>

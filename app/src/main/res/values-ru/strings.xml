@@ -6,7 +6,7 @@
     <string name="code_detected_channel_description">При обнаружении кода уведомление будет отправлено с этого канала</string>
     <string name="code_copied_to_clipboard">Скопировано в буфер обмена!</string>
     <string name="code_failed_to_access_clipboard">Нет доступа к буферу обмена!</string>
-    <string name="copy_to_clipboard">Скопировать в буфер обмена</string>
+    <string name="copy_to_clipboard">Копировать в буфер обмена</string>
     <string name="wont_detect_code_from_this_notif">Больше не обнаруживать код из этого уведомления</string>
     <string name="copied">Скопировано</string>
     <string name="ignored_list">Список игнорируемых</string>
@@ -24,7 +24,7 @@
     <string name="PERMISSION_ROUTE">Разрешения</string>
     <string name="permissions_desc">Чтобы приложение всегда могло правильно определять коды из уведомлений, необходимо предоставить следующие разрешения:</string>
     <string name="open">Открыть</string>
-    <string name="permission_todo_post_notifications">1. Создавать уведомления</string>
+    <string name="permission_todo_post_notifications">1. Показывать уведомления</string>
     <string name="permission_todo_read_notifications">2. Читать уведомления</string>
     <string name="grant">Предоставить</string>
     <string name="permission_todo_remain_open">3. Оставаться открытым</string>
@@ -32,7 +32,7 @@
     <string name="permission_todo_autostart">4. Разрешить автозапуск</string>
     <string name="send_detected_notif">Показывать уведомление</string>
     <string name="skip">Пропустить</string>
-    <string name="finish">Закончить</string>
+    <string name="finish">Завершить</string>
     <string name="okay">Хорошо</string>
     <string name="skip_warning">Чтобы гарантировать правильную работу приложения, необходимо предоставить эти разрешения. Вы сможете снова открыть этот экран, используя кнопку «Разрешения» на главном экране.</string>
     <string name="notice">Уведомление</string>

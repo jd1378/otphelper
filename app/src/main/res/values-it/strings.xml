@@ -33,7 +33,7 @@
     <string name="send_detected_notif">Notifiche post</string>
     <string name="skip">Salta</string>
     <string name="finish">finisci</string>
-    <string name="okay">Va bene</string>
+    <string name="okay">ok</string>
     <string name="skip_warning">Per permettere all\'app di funzionare corettamente, è necessario garantire i seguenti permessi. Puoi apire questa schermata cliccando su \"Permessi\" nella schermata principale.</string>
     <string name="notice">Avviso</string>
     <string name="test_notification_content">Il tuo codice è: 230914</string>
@@ -83,7 +83,7 @@
     <string name="allow_app">Consenti app</string>
     <string name="n_items">%1$d oggetti</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">Reimposta predefiniti</string>
+    <string name="reset_to_default">Ripristina le impostazioni predefinite</string>
     <string name="add">Aggiungi</string>
     <string name="learn_more">Scopri di più</string>
     <string name="cancel">Annulla</string>
@@ -101,6 +101,6 @@
     <string name="new_ignored_phrase">Nuova frase ignorata</string>
     <string name="auto_dismiss">Ignora automaticamente</string>
     <string name="auto_dismiss_desc">Ignora automaticamente la notifica da cui è stato rilevato il codice.</string>
-    <string name="auto_mark_as_read">Segna come letto</string>
+    <string name="auto_mark_as_read">Segna come letta</string>
     <string name="auto_mark_as_read_help">Tenta di utilizzare l\'azione \"contrassegna come letto\" nella notifica quando possibile.</string>
 </resources>
