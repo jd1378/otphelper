@@ -21,7 +21,7 @@
     <string name="okay">확인</string>
     <string name="skip_warning">앱 기능이 정상적으로 동작하기 위해서 해당 권한에 동의해주셔야 합니다. 메인 하면에서 \"권한\" 버튼을 눌러 이 화면을 다시 열 수 있습니다.</string>
     <string name="notice">공지</string>
-    <string name="test_notification_content">내 코드: 230914</string>
+    <string name="test_notification_content">인증번호: 230914</string>
     <string name="test_notification_title">테스트 알림입니다</string>
     <string name="permission_todo_allow_restricted_settings">제한 설정 허용하기</string>
     <string name="failed_to_open_app_settings">앱 설정 열기 실패</string>
