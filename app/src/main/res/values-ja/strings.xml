@@ -83,9 +83,9 @@
     <string name="allow_app">アプリを許可</string>
     <string name="n_items">%1$d アイテム</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
-    <string name="reset_to_default">デフォルトにリセット</string>
+    <string name="reset_to_default">デフォルトに戻す</string>
     <string name="add">追加</string>
-    <string name="learn_more">もっと詳しく知る</string>
+    <string name="learn_more">さらに詳しく</string>
     <string name="cancel">キャンセル</string>
     <string name="clear_list">リストのクリア</string>
     <string name="sensitive_phrases">Sensitive Phrases</string>
