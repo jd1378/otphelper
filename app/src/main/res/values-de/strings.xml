@@ -91,7 +91,7 @@
     <string name="sensitive_phrases">Sensible Sätze</string>
     <string name="sensitive_phrases_desc">Hier können Sie Phrasen hinzufügen, die die Codeerkennung auslösen.</string>
     <string name="sensitive_phrases_desc_regex">Phrasen müssen gültige reguläre Ausdrücke sein.</string>
-    <string name="new_sensitive_phrase">New Sensitive Phrase</string>
+    <string name="new_sensitive_phrase">Neue sensible Phrase</string>
     <string name="your_new_phrase">Ihr neuer Satz</string>
     <string name="copy_general_regex">Allgemeines Regex kopieren</string>
     <string name="copy_special_regex">Spezielles Regex kopieren</string>
