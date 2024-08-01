@@ -81,7 +81,7 @@
     <string name="allow_id">Zezwól na ID</string>
     <string name="allow_tag">Zezwalaj na Tag</string>
     <string name="allow_app">Zezwalaj aplikacjom</string>
-    <string name="n_items">%1$s - lista</string>
+    <string name="n_items">%1$d przedmiot</string>
     <string name="app_label_not_visible_reason">The application name is not available.</string>
     <string name="add">Dodaj</string>
     <string name="learn_more">Dowiedz się więcej</string>
