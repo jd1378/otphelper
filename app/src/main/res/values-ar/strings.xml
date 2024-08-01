@@ -55,7 +55,7 @@
     <string name="permission_revoked_channel_description">تذكير المستخدم بالأذونات المطلوبة</string>
     <string name="permission_revoked">تم إلغاء الإذن</string>
     <string name="permission_revoked_notification_hint">يرجى منح إذن قراءة الإشعارات مرة أخرى. اضغط على هذه الرسالة لفتح الإعدادات.</string>
-    <string name="settings">الإعدادات</string>
+    <string name="settings">اعدادات</string>
     <string name="application">التطبيق</string>
     <string name="notification_tag">العلامة</string>
     <string name="error">خطأ</string>
@@ -84,7 +84,7 @@
     <string name="n_items">%1$d عنصر</string>
     <string name="app_label_not_visible_reason">اسم التطبيق غير متوفر.</string>
     <string name="learn_more">معرفة المزيد</string>
-    <string name="cancel">يلغي</string>
+    <string name="cancel">إلغاء</string>
     <string name="clear_list">مسح القائمة</string>
     <string name="reset_to_default">إعادة تعيين إلى الإفتراضي</string>
     <string name="add">إضافة</string>
