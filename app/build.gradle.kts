@@ -20,8 +20,8 @@ android {
     applicationId = "io.github.jd1378.otphelper"
     minSdk = 24
     targetSdk = 34
-    versionCode = 33
-    versionName = "1.16.3"
+    versionCode = 34
+    versionName = "1.16.4"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables { useSupportLibrary = true }
