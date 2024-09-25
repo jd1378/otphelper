@@ -88,11 +88,11 @@
     <string name="learn_more">Weitere Informationen</string>
     <string name="cancel">Abbrechen</string>
     <string name="clear_list">Liste leeren</string>
-    <string name="sensitive_phrases">Sensible Sätze</string>
-    <string name="sensitive_phrases_desc">Hier können Sie Phrasen hinzufügen, die die Codeerkennung auslösen.</string>
-    <string name="sensitive_phrases_desc_regex">Phrasen müssen gültige reguläre Ausdrücke sein.</string>
-    <string name="new_sensitive_phrase">Neue sensible Phrase</string>
-    <string name="your_new_phrase">Ihr neuer Satz</string>
+    <string name="sensitive_phrases">Sensible Ausdrücke</string>
+    <string name="sensitive_phrases_desc">Hier können Sie Ausdrücke hinzufügen, die die Codeerkennung auslösen.</string>
+    <string name="sensitive_phrases_desc_regex">Phrasen müssen gültige reguläre Ausdrücke (regex) sein.</string>
+    <string name="new_sensitive_phrase">Neuer sensibler Ausdruck</string>
+    <string name="your_new_phrase">Ihr neuer Ausdruck</string>
     <string name="copy_general_regex">Allgemeines Regex kopieren</string>
     <string name="copy_special_regex">Spezielles Regex kopieren</string>
     <string name="ignored_phrases">Ignorierte Ausdrücke</string>
