@@ -19,6 +19,7 @@ object CodeExtractorDefaults {
           "One[-\\s]Time[-\\s]Password",
           "کد",
           "رمز",
+          "كود",
           "\\bOTP\\W",
           "\\b2FA\\W",
           "Einmalkennwort",
