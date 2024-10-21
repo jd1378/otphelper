@@ -50,7 +50,7 @@
     <string name="options">Настроики</string>
     <string name="app_label_not_visible_reason">Името на приложението не е налично.</string>
     <string name="sensitive_phrases">Чувствителни фрази</string>
-    <string name="reset_to_default">Възстановяване по подразбиране</string>
+    <string name="reset_to_default">Възстанови по подразбиране</string>
     <string name="add">Добави</string>
     <string name="sensitive_phrases_desc_regex">Фразите трябва да са валиден регулярен израз.</string>
     <string name="cancel">Отказ</string>
