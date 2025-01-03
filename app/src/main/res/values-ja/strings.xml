@@ -83,7 +83,7 @@
     <string name="allow_app">このアプリを除外しない</string>
     <string name="n_items">%1$d項目</string>
     <string name="app_label_not_visible_reason">このアプリの名前は取得できません。</string>
-    <string name="reset_to_default">デフォルトに戻す</string>
+    <string name="reset_to_default">初期設定に戻す</string>
     <string name="add">追加</string>
     <string name="learn_more">さらに詳しく</string>
     <string name="cancel">キャンセル</string>
