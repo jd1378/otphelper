@@ -60,7 +60,7 @@
     <string name="error">Помилка</string>
     <string name="notification_tag">Мітка</string>
     <string name="notification">Сповіщення</string>
-    <string name="ignore_id">Ignore ID</string>
+    <string name="ignore_id">Ігнорувати ідентифікатор</string>
     <string name="notification_id">ІД</string>
     <string name="show_details">Показати деталі</string>
     <string name="history">Історія</string>
