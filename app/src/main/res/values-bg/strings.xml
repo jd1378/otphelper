@@ -9,7 +9,7 @@
     <string name="delete">Изтрий</string>
     <string name="label_back">Обратно</string>
     <string name="HOME_ROUTE">Начало</string>
-    <string name="IGNORED_LIST_ROUTE">Списък с игнорирани</string>
+    <string name="IGNORED_LIST_ROUTE">Списък на игнорирани</string>
     <string name="list_is_empty">Списъкът е празен</string>
     <string name="ignored_list_description">Игнорираните съобщения ще се показват тук, след като натиснете бутона за игнориране.</string>
     <string name="copy">Копирай</string>
@@ -63,7 +63,7 @@
     <string name="copy_to_clipboard">Копирай в клипборда</string>
     <string name="wont_detect_code_from_this_notif">Няма да открие код от това известие отново</string>
     <string name="copied">Копирано</string>
-    <string name="ignored_list">Игнориран списък</string>
+    <string name="ignored_list">Списък на игнорирани</string>
     <string name="send_test_notification">Изпрати тестово известие</string>
     <string name="open">Отвори</string>
     <string name="perm_extra_desc">На някои устройства, като Xiaomi, Huawei и т.н., за да позволите на приложението да стартира при рестартиране на телефона, трябва ръчно да дадете разрешение за автоматично стартиране. Не можем да установим дали имате или не.</string>
