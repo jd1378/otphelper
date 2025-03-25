@@ -87,4 +87,22 @@
     <string name="app_name">Копирай SMS код</string>
     <string name="show_copy_confirmation">Показване на потвърждение за копиране</string>
     <string name="show_toast_help">Показва открития код в тост съобщение.</string>
+    <string name="history_help">Историята ще се изтрива автоматично в полунощ всеки ден, с изключение на последните 10 записа.</string>
+    <string name="app_label_not_visible_reason">Името на приложението не е налично.</string>
+    <string name="permission_revoked_channel_description">Напомня на потребителя за необходимите разрешения</string>
+    <string name="history_desc">Наскоро откритите кодове ще бъдат показани тук.</string>
+    <string name="reset_to_default">Възстановяване по подразбиране</string>
+    <string name="add">Добави</string>
+    <string name="sensitive_phrases_desc_regex">Фразите трябва да са валиден регулярен израз.</string>
+    <string name="permission_revoked">Разрешението е отменено</string>
+    <string name="error">Грешка</string>
+    <string name="auto_copy_help">Автоматично копира открития код.</string>
+    <string name="clear_history">Изчистване на историята</string>
+    <string name="irreversible_action_warning">Не можете да отмените това действие, Продължи?</string>
+    <string name="yes">Да</string>
+    <string name="cancel">Отказ</string>
+    <string name="application">Приложение</string>
+    <string name="notification_id">ID</string>
+    <string name="options">Опции</string>
+    <string name="sensitive_phrases">Чувствителни фрази</string>
 </resources>
