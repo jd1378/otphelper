@@ -7,6 +7,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
+  id("org.jetbrains.kotlin.plugin.compose")
   id("com.google.devtools.ksp")
   id("com.google.dagger.hilt.android")
   id("com.google.protobuf") version "0.9.4"
@@ -74,8 +75,8 @@ dependencies {
   // navigation
   implementation("androidx.navigation:navigation-compose:2.8.9")
   // hilt
-  implementation("com.google.dagger:hilt-android:2.50")
-  ksp("com.google.dagger:hilt-compiler:2.50")
+  implementation("com.google.dagger:hilt-android:2.56")
+  ksp("com.google.dagger:hilt-compiler:2.56")
   // hilt for navigation compose
   implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
   // hilt for work manager
