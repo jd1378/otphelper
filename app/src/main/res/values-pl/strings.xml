@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Zamień kod w historii</string>
     <string name="replace_code_in_history_help">Zastępuje wykryty kod w historii zerami.</string>
     <string name="show_toast">Pokaż Toast</string>
-    <string name="show_toast_help">Pokazuje „%1$s” po skopiowaniu kodu.</string>
+    <string name="show_confirmation_help">Pokazuje „%1$s” po skopiowaniu kodu.</string>
     <string name="send_detected_notif_help">Wysyła powiadomienie pokazujące wykryty kod.</string>
     <string name="auto_copy_help">Automatycznie kopiuje wykryty kod.</string>
     <string name="history_desc">Tutaj zostaną wyświetlone ostatnio wykryte kody.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Automatycznie odrzuca powiadomienie, z którego wykryto kod.</string>
     <string name="auto_mark_as_read">Zaznacz Wiadomość jako przeczytany</string>
     <string name="auto_mark_as_read_help">Próbuje użyć akcji „Oznacz jako przeczytane” w powiadomieniu, jeśli to możliwe.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

@@ -41,7 +41,7 @@
     <string name="replace_code_in_history">기록된 코드 숨기기</string>
     <string name="replace_code_in_history_help">감지된 코드를 0으로 변경합니다.</string>
     <string name="show_toast">토스트 표시</string>
-    <string name="show_toast_help">코드가 복사되면 \"%1$s\" 메시지를 표시합니다.</string>
+    <string name="show_confirmation_help">코드가 복사되면 \"%1$s\" 메시지를 표시합니다.</string>
     <string name="auto_copy_help">감지된 코드를 자동으로 복사합니다.</string>
     <string name="send_detected_notif_help">감지된 코드를 나타내는 알림 표시합니다.</string>
     <string name="history_desc">최근에 감지된 코드가 이곳에 표시됩니다.</string>
@@ -103,4 +103,5 @@
     <string name="error">오류</string>
     <string name="history">기록</string>
     <string name="notification_tag">태그</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

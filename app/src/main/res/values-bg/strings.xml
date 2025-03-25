@@ -83,7 +83,7 @@
     <string name="notification_tag">Етикет</string>
     <string name="show_details">Покажи детайли</string>
     <string name="show_toast">Покажи тост</string>
-    <string name="show_toast_help">Показва \"%1$s\" след копиране на кода.</string>
+    <string name="show_confirmation_help">Показва \"%1$s\" след копиране на кода.</string>
     <string name="notification">Известие</string>
     <string name="history">История</string>
     <string name="replace_code_in_history">Заменя кода в историята</string>
@@ -103,4 +103,5 @@
     <string name="ignored_phrases_desc">Ако някоя от тези фрази бъде намерена в съобщение, то ще бъде напълно игнорирано.</string>
     <string name="auto_mark_as_read_help">Опитва се да използва действието „маркирай като прочетено“ върху известието, когато е възможно.</string>
     <string name="app_name">Копирай SMS код</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

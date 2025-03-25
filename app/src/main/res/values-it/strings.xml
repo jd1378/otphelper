@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Sostituisci il codice nella cronologia</string>
     <string name="replace_code_in_history_help">Sostituisce il codice rilevato nella cronologia con zero.</string>
     <string name="show_toast">Mostra pane tostato</string>
-    <string name="show_toast_help">Mostra \"%1$s\" dopo aver copiato il codice.</string>
+    <string name="show_confirmation_help">Mostra \"%1$s\" dopo aver copiato il codice.</string>
     <string name="send_detected_notif_help">Pubblica una notifica che mostra il codice rilevato.</string>
     <string name="auto_copy_help">Copia automaticamente il codice rilevato.</string>
     <string name="history_desc">I codici rilevati di recente verranno visualizzati qui.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Ignora automaticamente la notifica da cui è stato rilevato il codice.</string>
     <string name="auto_mark_as_read">Segna come letto</string>
     <string name="auto_mark_as_read_help">Tenta di utilizzare l\'azione \"contrassegna come letto\" nella notifica quando possibile.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

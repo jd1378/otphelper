@@ -11,10 +11,10 @@ import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.UserSettings
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.NotificationHelper
+import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @Stable
 @HiltViewModel
@@ -35,25 +35,36 @@ constructor(
     val newValue = !userSettings.value.isAutoCopyEnabled
     viewModelScope.launch {
       userSettingsRepository.setIsAutoCopyEnabled(newValue)
-      if (!newValue && !userSettings.value.isPostNotifEnabled) {
+      if (!newValue &&
+          !userSettings.value.isPostNotifEnabled &&
+          !userSettings.value.isShowToastEnabled) {
         userSettingsRepository.setIsPostNotifEnabled(true)
       }
     }
   }
 
   fun onPostNotifToggle() {
-    val currentValue = userSettings.value.isPostNotifEnabled
     viewModelScope.launch {
-      if (currentValue) {
+      if (userSettings.value.isPostNotifEnabled && !userSettings.value.isShowToastEnabled) {
         userSettingsRepository.setIsAutoCopyEnabled(true)
       }
-      userSettingsRepository.setIsPostNotifEnabled(!currentValue)
+      userSettingsRepository.setIsPostNotifEnabled(!userSettings.value.isPostNotifEnabled)
     }
   }
 
-  fun onCopiedToastToggle() {
+  fun onShowCopyConfirmationToggle() {
     viewModelScope.launch {
-      userSettingsRepository.setIsCopiedToastEnabled(!userSettings.value.isCopiedToastEnabled)
+      userSettingsRepository.setIsShowCopyConfirmationEnabled(
+          !userSettings.value.isShowCopyConfirmationEnabled)
+    }
+  }
+
+  fun onShowToastToggle() {
+    viewModelScope.launch {
+      if (userSettings.value.isShowToastEnabled && !userSettings.value.isPostNotifEnabled) {
+        userSettingsRepository.setIsAutoCopyEnabled(true)
+      }
+      userSettingsRepository.setIsShowToastEnabled(!userSettings.value.isShowToastEnabled)
     }
   }
 

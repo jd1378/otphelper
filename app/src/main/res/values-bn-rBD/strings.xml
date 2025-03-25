@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">ইতিহাসে কোড প্রতিস্থাপন করুন</string>
     <string name="replace_code_in_history_help">ইতিহাসে শনাক্ত করা কোডকে শূন্য দিয়ে প্রতিস্থাপন করে।</string>
     <string name="show_toast">Toast দেখান</string>
-    <string name="show_toast_help">কোড কপি করার পরে \"%1$s\" দেখায়।</string>
+    <string name="show_confirmation_help">কোড কপি করার পরে \"%1$s\" দেখায়।</string>
     <string name="send_detected_notif_help">সনাক্ত করা কোড দেখানো একটি বিজ্ঞপ্তি পোস্ট করুন।</string>
     <string name="auto_copy_help">স্বয়ংক্রিয়ভাবে সনাক্ত করা কোড অনুলিপি।</string>
     <string name="history_desc">সম্প্রতি সনাক্ত করা কোডগুলি এখানে দেখানো হবে।</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">স্বয়ংক্রিয়ভাবে বিজ্ঞপ্তিটি বাতিল করে যেখান থেকে কোডটি সনাক্ত করা হয়েছিল।</string>
     <string name="auto_mark_as_read_help">সম্ভব হলে বিজ্ঞপ্তিতে \"পঠিত হিসাবে চিহ্নিত করুন\" অ্যাকশনটি ব্যবহার করার প্রচেষ্টা।</string>
     <string name="auto_mark_as_read">Mark as read</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">履歴内にコードを含めない</string>
     <string name="replace_code_in_history_help">履歴内の検出されたコードを数字のゼロで置き換えます。</string>
     <string name="show_toast">トーストを表示</string>
-    <string name="show_toast_help">コードをコピーした際に「%1$s」と表示されます。</string>
+    <string name="show_confirmation_help">コードをコピーした際に「%1$s」と表示されます。</string>
     <string name="send_detected_notif_help">検出されたコードを表示する通知を送信します。</string>
     <string name="auto_copy_help">検出されたコードを自動的にコピーします。</string>
     <string name="history_desc">最近検出されたコードがここに表示されます。</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">コードが検出された通知を自動的に閉じます。</string>
     <string name="auto_mark_as_read">既読にする</string>
     <string name="auto_mark_as_read_help">可能な場合、通知上の「既読にする」アクションの実行を試みます。</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Remplacer le code dans l\'historique</string>
     <string name="replace_code_in_history_help">Remplace le code détecté dans l\'historique par des zéros.</string>
     <string name="show_toast">Afficher le toast</string>
-    <string name="show_toast_help">Afficher \"%1$s\" après avoir copié le code.</string>
+    <string name="show_confirmation_help">Afficher \"%1$s\" après avoir copié le code.</string>
     <string name="send_detected_notif_help">Afficher une notification affichant le code détecté.</string>
     <string name="auto_copy_help">Copier automatiquement le code détecté.</string>
     <string name="history_desc">Les codes récemment détectés seront affichés ici.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Rejete automatiquement la notification à partir de laquelle le code a été détecté.</string>
     <string name="auto_mark_as_read">Marquer comme lu</string>
     <string name="auto_mark_as_read_help">Tenter d\'utiliser l\'action « marquer comme lu » sur la notification lorsque cela est possible.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

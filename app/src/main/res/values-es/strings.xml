@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Reemplazar código en el historial</string>
     <string name="replace_code_in_history_help">Reemplazar el código detectado en el historial con ceros.</string>
     <string name="show_toast">Mostrar ventana emergente</string>
-    <string name="show_toast_help">Mostrar \"%1$s\" después de copiar el código.</string>
+    <string name="show_confirmation_help">Mostrar \"%1$s\" después de copiar el código.</string>
     <string name="send_detected_notif_help">Publicar una notificación mostrando el código detectado.</string>
     <string name="auto_copy_help">Copiar automáticamente el código detectado.</string>
     <string name="history_desc">Aquí se mostrarán los códigos detectados recientemente.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Descarta automáticamente la notificación desde la que se detectó el código.</string>
     <string name="auto_mark_as_read">Marcar como leído</string>
     <string name="auto_mark_as_read_help">Intenta utilizar la acción \"marcar como leído\" en la notificación siempre que sea posible.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

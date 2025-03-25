@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">استبدال رمز التحقق في السجل.</string>
     <string name="replace_code_in_history_help">استبدل الرمز المكتشف في السجل بأصفار.</string>
     <string name="show_toast">عرض رسالة تنبيه</string>
-    <string name="show_toast_help">إظهار \"%1$s\" بعد نسخ الرمز.</string>
+    <string name="show_confirmation_help">إظهار \"%1$s\" بعد نسخ الرمز.</string>
     <string name="send_detected_notif_help">أرسل إشعارًا يظهر الرمز المكتشف.</string>
     <string name="auto_copy_help">إنسخ الرمز المكتشف تلقائيًا.</string>
     <string name="history_desc">سيتم عرض الرموز المكتشفة مؤخرًا هنا.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">يرفض تلقائيًا الإشعار الذي تم اكتشاف الرمز منه.</string>
     <string name="auto_mark_as_read">حدد كمقروء</string>
     <string name="auto_mark_as_read_help">محاولة استخدام إجراء \"حدد كمقروء\" على الإشعار عندما يكون ذلك ممكنًا.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

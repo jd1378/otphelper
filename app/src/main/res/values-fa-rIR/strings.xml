@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">جاگزین کردن کد در تاریخچه</string>
     <string name="replace_code_in_history_help">کد شناسایی شده را در تاریخچه با اعداد صفر جایگذاری می‌کند.</string>
     <string name="show_toast">نمایش تُست</string>
-    <string name="show_toast_help">\"%1$s\" را پس از کپی کردن کد نشان می‌دهد.</string>
+    <string name="show_confirmation_help">\"%1$s\" را پس از کپی کردن کد نشان می‌دهد.</string>
     <string name="send_detected_notif_help">کد شناسایی شده را در اعلان نمایش می دهد.</string>
     <string name="auto_copy_help">به صورت خودکار کد شناسایی شده را کپی می‌کند.</string>
     <string name="history_desc">کدهای شناسایی شده‌ی اخیر اینجا نمایش داده می‌شوند.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">به صورت خودکار اعلانی که کد از آن شناسایی شده است را رد می‌کند.</string>
     <string name="auto_mark_as_read">علامت به عنوان خوانده شده</string>
     <string name="auto_mark_as_read_help">هر گاه ممکن باشد، سعی می کند از گزینه \"علامت گذاری به عنوان خوانده شده\" روی اعلان استفاده کند.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

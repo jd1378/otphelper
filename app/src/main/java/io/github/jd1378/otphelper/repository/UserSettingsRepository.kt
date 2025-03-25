@@ -21,7 +21,7 @@ interface UserSettingsRepository {
 
   suspend fun setIsPostNotifEnabled(value: Boolean)
 
-  suspend fun setIsCopiedToastEnabled(value: Boolean)
+  suspend fun setIsShowCopyConfirmationEnabled(value: Boolean)
 
   suspend fun setIsHistoryDisabled(value: Boolean)
 
@@ -36,4 +36,6 @@ interface UserSettingsRepository {
   suspend fun setIsAutoDismissEnabled(value: Boolean)
 
   suspend fun setIsAutoMarkAsReadEnabled(value: Boolean)
+
+  suspend fun setIsShowToastEnabled(value: Boolean)
 }

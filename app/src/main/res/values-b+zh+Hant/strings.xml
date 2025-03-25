@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">取代歷史記錄中的驗證碼</string>
     <string name="replace_code_in_history_help">用 0 取代歷史記錄中偵測到的驗證碼。</string>
     <string name="show_toast">顯示彈出提示</string>
-    <string name="show_toast_help">複製驗證碼後顯示「%1$s」。</string>
+    <string name="show_confirmation_help">複製驗證碼後顯示「%1$s」。</string>
     <string name="send_detected_notif_help">發送一則顯示偵測到的驗證碼的通知。</string>
     <string name="auto_copy_help">自動複製偵測到的驗證碼。</string>
     <string name="history_desc">這裡會顯示最近偵測到的驗證碼。</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">自動關閉偵測到的驗證碼的通知。</string>
     <string name="auto_mark_as_read">標為已讀</string>
     <string name="auto_mark_as_read_help">若可能，嘗試在通知上使用「標為已讀」的動作。</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

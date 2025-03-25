@@ -8,7 +8,7 @@ message UserSettings {
   bool is_setup_finished = 2;
   bool is_auto_copy_enabled = 3;
   bool is_post_notif_enabled = 4;
-  bool is_copied_toast_enabled = 5;
+  bool is_show_copy_confirmation_enabled = 5;
   bool is_history_disabled = 6;
   bool should_replace_code_in_history = 7;
   repeated string sensitive_phrases = 8;
@@ -16,4 +16,5 @@ message UserSettings {
   int32 version = 10;
   bool is_auto_dismiss_enabled = 11;
   bool is_auto_mark_as_read_enabled = 12;
+  bool is_show_toast_enabled = 13;
 }

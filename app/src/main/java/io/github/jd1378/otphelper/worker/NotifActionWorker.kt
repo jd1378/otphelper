@@ -28,10 +28,10 @@ import io.github.jd1378.otphelper.utils.NotificationHelper
 class NotifActionWorker
 @AssistedInject
 constructor(
-  @Assisted context: Context,
-  @Assisted workerParams: WorkerParameters,
-  private val userSettingsRepository: UserSettingsRepository,
-  private val ignoredNotifsRepository: IgnoredNotifsRepository,
+    @Assisted context: Context,
+    @Assisted workerParams: WorkerParameters,
+    private val userSettingsRepository: UserSettingsRepository,
+    private val ignoredNotifsRepository: IgnoredNotifsRepository,
 ) : CoroutineWorker(context, workerParams) {
 
   companion object {
@@ -62,8 +62,11 @@ constructor(
           val code = notif.extras.getString("code")
 
           if (code != null) {
-            val isCopiedToastEnabled = userSettingsRepository.fetchSettings().isCopiedToastEnabled
-            val copied = Clipboard.copyCodeToClipboard(context, code, isCopiedToastEnabled)
+            val copied =
+                Clipboard.copyCodeToClipboard(
+                    context,
+                    code,
+                    userSettingsRepository.fetchSettings().isShowCopyConfirmationEnabled)
             NotificationHelper.sendDetectedNotif(context, notif.extras, code, copied)
           }
         }
@@ -88,7 +91,9 @@ constructor(
 
       if (ignoredType != null) {
         ignoredNotifsRepository.setIgnored(
-            packageName = ignoredPackageName, type = ignoredType, typeData = ignoredTypeData,
+            packageName = ignoredPackageName,
+            type = ignoredType,
+            typeData = ignoredTypeData,
         )
       }
     }
@@ -101,8 +106,8 @@ constructor(
   }
 
   private fun sendToast(
-    context: Context,
-    @StringRes message: Int,
+      context: Context,
+      @StringRes message: Int,
   ) {
     val handler = Handler(Looper.getMainLooper())
     handler.post { Toast.makeText(context, message, Toast.LENGTH_LONG).show() }

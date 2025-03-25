@@ -67,7 +67,7 @@
     <string name="replace_code_in_history">Geçmişteki kodu değiştir</string>
     <string name="replace_code_in_history_help">Geçmişte tespit edilen kodu sıfırlarla değiştirir.</string>
     <string name="show_toast">Tost göster</string>
-    <string name="show_toast_help">Kodu kopyaladıktan sonra \"%1$s\" gösterir.</string>
+    <string name="show_confirmation_help">Kodu kopyaladıktan sonra \"%1$s\" gösterir.</string>
     <string name="send_detected_notif_help">Algılanan kodu gösteren bir bildirim yayınlar.</string>
     <string name="auto_copy_help">Algılanan kodu otomatik olarak kopyalar.</string>
     <string name="history_desc">Son zamanlarda tespit edilen kodlar burada gösterilecektir.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Kodun tespit edildiği bildirimi otomatik olarak kapatır.</string>
     <string name="auto_mark_as_read">Okundu olarak işaretle</string>
     <string name="auto_mark_as_read_help">Mümkün olduğunda bildirimde \"okundu olarak işaretle\" eylemini kullanmaya çalışır.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

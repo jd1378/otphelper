@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">इतिहास में कोड बदलें</string>
     <string name="replace_code_in_history_help">इतिहास में पाए गए कोड को शून्य से प्रतिस्थापित करता है।</string>
     <string name="show_toast">टोस्ट दिखाएँ</string>
-    <string name="show_toast_help">कोड कॉपी करने के बाद \"%1$s\" दिखाता है।</string>
+    <string name="show_confirmation_help">कोड कॉपी करने के बाद \"%1$s\" दिखाता है।</string>
     <string name="send_detected_notif_help">पता लगाए गए कोड को दिखाते हुए एक अधिसूचना पोस्ट करता है।</string>
     <string name="auto_copy_help">पता लगाए गए कोड को स्वचालित रूप से कॉपी करता है।</string>
     <string name="history_desc">हाल ही में पता लगाए गए कोड यहां दिखाए जाएंगे।</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">वह अधिसूचना स्वचालित रूप से खारिज कर देता है जिससे कोड का पता चला था।</string>
     <string name="auto_mark_as_read">पढ़ा हुआ चिह्न करे</string>
     <string name="auto_mark_as_read_help">जब संभव हो तो अधिसूचना पर \"पढ़ा हुआ चिह्नित करें\" कार्रवाई का उपयोग करने का प्रयास करता है।</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

@@ -2,12 +2,16 @@ package io.github.jd1378.otphelper.worker
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
+import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
@@ -72,8 +76,20 @@ constructor(
           notificationId = notificationId,
           notificationTag = notificationTag)) {
 
+        if (settings.isShowToastEnabled) {
+          Handler(Looper.getMainLooper()).post {
+            Toast.makeText(
+                    applicationContext,
+                    applicationContext.getString(R.string.detected_code) + " " + code,
+                    Toast.LENGTH_SHORT)
+                .show()
+          }
+        }
         if (settings.isAutoCopyEnabled) {
-          Clipboard.copyCodeToClipboard(applicationContext, code, settings.isCopiedToastEnabled)
+          Clipboard.copyCodeToClipboard(
+              applicationContext,
+              code,
+              settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled)
         }
         if (settings.isPostNotifEnabled) {
           val extras = Bundle()

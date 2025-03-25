@@ -64,9 +64,9 @@ constructor(
     }
   }
 
-  override suspend fun setIsCopiedToastEnabled(value: Boolean) {
+  override suspend fun setIsShowCopyConfirmationEnabled(value: Boolean) {
     userSettingsStore.updateData { currentSettings ->
-      currentSettings.toBuilder().setIsCopiedToastEnabled(value).build()
+      currentSettings.toBuilder().setIsShowCopyConfirmationEnabled(value).build()
     }
   }
 
@@ -109,6 +109,12 @@ constructor(
   override suspend fun setIsAutoMarkAsReadEnabled(value: Boolean) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().setIsAutoMarkAsReadEnabled(value).build()
+    }
+  }
+
+  override suspend fun setIsShowToastEnabled(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsShowToastEnabled(value).build()
     }
   }
 }

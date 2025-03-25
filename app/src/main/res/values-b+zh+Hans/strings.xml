@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">替换历史记录中的验证码</string>
     <string name="replace_code_in_history_help">用 0 替换历史记录中检测到的验证码。</string>
     <string name="show_toast">显示“吐司”消息提示框</string>
-    <string name="show_toast_help">复制验证码后显示“%1$s”。</string>
+    <string name="show_confirmation_help">复制验证码后显示“%1$s”。</string>
     <string name="send_detected_notif_help">发送一则显示检测到的验证码的通知。</string>
     <string name="auto_copy_help">自动复制检测到的验证码。</string>
     <string name="history_desc">最近检测到的验证码将显示在此处。</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">自动解除验证码检测通知。</string>
     <string name="auto_mark_as_read">标记为已读</string>
     <string name="auto_mark_as_read_help">如有可能尝试使用通知的“标记为已读”操作。</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

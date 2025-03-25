@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Replace code in history</string>
     <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
     <string name="show_toast">Show Toast</string>
-    <string name="show_toast_help">Shows \"%1$s\" after copying the code.</string>
+    <string name="show_confirmation_help">Shows \"%1$s\" after copying the code.</string>
     <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
     <string name="auto_copy_help">Automatically copies the detected code.</string>
     <string name="history_desc">Recently detected codes will be shown here.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
     <string name="auto_mark_as_read">Marca com llegit</string>
     <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

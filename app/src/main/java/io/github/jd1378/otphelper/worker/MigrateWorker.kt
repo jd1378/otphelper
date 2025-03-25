@@ -75,7 +75,7 @@ constructor(
             .setIsSetupFinished(oldSettingsRepository.getIsSetupFinished())
             .setIsAutoCopyEnabled(oldSettingsRepository.getIsAutoCopyEnabled())
             .setIsPostNotifEnabled(oldSettingsRepository.getIsPostNotifEnabled())
-            .setIsCopiedToastEnabled(true)
+            .setIsShowCopyConfirmationEnabled(true)
             .setIsHistoryDisabled(false)
             .setShouldReplaceCodeInHistory(true)
             .clearSensitivePhrases()

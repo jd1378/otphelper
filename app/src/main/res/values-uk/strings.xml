@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Замінити код в історії</string>
     <string name="replace_code_in_history_help">Замінює виявлений код в історії на нулі.</string>
     <string name="show_toast">Показувати спливаючі повідомлення</string>
-    <string name="show_toast_help">Відображати \"%1$s\" після копіювання коду.</string>
+    <string name="show_confirmation_help">Відображати \"%1$s\" після копіювання коду.</string>
     <string name="send_detected_notif_help">Надсилає повідомлення з виявленим кодом.</string>
     <string name="auto_copy_help">Автоматично копіює виявлений код.</string>
     <string name="history_desc">Нещодавно виявлені коди будуть показані тут.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">Автоматично відхиляє сповіщення, у якому було виявлено код.</string>
     <string name="auto_mark_as_read">Позначити як прочитане</string>
     <string name="auto_mark_as_read_help">Намагається використати дію «позначити як прочитане» для сповіщення, коли це можливо.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>

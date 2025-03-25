@@ -71,7 +71,7 @@
     <string name="history_help">கடைசி 10 உள்ளீடுகளைத் தவிர, ஒவ்வொரு நாளும் நள்ளிரவில் வரலாறு தானாக நீக்கப்படும்.</string>
     <string name="replace_code_in_history_help">வரலாற்றில் கண்டறியப்பட்ட குறியீட்டை பூச்சியங்களுடன் மாற்றுகிறது.</string>
     <string name="show_toast">சிற்றுண்டியைக் காட்டு</string>
-    <string name="show_toast_help">குறியீட்டை நகலெடுத்த பிறகு \"%1$s\" காட்டுகிறது.</string>
+    <string name="show_confirmation_help">குறியீட்டை நகலெடுத்த பிறகு \"%1$s\" காட்டுகிறது.</string>
     <string name="replace_code_in_history">வரலாற்றில் குறியீட்டை மாற்றவும்</string>
     <string name="irreversible_action_warning">இந்த செயலை நீங்கள் செயல்தவிர்க்க முடியாது, தொடரவா?</string>
     <string name="send_detected_notif_help">கண்டறியப்பட்ட குறியீட்டைக் காட்டும் அறிவிப்பை இடுகையிடுகிறது.</string>
@@ -103,4 +103,5 @@
     <string name="auto_dismiss_desc">குறியீடு கண்டறியப்பட்ட அறிவிப்பை தானாகவே நிராகரிக்கிறது.</string>
     <string name="auto_mark_as_read">படித்தபடி குறி</string>
     <string name="auto_mark_as_read_help">முடிந்தவரை அறிவிப்பில் \"மார்க் என மார்க்\" செயலைப் பயன்படுத்த முயற்சிக்கிறது.</string>
+    <string name="show_copy_confirmation">Show Copy Confirmation</string>
 </resources>
