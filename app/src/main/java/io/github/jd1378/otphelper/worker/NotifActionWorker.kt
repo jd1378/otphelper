@@ -17,13 +17,10 @@ import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_CO
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_NOTIFICATION_APP
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG
-import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_SHOW_DETAILS
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
-import io.github.jd1378.otphelper.getDeepLinkPendingIntent
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
 
@@ -31,10 +28,10 @@ import io.github.jd1378.otphelper.utils.NotificationHelper
 class NotifActionWorker
 @AssistedInject
 constructor(
-    @Assisted context: Context,
-    @Assisted workerParams: WorkerParameters,
-    private val userSettingsRepository: UserSettingsRepository,
-    private val ignoredNotifsRepository: IgnoredNotifsRepository,
+  @Assisted context: Context,
+  @Assisted workerParams: WorkerParameters,
+  private val userSettingsRepository: UserSettingsRepository,
+  private val ignoredNotifsRepository: IgnoredNotifsRepository,
 ) : CoroutineWorker(context, workerParams) {
 
   companion object {
@@ -53,19 +50,6 @@ constructor(
     val cancelNotifId = inputData.getInt("cancel_notif_id", -1)
     val context = applicationContext
 
-    if (action == INTENT_ACTION_CODE_COPY) {
-      val notif = getActiveNotification(context, R.id.code_detected_notify_id)
-      if (notif != null) {
-        val code = notif.extras.getString("code")
-
-        if (code != null) {
-          val isCopiedToastEnabled = userSettingsRepository.fetchSettings().isCopiedToastEnabled
-          val copied = Clipboard.copyCodeToClipboard(context, code, isCopiedToastEnabled)
-          NotificationHelper.sendDetectedNotif(context, notif.extras, code, copied)
-        }
-      }
-    }
-
     val notif = getActiveNotification(context, R.id.code_detected_notify_id)
     if (notif != null) {
 
@@ -74,24 +58,27 @@ constructor(
       var ignoredTypeData = ""
 
       when (action) {
+        INTENT_ACTION_CODE_COPY -> {
+          val code = notif.extras.getString("code")
+
+          if (code != null) {
+            val isCopiedToastEnabled = userSettingsRepository.fetchSettings().isCopiedToastEnabled
+            val copied = Clipboard.copyCodeToClipboard(context, code, isCopiedToastEnabled)
+            NotificationHelper.sendDetectedNotif(context, notif.extras, code, copied)
+          }
+        }
+
         INTENT_ACTION_IGNORE_NOTIFICATION_APP -> {
           ignoredType = IgnoredNotifType.APPLICATION
           sendToast(context, R.string.wont_detect_code_from_this_app)
         }
-        INTENT_ACTION_SHOW_DETAILS -> {
-          val historyId = notif.extras.getLong("historyId", 0L)
-          if (historyId > 0L) {
-            val pendingIntent =
-                getDeepLinkPendingIntent(
-                    context, MainDestinations.HISTORY_DETAIL_ROUTE, historyId.toString())
-            pendingIntent.send()
-          }
-        }
+
         INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG -> {
           ignoredType = IgnoredNotifType.NOTIFICATION_TAG
           ignoredTypeData = notif.extras.getString("notificationTag", "")
           sendToast(context, R.string.wont_detect_code_from_this_notif)
         }
+
         INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID -> {
           ignoredType = IgnoredNotifType.NOTIFICATION_ID
           ignoredTypeData = notif.extras.getString("notificationId", "")
@@ -101,7 +88,8 @@ constructor(
 
       if (ignoredType != null) {
         ignoredNotifsRepository.setIgnored(
-            packageName = ignoredPackageName, type = ignoredType, typeData = ignoredTypeData)
+            packageName = ignoredPackageName, type = ignoredType, typeData = ignoredTypeData,
+        )
       }
     }
 
@@ -113,8 +101,8 @@ constructor(
   }
 
   private fun sendToast(
-      context: Context,
-      @StringRes message: Int,
+    context: Context,
+    @StringRes message: Int,
   ) {
     val handler = Handler(Looper.getMainLooper())
     handler.post { Toast.makeText(context, message, Toast.LENGTH_LONG).show() }

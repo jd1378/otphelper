@@ -24,6 +24,8 @@ import io.github.jd1378.otphelper.INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTI
 import io.github.jd1378.otphelper.MainActivity
 import io.github.jd1378.otphelper.NotifActionReceiver
 import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.getDeepLinkPendingIntent
+import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import java.util.Date
 
 class NotificationHelper {
@@ -73,21 +75,23 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission", "LaunchActivityFromNotification")
     fun sendDetectedNotif(
-        context: Context,
-        extras: Bundle,
-        code: String,
-        copied: Boolean = false,
+      context: Context,
+      extras: Bundle,
+      code: String,
+      copied: Boolean = false,
     ) {
       if (!hasNotifPermission(context)) return
 
       val notificationRV = RemoteViews(context.packageName, R.layout.code_notification_countdown)
       notificationRV.setTextViewText(
-          R.id.code_detected_label, context.getString(R.string.detected_code))
+          R.id.code_detected_label, context.getString(R.string.detected_code),
+      )
       notificationRV.setTextViewText(R.id.detected_code, code)
 
       if (copied) {
         notificationRV.setImageViewIcon(
-            R.id.action_image, Icon.createWithResource(context, R.drawable.baseline_check_24))
+            R.id.action_image, Icon.createWithResource(context, R.drawable.baseline_check_24),
+        )
         notificationRV.setViewVisibility(R.id.copied_textview, View.VISIBLE)
         notificationRV.setViewVisibility(R.id.copy_textview, View.GONE)
       }
@@ -152,14 +156,19 @@ class NotificationHelper {
               .addAction(
                   R.drawable.baseline_visibility_off_24,
                   context.getString(R.string.ignore_app),
-                  ignoreAppPendingIntent)
+                  ignoreAppPendingIntent,
+              )
 
       val historyId = extras.getLong("historyId", 0L)
       if (historyId > 0L) {
+        val openHistoryPendingIntent = getDeepLinkPendingIntent(
+            context, MainDestinations.HISTORY_DETAIL_ROUTE, historyId.toString(),
+        )
         notificationBuilder.addAction(
             R.drawable.baseline_visibility_off_24,
             context.getString(R.string.show_details),
-            seeOptionsPendingIntent)
+            openHistoryPendingIntent,
+        )
       } else {
         val notificationId = extras.getString("notificationId")
         val notificationTag = extras.getString("notificationTag")
@@ -180,7 +189,8 @@ class NotificationHelper {
           notificationBuilder.addAction(
               R.drawable.baseline_visibility_off_24,
               context.getString(R.string.ignore_tag),
-              ignoreTagPendingIntent)
+              ignoreTagPendingIntent,
+          )
         } else if (!notificationId.isNullOrEmpty()) {
           val ignoreNidPendingIntent =
               PendingIntentCompat.getBroadcast(
@@ -197,7 +207,8 @@ class NotificationHelper {
           notificationBuilder.addAction(
               R.drawable.baseline_visibility_off_24,
               context.getString(R.string.ignore_id),
-              ignoreNidPendingIntent)
+              ignoreNidPendingIntent,
+          )
         }
       }
 
@@ -209,13 +220,14 @@ class NotificationHelper {
         Handler(Looper.getMainLooper())
             .postDelayed(
                 { NotificationManagerCompat.from(context).cancel(R.id.code_detected_notify_id) },
-                notificationTimeout)
+                notificationTimeout,
+            )
       }
     }
 
     @SuppressLint("MissingPermission")
     fun sendPermissionRevokedNotif(
-        context: Context,
+      context: Context,
     ) {
       if (!hasNotifPermission(context)) return
 
@@ -231,7 +243,8 @@ class NotificationHelper {
                 setFlags(
                     Intent.FLAG_ACTIVITY_NO_HISTORY or
                         Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
-                        Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP,
+                )
               },
               PendingIntent.FLAG_ONE_SHOT,
               false,
@@ -255,7 +268,7 @@ class NotificationHelper {
 
     fun sendTestNotif(context: Context) {
       if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-          PackageManager.PERMISSION_GRANTED) {
+        PackageManager.PERMISSION_GRANTED) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
           val name = context.getString(R.string.code_detected_channel_name)

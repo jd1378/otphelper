@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("com.android.application") version "8.5.1" apply false
-  id("com.android.library") version "8.5.1" apply false
+  id("com.android.application") version "8.9.1" apply false
+  id("com.android.library") version "8.9.1" apply false
   id("org.jetbrains.kotlin.android") version "1.9.24" apply false
   id("com.google.dagger.hilt.android") version "2.50" apply false
   id("com.google.devtools.ksp") version "1.9.24-1.0.20" apply false
@@ -23,13 +23,15 @@ subprojects {
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" +
                     project.buildDir.absolutePath +
-                    "/compose_metrics")
+                    "/compose_metrics",
+            )
         freeCompilerArgs +=
             listOf(
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" +
                     project.buildDir.absolutePath +
-                    "/compose_metrics")
+                    "/compose_metrics",
+            )
       }
     }
   }

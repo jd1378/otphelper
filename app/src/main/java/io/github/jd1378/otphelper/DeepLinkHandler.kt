@@ -1,8 +1,10 @@
 package io.github.jd1378.otphelper
 
+import android.app.ActivityOptions
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.compose.runtime.Stable
 import androidx.core.net.toUri
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,7 +35,8 @@ class DeepLinkHandler @Inject constructor() {
 
 sealed interface Event {
 
-  @Stable data class NavigateWithDeepLink(val intent: Intent) : Event
+  @Stable
+  data class NavigateWithDeepLink(val intent: Intent) : Event
 
   data object None : Event
 }
@@ -41,9 +44,9 @@ sealed interface Event {
 const val OTPHELPER_APP_SCHEME = "otphelper"
 
 fun getDeepLinkPendingIntent(
-    context: Context,
-    route: String,
-    navArgValue: String? = null,
+  context: Context,
+  route: String,
+  navArgValue: String? = null,
 ): PendingIntent {
   var baseUri = "$OTPHELPER_APP_SCHEME://$route"
   if (!navArgValue.isNullOrEmpty()) {
@@ -57,5 +60,17 @@ fun getDeepLinkPendingIntent(
       PendingIntent.FLAG_IMMUTABLE or
           PendingIntent.FLAG_UPDATE_CURRENT or
           PendingIntent.FLAG_CANCEL_CURRENT
-  return PendingIntent.getActivity(context, 0, routeIntent, flags)
+
+  val options = ActivityOptions.makeBasic()
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+    options.pendingIntentCreatorBackgroundActivityStartMode =
+        ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED
+  }
+  return PendingIntent.getActivity(
+      context,
+      0,
+      routeIntent,
+      flags,
+      options.toBundle(),
+  )
 }
