@@ -1,0 +1,2 @@
+- Updated translations
+- Added option to show code as Toast instead of notification
