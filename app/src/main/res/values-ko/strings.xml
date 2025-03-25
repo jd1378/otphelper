@@ -103,5 +103,6 @@
     <string name="error">오류</string>
     <string name="history">기록</string>
     <string name="notification_tag">태그</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">복사 확인 표시</string>
+    <string name="show_toast_help">토스트에 감지된 코드를 표시합니다.</string>
 </resources>

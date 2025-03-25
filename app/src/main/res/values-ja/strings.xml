@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">コードが検出された通知を自動的に閉じます。</string>
     <string name="auto_mark_as_read">既読にする</string>
     <string name="auto_mark_as_read_help">可能な場合、通知上の「既読にする」アクションの実行を試みます。</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">コピー確認を表示</string>
+    <string name="show_toast_help">トースト内に検出されたコードを表示します。</string>
 </resources>

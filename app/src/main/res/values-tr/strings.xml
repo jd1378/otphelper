@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Kodun tespit edildiği bildirimi otomatik olarak kapatır.</string>
     <string name="auto_mark_as_read">Okundu olarak işaretle</string>
     <string name="auto_mark_as_read_help">Mümkün olduğunda bildirimde \"okundu olarak işaretle\" eylemini kullanmaya çalışır.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Kopya onayını göster</string>
+    <string name="show_toast_help">Bir tost içerisinde tespit edilen kodu gösterir.</string>
 </resources>

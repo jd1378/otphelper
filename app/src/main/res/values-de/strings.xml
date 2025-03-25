@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Weist die Benachrichtigung mit dem Code automatisch zurück.</string>
     <string name="auto_mark_as_read">Als gelesen markieren</string>
     <string name="auto_mark_as_read_help">Markiert die Benachrichtigung als \"gelesen\", falls möglich.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Kopierbestätigung anzeigen</string>
+    <string name="show_toast_help">Zeigt den erkannten Code in einem Toast an.</string>
 </resources>

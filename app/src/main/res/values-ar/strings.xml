@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">يرفض تلقائيًا الإشعار الذي تم اكتشاف الرمز منه.</string>
     <string name="auto_mark_as_read">حدد كمقروء</string>
     <string name="auto_mark_as_read_help">محاولة استخدام إجراء \"حدد كمقروء\" على الإشعار عندما يكون ذلك ممكنًا.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">إظهار تأكيد النسخ</string>
+    <string name="show_toast_help">يعرض الكود المكتشف داخل رسالة التنبيه</string>
 </resources>

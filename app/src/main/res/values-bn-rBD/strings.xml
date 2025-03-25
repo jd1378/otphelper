@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">স্বয়ংক্রিয়ভাবে বিজ্ঞপ্তিটি বাতিল করে যেখান থেকে কোডটি সনাক্ত করা হয়েছিল।</string>
     <string name="auto_mark_as_read_help">সম্ভব হলে বিজ্ঞপ্তিতে \"পঠিত হিসাবে চিহ্নিত করুন\" অ্যাকশনটি ব্যবহার করার প্রচেষ্টা।</string>
     <string name="auto_mark_as_read">Mark as read</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">কপি নিশ্চিতকরণ দেখান</string>
+    <string name="show_toast_help">Toast-এ সনাক্ত করা কোড দেখান।</string>
 </resources>

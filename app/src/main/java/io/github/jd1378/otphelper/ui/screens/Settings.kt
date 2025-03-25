@@ -171,6 +171,7 @@ fun Settings(
                       onCheckedChange = { viewModel.onShowToastToggle() },
                   )
                 }
+                SettingHelp(stringResource(R.string.show_toast_help))
               }
 
           Button(

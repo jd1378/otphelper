@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">به صورت خودکار اعلانی که کد از آن شناسایی شده است را رد می‌کند.</string>
     <string name="auto_mark_as_read">علامت به عنوان خوانده شده</string>
     <string name="auto_mark_as_read_help">هر گاه ممکن باشد، سعی می کند از گزینه \"علامت گذاری به عنوان خوانده شده\" روی اعلان استفاده کند.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">نمایش تأیید کپی</string>
+    <string name="show_toast_help">کد شناسایی شده را در یک تُست نشان می‌دهد.</string>
 </resources>

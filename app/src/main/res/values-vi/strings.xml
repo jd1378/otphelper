@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Tự động loại bỏ thông báo phát hiện code.</string>
     <string name="auto_mark_as_read">Đánh dấu là đã đọc</string>
     <string name="auto_mark_as_read_help">Cố gắng sử dụng hành động \"đánh dấu là đã đọc\" trên thông báo khi có thể.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Hiển thị xác nhận sao chép</string>
+    <string name="show_toast_help">Hiển thị mã được phát hiện trong Toast.</string>
 </resources>

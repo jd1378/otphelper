@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Автоматично відхиляє сповіщення, у якому було виявлено код.</string>
     <string name="auto_mark_as_read">Позначити як прочитане</string>
     <string name="auto_mark_as_read_help">Намагається використати дію «позначити як прочитане» для сповіщення, коли це можливо.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Показати підтвердження копіювання</string>
+    <string name="show_toast_help">Показує виявлений код у спливаючому повідомленні.</string>
 </resources>

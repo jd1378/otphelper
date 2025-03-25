@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Descarta automáticamente la notificación desde la que se detectó el código.</string>
     <string name="auto_mark_as_read">Marcar como leído</string>
     <string name="auto_mark_as_read_help">Intenta utilizar la acción \"marcar como leído\" en la notificación siempre que sea posible.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Mostrar confirmación de copia</string>
+    <string name="show_toast_help">Muestra el código detectado dentro de una ventana emergente.</string>
 </resources>

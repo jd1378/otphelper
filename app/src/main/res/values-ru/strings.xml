@@ -5,7 +5,7 @@
     <string name="code_detected_channel_name">Найден код</string>
     <string name="code_detected_channel_description">При обнаружении кода уведомление будет отправлено с этого канала</string>
     <string name="code_copied_to_clipboard">Скопировано в буфер обмена!</string>
-    <string name="code_failed_to_access_clipboard">Нет доступа к буферу обмена!</string>
+    <string name="code_failed_to_access_clipboard">Нет доступа к буфер обмена!</string>
     <string name="copy_to_clipboard">Копировать в буфер обмена</string>
     <string name="wont_detect_code_from_this_notif">Больше не обнаруживать код из этого уведомления</string>
     <string name="copied">Скопировано</string>
@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Автоматически закрывать уведомление, в котором был обнаружен код.</string>
     <string name="auto_mark_as_read">Отметить как прочитанное</string>
     <string name="auto_mark_as_read_help">По возможности использовать действие «Отметить как прочитанное» для уведомления.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Показать подтверждение копирования</string>
+    <string name="show_toast_help">Показывает обнаруженный код во всплывающем уведомлении.</string>
 </resources>

@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">குறியீடு கண்டறியப்பட்ட அறிவிப்பை தானாகவே நிராகரிக்கிறது.</string>
     <string name="auto_mark_as_read">படித்தபடி குறி</string>
     <string name="auto_mark_as_read_help">முடிந்தவரை அறிவிப்பில் \"மார்க் என மார்க்\" செயலைப் பயன்படுத்த முயற்சிக்கிறது.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">நகலெடுக்கப்பட்டதை உறுதிப்படுத்தவும்</string>
+    <string name="show_toast_help">கண்டறியப்பட்ட குறியீட்டை சிற்றுண்டியில் காட்டு.</string>
 </resources>

@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">自動關閉偵測到的驗證碼的通知。</string>
     <string name="auto_mark_as_read">標為已讀</string>
     <string name="auto_mark_as_read_help">若可能，嘗試在通知上使用「標為已讀」的動作。</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">顯示複製確認</string>
+    <string name="show_toast_help">在彈出提示中顯示偵測到的代碼。</string>
 </resources>

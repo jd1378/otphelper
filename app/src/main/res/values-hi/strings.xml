@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">वह अधिसूचना स्वचालित रूप से खारिज कर देता है जिससे कोड का पता चला था।</string>
     <string name="auto_mark_as_read">पढ़ा हुआ चिह्न करे</string>
     <string name="auto_mark_as_read_help">जब संभव हो तो अधिसूचना पर \"पढ़ा हुआ चिह्नित करें\" कार्रवाई का उपयोग करने का प्रयास करता है।</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">कॉपी की पुष्टि दिखाएं</string>
+    <string name="show_toast_help">टोस्ट में पाए गए कोड को दिखाएं।</string>
 </resources>

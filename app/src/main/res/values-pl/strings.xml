@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Automatycznie odrzuca powiadomienie, z którego wykryto kod.</string>
     <string name="auto_mark_as_read">Zaznacz Wiadomość jako przeczytany</string>
     <string name="auto_mark_as_read_help">Próbuje użyć akcji „Oznacz jako przeczytane” w powiadomieniu, jeśli to możliwe.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Pokaż potwierdzenie kopiowania</string>
+    <string name="show_toast_help">Wyświetla wykryty kod w Toast.</string>
 </resources>

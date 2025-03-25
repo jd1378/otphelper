@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">自动解除验证码检测通知。</string>
     <string name="auto_mark_as_read">标记为已读</string>
     <string name="auto_mark_as_read_help">如有可能尝试使用通知的“标记为已读”操作。</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">显示复制确认</string>
+    <string name="show_toast_help">在“吐司”中显示检测到的代码。</string>
 </resources>

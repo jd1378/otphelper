@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Rejete automatiquement la notification à partir de laquelle le code a été détecté.</string>
     <string name="auto_mark_as_read">Marquer comme lu</string>
     <string name="auto_mark_as_read_help">Tenter d\'utiliser l\'action « marquer comme lu » sur la notification lorsque cela est possible.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Afficher la confirmation de copie</string>
+    <string name="show_toast_help">Affiche le code détecté dans un toast.</string>
 </resources>

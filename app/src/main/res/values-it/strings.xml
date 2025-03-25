@@ -103,5 +103,6 @@
     <string name="auto_dismiss_desc">Ignora automaticamente la notifica da cui è stato rilevato il codice.</string>
     <string name="auto_mark_as_read">Segna come letto</string>
     <string name="auto_mark_as_read_help">Tenta di utilizzare l\'azione \"contrassegna come letto\" nella notifica quando possibile.</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="show_copy_confirmation">Mostra conferma di copia</string>
+    <string name="show_toast_help">Mostra il codice rilevato in un pane tostato.</string>
 </resources>

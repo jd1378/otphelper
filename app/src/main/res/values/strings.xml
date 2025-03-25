@@ -93,6 +93,7 @@
   <string name="replace_code_in_history">Replace code in history</string>
   <string name="replace_code_in_history_help">Replaces the detected code in history with zeroes.</string>
   <string name="show_toast">Show Toast</string>
+  <string name="show_toast_help">Shows the detected code inside a toast.</string>
   <string name="show_confirmation_help">Shows \"%1$s\" after copying the code.</string>
   <string name="send_detected_notif_help">Posts a notification showing the detected code.</string>
   <string name="auto_copy_help">Automatically copies the detected code.</string>
