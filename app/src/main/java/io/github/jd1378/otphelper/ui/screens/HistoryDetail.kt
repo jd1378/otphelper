@@ -189,17 +189,10 @@ fun HistoryDetail(
             Text(
                 buildAnnotatedString {
                   append(detectedCode.text)
-                  if (codeExtractorResult.value != null) {
-                    val phraseGroupRange =
-                        codeExtractorResult.value!!
-                            .matchResult
-                            .groups[codeExtractorResult.value!!.phraseGroup]!!
-                            .range
-                    val codeGroupRange =
-                        codeExtractorResult.value!!
-                            .matchResult
-                            .groups[codeExtractorResult.value!!.codeGroup]!!
-                            .range
+                  val result = codeExtractorResult.value
+                  if (result != null) {
+                    val phraseGroupRange = result.matchResult.groups[result.phraseGroup]!!.range
+                    val codeGroupRange = result.matchResult.groups[result.codeGroup]!!.range
                     addStyle(
                         style =
                             SpanStyle(
