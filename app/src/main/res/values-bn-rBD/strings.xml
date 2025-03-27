@@ -53,7 +53,7 @@
     <string name="ignore_tag">ট্যাগ উপেক্ষা করুন</string>
     <string name="ignore_app">অ্যাপকে উপেক্ষা করুন</string>
     <string name="permission_revoked_channel_description">প্রয়োজনীয় অনুমতি সম্পর্কে ব্যবহারকারীকে মনে করিয়ে দেয়</string>
-    <string name="permission_revoked">Permission Revoked</string>
+    <string name="permission_revoked">অনুমতি প্রত্যাহার করা হয়েছে</string>
     <string name="permission_revoked_notification_hint">অনুগ্রহ করে পুনরায় বিজ্ঞপ্তি পড়ার অনুমতি দিন। সেটিংস খুলতে এই বার্তাটি আলতো চাপুন৷</string>
     <string name="settings">সেটিংস</string>
     <string name="application">অ্যাপ্লিকেশন</string>
@@ -64,7 +64,7 @@
     <string name="notification_id">ID</string>
     <string name="show_details">বিস্তারিত দেখাও</string>
     <string name="history">ইতিহাস</string>
-    <string name="history_help">History will be deleted automatically at midnight every day, except for the last 10 entries।</string>
+    <string name="history_help">ইতিহাস প্রতিদিন মধ্যরাতে স্বয়ংক্রিয়ভাবে মুছে ফেলা হবে, শেষ ১০টি এন্ট্রি ছাড়া।</string>
     <string name="replace_code_in_history">ইতিহাসে কোড প্রতিস্থাপন করুন</string>
     <string name="replace_code_in_history_help">ইতিহাসে শনাক্ত করা কোডকে শূন্য দিয়ে প্রতিস্থাপন করে।</string>
     <string name="show_toast">Toast দেখান</string>
@@ -82,17 +82,17 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="n_items">%1$d টি আইটেম</string>
-    <string name="app_label_not_visible_reason">The application name is not available.</string>
+    <string name="app_label_not_visible_reason">অ্যাপ্লিকেশনের নাম উপলব্ধ নয়।</string>
     <string name="learn_more">আরও জানুন</string>
     <string name="cancel">বাতিল</string>
     <string name="reset_to_default">ডিফল্টে রিসেট করুন</string>
     <string name="add">সংযোগ</string>
-    <string name="sensitive_phrases">Sensitive Phrases</string>
-    <string name="sensitive_phrases_desc">Here you can add phrases that trigger code detection.</string>
-    <string name="sensitive_phrases_desc_regex">Phrases must be valid regex.</string>
-    <string name="new_sensitive_phrase">New Sensitive Phrase</string>
-    <string name="your_new_phrase">Your new phrase</string>
-    <string name="clear_list">Clear list</string>
+    <string name="sensitive_phrases">সংবেদনশীল বাক্যাংশ</string>
+    <string name="sensitive_phrases_desc">এখানে আপনি এমন বাক্যাংশ যোগ করতে পারেন যা কোড সনাক্তকরণ ট্রিগার করে।</string>
+    <string name="sensitive_phrases_desc_regex">বাক্যাংশগুলি বৈধ regex হতে হবে।</string>
+    <string name="new_sensitive_phrase">নতুন সংবেদনশীল বাক্যাংশ</string>
+    <string name="your_new_phrase">আপনার নতুন বাক্যাংশ</string>
+    <string name="clear_list">তালিকা পরিষ্কার করুন</string>
     <string name="copy_general_regex">সাধারণ regex কপি করুন</string>
     <string name="copy_special_regex">বিশেষ regex অনুলিপি</string>
     <string name="ignored_phrases">উপেক্ষিত বাক্যাংশ</string>
@@ -102,7 +102,11 @@
     <string name="auto_dismiss">স্বয়ংক্রিয় খারিজ</string>
     <string name="auto_dismiss_desc">স্বয়ংক্রিয়ভাবে বিজ্ঞপ্তিটি বাতিল করে যেখান থেকে কোডটি সনাক্ত করা হয়েছিল।</string>
     <string name="auto_mark_as_read_help">সম্ভব হলে বিজ্ঞপ্তিতে \"পঠিত হিসাবে চিহ্নিত করুন\" অ্যাকশনটি ব্যবহার করার প্রচেষ্টা।</string>
-    <string name="auto_mark_as_read">Mark as read</string>
+    <string name="auto_mark_as_read">পঠিত হিসাবে চিহ্নিত করুন</string>
     <string name="show_copy_confirmation">কপি নিশ্চিতকরণ দেখান</string>
     <string name="show_toast_help">Toast-এ সনাক্ত করা কোড দেখান।</string>
+    <string name="cleanup_phrases">পরিষ্কারের বাক্যাংশ</string>
+    <string name="copy_cleanup_regex">পরিষ্কারের regex অনুলিপি</string>
+    <string name="new_cleanup_phrase">নতুন পরিষ্কারের বাক্যাংশ</string>
+    <string name="cleanup_phrases_desc">এখানে সংজ্ঞায়িত বাক্যাংশগুলি সনাক্তকরণ লজিক প্রয়োগ করার আগে বার্তাগুলি থেকে সরানো হবে। ভুলভাবে সনাক্ত করা কোডের সমস্যাগুলি সমাধান করতে এটি ব্যবহার করতে পারেন।</string>
 </resources>
