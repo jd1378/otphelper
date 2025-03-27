@@ -128,4 +128,8 @@
   <string name="auto_mark_as_read_help">Attempts to use the \"mark as read\" action on the notification when possible.</string>
   <string name="ko" translatable="false">한국어</string>
   <string name="show_copy_confirmation">Show Copy Confirmation</string>
+  <string name="cleanup_phrases">Cleanup Phrases</string>
+  <string name="copy_cleanup_regex">Copy cleanup regex</string>
+  <string name="new_cleanup_phrase">New Cleanup Phrase</string>
+  <string name="cleanup_phrases_desc">Phrases defined here will be removed from the messages before applying detection logic. You can use this to fix issues with incorrectly detected code.</string>
 </resources>

@@ -127,17 +127,13 @@ class CodeExtractor // this comment is to separate parts
       """\b(${ignoredPhrases.joinToString("|")})\b"""
           .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
+  val cleanupPhrasesRegex =
+      """(${cleanupPhrases.joinToString("|")})"""
+          .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
+
   fun getCode(str: String): String? {
     if (sensitivePhrases.isEmpty()) return null
-    val cleanStr =
-        str.replace(
-            """(${cleanupPhrases.joinToString("|")})"""
-                .toRegex(
-                    setOf(
-                        RegexOption.IGNORE_CASE,
-                        RegexOption.MULTILINE,
-                    )),
-            "")
+    val cleanStr = cleanup(str)
     val results = generalCodeMatcher.findAll(cleanStr).filter { it.groups[3]?.value != null }
     if (results.count() > 0) {
       // generalCodeMatcher also detects if the text contains "code" keyword
@@ -201,5 +197,10 @@ class CodeExtractor // this comment is to separate parts
   fun shouldIgnore(str: String): Boolean {
     if (ignoredPhrases.isEmpty()) return false
     return str.contains(ignoredPhrasesRegex)
+  }
+
+  fun cleanup(str: String): String {
+    if (cleanupPhrases.isEmpty()) return str
+    return str.replace(cleanupPhrasesRegex, "")
   }
 }

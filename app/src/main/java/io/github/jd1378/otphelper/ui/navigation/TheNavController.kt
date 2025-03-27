@@ -27,6 +27,7 @@ object MainDestinations {
   const val HISTORY_DETAIL_ROUTE = "history_detail"
   const val SENSITIVE_PHRASES_ROUTE = "sensitive_phrases"
   const val IGNORED_PHRASES_ROUTE = "ignored_phrases"
+  const val CLEANUP_PHRASES_ROUTE = "cleanup_phrases"
 }
 
 object NavArgs {

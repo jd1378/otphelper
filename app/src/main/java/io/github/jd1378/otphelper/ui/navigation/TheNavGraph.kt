@@ -9,6 +9,8 @@ import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import io.github.jd1378.otphelper.OTPHELPER_APP_SCHEME
 import io.github.jd1378.otphelper.ui.screens.About
+import io.github.jd1378.otphelper.ui.screens.CleanupPhrases
+import io.github.jd1378.otphelper.ui.screens.CleanupPhrasesViewModel
 import io.github.jd1378.otphelper.ui.screens.History
 import io.github.jd1378.otphelper.ui.screens.HistoryDetail
 import io.github.jd1378.otphelper.ui.screens.HistoryDetailViewModel
@@ -45,6 +47,7 @@ fun NavGraphBuilder.otphelperNavGraph(
   addHistoryDetailGraph(upPress = upPress)
   addSensitivePhrasesGraph(upPress = upPress)
   addIgnoredPhrasesGraph(upPress = upPress)
+  addCleanupPhrasesGraph(upPress = upPress)
 }
 
 fun NavGraphBuilder.addHomeGraph(
@@ -179,5 +182,12 @@ fun NavGraphBuilder.addIgnoredPhrasesGraph(modifier: Modifier = Modifier, upPres
   composable(MainDestinations.IGNORED_PHRASES_ROUTE) {
     val viewModel = hiltViewModel<IgnoredPhrasesViewModel>()
     IgnoredPhrases(modifier, upPress, viewModel)
+  }
+}
+
+fun NavGraphBuilder.addCleanupPhrasesGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
+  composable(MainDestinations.CLEANUP_PHRASES_ROUTE) {
+    val viewModel = hiltViewModel<CleanupPhrasesViewModel>()
+    CleanupPhrases(modifier, upPress, viewModel)
   }
 }
