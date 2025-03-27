@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">Markiert die Benachrichtigung als \"gelesen\", falls möglich.</string>
     <string name="show_copy_confirmation">Kopierbestätigung anzeigen</string>
     <string name="show_toast_help">Zeigt den erkannten Code in einem Toast an.</string>
+    <string name="cleanup_phrases">Bereinigungsphrasen</string>
+    <string name="copy_cleanup_regex">Bereinigungs-Regex kopieren</string>
+    <string name="new_cleanup_phrase">Neue Bereinigungsphrase</string>
+    <string name="cleanup_phrases_desc">Hier definierte Phrasen werden aus den Nachrichten entfernt, bevor die Erkennungslogik angewendet wird. Sie können dies verwenden, um Probleme mit falsch erkannten Codes zu beheben.</string>
 </resources>
