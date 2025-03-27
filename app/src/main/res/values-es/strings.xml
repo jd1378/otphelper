@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">Intenta utilizar la acción \"marcar como leído\" en la notificación siempre que sea posible.</string>
     <string name="show_copy_confirmation">Mostrar confirmación de copia</string>
     <string name="show_toast_help">Muestra el código detectado dentro de una ventana emergente.</string>
+    <string name="cleanup_phrases">Frases de limpieza</string>
+    <string name="copy_cleanup_regex">Copiar expresiones regulares de limpieza</string>
+    <string name="new_cleanup_phrase">Nueva frase de limpieza</string>
+    <string name="cleanup_phrases_desc">Las frases definidas aquí se eliminarán de los mensajes antes de aplicar la lógica de detección. Puedes usar esto para solucionar problemas con códigos detectados incorrectamente.</string>
 </resources>
