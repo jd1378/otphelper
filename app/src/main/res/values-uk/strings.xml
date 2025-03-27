@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">Намагається використати дію «позначити як прочитане» для сповіщення, коли це можливо.</string>
     <string name="show_copy_confirmation">Показати підтвердження копіювання</string>
     <string name="show_toast_help">Показує виявлений код у тості.</string>
+    <string name="cleanup_phrases">Фрази очищення</string>
+    <string name="copy_cleanup_regex">Копіювати регулярний вираз очищення</string>
+    <string name="new_cleanup_phrase">Нова фраза очищення</string>
+    <string name="cleanup_phrases_desc">Фрази, визначені тут, будуть видалені з повідомлень перед застосуванням логіки виявлення. Ви можете використовувати це для виправлення проблем із неправильно виявленим кодом.</string>
 </resources>

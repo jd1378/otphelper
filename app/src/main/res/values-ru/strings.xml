@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">По возможности использовать действие «Отметить как прочитанное» для уведомления.</string>
     <string name="show_copy_confirmation">Показать подтверждение копирования</string>
     <string name="show_toast_help">Показывать найденный код во всплывающем уведомлении.</string>
+    <string name="cleanup_phrases">Очистка фраз</string>
+    <string name="copy_cleanup_regex">Копировать рег.выражение для очистки</string>
+    <string name="new_cleanup_phrase">Новая фраза для очистки</string>
+    <string name="cleanup_phrases_desc">Фразы, указанные здесь, будут удалены из сообщений перед применением логики обнаружения. Это можно использовать для исправления проблем с некорректно обнаруженным кодом.</string>
 </resources>

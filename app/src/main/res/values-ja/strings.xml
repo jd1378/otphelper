@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">可能な場合、通知上の「既読にする」アクションの実行を試みます。</string>
     <string name="show_copy_confirmation">コピー確認を表示</string>
     <string name="show_toast_help">トースト内に検出されたコードを表示します。</string>
+    <string name="cleanup_phrases">クリーンアップフレーズ</string>
+    <string name="copy_cleanup_regex">クリーンアップ正規表現をコピー</string>
+    <string name="new_cleanup_phrase">新しいクリーンアップフレーズ</string>
+    <string name="cleanup_phrases_desc">ここで定義されたフレーズは、検出ロジックを適用する前にメッセージから削除されます。これを使用して、誤って検出されたコードの問題を修正できます。</string>
 </resources>
