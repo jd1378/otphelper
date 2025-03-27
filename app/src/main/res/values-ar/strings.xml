@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">محاولة استخدام إجراء \"حدد كمقروء\" على الإشعار عندما يكون ذلك ممكنًا.</string>
     <string name="show_copy_confirmation">إظهار تأكيد النسخ</string>
     <string name="show_toast_help">يعرض الكود المكتشف داخل رسالة التنبيه</string>
+    <string name="cleanup_phrases">عبارات التنظيف</string>
+    <string name="copy_cleanup_regex">نسخ تعبير التنظيف</string>
+    <string name="new_cleanup_phrase">عبارة تنظيف جديدة</string>
+    <string name="cleanup_phrases_desc">سيتم إزالة العبارات المعرفة هنا من الرسائل قبل تطبيق منطق الاكتشاف. يمكنك استخدام هذا لإصلاح المشكلات المتعلقة بالكود المكتشف بشكل غير صحيح.</string>
 </resources>
