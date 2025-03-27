@@ -2,15 +2,14 @@ package io.github.jd1378.otphelper.ui.screens
 
 import android.text.format.DateUtils
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -147,8 +146,7 @@ fun HistoryDetail(
             horizontalArrangement = Arrangement.End,
         ) {
           Text(
-              modifier =
-                  Modifier.weight(1f).width(IntrinsicSize.Max).align(Alignment.CenterVertically),
+              modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
               text = stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
               fontWeight = FontWeight.Medium,
               fontSize = 16.sp,
@@ -167,14 +165,14 @@ fun HistoryDetail(
               verticalArrangement = Arrangement.Center,
               horizontalArrangement = Arrangement.End,
           ) {
-            Column(Modifier.weight(1f).width(IntrinsicSize.Max)) {
+            Box(Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
               Text(
                   stringResource(R.string.notification_tag) + ":",
                   fontWeight = FontWeight.Medium,
                   fontSize = 16.sp,
               )
-              Text(detectedCode.notificationTag)
             }
+            Text(detectedCode.notificationTag)
 
             IgnoreNotifTagButton(isNotifTagIgnored.value) {
               viewModel.toggleNotifTagIgnore(detectedCode)
