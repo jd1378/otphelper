@@ -66,11 +66,11 @@
     <string name="history">История</string>
     <string name="history_help">История автоматически очищается каждую полночь за исключением последних 10 записей.</string>
     <string name="replace_code_in_history">Заменять код в истории</string>
-    <string name="replace_code_in_history_help">Заменять обнаруженный код в истории нулями.</string>
+    <string name="replace_code_in_history_help">Заменять найденный код в истории нулями.</string>
     <string name="show_toast">Показывать всплывающее уведомление</string>
     <string name="show_confirmation_help">Показывать «%1$s» после копирования кода.</string>
     <string name="send_detected_notif_help">Создавать уведомление с обнаруженным кодом.</string>
-    <string name="auto_copy_help">Автоматически копировать обнаруженный код в буфер обмена.</string>
+    <string name="auto_copy_help">Автоматически копировать найденный код в буфер обмена.</string>
     <string name="history_desc">Здесь показаны недавно обнаруженные коды.</string>
     <string name="clear_history">Очистить историю</string>
     <string name="irreversible_action_warning">Это действие невозможно отменить. Продолжить?</string>
@@ -104,5 +104,5 @@
     <string name="auto_mark_as_read">Отметить как прочитанное</string>
     <string name="auto_mark_as_read_help">По возможности использовать действие «Отметить как прочитанное» для уведомления.</string>
     <string name="show_copy_confirmation">Показать подтверждение копирования</string>
-    <string name="show_toast_help">Показывает обнаруженный код во всплывающем уведомлении.</string>
+    <string name="show_toast_help">Показывать найденный код во всплывающем уведомлении.</string>
 </resources>
