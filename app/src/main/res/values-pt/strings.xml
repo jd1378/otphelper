@@ -104,5 +104,5 @@
     <string name="auto_mark_as_read">Marcar como lido</string>
     <string name="auto_mark_as_read_help">Tenta executar a ação \"marcar como lida\" na notificação, quando disponível.</string>
     <string name="show_copy_confirmation">Mostrar confirmação de cópia</string>
-    <string name="show_toast_help">Mostra o código detectado dentro de um aviso.</string>
+    <string name="show_toast_help">Exibe o código detectado em um aviso rápido.</string>
 </resources>
