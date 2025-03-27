@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">जब संभव हो तो अधिसूचना पर \"पढ़ा हुआ चिह्नित करें\" कार्रवाई का उपयोग करने का प्रयास करता है।</string>
     <string name="show_copy_confirmation">कॉपी की पुष्टि दिखाएं</string>
     <string name="show_toast_help">टोस्ट में पाए गए कोड को दिखाएं।</string>
+    <string name="cleanup_phrases">सफाई वाक्यांश</string>
+    <string name="copy_cleanup_regex">सफाई रेगेक्स कॉपी करें</string>
+    <string name="new_cleanup_phrase">नया सफाई वाक्यांश</string>
+    <string name="cleanup_phrases_desc">यहां परिभाषित वाक्यांशों को डिटेक्शन लॉजिक लागू करने से पहले संदेशों से हटा दिया जाएगा। आप इसका उपयोग गलत तरीके से डिटेक्ट किए गए कोड की समस्याओं को ठीक करने के लिए कर सकते हैं।</string>
 </resources>
