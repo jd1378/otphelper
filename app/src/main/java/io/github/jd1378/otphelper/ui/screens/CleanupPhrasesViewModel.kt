@@ -72,7 +72,7 @@ constructor(
   fun isCleanupPhraseParsable(str: String): Boolean {
     if (str.isBlank()) return false
     return try {
-      CodeExtractor(listOf("code"), listOf("foo"), listOf(str)).cleanup("bar")
+      CodeExtractor(listOf("code"), listOf("foo"), listOf(str, "a_b_c_d_e")).cleanup("bar")
       return true
     } catch (e: Throwable) {
       false
