@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">Intenta utilitzar l\'acció \"marca com llegit\" a la notificació quan sigui possible.</string>
     <string name="show_copy_confirmation">Mostra la confirmació de còpia</string>
     <string name="show_toast_help">Mostra el codi detectat dins d\'un Toast.</string>
+    <string name="cleanup_phrases">Frases de neteja</string>
+    <string name="copy_cleanup_regex">Copia regex de neteja</string>
+    <string name="new_cleanup_phrase">Nova frase de neteja</string>
+    <string name="cleanup_phrases_desc">Les frases definides aquí s\'eliminaran dels missatges abans d\'aplicar la lògica de detecció. Pots utilitzar això per solucionar problemes amb codis detectats incorrectament.</string>
 </resources>
