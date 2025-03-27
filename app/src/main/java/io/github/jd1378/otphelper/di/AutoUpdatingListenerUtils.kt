@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.compose.runtime.Stable
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractor
+import java.util.concurrent.CountDownLatch
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.concurrent.CountDownLatch
-import javax.inject.Inject
-import javax.inject.Singleton
 
 @Singleton
 @Stable
@@ -40,7 +40,8 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   init {
     scope.launch {
       userSettingsRepository.userSettings.collect {
-        codeExtractor = CodeExtractor(it.sensitivePhrasesList, it.ignoredPhrasesList)
+        codeExtractor =
+            CodeExtractor(it.sensitivePhrasesList, it.ignoredPhrasesList, it.cleanupPhrasesList)
         isAutoDismissEnabled = it.isAutoDismissEnabled
         isAutoMarkAsReadEnabled = it.isAutoMarkAsReadEnabled
         latch.countDown() // Release the latch
