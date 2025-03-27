@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">若可能，嘗試在通知上使用「標為已讀」的動作。</string>
     <string name="show_copy_confirmation">顯示複製確認</string>
     <string name="show_toast_help">在彈出提示中顯示偵測到的代碼。</string>
+    <string name="cleanup_phrases">清理字詞</string>
+    <string name="copy_cleanup_regex">複製清理正規表示式</string>
+    <string name="new_cleanup_phrase">新增清理字詞</string>
+    <string name="cleanup_phrases_desc">此處定義的字詞將在應用檢測邏輯之前從訊息中移除。您可以使用此功能來修正錯誤檢測的代碼問題。</string>
 </resources>
