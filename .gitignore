@@ -10,6 +10,7 @@
 /.idea/deploymentTargetDropDown.xml
 /.idea/deploymentTargetSelector.xml
 /.idea/other.xml
+/.kotlin
 .DS_Store
 /build
 /captures

@@ -52,6 +52,10 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
     TODO("Not yet implemented")
   }
 
+  override suspend fun setCleanupPhrases(list: List<String>) {
+    TODO("Not yet implemented")
+  }
+
   override suspend fun setVersion(version: Int) {
     TODO("Not yet implemented")
   }
@@ -65,6 +69,10 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   }
 
   override suspend fun setIsShowToastEnabled(value: Boolean) {
+    TODO("Not yet implemented")
+  }
+
+  override suspend fun setIsCleanupPhrasesMigrated(value: Boolean) {
     TODO("Not yet implemented")
   }
 }

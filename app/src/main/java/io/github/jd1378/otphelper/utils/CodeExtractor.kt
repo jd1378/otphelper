@@ -89,14 +89,22 @@ object CodeExtractorDefaults {
           "decode",
       )
 
-  val simpleDomainRegex =
-      "[a-zA-Z0-9][a-zA-Z0-9-]{0,61}\\.[a-zA-Z]{2,}(?:[.a-zA-Z]{0,3}(?=\\s+)|)".toRegex()
+  val cleanupPhrases =
+      persistentListOf(
+          "[a-zA-Z0-9][a-zA-Z0-9-]{0,61}\\.[a-zA-Z]{2,}(?:[.a-zA-Z]{0,3}(?=\\s+)|)", // simpleDomainRegex
+          "['\"]",
+          "Endziffer-\\d+",
+          "Ending \\d+",
+          "<#>",
+          "share OTP",
+      )
 }
 
 class CodeExtractor // this comment is to separate parts
 (
     private val sensitivePhrases: List<String> = CodeExtractorDefaults.sensitivePhrases,
     private val ignoredPhrases: List<String> = CodeExtractorDefaults.ignoredPhrases,
+    private val cleanupPhrases: List<String> = CodeExtractorDefaults.cleanupPhrases,
 ) {
 
   val generalCodeMatcher: Regex =
@@ -121,7 +129,15 @@ class CodeExtractor // this comment is to separate parts
 
   fun getCode(str: String): String? {
     if (sensitivePhrases.isEmpty()) return null
-    val cleanStr = str.replace(CodeExtractorDefaults.simpleDomainRegex, "")
+    val cleanStr =
+        str.replace(
+            """(${cleanupPhrases.joinToString("|")})"""
+                .toRegex(
+                    setOf(
+                        RegexOption.IGNORE_CASE,
+                        RegexOption.MULTILINE,
+                    )),
+            "")
     val results = generalCodeMatcher.findAll(cleanStr).filter { it.groups[3]?.value != null }
     if (results.count() > 0) {
       // generalCodeMatcher also detects if the text contains "code" keyword

@@ -717,4 +717,35 @@ Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTA
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun frenchCode() {
+    val msg =
+        """[LINE1]
+[LINE2]
+[LINE3]
+[LINE4]
+Code d'authentification : AAAA1A"""
+
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("AAAA1A", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun germanGooglePayCode() {
+    val msg =
+        """222222 ist der Google Pay Aktivierungscode für deine Trade Republic Karte Endziffer-0000. Dieser Code verliert seine Gültigkeit nach 5 Minuten. Wir werden Sie niemals bitten, diesen Code zu teilen."""
+
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("222222", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun bankFundTransferCode() {
+    val msg =
+        """<#>123456 is OTP for your fund transfer to JANE DOE A/c no ending 5678, valid for 5 mins. Never share OTP. Team Abc Bank 858BTD4Un5"""
+
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }

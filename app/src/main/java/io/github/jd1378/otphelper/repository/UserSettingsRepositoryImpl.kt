@@ -4,12 +4,12 @@ import android.util.Log
 import androidx.compose.runtime.Stable
 import androidx.datastore.core.DataStore
 import io.github.jd1378.otphelper.UserSettings
-import java.io.IOException
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
+import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 @Stable
@@ -94,6 +94,12 @@ constructor(
     }
   }
 
+  override suspend fun setCleanupPhrases(list: List<String>) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().clearCleanupPhrases().addAllCleanupPhrases(list).build()
+    }
+  }
+
   override suspend fun setVersion(version: Int) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().setVersion(version).build()
@@ -115,6 +121,12 @@ constructor(
   override suspend fun setIsShowToastEnabled(value: Boolean) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().setIsShowToastEnabled(value).build()
+    }
+  }
+
+  override suspend fun setIsCleanupPhrasesMigrated(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsCleanupPhrasesMigrated(value).build()
     }
   }
 }

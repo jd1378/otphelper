@@ -8,13 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.jd1378.otphelper.MyWorkManager.doCleanupPhrasesMigration
 import io.github.jd1378.otphelper.MyWorkManager.doDataMigration
 import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.ActivityHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 const val INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS =
     "INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS"
@@ -49,6 +50,9 @@ class MainActivity : AppCompatActivity() {
       if (!settings.isMigrationDone) {
         doDataMigration(applicationContext)
         enableHistoryCleanup(applicationContext)
+      }
+      if (!settings.isCleanupPhrasesMigrated) {
+        doCleanupPhrasesMigration(applicationContext)
       }
     }
 

@@ -31,6 +31,8 @@ interface UserSettingsRepository {
 
   suspend fun setIgnoredPhrases(list: List<String>)
 
+  suspend fun setCleanupPhrases(list: List<String>)
+
   suspend fun setVersion(version: Int)
 
   suspend fun setIsAutoDismissEnabled(value: Boolean)
@@ -38,4 +40,6 @@ interface UserSettingsRepository {
   suspend fun setIsAutoMarkAsReadEnabled(value: Boolean)
 
   suspend fun setIsShowToastEnabled(value: Boolean)
+
+  suspend fun setIsCleanupPhrasesMigrated(value: Boolean)
 }
