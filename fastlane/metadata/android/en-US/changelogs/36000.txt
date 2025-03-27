@@ -1,3 +1,4 @@
-- Updated translations and fixed issue with accidentally deleted Bulgarian translations
+- Updated translations
+- Restored Bulgarian translations
 - Added option to setup your own cleanup phrases. This allows you to remove phrases inside a message that causes incorrect detection.
 - Fixed some issues with tag text visibility in History details screen.
