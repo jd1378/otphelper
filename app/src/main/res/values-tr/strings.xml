@@ -106,7 +106,7 @@
     <string name="show_copy_confirmation">Kopya onayını göster</string>
     <string name="show_toast_help">Bir tost içerisinde tespit edilen kodu gösterir.</string>
     <string name="cleanup_phrases">Temizleme İfadeleri</string>
-    <string name="copy_cleanup_regex">Temizleme regex'ini kopyala</string>
+    <string name="copy_cleanup_regex">Temizleme regex\'ini kopyala</string>
     <string name="new_cleanup_phrase">Yeni Temizleme İfadesi</string>
     <string name="cleanup_phrases_desc">Burada tanımlanan ifadeler, algılama mantığını uygulamadan önce mesajlardan kaldırılacaktır. Bu, yanlış algılanan kodlarla ilgili sorunları düzeltmek için kullanılabilir.</string>
 </resources>
