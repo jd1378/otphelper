@@ -234,7 +234,7 @@ fun SensitivePhrases(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
-              Text(phrase)
+              Text(phrase, modifier = Modifier.weight(1f))
               IconButton(onClick = { viewModel.deletePhrase(index) }) {
                 Icon(Icons.Default.Delete, stringResource(R.string.delete))
               }
