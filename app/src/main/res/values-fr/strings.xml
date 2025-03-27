@@ -105,4 +105,8 @@
     <string name="auto_mark_as_read_help">Tenter d\'utiliser l\'action « marquer comme lu » sur la notification lorsque cela est possible.</string>
     <string name="show_copy_confirmation">Afficher la confirmation de copie</string>
     <string name="show_toast_help">Affiche le code détecté dans un toast.</string>
+    <string name="cleanup_phrases">Phrases de nettoyage</string>
+    <string name="copy_cleanup_regex">Copier l'expression régulière de nettoyage</string>
+    <string name="new_cleanup_phrase">Nouvelle phrase de nettoyage</string>
+    <string name="cleanup_phrases_desc">Les phrases définies ici seront supprimées des messages avant d'appliquer la logique de détection. Vous pouvez utiliser cela pour résoudre les problèmes de code détecté incorrectement.</string>
 </resources>
