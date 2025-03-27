@@ -131,9 +131,15 @@ class CodeExtractor // this comment is to separate parts
       """(${cleanupPhrases.joinToString("|")})"""
           .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
-  fun getCode(str: String): String? {
+  // doCleanup is added for convenience in unit testing
+  fun getCode(str: String, doCleanup: Boolean = true): String? {
     if (sensitivePhrases.isEmpty()) return null
-    val cleanStr = cleanup(str)
+    val cleanStr =
+        if (doCleanup) {
+          cleanup(str)
+        } else {
+          str
+        }
     val results = generalCodeMatcher.findAll(cleanStr).filter { it.groups[3]?.value != null }
     if (results.count() > 0) {
       // generalCodeMatcher also detects if the text contains "code" keyword

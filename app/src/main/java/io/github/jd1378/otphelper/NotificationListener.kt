@@ -105,10 +105,10 @@ class NotificationListener : NotificationListenerService() {
           }
         }
       }
-      val notificationText = notifyTexts.toString()
+      val notificationText = codeExtractor.cleanup(notifyTexts.toString())
 
       if (notificationText.isNotEmpty()) {
-        val code = codeExtractor.getCode(notificationText)
+        val code = codeExtractor.getCode(notificationText, false) // to not do it more than once
         if (!code.isNullOrEmpty()) {
           val data =
               workDataOf(
