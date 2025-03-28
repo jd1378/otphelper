@@ -14,8 +14,8 @@ import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.ActivityHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 const val INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS =
     "INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS"
@@ -50,8 +50,7 @@ class MainActivity : AppCompatActivity() {
       if (!settings.isMigrationDone) {
         doDataMigration(applicationContext)
         enableHistoryCleanup(applicationContext)
-      }
-      if (!settings.isCleanupPhrasesMigrated) {
+      } else if (!settings.isCleanupPhrasesMigrated) {
         doCleanupPhrasesMigration(applicationContext)
       }
     }

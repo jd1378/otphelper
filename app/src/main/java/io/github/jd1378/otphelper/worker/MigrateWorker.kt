@@ -82,6 +82,9 @@ constructor(
             .addAllSensitivePhrases(CodeExtractorDefaults.sensitivePhrases)
             .clearIgnoredPhrases()
             .addAllIgnoredPhrases(CodeExtractorDefaults.ignoredPhrases)
+            .clearCleanupPhrases()
+            .addAllCleanupPhrases(CodeExtractorDefaults.cleanupPhrases)
+            .setIsCleanupPhrasesMigrated(true)
             .build())
 
     val isSetupFinished = userSettingsRepository.fetchSettings().isSetupFinished
