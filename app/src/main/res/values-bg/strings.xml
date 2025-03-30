@@ -47,7 +47,7 @@
     <string name="clear_history">Изчисти историята</string>
     <string name="irreversible_action_warning">Не можете да отмените това действие, да продължите?</string>
     <string name="yes">Да</string>
-    <string name="options">Настроики</string>
+    <string name="options">Опции</string>
     <string name="app_label_not_visible_reason">Името на приложението не е налично.</string>
     <string name="sensitive_phrases">Чувствителни фрази</string>
     <string name="reset_to_default">Възстанови по подразбиране</string>
@@ -82,11 +82,11 @@
     <string name="replace_code_in_history_help">Заменя открития код в историята с нули.</string>
     <string name="notification_tag">Етикет</string>
     <string name="show_details">Покажи детайли</string>
-    <string name="show_toast">Покажи тост</string>
+    <string name="show_toast">Покажи тост съобщение</string>
     <string name="show_confirmation_help">Показва \"%1$s\" след копиране на кода.</string>
     <string name="notification">Известие</string>
     <string name="history">История</string>
-    <string name="replace_code_in_history">Заменя кода в историята</string>
+    <string name="replace_code_in_history">Замени кода в историята</string>
     <string name="send_detected_notif_help">Публикува известие, показващо открития код.</string>
     <string name="no">Не</string>
     <string name="n_items">%1$d елемента</string>
