@@ -748,4 +748,12 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun tencentCode() {
+    val msg =
+        """[Tencent Technology] You are performing [QQ 57******2 login verification], verification code 123456. Providing it to others may lead to QQ being stolen. If it is not your own operation, please change your password."""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }
