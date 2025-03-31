@@ -756,4 +756,18 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun tencentChineseCode() {
+    val msg = """【腾讯科技】你正在「修改QQ8******1的密保手机」，验证码123456。提供给他人会导致QQ被盗，若非本人操作，请修改密码。"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun tiktokChineseCode() {
+    val msg = """【抖音】验证码123456，用于手机登录，5分钟内有效。验证码提供给他人可能导致账号被盗，请勿泄露，谨防被骗。"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }
