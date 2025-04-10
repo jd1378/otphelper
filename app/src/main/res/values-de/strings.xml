@@ -68,7 +68,7 @@
     <string name="replace_code_in_history">Code in der Chronik ersetzen</string>
     <string name="replace_code_in_history_help">Ersetzt den gefundenen Code in der Chronik mit Nullen.</string>
     <string name="show_toast">Toast anzeigen</string>
-    <string name="show_confirmation_help">Zeigt \"%1$s\" nach dem Kopieren des Codes.</string>
+    <string name="show_confirmation_help">Zeigt „%1$s“ nach dem Kopieren des Codes an.</string>
     <string name="send_detected_notif_help">Zeigt eine Benachrichtigung mit dem gefundenen Code.</string>
     <string name="auto_copy_help">Kopiert den gefundenen Code automatisch.</string>
     <string name="history_desc">Kürzlich gefundene Codes werden hier angezeigt.</string>
