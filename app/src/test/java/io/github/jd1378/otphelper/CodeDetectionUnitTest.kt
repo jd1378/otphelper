@@ -469,6 +469,18 @@ code: 123456
   }
 
   @Test
+  fun barcodeIgnoreTest() {
+    val msg = "some barcode is 123456"
+    assertEquals(true, CodeExtractor().shouldIgnore(msg))
+  }
+
+  @Test
+  fun codexIgnoreTest() {
+    val msg = "some codex is 123456"
+    assertEquals(true, CodeExtractor().shouldIgnore(msg))
+  }
+
+  @Test
   fun longCodeCaptureTest() {
     val msg = longtext
     assertEquals(false, CodeExtractor().shouldIgnore(msg))

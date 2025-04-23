@@ -1,1 +1,2 @@
 - Updated pattern matching to detect codes that come before sensitive keyword better
+- Added "barcode" and "codex" to default ignored phrases. You need to reset your ignored phrases from settings to have these new keywords, otherwise you can add them manually.

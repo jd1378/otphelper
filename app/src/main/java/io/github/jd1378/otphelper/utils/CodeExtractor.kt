@@ -87,7 +87,8 @@ object CodeExtractorDefaults {
           "fancode",
           "encode",
           "decode",
-      )
+          "\\bbarcode\\b",
+          "\\bcodex\\b")
 
   val cleanupPhrases =
       persistentListOf(
