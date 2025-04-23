@@ -120,7 +120,7 @@ class CodeExtractor // this comment is to separate parts
               ))
 
   val specialCodeMatcher =
-      """([\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(${sensitivePhrases.joinToString("|")})"""
+      """((?:[\d\u0660-\u0669\u06F0-\u06F9]-?){4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(${sensitivePhrases.joinToString("|")})"""
           .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
   val ignoredPhrasesRegex =
@@ -154,7 +154,14 @@ class CodeExtractor // this comment is to separate parts
               ?.replace("-", "")
 
       if (foundCode.isNullOrEmpty()) {
-        foundCode = specialCodeMatcher.find(cleanStr)?.groups?.get(1)?.value?.replace(" ", "")
+        foundCode =
+            specialCodeMatcher
+                .find(cleanStr)
+                ?.groups
+                ?.get(1)
+                ?.value
+                ?.replace(" ", "")
+                ?.replace("-", "")
       }
 
       if (!foundCode.isNullOrEmpty()) {

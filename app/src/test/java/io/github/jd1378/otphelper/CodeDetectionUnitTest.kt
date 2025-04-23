@@ -770,4 +770,11 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun russianYandexCode() {
+    val msg = """123-456 — код для входа в Яндекс"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }
