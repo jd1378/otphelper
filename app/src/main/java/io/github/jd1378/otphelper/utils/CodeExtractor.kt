@@ -187,7 +187,7 @@ class CodeExtractor // this comment is to separate parts
         return CodeExtractorResult(match!!, 1, 3)
       }
       match = specialCodeMatcher.find(str)
-      if (match?.groups?.get(1)?.value?.replace(" ", "")?.isNotBlank() == true) {
+      if (match?.groups?.get(1)?.value?.replace(" ", "")?.replace("-", "")?.isNotBlank() == true) {
         return CodeExtractorResult(match, 2, 1)
       }
     }
