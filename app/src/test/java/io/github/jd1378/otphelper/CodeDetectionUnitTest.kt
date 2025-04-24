@@ -789,4 +789,12 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun hospitalCode1() {
+    val msg =
+        """[Hospital name]: Your verification code is: 123456. This code expires at 2:59 PM EDT."""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
+  }
 }
