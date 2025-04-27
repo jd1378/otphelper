@@ -64,7 +64,7 @@
     <string name="permission_revoked_notification_hint">மீண்டும் அறிவிப்பு அனுமதியை மீண்டும் வழங்கவும். அமைப்புகளைத் திறக்க இந்த செய்தியைத் தட்டவும்.</string>
     <string name="settings">அமைப்புகள்</string>
     <string name="application">பயன்பாடு</string>
-    <string name="notification">அறிவிப்பு</string>
+    <string name="notification">அறிவித்தல்</string>
     <string name="notification_tag">குறிச்சொல்</string>
     <string name="notification_id">ஐடி</string>
     <string name="history">வரலாறு</string>
@@ -104,7 +104,7 @@
     <string name="auto_mark_as_read">படித்தபடி குறி</string>
     <string name="auto_mark_as_read_help">முடிந்தவரை அறிவிப்பில் \"மார்க் என மார்க்\" செயலைப் பயன்படுத்த முயற்சிக்கிறது.</string>
     <string name="show_copy_confirmation">நகலெடுக்கப்பட்டதை உறுதிப்படுத்தவும்</string>
-    <string name="show_toast_help">கண்டறியப்பட்ட குறியீட்டை சிற்றுண்டியில் காட்டு.</string>
+    <string name="show_toast_help">கண்டறியப்பட்ட குறியீட்டைச் சிற்றுண்டியில் காட்டு.</string>
     <string name="cleanup_phrases">சுத்தம் செய்யும் சொற்றொடர்கள்</string>
     <string name="copy_cleanup_regex">சுத்தம் செய்யும் ரீசெக்சை நகலெடுக்கவும்</string>
     <string name="new_cleanup_phrase">புதிய சுத்தம் செய்யும் சொற்றொடர்</string>
