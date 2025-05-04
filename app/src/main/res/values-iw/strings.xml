@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">העתקת קוד SMS</string>
+    <string name="detected_code">קוד שזוהה:</string>
+    <string name="code_detected_channel_name">זוהה קוד</string>
+    <string name="code_detected_channel_description">בכל פעם שיזוהה קוד, תישלח הודעה מערוץ זה</string>
+    <string name="code_copied_to_clipboard">הועתק ללוח!</string>
+    <string name="code_failed_to_access_clipboard">נכשלה גישה ללוח העתקה!</string>
+    <string name="wont_detect_code_from_this_notif">לא יזהה קוד מההודעה הזו שוב</string>
+    <string name="wont_detect_code_from_this_app">לא יזהה קוד מהאפליקציה הזו שוב</string>
+    <string name="ignored_list">רשימת התעלמות</string>
+    <string name="open_notification_permission">פתח הגדרות התראות</string>
+    <string name="send_test_notification">שלח התראת דוגמא</string>
+    <string name="auto_copy">העתקה אוטומטית</string>
+    <string name="delete">מחק</string>
+    <string name="HOME_ROUTE">בית</string>
+    <string name="IGNORED_LIST_ROUTE">רשימת התעלמות</string>
+    <string name="list_is_empty">הרשימה ריקה</string>
+    <string name="ignored_list_description">הודעות שהוזכרו יוצגו כאן לאחר שתלחצו על כפתור ההתעלמות.</string>
+    <string name="ignore">התעלמות</string>
+    <string name="PERMISSION_ROUTE">הרשאות</string>
+    <string name="open">פתח</string>
+    <string name="permission_todo_post_notifications">1. שליחת התראות</string>
+    <string name="permission_todo_read_notifications">2. קריאת התראות</string>
+    <string name="grant">הענק</string>
+    <string name="permission_todo_remain_open">3. השאר דלוק</string>
+    <string name="permission_todo_autostart">4. אפשר הפעלה אוטומטית</string>
+    <string name="copy_to_clipboard">העתק ללוח</string>
+    <string name="label_back">חזור</string>
+    <string name="perm_extra_desc">במכשירים מסוימים, כמו שיאומי, וואווי וכו\', כדי לאפשר לאפליקציה להפעיל את עצמה לאחר הפעלה מחדש של הטלפון, עליך להעניק הרשאה ידנית להפעלה אוטומטית. איננו יכולים לזהות אם עשית זאת או לא.</string>
+    <string name="copy">העתק</string>
+    <string name="copied">הועתק</string>
+    <string name="permissions_desc">כדי לוודא שהאפליקציה תוכל לזהות קודים מהתראות בצורה טובה כל הזמן, עליך להעניק את ההרשאות הבאות:</string>
+</resources>
