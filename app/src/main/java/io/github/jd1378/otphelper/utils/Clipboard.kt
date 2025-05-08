@@ -42,20 +42,20 @@ class Clipboard {
         code: String,
         showConfirmation: Boolean = true,
     ): Boolean {
-      val copied = copyToClipboard(context, code, true)
-
-      if (showConfirmation) {
-        val toastText: Int =
-            if (copied) {
-              R.string.code_copied_to_clipboard
-            } else {
-              R.string.code_failed_to_access_clipboard
-            }
-        Handler(Looper.getMainLooper()).post {
-          Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show()
+      return Handler(Looper.getMainLooper()).post {
+        val copied = copyToClipboard(context, code, true)
+        if (showConfirmation) {
+          val toastText: Int =
+              if (copied) {
+                R.string.code_copied_to_clipboard
+              } else {
+                R.string.code_failed_to_access_clipboard
+              }
+          Handler(Looper.getMainLooper()).post {
+            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show()
+          }
         }
       }
-      return copied
     }
   }
 }
