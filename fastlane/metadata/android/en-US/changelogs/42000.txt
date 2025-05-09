@@ -1,0 +1,1 @@
+- Fixes a rare crash where a notification text is too large

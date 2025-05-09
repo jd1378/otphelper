@@ -10,6 +10,7 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import androidx.core.app.NotificationManagerCompat
+import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
@@ -110,14 +111,20 @@ class NotificationListener : NotificationListenerService() {
       if (notificationText.isNotEmpty()) {
         val code = codeExtractor.getCode(notificationText, false) // to not do it more than once
         if (!code.isNullOrEmpty()) {
-          val data =
-              workDataOf(
-                  "packageName" to sbn.packageName,
-                  "notificationId" to sbn.id.toString(),
-                  "notificationTag" to sbn.tag,
-                  "text" to notificationText,
-                  "code" to code,
-              )
+          val data: Data
+          try {
+            data =
+                workDataOf(
+                    "packageName" to sbn.packageName,
+                    "notificationId" to sbn.id.toString(),
+                    "notificationTag" to sbn.tag,
+                    "text" to notificationText,
+                    "code" to code,
+                )
+          } catch (e: Throwable) {
+            Log.e(TAG, "Notification too large to check, skipping it...")
+            return
+          }
           val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
           WorkManager.getInstance(applicationContext).enqueue(work)
 
