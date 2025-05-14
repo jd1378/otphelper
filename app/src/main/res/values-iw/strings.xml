@@ -31,4 +31,10 @@
     <string name="copy">העתק</string>
     <string name="copied">הועתק</string>
     <string name="permissions_desc">כדי לוודא שהאפליקציה תוכל לזהות קודים מהתראות בצורה טובה כל הזמן, עליך להעניק את ההרשאות הבאות:</string>
+    <string name="notice">לידיעתך</string>
+    <string name="send_detected_notif">פרסום התראה</string>
+    <string name="skip">דילוג</string>
+    <string name="finish">סיום</string>
+    <string name="okay">בסדר</string>
+    <string name="skip_warning">כדי להבטיח שהאפליקציה תוכל לפעול כראוי, עליך לספק את ההרשאות הללו. ניתן לפתוח מסך זה שוב באמצעות כפתור \"הרשאות\" במסך הראשי.</string>
 </resources>
