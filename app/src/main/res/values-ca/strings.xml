@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">Copia regex de neteja</string>
     <string name="new_cleanup_phrase">Nova frase de neteja</string>
     <string name="cleanup_phrases_desc">Les frases definides aquí s\'eliminaran dels missatges abans d\'aplicar la lògica de detecció. Pots utilitzar això per solucionar problemes amb codis detectats incorrectament.</string>
+    <string name="label_privacy_policy">Política de privacitat</string>
 </resources>

@@ -67,6 +67,7 @@
   <string name="label_version">Version:</string>
   <string name="label_license">License:</string>
   <string name="label_source_code_link">Source Code:</string>
+  <string name="label_privacy_policy">Privacy Policy</string>
   <string name="ignore_id">Ignore ID</string>
   <string name="allow_id">Allow ID</string>
   <string name="ignore_tag">Ignore Tag</string>

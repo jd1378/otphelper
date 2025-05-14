@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">複製清理正規表示式</string>
     <string name="new_cleanup_phrase">新增清理字詞</string>
     <string name="cleanup_phrases_desc">此處定義的字詞將在應用檢測邏輯之前從訊息中移除。您可以使用此功能來修正錯誤檢測的代碼問題。</string>
+    <string name="label_privacy_policy">隱私權政策</string>
 </resources>

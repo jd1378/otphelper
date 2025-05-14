@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">کپی regex پاکسازی</string>
     <string name="new_cleanup_phrase">عبارت پاکسازی جدید</string>
     <string name="cleanup_phrases_desc">عباراتی که اینجا تعریف می‌شوند، قبل از اعمال منطق شناسایی از پیام‌ها حذف خواهند شد. می‌توانید از این برای رفع مشکل اشتباه شناسایی شدن کدها استفاده کنید.</string>
+    <string name="label_privacy_policy">سیاست حفظ حریم خصوصی</string>
 </resources>

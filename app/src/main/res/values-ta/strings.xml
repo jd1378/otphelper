@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">சுத்தம் செய்யும் ரீசெக்சை நகலெடுக்கவும்</string>
     <string name="new_cleanup_phrase">புதிய சுத்தம் செய்யும் சொற்றொடர்</string>
     <string name="cleanup_phrases_desc">இங்கே வரையறுக்கப்பட்ட சொற்றொடர்கள் கண்டறிதல் தர்க்கத்தைப் பயன்படுத்துவதற்கு முன் செய்திகளில் இருந்து நீக்கப்படும். தவறாக கண்டறியப்பட்ட குறியீடுகளுடன் உள்ள பிரச்சினைகளை சரிசெய்ய இதைப் பயன்படுத்தலாம்.</string>
+    <string name="label_privacy_policy">தனியுரிமைக் கொள்கை</string>
 </resources>

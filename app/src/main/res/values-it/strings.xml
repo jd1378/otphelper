@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">Copia regex di pulizia</string>
     <string name="new_cleanup_phrase">Nuova frase di pulizia</string>
     <string name="cleanup_phrases_desc">Le frasi definite qui verranno rimosse dai messaggi prima di applicare la logica di rilevamento. Puoi usarlo per risolvere problemi con codici rilevati in modo errato.</string>
+    <string name="label_privacy_policy">Informativa sulla privacy</string>
 </resources>

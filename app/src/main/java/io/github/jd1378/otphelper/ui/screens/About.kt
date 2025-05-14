@@ -83,28 +83,44 @@ fun About(upPress: () -> Unit) {
                   Text(stringResource(R.string.license_type), fontSize = 20.sp)
                 }
 
+            val uriHandler = LocalUriHandler.current
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center) {
-                  Text(text = stringResource(R.string.label_source_code_link), style = labelStyle)
+                verticalArrangement = Arrangement.Center,
+            ) {
+              Text(text = stringResource(R.string.label_source_code_link), style = labelStyle)
 
-                  val uriHandler = LocalUriHandler.current
-
-                  Row(verticalAlignment = Alignment.CenterVertically) {
-                    LinkText(
-                        linkTextData =
-                            persistentListOf(
-                                LinkTextData(
-                                    text = stringResource(R.string.github),
-                                    tag = "github_homepage",
-                                    annotation = "https://github.com/jd1378/otphelper",
-                                    onClick = { uriHandler.openUri(it.item) },
-                                ),
+              Row(verticalAlignment = Alignment.CenterVertically) {
+                LinkText(
+                    linkTextData =
+                        persistentListOf(
+                            LinkTextData(
+                                text = stringResource(R.string.github),
+                                tag = "github_homepage",
+                                annotation = "https://github.com/jd1378/otphelper",
+                                onClick = { uriHandler.openUri(it.item) },
                             ),
-                        fontSize = 21.sp,
-                    )
-                  }
-                }
+                        ),
+                    fontSize = 21.sp,
+                )
+              }
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+              LinkText(
+                  linkTextData =
+                      persistentListOf(
+                          LinkTextData(
+                              text = stringResource(R.string.label_privacy_policy),
+                              tag = "label_privacy_policy",
+                              annotation = "https://jd1378.github.io/otphelper/privacy-policy",
+                              onClick = { uriHandler.openUri(it.item) },
+                          ),
+                      ),
+                  fontSize = 21.sp,
+              )
+            }
           }
         }
       }

@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">Копировать рег.выражение очистки</string>
     <string name="new_cleanup_phrase">Новая фраза очистки</string>
     <string name="cleanup_phrases_desc">Указанные здесь фразы будут удалены из текста сообщения перед поиском кода. Функцию можно использовать для исправления проблем с поиском.</string>
+    <string name="label_privacy_policy">Политика конфиденциальности</string>
 </resources>

@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">Копирай регулярен израз за почистване</string>
     <string name="new_cleanup_phrase">Нова фраза за почистване</string>
     <string name="cleanup_phrases_desc">Фразите, дефинирани тук, ще бъдат премахнати от съобщенията, преди да се приложи логиката за откриване. Можете да използвате това, за да коригирате проблеми с неправилно открит код.</string>
+    <string name="label_privacy_policy">Политика за поверителност</string>
 </resources>

@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">পরিষ্কারের regex অনুলিপি</string>
     <string name="new_cleanup_phrase">নতুন পরিষ্কারের বাক্যাংশ</string>
     <string name="cleanup_phrases_desc">এখানে সংজ্ঞায়িত বাক্যাংশগুলি সনাক্তকরণ লজিক প্রয়োগ করার আগে বার্তাগুলি থেকে সরানো হবে। ভুলভাবে সনাক্ত করা কোডের সমস্যাগুলি সমাধান করতে এটি ব্যবহার করতে পারেন।</string>
+    <string name="label_privacy_policy">গোপনীয়তা নীতি</string>
 </resources>

@@ -109,4 +109,5 @@
     <string name="copy_cleanup_regex">정리 정규표현식 복사</string>
     <string name="new_cleanup_phrase">새 정리 구문</string>
     <string name="cleanup_phrases_desc">여기에 정의된 구문은 감지 로직을 적용하기 전에 메시지에서 제거됩니다. 잘못 감지된 코드를 수정하는 데 사용할 수 있습니다.</string>
+    <string name="label_privacy_policy">개인정보 처리방침</string>
 </resources>
