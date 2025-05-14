@@ -1,1 +1,1 @@
-- Added privacy policy link in about page to fix google play submission
+- Added privacy policy link in about page to fix google play issue
