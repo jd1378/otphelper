@@ -797,4 +797,12 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun chinaMobileCode() {
+    val msg =
+        """验证密码】您的短信验证码为1234，切勿将验证码泄露于他人，1分钟内有效！尊敬的客户，您好！您正在中国移动线上渠道上办理永辉超市15元满减券，产品资费为15元/次(订购生效时间以订购成功短信为准)，若非本人操作，请勿泄露，任何索取行为均可能涉嫌诈骗。【中国移动】"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("1234", CodeExtractor().getCode(msg))
+  }
 }
