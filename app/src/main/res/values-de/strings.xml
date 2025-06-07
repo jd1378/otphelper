@@ -7,7 +7,7 @@
     <string name="code_copied_to_clipboard">In Zwischenablage kopiert!</string>
     <string name="code_failed_to_access_clipboard">Zugriff zur Zwischenablage fehlgeschlagen!</string>
     <string name="copy_to_clipboard">In Zwischenablage kopieren</string>
-    <string name="wont_detect_code_from_this_notif">Von dieser Benachrichtigung werden keine Codes mehr detektiert.</string>
+    <string name="wont_detect_code_from_this_notif">Von dieser Benachrichtigung werden keine Codes mehr detektiert</string>
     <string name="copied">Kopiert</string>
     <string name="ignored_list">Ignoriert Liste</string>
     <string name="open_notification_permission">Benachrichtigungseinstellungen öffnen</string>

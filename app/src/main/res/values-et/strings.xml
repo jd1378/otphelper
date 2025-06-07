@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kopeeri kood SMS-ist</string>
+    <string name="detected_code">Tuvastatud kood:</string>
+    <string name="code_detected_channel_name">Kood on tuvastatud</string>
+    <string name="code_detected_channel_description">sellest kanalist saadetakse teavitus alati, kui kood on tuvastatud</string>
+    <string name="code_copied_to_clipboard">Kopeeritud lõikelauale!</string>
+    <string name="code_failed_to_access_clipboard">Puudub ligipääs lõikelauale!</string>
+    <string name="language">Keel</string>
+    <string name="system_default">Süteemi keel</string>
+    <string name="search_language">Otsi keelt</string>
+    <string name="copy_to_clipboard">Kopeeri lõikelauale</string>
+    <string name="no_result">Tulemusi pole</string>
+</resources>
