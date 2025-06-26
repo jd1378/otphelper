@@ -805,4 +805,18 @@ Code d'authentification : AAAA1A"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("1234", CodeExtractor().getCode(msg))
   }
+
+  @Test
+  fun teamViewerEnglish() {
+    val msg = """TeamViewer verification code: QGFDAE"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("QGFDAE", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun teamViewerChinese() {
+    val msg = """TeamViewer 验证码: QGFDAE"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("QGFDAE", CodeExtractor().getCode(msg))
+  }
 }
