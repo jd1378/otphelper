@@ -19,4 +19,10 @@ message UserSettings {
   bool is_show_toast_enabled = 13;
   repeated string cleanup_phrases = 14;
   bool is_cleanup_phrases_migrated = 15;
+  ModeOfOperation mode_of_operation = 16;
+}
+
+enum ModeOfOperation {
+  Notification = 0;
+  SMS = 1;
 }

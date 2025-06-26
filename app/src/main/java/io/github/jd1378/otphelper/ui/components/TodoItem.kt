@@ -22,6 +22,7 @@ import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 @Composable
 fun TodoItem(
     text: String,
+    modifier: Modifier = Modifier,
     checked: Boolean = false,
     actionText: String = stringResource(R.string.open),
     intermediate: Boolean = false,
@@ -37,7 +38,7 @@ fun TodoItem(
         onClick = {},
         enabled = !intermediate,
     )
-    Text(text, fontSize = 18.sp, modifier = Modifier.weight(1f).padding(end = 5.dp))
+    Text(text, fontSize = 18.sp, modifier = Modifier.weight(1f).padding(end = 5.dp).then(modifier))
     if (checked) {
       OutlinedButton(onClick = onActionPressed, enabled = enabled) { Text(actionText) }
     } else {

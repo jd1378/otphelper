@@ -24,12 +24,12 @@
     <string name="PERMISSION_ROUTE">Разрешения</string>
     <string name="permissions_desc">Чтобы приложение всегда могло правильно определять коды из уведомлений, необходимо предоставить следующие разрешения:</string>
     <string name="open">Открыть</string>
-    <string name="permission_todo_post_notifications">1. Показывать уведомления</string>
-    <string name="permission_todo_read_notifications">2. Читать уведомления</string>
+    <string name="permission_todo_post_notifications">Показывать уведомления</string>
+    <string name="permission_todo_read_notifications">Читать уведомления</string>
     <string name="grant">Предоставить</string>
-    <string name="permission_todo_remain_open">3. Оставаться открытым</string>
+    <string name="permission_todo_remain_open">Оставаться открытым</string>
     <string name="perm_extra_desc">На некоторых устройствах вроде Xiaomi, Huawei и т.д., чтобы приложение запускалось при перезагрузке телефона, необходимо вручную предоставить разрешение на автозапуск. Из приложения невозможно определить, предоставлено ли это разрешение.</string>
-    <string name="permission_todo_autostart">4. Разрешить автозапуск</string>
+    <string name="permission_todo_autostart">Разрешить автозапуск</string>
     <string name="send_detected_notif">Показывать уведомление</string>
     <string name="skip">Пропустить</string>
     <string name="finish">Завершить</string>
@@ -40,7 +40,7 @@
     <string name="test_notification_title">Это пробное уведомление</string>
     <string name="permission_todo_allow_restricted_settings">Разрешить ограниченные настройки</string>
     <string name="failed_to_open_app_settings">Не удалось открыть настройки</string>
-    <string name="perm_restricted_desc">Если вы не можете разрешить чтение уведомлений на 2 этапе, то попробуйте включить «Разрешить ограниченные настройки» в настройках приложения.</string>
+    <string name="perm_restricted_desc">Если вы не можете разрешить чтение уведомлений, то попробуйте включить «Разрешить ограниченные настройки» в настройках приложения.</string>
     <string name="language">Язык</string>
     <string name="system_default">Системный</string>
     <string name="search_language">Найти язык</string>

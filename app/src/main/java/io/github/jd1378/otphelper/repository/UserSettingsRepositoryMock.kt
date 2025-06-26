@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.repository
 
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.UserSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -73,6 +74,10 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   }
 
   override suspend fun setIsCleanupPhrasesMigrated(value: Boolean) {
+    TODO("Not yet implemented")
+  }
+
+  override suspend fun setModeOfOperation(value: ModeOfOperation) {
     TODO("Not yet implemented")
   }
 }

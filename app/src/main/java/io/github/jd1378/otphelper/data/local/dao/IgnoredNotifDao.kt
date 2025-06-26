@@ -22,6 +22,9 @@ abstract class IgnoredNotifDao : BaseDao<IgnoredNotif> {
   @Query("SELECT * FROM IgnoredNotif WHERE packageName = :packageName")
   abstract suspend fun ignoredNotifByPackageName(packageName: String): List<IgnoredNotif>
 
+  @Query("SELECT * FROM IgnoredNotif WHERE type = 'SMS_ORIGIN' AND typeData = :smsOrigin")
+  abstract suspend fun ignoredNotifBySmsOrigin(smsOrigin: String): List<IgnoredNotif>
+
   @Query("SELECT * FROM IgnoredNotif WHERE packageName = :packageName ORDER BY type ASC")
   abstract fun ignoredNotifByPackageNamePagingSource(
       packageName: String

@@ -30,7 +30,7 @@ import java.util.Date
 
 class NotificationHelper {
   companion object {
-    private fun hasNotifPermission(context: Context): Boolean {
+    fun hasNotifPermission(context: Context): Boolean {
       return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
             PackageManager.PERMISSION_GRANTED
@@ -39,7 +39,7 @@ class NotificationHelper {
       }
     }
 
-    private fun createPermissionRevokedChannel(context: Context): String {
+    fun createPermissionRevokedChannel(context: Context): String {
       val channelId = context.getString(R.string.permission_revoked_channel_id)
       // Create the NotificationChannel only on API 26+
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -75,22 +75,24 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission", "LaunchActivityFromNotification")
     fun sendDetectedNotif(
-      context: Context,
-      extras: Bundle,
-      code: String,
-      copied: Boolean = false,
+        context: Context,
+        extras: Bundle,
+        code: String,
+        copied: Boolean = false,
     ) {
       if (!hasNotifPermission(context)) return
 
       val notificationRV = RemoteViews(context.packageName, R.layout.code_notification_countdown)
       notificationRV.setTextViewText(
-          R.id.code_detected_label, context.getString(R.string.detected_code),
+          R.id.code_detected_label,
+          context.getString(R.string.detected_code),
       )
       notificationRV.setTextViewText(R.id.detected_code, code)
 
       if (copied) {
         notificationRV.setImageViewIcon(
-            R.id.action_image, Icon.createWithResource(context, R.drawable.baseline_check_24),
+            R.id.action_image,
+            Icon.createWithResource(context, R.drawable.baseline_check_24),
         )
         notificationRV.setViewVisibility(R.id.copied_textview, View.VISIBLE)
         notificationRV.setViewVisibility(R.id.copy_textview, View.GONE)
@@ -116,19 +118,6 @@ class NotificationHelper {
               Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_NOTIFICATION_APP).apply {
                 setPackage(context.packageName)
                 putExtra("cancel_notif_id", R.id.code_detected_notify_id)
-              },
-              0,
-              false,
-          )
-
-      val seeOptionsPendingIntent =
-          PendingIntentCompat.getBroadcast(
-              context,
-              0,
-              Intent(NotifActionReceiver.INTENT_ACTION_SHOW_DETAILS).apply {
-                setPackage(context.packageName)
-                putExtra("cancel_notif_id", R.id.code_detected_notify_id)
-                putExtra("historyId", extras.getLong("historyId", 0L))
               },
               0,
               false,
@@ -161,9 +150,12 @@ class NotificationHelper {
 
       val historyId = extras.getLong("historyId", 0L)
       if (historyId > 0L) {
-        val openHistoryPendingIntent = getDeepLinkPendingIntent(
-            context, MainDestinations.HISTORY_DETAIL_ROUTE, historyId.toString(),
-        )
+        val openHistoryPendingIntent =
+            getDeepLinkPendingIntent(
+                context,
+                MainDestinations.HISTORY_DETAIL_ROUTE,
+                historyId.toString(),
+            )
         notificationBuilder.addAction(
             R.drawable.baseline_visibility_off_24,
             context.getString(R.string.show_details),
@@ -227,7 +219,7 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission")
     fun sendPermissionRevokedNotif(
-      context: Context,
+        context: Context,
     ) {
       if (!hasNotifPermission(context)) return
 
@@ -268,7 +260,7 @@ class NotificationHelper {
 
     fun sendTestNotif(context: Context) {
       if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-        PackageManager.PERMISSION_GRANTED) {
+          PackageManager.PERMISSION_GRANTED) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
           val name = context.getString(R.string.code_detected_channel_name)
@@ -297,6 +289,36 @@ class NotificationHelper {
 
         NotificationManagerCompat.from(context).notify(tag, 10, notification)
       }
+    }
+
+    @SuppressLint("MissingPermission")
+    fun sendSmsPermissionRevokedNotif(
+        context: Context,
+    ) {
+      if (!hasNotifPermission(context)) return
+
+      val channelId = createPermissionRevokedChannel(context)
+
+      val openPermissionsPendingIntent =
+          getDeepLinkPendingIntent(
+              context,
+              MainDestinations.PERMISSIONS_ROUTE,
+          )
+
+      val notificationBuilder =
+          NotificationCompat.Builder(context, channelId)
+              .setSmallIcon(R.drawable.ic_launcher_foreground)
+              .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+              .setContentTitle(context.getString(R.string.permission_revoked))
+              .setContentText(context.getString(R.string.permission_revoked_sms_notification_hint))
+              .setContentIntent(openPermissionsPendingIntent)
+              .setCategory(Notification.CATEGORY_ERROR)
+              .setSortKey("0")
+              .setVibrate(null)
+              .setAutoCancel(true)
+
+      NotificationManagerCompat.from(context)
+          .notify(R.id.permission_revoked_notify_id, notificationBuilder.build())
     }
   }
 }

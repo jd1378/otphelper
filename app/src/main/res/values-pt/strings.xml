@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="permission_todo_allow_restricted_settings">Permitir configurações restritas</string>
-    <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações no etapa 2, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
+    <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações, tente habilitar "Permitir configurações restritas" nas configurações do aplicativo</string>
     <string name="app_name">Copiar Código do SMS</string>
     <string name="code_detected_channel_name">Código Detectado</string>
     <string name="code_detected_channel_description">quando um código é detectado, uma notificação vai ser enviada por este canal</string>
@@ -22,10 +22,10 @@
     <string name="PERMISSION_ROUTE">Permissões</string>
     <string name="permissions_desc">Para garantir que o aplicativo possa detectar códigos de notificações corretamente o tempo todo, você deve conceder as seguintes permissões:</string>
     <string name="open">Abrir</string>
-    <string name="permission_todo_post_notifications">1. Postar Notificações</string>
-    <string name="permission_todo_read_notifications">2. Ler Notificações</string>
+    <string name="permission_todo_post_notifications">Postar Notificações</string>
+    <string name="permission_todo_read_notifications">Ler Notificações</string>
     <string name="grant">Conceder</string>
-    <string name="permission_todo_autostart">4. Permitir \'autostart\'</string>
+    <string name="permission_todo_autostart">Permitir \'autostart\'</string>
     <string name="send_detected_notif">Postar Notificação</string>
     <string name="skip">Pular</string>
     <string name="finish">Terminar</string>
@@ -51,7 +51,7 @@
     <string name="copy_to_clipboard">Copiar Para A Área de Transferência</string>
     <string name="wont_detect_code_from_this_app">Não vai mais detectar códigos desse aplicativo de novo</string>
     <string name="list_is_empty">A Lista está vazia</string>
-    <string name="permission_todo_remain_open">3. Permanecer Aberto</string>
+    <string name="permission_todo_remain_open">Permanecer Aberto</string>
     <string name="ignored_list_description">As mensagens ignoradas serão mostradas aqui depois que você clicar no botão ignorar.</string>
     <string name="perm_extra_desc">Em alguns dispositivos, como a Xiaomi, Huawei, etc, para permitir que o aplicativo inicie quando o telefone for reiniciado, você deve manualmente garantir a permissão de \'autostart\'. Não podemos detectar se você tem ou não.</string>
     <string name="permission_revoked_channel_description">Lembra o usuário sobre as permissões necessárias</string>

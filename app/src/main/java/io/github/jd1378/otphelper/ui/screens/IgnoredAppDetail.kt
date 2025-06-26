@@ -43,6 +43,7 @@ import io.github.jd1378.otphelper.ui.components.AppInfoResult
 import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
+import io.github.jd1378.otphelper.ui.components.IgnoreOriginButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.components.shortenAppLabel
@@ -164,17 +165,20 @@ fun IgnoredAppDetailItem(
           Spacer(Modifier.padding(5.dp))
           IgnoreAppButton(true, onDelete)
         }
-        IgnoredNotifType.NOTIFICATION_ID,
-        IgnoredNotifType.NOTIFICATION_TAG -> {
+        else -> {
           Column(Modifier.weight(1f).width(IntrinsicSize.Max)) {
             Text(ignoredNotif.type.getTranslation(), fontWeight = FontWeight.Medium)
             Text(ignoredNotif.typeData)
           }
           Spacer(Modifier.padding(5.dp))
-          if (ignoredNotif.type == IgnoredNotifType.NOTIFICATION_ID) {
-            IgnoreNotifIdButton(true, onDelete)
-          } else {
-            IgnoreNotifTagButton(true, onDelete)
+
+          when (ignoredNotif.type) {
+            IgnoredNotifType.NOTIFICATION_ID -> IgnoreNotifIdButton(true, onDelete)
+            IgnoredNotifType.NOTIFICATION_TAG -> IgnoreNotifTagButton(true, onDelete)
+            IgnoredNotifType.SMS_ORIGIN -> IgnoreOriginButton(true, onDelete)
+            else -> {
+              // already handled "IgnoredNotifType.APPLICATION"
+            }
           }
         }
       }

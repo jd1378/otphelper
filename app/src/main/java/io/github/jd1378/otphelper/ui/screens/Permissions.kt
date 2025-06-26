@@ -22,22 +22,24 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.ui.components.CodeBlock
 import io.github.jd1378.otphelper.ui.components.SkipDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.TodoItem
-import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.ui.components.verticalColumnScrollbar
 
 @Composable
 fun Permissions(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit,
     viewModel: PermissionsViewModel,
     setupMode: Boolean = false
@@ -66,27 +68,15 @@ fun Permissions(
         TitleBar(
             upPress = upPress,
             text = LocalContext.current.getString(R.string.PERMISSION_ROUTE),
-            showBackBtn = !setupMode) {
-              if (setupMode) {
-                Button(
-                    modifier =
-                        Modifier.padding(
-                            start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
-                    onClick = {
-                      onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false)
-                    }) {
-                      Text(text = stringResource(R.string.language))
-                    }
-              }
-            }
+        )
       },
       bottomBar = {
         if (setupMode) {
-          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish(upPress) }
+          SkipDialog(show = uiState.showSkipWarning) { viewModel.onSetupFinish(onNavigateToRoute) }
           Row(Modifier.navigationBarsPadding().padding(10.dp)) {
             Spacer(modifier = Modifier.weight(1f))
             if (uiState.hasDoneAllSteps) {
-              Button(onClick = { viewModel.onSetupFinish(upPress) }) {
+              Button(onClick = { viewModel.onSetupFinish(onNavigateToRoute) }) {
                 Text(text = stringResource(R.string.finish))
               }
             } else {
@@ -98,11 +88,13 @@ fun Permissions(
         }
       },
   ) { padding ->
+    val scrollState = rememberScrollState()
     Column(
         Modifier.padding(padding)
+            .verticalColumnScrollbar(scrollState)
+            .verticalScroll(scrollState)
             .padding(top = 10.dp)
-            .padding(horizontal = dimensionResource(R.dimen.padding_page))
-            .verticalScroll(rememberScrollState()),
+            .padding(horizontal = dimensionResource(R.dimen.padding_page)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_page)),
     ) {
       Text(
@@ -119,16 +111,49 @@ fun Permissions(
               permLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
           }
+
+      if (uiState.modeOfOperation == ModeOfOperation.SMS) {
+        TodoItem(
+            stringResource(R.string.permission_todo_receive_sms),
+            actionText = stringResource(R.string.grant),
+            enabled = !uiState.hasSmsListenerPerm,
+            checked = uiState.hasSmsListenerPerm) {
+              permLauncher.launch(Manifest.permission.RECEIVE_SMS)
+            }
+
+        TodoItem(
+            stringResource(R.string.permission_todo_read_sms),
+            actionText = stringResource(R.string.grant),
+            enabled = !uiState.hasReadSmsPerm,
+            checked = uiState.hasReadSmsPerm) {
+              permLauncher.launch(Manifest.permission.READ_SMS)
+            }
+        Text(
+            stringResource(R.string.read_notifs_sms_mode_desc),
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = 15.sp)
+      }
       TodoItem(
           stringResource(R.string.permission_todo_read_notifications),
           checked = uiState.hasNotifListenerPerm) {
             viewModel.onOpenReadNotificationsPressed(context)
           }
+
       TodoItem(
           stringResource(R.string.permission_todo_remain_open),
           checked = uiState.isIgnoringBatteryOptimizations) {
             viewModel.onOpenBatteryOptimizationsPressed(context)
           }
+
+      if (uiState.modeOfOperation == ModeOfOperation.Notification &&
+          Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+        Text(
+            stringResource(R.string.read_notifs_android_15_desc),
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = 15.sp)
+
+        CodeBlock(stringResource(R.string.sensitive_notifs_adb_command))
+      }
 
       if (uiState.hasAutostartSettings) {
         Text(

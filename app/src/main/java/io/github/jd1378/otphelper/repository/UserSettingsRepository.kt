@@ -1,6 +1,7 @@
 package io.github.jd1378.otphelper.repository
 
 import androidx.compose.runtime.Stable
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.UserSettings
 import kotlinx.coroutines.flow.Flow
 
@@ -42,4 +43,6 @@ interface UserSettingsRepository {
   suspend fun setIsShowToastEnabled(value: Boolean)
 
   suspend fun setIsCleanupPhrasesMigrated(value: Boolean)
+
+  suspend fun setModeOfOperation(value: ModeOfOperation)
 }

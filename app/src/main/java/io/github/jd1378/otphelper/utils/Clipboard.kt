@@ -14,13 +14,13 @@ import io.github.jd1378.otphelper.R
 
 class Clipboard {
   companion object {
-    fun copyToClipboard(context: Context, code: String, isSensitive: Boolean = false): Boolean {
+    fun copyToClipboard(context: Context, text: String, isSensitive: Boolean = false): Boolean {
       val clipboardManager =
           context.getSystemService(Activity.CLIPBOARD_SERVICE) as? ClipboardManager
 
       return if (clipboardManager !== null) {
         clipboardManager.setPrimaryClip(
-            ClipData.newPlainText(code, code).apply {
+            ClipData.newPlainText(text, text).apply {
               description.extras =
                   PersistableBundle().apply {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

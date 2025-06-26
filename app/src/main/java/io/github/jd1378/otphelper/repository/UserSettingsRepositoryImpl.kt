@@ -3,13 +3,14 @@ package io.github.jd1378.otphelper.repository
 import android.util.Log
 import androidx.compose.runtime.Stable
 import androidx.datastore.core.DataStore
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.UserSettings
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.first
 
 @Singleton
 @Stable
@@ -127,6 +128,12 @@ constructor(
   override suspend fun setIsCleanupPhrasesMigrated(value: Boolean) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().setIsCleanupPhrasesMigrated(value).build()
+    }
+  }
+
+  override suspend fun setModeOfOperation(value: ModeOfOperation) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setModeOfOperation(value).build()
     }
   }
 }

@@ -86,6 +86,21 @@ constructor(
               initialValue = false,
           )
 
+  @OptIn(ExperimentalCoroutinesApi::class)
+  val isSmsOriginIgnored =
+      detectedCode
+          .flatMapMerge {
+            it?.let {
+              ignoredNotifsRepository.exists(
+                  it.packageName, IgnoredNotifType.SMS_ORIGIN, it.smsOrigin)
+            } ?: flow { emit(false) }
+          }
+          .stateIn(
+              scope = viewModelScope,
+              started = SharingStarted.WhileSubscribed(5000),
+              initialValue = false,
+          )
+
   fun toggleAppIgnore(detectedCode: DetectedCode) {
     viewModelScope.launch(Dispatchers.IO) {
       if (isAppIgnored.value) {
@@ -122,6 +137,18 @@ constructor(
             detectedCode.packageName,
             IgnoredNotifType.NOTIFICATION_TAG,
             detectedCode.notificationTag)
+      }
+    }
+  }
+
+  fun toggleSmsOriginIgnore(detectedCode: DetectedCode) {
+    viewModelScope.launch(Dispatchers.IO) {
+      if (isSmsOriginIgnored.value) {
+        ignoredNotifsRepository.deleteIgnored(
+            detectedCode.packageName, IgnoredNotifType.SMS_ORIGIN, detectedCode.smsOrigin)
+      } else {
+        ignoredNotifsRepository.setIgnored(
+            detectedCode.packageName, IgnoredNotifType.SMS_ORIGIN, detectedCode.smsOrigin)
       }
     }
   }

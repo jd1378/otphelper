@@ -56,3 +56,11 @@ fun IgnoreNotifTagButton(isIgnored: Boolean, onClick: () -> Unit) {
         onClick()
       }
 }
+
+@Composable
+fun IgnoreOriginButton(isIgnored: Boolean, onClick: () -> Unit) {
+  IgnoreToggleButton(
+      isIgnored, stringResource(R.string.ignore_origin), stringResource(R.string.allow_origin)) {
+        onClick()
+      }
+}

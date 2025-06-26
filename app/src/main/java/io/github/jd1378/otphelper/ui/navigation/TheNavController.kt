@@ -21,6 +21,8 @@ object MainDestinations {
   const val IGNORED_APP_DETAIL_ROUTE = "ignored_app_detail"
   const val PERMISSIONS_ROUTE = "permissions"
   const val PERMISSIONS_SETUP_ROUTE = "permissions?setup={setup}"
+  const val MODE_ROUTE = "mode"
+  const val MODE_SETUP_ROUTE = "mode?setup={setup}"
   const val ABOUT_ROUTE = "about"
   const val SETTINGS_ROUTE = "settings"
   const val HISTORY_ROUTE = "history"
@@ -66,7 +68,7 @@ class TheNavController(
     navController.navigateUp()
   }
 
-  fun navigateToRoute(route: String, popToStart: Boolean = false) {
+  fun navigateToRoute(route: String, popToStart: Boolean = false, save_state: Boolean = true) {
     if (route != currentRoute) {
       navController.navigate(route) {
         launchSingleTop = true
@@ -74,7 +76,7 @@ class TheNavController(
         if (popToStart) {
           // Pop up backstack to the first destination and save state. This makes going back
           // to the start destination when pressing back in any other route
-          popUpTo(findStartDestination(navController.graph).id) { saveState = true }
+          popUpTo(findStartDestination(navController.graph).id) { saveState = save_state }
         }
       }
     }

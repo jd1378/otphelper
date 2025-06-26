@@ -15,6 +15,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_CODE_COPY
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_NOTIFICATION_APP
+import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_SMS_ORIGIN
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_NID
 import io.github.jd1378.otphelper.NotifActionReceiver.Companion.INTENT_ACTION_IGNORE_TAG_NOTIFICATION_TAG
 import io.github.jd1378.otphelper.R
@@ -86,6 +87,12 @@ constructor(
           ignoredType = IgnoredNotifType.NOTIFICATION_ID
           ignoredTypeData = notif.extras.getString("notificationId", "")
           sendToast(context, R.string.wont_detect_code_from_this_notif)
+        }
+
+        INTENT_ACTION_IGNORE_SMS_ORIGIN -> {
+          ignoredType = IgnoredNotifType.SMS_ORIGIN
+          ignoredTypeData = notif.extras.getString("smsOrigin", "")
+          sendToast(context, R.string.wont_detect_code_from_this_origin)
         }
       }
 

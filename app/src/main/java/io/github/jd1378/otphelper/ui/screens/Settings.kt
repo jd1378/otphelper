@@ -44,7 +44,7 @@ import io.github.jd1378.otphelper.ui.utils.getCurrentLocale
 
 @Composable
 fun Settings(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit,
     viewModel: SettingsViewModel,
 ) {
@@ -67,7 +67,7 @@ fun Settings(
       SettingPageLink(
           modifier =
               Modifier.clickable {
-                onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false)
+                onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false, true)
               },
           title = stringResource(R.string.language),
           subtitle = getCurrentLocale().displayLanguage,
@@ -76,7 +76,7 @@ fun Settings(
       SettingPageLink(
           modifier =
               Modifier.clickable {
-                onNavigateToRoute(MainDestinations.SENSITIVE_PHRASES_ROUTE, false)
+                onNavigateToRoute(MainDestinations.SENSITIVE_PHRASES_ROUTE, false, true)
               },
           title = stringResource(R.string.sensitive_phrases),
       )
@@ -84,7 +84,7 @@ fun Settings(
       SettingPageLink(
           modifier =
               Modifier.clickable {
-                onNavigateToRoute(MainDestinations.IGNORED_PHRASES_ROUTE, false)
+                onNavigateToRoute(MainDestinations.IGNORED_PHRASES_ROUTE, false, true)
               },
           title = stringResource(R.string.ignored_phrases),
       )
@@ -92,7 +92,7 @@ fun Settings(
       SettingPageLink(
           modifier =
               Modifier.clickable {
-                onNavigateToRoute(MainDestinations.CLEANUP_PHRASES_ROUTE, false)
+                onNavigateToRoute(MainDestinations.CLEANUP_PHRASES_ROUTE, false, true)
               },
           title = stringResource(R.string.cleanup_phrases),
       )
@@ -264,6 +264,7 @@ fun Settings(
                     vertical = dimensionResource(R.dimen.padding_li_v),
                 ),
         ) {
+          SettingHelp(stringResource(R.string.experimental_features_warning))
           Column(
               verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
                 Row(
@@ -304,7 +305,7 @@ fun Settings(
       Surface(
           color = MaterialTheme.colorScheme.surfaceContainer,
           shape = MaterialTheme.shapes.large,
-          onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false) },
+          onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false, true) },
       ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -336,7 +337,7 @@ fun Settings(
 fun SettingsPreview() {
   OtpHelperTheme {
     Settings(
-        onNavigateToRoute = { _, _ -> {} },
+        onNavigateToRoute = { _, _, _ -> {} },
         upPress = {},
         viewModel = SettingsViewModel(SavedStateHandle(), UserSettingsRepositoryMock()),
     )

@@ -60,7 +60,7 @@ import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 @Composable
 fun History(
     modifier: Modifier = Modifier,
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit,
     viewModel: HistoryViewModel
 ) {
@@ -158,7 +158,9 @@ fun History(
                   DetectedCodeListItem(
                       Modifier.clickable {
                         onNavigateToRoute(
-                            MainDestinations.HISTORY_DETAIL_ROUTE + "/" + detectedCode.id, false)
+                            MainDestinations.HISTORY_DETAIL_ROUTE + "/" + detectedCode.id,
+                            false,
+                            true)
                       },
                       detectedCode)
                 }
@@ -184,7 +186,7 @@ fun DetectedCodeListItem(modifier: Modifier = Modifier, detectedCode: DetectedCo
             modifier = Modifier.size(64.dp).clip(RoundedCornerShape(10.dp)),
         )
       },
-      headlineContent = { Text(appInfo.appLabel) },
+      headlineContent = { Text(detectedCode.smsOrigin.ifBlank { appInfo.appLabel }) },
       supportingContent = {
         Text(
             text =

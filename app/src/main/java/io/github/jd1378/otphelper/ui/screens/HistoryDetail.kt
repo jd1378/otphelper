@@ -39,6 +39,7 @@ import io.github.jd1378.otphelper.ui.components.AppImage
 import io.github.jd1378.otphelper.ui.components.IgnoreAppButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
+import io.github.jd1378.otphelper.ui.components.IgnoreOriginButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.theme.LocalCustomColors
@@ -55,6 +56,7 @@ fun HistoryDetail(
   val isAppIgnored = viewModel.isAppIgnored.collectAsStateWithLifecycle()
   val isNotifIdIgnored = viewModel.isNotifIdIgnored.collectAsStateWithLifecycle()
   val isNotifTagIgnored = viewModel.isNotifTagIgnored.collectAsStateWithLifecycle()
+  val isSmsOriginIgnored = viewModel.isSmsOriginIgnored.collectAsStateWithLifecycle()
   val codeExtractorResult = remember {
     derivedStateOf {
       viewModel.autoUpdatingListenerUtils.codeExtractor?.getCodeMatch(state.value?.text)
@@ -78,11 +80,10 @@ fun HistoryDetail(
         )
       },
   ) { padding ->
-    if (state.value != null) {
-      val detectedCode = state.value!!
+    val detectedCode = state.value
+    if (detectedCode != null) {
       val appInfoResult =
           remember(detectedCode.packageName) { getAppInfo(context, detectedCode.packageName) }
-
       Column(
           Modifier.padding(padding)
               .padding(horizontal = dimensionResource(R.dimen.padding_page))
@@ -90,16 +91,18 @@ fun HistoryDetail(
               .verticalScroll(scrollState),
           verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
       ) {
-        if (appInfoResult.failed) {
-          Text(
-              stringResource(R.string.app_label_not_visible_reason),
-              fontSize = 14.sp,
-              textAlign = TextAlign.Center,
-              modifier =
-                  Modifier.fillMaxWidth()
-                      .padding(vertical = dimensionResource(R.dimen.padding_settings)),
-              color = MaterialTheme.colorScheme.tertiary,
-          )
+        if (detectedCode.smsOrigin.isBlank()) {
+          if (appInfoResult.failed) {
+            Text(
+                stringResource(R.string.app_label_not_visible_reason),
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center,
+                modifier =
+                    Modifier.fillMaxWidth()
+                        .padding(vertical = dimensionResource(R.dimen.padding_settings)),
+                color = MaterialTheme.colorScheme.tertiary,
+            )
+          }
         }
 
         Row(
@@ -114,7 +117,7 @@ fun HistoryDetail(
 
           Column() {
             Text(
-                text = appInfoResult.appLabel,
+                text = detectedCode.smsOrigin.ifBlank { appInfoResult.appLabel },
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
             )
@@ -131,29 +134,54 @@ fun HistoryDetail(
             )
           }
         }
-        Row(
-            horizontalArrangement = Arrangement.End,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-          IgnoreAppButton(isAppIgnored.value) { viewModel.toggleAppIgnore(detectedCode) }
+
+        if (detectedCode.smsOrigin.isBlank()) {
+          Row(
+              horizontalArrangement = Arrangement.End,
+              modifier = Modifier.fillMaxWidth(),
+          ) {
+            IgnoreAppButton(isAppIgnored.value) { viewModel.toggleAppIgnore(detectedCode) }
+          }
+          HorizontalDivider()
         }
 
-        HorizontalDivider()
+        if (detectedCode.smsOrigin.isNotBlank()) {
+          FlowRow(
+              Modifier.fillMaxWidth(),
+              verticalArrangement = Arrangement.Center,
+              horizontalArrangement = Arrangement.End,
+          ) {
+            Text(
+                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                text = stringResource(R.string.sms_origin) + ": " + detectedCode.smsOrigin,
+                fontWeight = FontWeight.Medium,
+                fontSize = 16.sp,
+            )
 
-        FlowRow(
-            Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.Center,
-            horizontalArrangement = Arrangement.End,
-        ) {
-          Text(
-              modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
-              text = stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
-              fontWeight = FontWeight.Medium,
-              fontSize = 16.sp,
-          )
+            IgnoreOriginButton(isSmsOriginIgnored.value) {
+              viewModel.toggleSmsOriginIgnore(detectedCode)
+            }
+          }
+        }
 
-          IgnoreNotifIdButton(isNotifIdIgnored.value) {
-            viewModel.toggleNotifIdIgnore(detectedCode)
+        if (detectedCode.notificationId.isNotBlank()) {
+          HorizontalDivider()
+          FlowRow(
+              Modifier.fillMaxWidth(),
+              verticalArrangement = Arrangement.Center,
+              horizontalArrangement = Arrangement.End,
+          ) {
+            Text(
+                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                text =
+                    stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
+                fontWeight = FontWeight.Medium,
+                fontSize = 16.sp,
+            )
+
+            IgnoreNotifIdButton(isNotifIdIgnored.value) {
+              viewModel.toggleNotifIdIgnore(detectedCode)
+            }
           }
         }
 

@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.data.local.db
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -15,8 +16,8 @@ import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
             IgnoredNotif::class,
             DetectedCode::class,
         ],
-    autoMigrations = [],
-    version = 1,
+    autoMigrations = [AutoMigration(from = 1, to = 2)],
+    version = 2,
     exportSchema = true,
 )
 @TypeConverters(

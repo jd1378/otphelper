@@ -8,9 +8,9 @@ import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotif
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.model.IgnoredNotifsOfPackageName
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.flow.Flow
 
 @Singleton
 @Stable
@@ -59,20 +59,27 @@ constructor(
 
   override suspend fun isIgnored(
       packageName: String,
-      notificationId: String,
-      notificationTag: String?
+      notificationId: String?,
+      notificationTag: String?,
+      smsOrigin: String?,
   ): Boolean {
 
-    val ignoredList = otpHelperDatabase.ignoredNotifDao().ignoredNotifByPackageName(packageName)
-    return null !=
-        ignoredList.firstOrNull() {
-          return when (it.type) {
-            IgnoredNotifType.APPLICATION -> true
-            IgnoredNotifType.NOTIFICATION_ID -> it.typeData == notificationId
-            IgnoredNotifType.NOTIFICATION_TAG ->
-                notificationTag != null && it.typeData == notificationTag
+    if (!smsOrigin.isNullOrBlank()) {
+      return otpHelperDatabase.ignoredNotifDao().ignoredNotifBySmsOrigin(smsOrigin).firstOrNull() !=
+          null
+    } else {
+      val ignoredList = otpHelperDatabase.ignoredNotifDao().ignoredNotifByPackageName(packageName)
+      return null !=
+          ignoredList.firstOrNull() {
+            return when (it.type) {
+              IgnoredNotifType.APPLICATION -> true
+              IgnoredNotifType.NOTIFICATION_ID -> it.typeData == notificationId
+              IgnoredNotifType.NOTIFICATION_TAG ->
+                  !notificationTag.isNullOrBlank() && it.typeData == notificationTag
+              IgnoredNotifType.SMS_ORIGIN -> false
+            }
           }
-        }
+    }
   }
 
   override suspend fun setIgnored(

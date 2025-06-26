@@ -2,14 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+  <uses-feature
+      android:name="android.hardware.telephony"
+      android:required="false" />
+
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
+  <!-- SMS permission is only used if user decides to use the SMS mode instead of notification mode -->
+  <!-- In SMS mode we also need the android.permission.QUERY_ALL_PACKAGES to function properly, -->
+  <!-- as we want to show information about the default SMS app (icon and name) in History screen -->
+  <uses-permission android:name="android.permission.RECEIVE_SMS" />
+  <uses-permission android:name="android.permission.READ_SMS" />
+  <!-- the following permission is to ensure we can show user which app has triggered the code detection  -->
+  <!-- Without it, the History screen of the app cannot show names/icons of the apps correctly  -->
+  <uses-permission
+      android:name="android.permission.QUERY_ALL_PACKAGES"
+      tools:ignore="QueryAllPackagesPermission" />
   <uses-permission android:name="io.github.jd1378.otphelper.permission.RECEIVE_CODE" />
 
   <permission
       android:name="io.github.jd1378.otphelper.permission.RECEIVE_CODE"
       android:protectionLevel="signature" />
+
+  <queries>
+    <intent>
+      <action android:name="android.provider.Telephony.SMS_DELIVER" />
+    </intent>
+  </queries>
 
   <application
       android:name=".App"
@@ -39,6 +58,7 @@
 
         <data android:scheme="otphelper" />
         <data android:host="history_detail" />
+        <data android:host="permissions" />
         <data android:host="home" />
       </intent-filter>
     </activity>
@@ -63,7 +83,8 @@
 
     <receiver
         android:name=".NotifActionReceiver"
-        android:exported="true">
+        android:exported="true"
+        android:permission="io.github.jd1378.otphelper.permission.BROADCAST_CODE">
       <intent-filter>
         <action android:name="io.github.jd1378.otphelper.actions.code_copy" />
         <action android:name="io.github.jd1378.otphelper.actions.ignore_notif_app" />
@@ -75,6 +96,15 @@
         android:exported="false">
       <intent-filter>
         <action android:name="android.intent.action.BOOT_COMPLETED" />
+      </intent-filter>
+    </receiver>
+    <receiver
+        android:name=".SmsListener"
+        android:exported="true"
+        android:permission="android.permission.BROADCAST_SMS"
+        android:priority="100">
+      <intent-filter>
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
       </intent-filter>
     </receiver>
 

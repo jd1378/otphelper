@@ -3,11 +3,9 @@ package io.github.jd1378.otphelper.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
-import android.widget.Toast
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.core.app.NotificationManagerCompat
@@ -15,28 +13,33 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.jd1378.otphelper.R
+import io.github.jd1378.otphelper.ModeOfOperation
+import io.github.jd1378.otphelper.MyWorkManager
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.utils.AutostartHelper
 import io.github.jd1378.otphelper.utils.SettingsHelper
 import io.github.jd1378.otphelper.utils.combine
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @Immutable
 data class PermissionsUiState(
     val hasNotifPerm: Boolean = false,
     val hasNotifListenerPerm: Boolean = false,
+    val hasSmsListenerPerm: Boolean = false,
+    val hasReadSmsPerm: Boolean = false,
     val isIgnoringBatteryOptimizations: Boolean = false,
     val hasAutostartSettings: Boolean = false,
     val hasRestrictedSettings: Boolean = false,
     val showSkipWarning: Boolean = false,
     val hasDoneAllSteps: Boolean = false,
+    val modeOfOperation: ModeOfOperation = ModeOfOperation.UNRECOGNIZED,
 )
 
 @Stable
@@ -50,6 +53,8 @@ constructor(
 
   private val _hasNotifPerm = MutableStateFlow(false)
   private val _hasNotifListenerPerm = MutableStateFlow(false)
+  private val _hasSmsListenerPerm = MutableStateFlow(false)
+  private val _hasReadSmsPerm = MutableStateFlow(false)
   private val _isIgnoringBatteryOptimizations = MutableStateFlow(false)
   private val _hasAutoStartSettings = MutableStateFlow(false)
   private val _hasRestrictedSettings = MutableStateFlow(false)
@@ -57,27 +62,42 @@ constructor(
 
   val uiState: StateFlow<PermissionsUiState> =
       combine(
+              userSettingsRepository.userSettings,
               _hasNotifPerm,
               _hasNotifListenerPerm,
+              _hasSmsListenerPerm,
+              _hasReadSmsPerm,
               _isIgnoringBatteryOptimizations,
               _hasAutoStartSettings,
               _hasRestrictedSettings,
               _showSkipWarning,
           ) {
+              userSettings,
               hasNotifPerm,
               hasNotifListenerPerm,
+              hasSmsListenerPerm,
+              hasReadSmsPerm,
               isIgnoringBatteryOptimizations,
               hasAutostartSettings,
               hasRestrictedSettings,
               showSkipWarning ->
+            val hasDoneAllSteps =
+                when (userSettings.modeOfOperation) {
+                  ModeOfOperation.Notification -> hasNotifPerm && hasNotifListenerPerm
+                  ModeOfOperation.SMS -> hasReadSmsPerm && hasSmsListenerPerm
+                  else -> false
+                }
             PermissionsUiState(
                 hasNotifPerm,
                 hasNotifListenerPerm,
+                hasSmsListenerPerm,
+                hasReadSmsPerm,
                 isIgnoringBatteryOptimizations,
                 hasAutostartSettings,
                 hasRestrictedSettings,
                 showSkipWarning,
-                hasNotifPerm && hasNotifListenerPerm && isIgnoringBatteryOptimizations,
+                hasDoneAllSteps && isIgnoringBatteryOptimizations,
+                userSettings.modeOfOperation,
             )
           }
           .stateIn(
@@ -104,6 +124,18 @@ constructor(
         }
       }
       launch {
+        _hasSmsListenerPerm.update {
+          context.checkSelfPermission(android.Manifest.permission.RECEIVE_SMS) ==
+              PackageManager.PERMISSION_GRANTED
+        }
+      }
+      launch {
+        _hasReadSmsPerm.update {
+          context.checkSelfPermission(android.Manifest.permission.READ_SMS) ==
+              PackageManager.PERMISSION_GRANTED
+        }
+      }
+      launch {
         _isIgnoringBatteryOptimizations.update {
           val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
           powerManager.isIgnoringBatteryOptimizations(context.packageName)
@@ -117,13 +149,14 @@ constructor(
         }
       }
     }
+    MyWorkManager.rebindListeners(context, true)
   }
 
-  fun onSetupFinish(upPress: () -> Unit) {
+  fun onSetupFinish(onNavigateToRoute: (String, Boolean, Boolean) -> Unit) {
     _showSkipWarning.update { false }
     viewModelScope.launch {
       userSettingsRepository.setIsSetupFinished(true)
-      upPress()
+      onNavigateToRoute(MainDestinations.HOME_ROUTE, true, false)
     }
   }
 
@@ -145,17 +178,6 @@ constructor(
   }
 
   fun onOpenAppSettings(context: Context) {
-    val intent =
-        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-            .addCategory(Intent.CATEGORY_DEFAULT)
-            .setData(Uri.fromParts("package", context.packageName, null))
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-            .addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-    try {
-      context.startActivity(intent)
-    } catch (e: Exception) {
-      Toast.makeText(context, R.string.failed_to_open_app_settings, Toast.LENGTH_LONG).show()
-    }
+    SettingsHelper.openApplicationSettings(context)
   }
 }

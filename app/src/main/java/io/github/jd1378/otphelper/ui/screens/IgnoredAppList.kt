@@ -45,7 +45,7 @@ import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
 fun IgnoredAppList(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit,
     viewModel: IgnoredAppListViewModel
 ) {
@@ -114,7 +114,8 @@ fun IgnoredAppList(
                               MainDestinations.IGNORED_APP_DETAIL_ROUTE +
                                   "/" +
                                   ignoredNotif.packageName,
-                              false)
+                              false,
+                              true)
                         }
                       }
                     }

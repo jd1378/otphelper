@@ -2,6 +2,7 @@ package io.github.jd1378.otphelper.di
 
 import android.util.Log
 import androidx.compose.runtime.Stable
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import java.util.concurrent.CountDownLatch
@@ -37,6 +38,9 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   var isAutoMarkAsReadEnabled: Boolean = false
     private set
 
+  var modeOfOperation = ModeOfOperation.UNRECOGNIZED
+    private set
+
   init {
     scope.launch {
       userSettingsRepository.userSettings.collect {
@@ -44,6 +48,7 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
             CodeExtractor(it.sensitivePhrasesList, it.ignoredPhrasesList, it.cleanupPhrasesList)
         isAutoDismissEnabled = it.isAutoDismissEnabled
         isAutoMarkAsReadEnabled = it.isAutoMarkAsReadEnabled
+        modeOfOperation = it.modeOfOperation
         latch.countDown() // Release the latch
       }
     }

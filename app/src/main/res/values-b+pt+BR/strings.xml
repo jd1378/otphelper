@@ -35,12 +35,12 @@
     <string name="PERMISSION_ROUTE">Permissões</string>
     <string name="permissions_desc">Para garantir que o aplicativo possa detectar códigos de notificações corretamente o tempo todo, você deve conceder as seguintes permissões:</string>
     <string name="open">Abrir</string>
-    <string name="permission_todo_post_notifications">1. Postar Notificações</string>
-    <string name="permission_todo_read_notifications">2. Ler Notificações</string>
+    <string name="permission_todo_post_notifications">Postar Notificações</string>
+    <string name="permission_todo_read_notifications">Ler Notificações</string>
     <string name="grant">Conceder</string>
-    <string name="permission_todo_remain_open">3. Permanecer Aberto</string>
+    <string name="permission_todo_remain_open">Permanecer Aberto</string>
     <string name="perm_extra_desc">Em alguns dispositivos, como a Xiaomi, Huawei, etc, para permitir que o aplicativo inicie quando o telefone for reiniciado, você deve manualmente garantir a permissão de \'autostart\'. Não podemos detectar se você tem ou não.</string>
-    <string name="permission_todo_autostart">4. Permitir \'autostart\'</string>
+    <string name="permission_todo_autostart">Permitir \'autostart\'</string>
     <string name="send_detected_notif">Postar Notificação</string>
     <string name="skip">Pular</string>
     <string name="finish">Terminar</string>
@@ -51,7 +51,7 @@
     <string name="test_notification_title">Esta é uma notificação de teste</string>
     <string name="permission_todo_allow_restricted_settings">Permitir configurações restritas</string>
     <string name="failed_to_open_app_settings">Falha ao abrir as configurações do aplicativo</string>
-    <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações no etapa 2, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
+    <string name="perm_restricted_desc">Se você não conseguiu permitir a leitura de notificações, tente habilitar \"Permitir configurações restritas\" nas configurações do aplicativo</string>
     <string name="label_source_code_link">Código Fonte:</string>
     <string name="ignore_app">Ignorar Aplicativo</string>
     <string name="permission_revoked_channel_description">Lembra o usuário sobre as permissões necessárias</string>

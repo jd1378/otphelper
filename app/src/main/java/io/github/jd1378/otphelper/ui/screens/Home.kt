@@ -26,7 +26,7 @@ import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Home(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     modifier: Modifier,
     viewModel: HomeViewModel
 ) {
@@ -35,7 +35,7 @@ fun Home(
 
   LaunchedEffect(userSettings) {
     if (!userSettings.isSetupFinished) {
-      onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE + "?setup=true", true)
+      onNavigateToRoute(MainDestinations.MODE_ROUTE + "?setup=true", true, true)
     }
   }
 
@@ -53,24 +53,29 @@ fun Home(
       ) {
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, true) }) {
+            onClick = { onNavigateToRoute(MainDestinations.MODE_ROUTE, true, false) }) {
+              Text(text = stringResource(R.string.MODE_ROUTE))
+            }
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, true, true) }) {
               Text(text = stringResource(R.string.PERMISSION_ROUTE))
             }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.IGNORED_APP_LIST_ROUTE, true) }) {
+            onClick = { onNavigateToRoute(MainDestinations.IGNORED_APP_LIST_ROUTE, true, true) }) {
               Text(text = stringResource(R.string.ignored_list))
             }
         if (!userSettings.isHistoryDisabled) {
           Button(
               modifier = Modifier.fillMaxWidth(),
-              onClick = { onNavigateToRoute(MainDestinations.HISTORY_ROUTE, true) }) {
+              onClick = { onNavigateToRoute(MainDestinations.HISTORY_ROUTE, true, true) }) {
                 Text(text = stringResource(R.string.history))
               }
         }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true) }) {
+            onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true, true) }) {
               Text(text = stringResource(R.string.settings))
             }
         Button(

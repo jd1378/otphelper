@@ -9,6 +9,7 @@
   <string name="code_sensitive" translatable="false">***</string>
   <string name="copy_to_clipboard">Copy To Clipboard</string>
   <string name="wont_detect_code_from_this_notif">Won\'t detect code from this notification again</string>
+  <string name="wont_detect_code_from_this_origin">Won\'t detect code from this origin again</string>
   <string name="wont_detect_code_from_this_app">Won\'t detect code from this app again</string>
   <string name="copied">Copied</string>
   <string name="ignored_list">Ignored List</string>
@@ -24,14 +25,14 @@
   <string name="copy">Copy</string>
   <string name="ignore">Ignore</string>
   <string name="PERMISSION_ROUTE">Permissions</string>
-  <string name="permissions_desc">To make sure app can detect codes from notifications correctly all the time, you have to grant the following permissions:</string>
+  <string name="permissions_desc">To ensure that the app can always detect codes correctly, please grant the following permissions:</string>
   <string name="open">Open</string>
-  <string name="permission_todo_post_notifications">1. Post Notifications</string>
-  <string name="permission_todo_read_notifications">2. Read Notifications</string>
+  <string name="permission_todo_post_notifications">Post Notifications</string>
+  <string name="permission_todo_read_notifications">Read Notifications</string>
   <string name="grant">Grant</string>
-  <string name="permission_todo_remain_open">3. Remain Open</string>
+  <string name="permission_todo_remain_open">Remain Open</string>
   <string name="perm_extra_desc">On some devices, like Xiaomi, Huawei, etc, to allow app to start when phone is restarted, you have to manually grant autostart permission. We cannot detect if you have or not.</string>
-  <string name="permission_todo_autostart">4. Allow autostart</string>
+  <string name="permission_todo_autostart">Allow autostart</string>
   <string name="send_detected_notif">Post Notification</string>
   <string name="skip">Skip</string>
   <string name="finish">Finish</string>
@@ -42,7 +43,7 @@
   <string name="test_notification_title">This is a test notification</string>
   <string name="permission_todo_allow_restricted_settings">Allow restricted settings</string>
   <string name="failed_to_open_app_settings">Failed to open app settings</string>
-  <string name="perm_restricted_desc">If you could not allow reading notifications in step 2, try enabling \"Allow restricted settings\" in application settings</string>
+  <string name="perm_restricted_desc">If you are unable to grant \"Read Notifications\" permission, try enabling \"Allow restricted settings\" in application settings</string>
   <string name="de" translatable="false">Deutsch</string>
   <string name="bn_BD" translatable="false">Bangla (Bangladesh)</string>
   <string name="en" translatable="false">English</string>
@@ -133,4 +134,22 @@
   <string name="copy_cleanup_regex">Copy cleanup regex</string>
   <string name="new_cleanup_phrase">New Cleanup Phrase</string>
   <string name="cleanup_phrases_desc">Phrases defined here will be removed from the messages before applying detection logic. You can use this to fix issues with incorrectly detected code.</string>
+  <string name="sms_origin">Origin</string>
+  <string name="ignore_origin">Ignore Origin</string>
+  <string name="allow_origin">Allow Origin</string>
+  <string name="MODE_ROUTE">Mode</string>
+  <string name="next">Next</string>
+  <string name="Notification">Notification</string>
+  <string name="notification_mode_help">In this mode, the app only reads the notification text to extract the code. If the original message is too long and the notification text is truncated, code extraction may fail.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">In this mode, the app reads SMS messages directly to extract codes. It does not require special permissions and is more reliable if you only need to read codes from SMS.</string>
+  <string name="mode_choose_help">Since Android 15 introduces stricter permissions for reading notifications, we have added a new SMS mode. This allows the app to continue functioning on Android 15+ by using SMS instead of notifications.</string>
+  <string name="permissions_no_mode_selected">No mode of operation selected. Please choose a mode to view the related permissions.</string>
+  <string name="permission_todo_receive_sms">Receive SMS</string>
+  <string name="permission_todo_read_sms">Read SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Please grant SMS permission again. Tap this message to open settings.</string>
+  <string name="read_notifs_sms_mode_desc">In SMS mode, the \"Read Notifications\" permission is still needed to perform \"Mark as read\" and \"Dismiss\" actions on notifications. If you don’t need these features, you can skip granting this permission.</string>
+  <string name="experimental_features_warning">The following features are experimental and may not always work as intended.</string>
+  <string name="read_notifs_android_15_desc">Since Android 15, you need to either disable the new \"Enhanced Notifications\" setting in your phone settings or run the following ADB command. If you are not familiar with ADB, you can go back and change the app mode to SMS to continue using the app without performing this action.</string>
+  <string name="sensitive_notifs_adb_command" translatable="false">adb shell cmd appops set --user 0 io.github.jd1378.otphelper RECEIVE_SENSITIVE_NOTIFICATIONS allow</string>
 </resources>

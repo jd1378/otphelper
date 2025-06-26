@@ -39,9 +39,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     ActivityHelper.adjustFontSize(this, scale)
 
-    if (intent?.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
-      SettingsHelper.openNotificationListenerSettings(this)
-    }
+    handleIntent(intent)
 
     lifecycleScope.launch {
       val settings = userSettingsRepository.fetchSettings()
@@ -60,21 +58,21 @@ class MainActivity : AppCompatActivity() {
 
   override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
-    if (intent.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
-      SettingsHelper.openNotificationListenerSettings(this)
-    } else {
-      deepLinkHandler.handleDeepLink(intent)
-    }
+    handleIntent(intent)
   }
 
   override fun onStart() {
     super.onStart()
-    if (intent?.action == INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS) {
-      SettingsHelper.openNotificationListenerSettings(this)
-    } else {
-      deepLinkHandler.handleDeepLink(intent)
-    }
+    handleIntent(intent)
     // consume the deeplink
     intent = null
+  }
+
+  private fun handleIntent(intent: Intent?) {
+    when (intent?.action) {
+      INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS ->
+          SettingsHelper.openNotificationListenerSettings(this)
+      else -> deepLinkHandler.handleDeepLink(intent)
+    }
   }
 }

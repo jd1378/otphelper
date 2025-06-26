@@ -23,12 +23,12 @@
     <string name="PERMISSION_ROUTE">Permisiuni</string>
     <string name="permissions_desc">Pentru a te asigura că aplicația poate detecta corect codurile din notificări, trebuie să acorzi următoarele permisiuni:</string>
     <string name="open">Deschide</string>
-    <string name="permission_todo_post_notifications">1. Afișare notificări</string>
-    <string name="permission_todo_read_notifications">2. Citire notificări</string>
+    <string name="permission_todo_post_notifications">Afișare notificări</string>
+    <string name="permission_todo_read_notifications">Citire notificări</string>
     <string name="grant">Permite</string>
-    <string name="permission_todo_remain_open">3. Rulează continuu</string>
+    <string name="permission_todo_remain_open">Rulează continuu</string>
     <string name="perm_extra_desc">Pe unele dispozitive, cum ar fi Xiaomi, Huawei, etc., pentru a permite aplicației să pornească atunci când telefonul este repornit, trebuie să acorzi manual permisiunea Pornire automată. Din aplicație nu se poate detecta dacă această permisiune este furnizată.</string>
-    <string name="permission_todo_autostart">4. Permite pornirea automată</string>
+    <string name="permission_todo_autostart">Permite pornirea automată</string>
     <string name="send_detected_notif">Afișare notificări</string>
     <string name="skip">Omite</string>
     <string name="finish">Finalizare</string>
@@ -97,7 +97,7 @@
     <string name="language">Limba</string>
     <string name="permission_revoked_notification_hint">Acordă din nou permisiunea Citire notificări. Atinge acest mesaj pentru a deschide setările.</string>
     <string name="history_help">Istoricul va fi șters automat la miezul nopții în fiecare zi, cu excepția ultimelor 10 înregistrări.</string>
-    <string name="perm_restricted_desc">Dacă nu poți activa citirea notificărilor de la pasul 2, încearcă opțiunea „Permite setările restricționate” în setările aplicației</string>
+    <string name="perm_restricted_desc">Dacă nu poți activa citirea notificărilor, încearcă opțiunea „Permite setările restricționate” în setările aplicației</string>
     <string name="system_default">Implicit</string>
     <string name="label_version">Versiunea:</string>
     <string name="label_license">Licență:</string>

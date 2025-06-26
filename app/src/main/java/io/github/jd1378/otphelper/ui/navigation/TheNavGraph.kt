@@ -25,6 +25,8 @@ import io.github.jd1378.otphelper.ui.screens.IgnoredPhrases
 import io.github.jd1378.otphelper.ui.screens.IgnoredPhrasesViewModel
 import io.github.jd1378.otphelper.ui.screens.LanguageSelection
 import io.github.jd1378.otphelper.ui.screens.LanguageSelectionViewModel
+import io.github.jd1378.otphelper.ui.screens.ModeChoose
+import io.github.jd1378.otphelper.ui.screens.ModeChooseViewModel
 import io.github.jd1378.otphelper.ui.screens.Permissions
 import io.github.jd1378.otphelper.ui.screens.PermissionsViewModel
 import io.github.jd1378.otphelper.ui.screens.SensitivePhrases
@@ -34,12 +36,13 @@ import io.github.jd1378.otphelper.ui.screens.SettingsViewModel
 
 fun NavGraphBuilder.otphelperNavGraph(
     upPress: () -> Unit,
-    onNavigateToRoute: (String, Boolean) -> Unit
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit
 ) {
   addHomeGraph(onNavigateToRoute)
   addLanguageSelectionGraph(upPress)
   addIgnoredAppListGraph(onNavigateToRoute, upPress)
   addIgnoredAppDetailGraph(upPress = upPress)
+  addModeChooseGraph(onNavigateToRoute, upPress)
   addPermissionsGraph(onNavigateToRoute, upPress)
   addAboutGraph(upPress)
   addSettingsGraph(onNavigateToRoute, upPress)
@@ -51,7 +54,7 @@ fun NavGraphBuilder.otphelperNavGraph(
 }
 
 fun NavGraphBuilder.addHomeGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
   composable(
@@ -77,7 +80,7 @@ fun NavGraphBuilder.addLanguageSelectionGraph(upPress: () -> Unit) {
 }
 
 fun NavGraphBuilder.addIgnoredAppListGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit
 ) {
   composable(
@@ -104,14 +107,36 @@ fun NavGraphBuilder.addIgnoredAppDetailGraph(modifier: Modifier = Modifier, upPr
 }
 
 fun NavGraphBuilder.addPermissionsGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit,
 ) {
   composable(
       MainDestinations.PERMISSIONS_SETUP_ROUTE,
+      arguments = listOf(navArgument("setup") { nullable = true }),
+      deepLinks =
+          listOf(
+              navDeepLink {
+                uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.PERMISSIONS_ROUTE}"
+              }),
+  ) { backStackEntry ->
+    val viewModel = hiltViewModel<PermissionsViewModel>()
+    Permissions(
+        onNavigateToRoute,
+        upPress,
+        viewModel,
+        backStackEntry.arguments?.containsKey("setup") ?: false)
+  }
+}
+
+fun NavGraphBuilder.addModeChooseGraph(
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
+    upPress: () -> Unit,
+) {
+  composable(
+      MainDestinations.MODE_SETUP_ROUTE,
       arguments = listOf(navArgument("setup") { nullable = true })) { backStackEntry ->
-        val viewModel = hiltViewModel<PermissionsViewModel>()
-        Permissions(
+        val viewModel = hiltViewModel<ModeChooseViewModel>()
+        ModeChoose(
             onNavigateToRoute,
             upPress,
             viewModel,
@@ -128,7 +153,7 @@ fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
 }
 
 fun NavGraphBuilder.addSettingsGraph(
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit
 ) {
   composable(
@@ -141,7 +166,7 @@ fun NavGraphBuilder.addSettingsGraph(
 
 fun NavGraphBuilder.addHistoryGraph(
     modifier: Modifier = Modifier,
-    onNavigateToRoute: (String, Boolean) -> Unit,
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
     upPress: () -> Unit
 ) {
   composable(MainDestinations.HISTORY_ROUTE) {

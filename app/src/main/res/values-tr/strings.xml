@@ -24,12 +24,12 @@
     <string name="PERMISSION_ROUTE">İzinler</string>
     <string name="permissions_desc">Uygulamanın her daim bildirimlerdeki kodları doğru olarak aldığından emin olmak için şu izinleri verin:</string>
     <string name="open">Aç</string>
-    <string name="permission_todo_post_notifications">1. Bildirim Gönderme</string>
-    <string name="permission_todo_read_notifications">2. Bildirimleri Okuma</string>
+    <string name="permission_todo_post_notifications">Bildirim Gönderme</string>
+    <string name="permission_todo_read_notifications">Bildirimleri Okuma</string>
     <string name="grant">İzin ver</string>
-    <string name="permission_todo_remain_open">3. Arkaplanda Çalışma</string>
+    <string name="permission_todo_remain_open">Arkaplanda Çalışma</string>
     <string name="perm_extra_desc">Xiaomi, Huawei gibi cihazlarda uygulamanın telefon yeniden başlatıldığında başlaması için otomatik başlatma iznini el ile ayarlamanız gerekir. Bunu biz tespit edemeyiz.</string>
-    <string name="permission_todo_autostart">4. Otomatik başlatmaya izin ver</string>
+    <string name="permission_todo_autostart">Otomatik başlatmaya izin ver</string>
     <string name="send_detected_notif">Bildirim Gönder</string>
     <string name="skip">Atla</string>
     <string name="finish">Bitir</string>
@@ -40,7 +40,7 @@
     <string name="test_notification_title">Bu bir test bildirimidir</string>
     <string name="permission_todo_allow_restricted_settings">Kısıtlanmış ayarlara izin ver</string>
     <string name="failed_to_open_app_settings">Uygulama ayarları açılamadı</string>
-    <string name="perm_restricted_desc">2. adımda bildirimlerin okunmasına izin veremediyseniz uygulama ayarlarında \"Kısıtlanmış ayarlara izin ver\" seçeneğini etkinleştirmeyi deneyin</string>
+    <string name="perm_restricted_desc">Bildirimlerin okunmasına izin veremediyseniz uygulama ayarlarında \"Kısıtlanmış ayarlara izin ver\" seçeneğini etkinleştirmeyi deneyin</string>
     <string name="language">Dil</string>
     <string name="system_default">Sistem Varsayılanı</string>
     <string name="search_language">Dil ara</string>

@@ -25,12 +25,12 @@
     <string name="PERMISSION_ROUTE">Дозволи</string>
     <string name="permissions_desc">Щоб переконатися, що програма спроможна правильно виявляти коди зі сповіщень кожного разу, необхідно надати наступні дозволи:</string>
     <string name="open">Відкрити</string>
-    <string name="permission_todo_post_notifications">1. Надсилати сповіщення</string>
-    <string name="permission_todo_read_notifications">2. Читати сповіщення</string>
+    <string name="permission_todo_post_notifications">Надсилати сповіщення</string>
+    <string name="permission_todo_read_notifications">Читати сповіщення</string>
     <string name="grant">Надати дозвіл</string>
-    <string name="permission_todo_remain_open">3. Залишатися відкритим</string>
+    <string name="permission_todo_remain_open">Залишатися відкритим</string>
     <string name="perm_extra_desc">На деяких пристроях, таких як Xiaomi, Huawei тощо, щоб дозволити програмі запускатися при перезавантаженні телефону, вам потрібно вручну надати дозвіл на автозапуск. Ми не можемо визначити, чи ви це зробили, чи ні.</string>
-    <string name="permission_todo_autostart">4. Дозволити автоматичний запуск</string>
+    <string name="permission_todo_autostart">Дозволити автоматичний запуск</string>
     <string name="send_detected_notif">Надіслати сповіщення</string>
     <string name="skip">Пропустити</string>
     <string name="finish">Завершити</string>
@@ -41,7 +41,7 @@
     <string name="test_notification_title">Це тестове повідомлення</string>
     <string name="permission_todo_allow_restricted_settings">Дозволити обмежені налаштування</string>
     <string name="failed_to_open_app_settings">Не вдалося відкрити налаштування програми</string>
-    <string name="perm_restricted_desc">Якщо ви не змогли дозволити читання сповіщень на кроці 2, спробуйте увімкнути \"Дозволити обмежені налаштування\" у налаштуваннях програми</string>
+    <string name="perm_restricted_desc">Якщо ви не змогли дозволити читання сповіщень, спробуйте увімкнути "Дозволити обмежені налаштування" у налаштуваннях додатку</string>
     <string name="language">Мова</string>
     <string name="system_default">Стандартна системи</string>
     <string name="search_language">Пошук мови</string>

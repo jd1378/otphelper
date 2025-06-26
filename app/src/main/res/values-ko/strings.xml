@@ -9,12 +9,12 @@
     <string name="PERMISSION_ROUTE">권한</string>
     <string name="permissions_desc">앱이 항상 알림에 접근할 수 있도록 하려면 다음 권한을 허용해야 합니다:</string>
     <string name="open">열기</string>
-    <string name="permission_todo_post_notifications">1. 알림 전송</string>
-    <string name="permission_todo_read_notifications">2. 알림 읽기</string>
+    <string name="permission_todo_post_notifications">알림 전송</string>
+    <string name="permission_todo_read_notifications">알림 읽기</string>
     <string name="grant">허가</string>
-    <string name="permission_todo_remain_open">3. 열린 상태로 놔두기</string>
+    <string name="permission_todo_remain_open">열린 상태로 놔두기</string>
     <string name="perm_extra_desc">앱 재시작 동의가 필요한 Xiaomi, Huawei 등의 기기에서는, 수동으로 자동 시작 권한을 허용해주셔야 합니다. 허용하지 않았을 시에 감지하지 못할 수도 있습니다.</string>
-    <string name="permission_todo_autostart">4. 자동 시작 허용</string>
+    <string name="permission_todo_autostart">자동 시작 허용</string>
     <string name="send_detected_notif">알림 전송</string>
     <string name="skip">건너뛰기</string>
     <string name="finish">완료</string>
@@ -25,7 +25,7 @@
     <string name="test_notification_title">테스트 알림입니다</string>
     <string name="permission_todo_allow_restricted_settings">제한 설정 허용하기</string>
     <string name="failed_to_open_app_settings">앱 설정 열기 실패</string>
-    <string name="perm_restricted_desc">2단계에서 앱이 알림을 읽을 수 없다면, 애플리케이션 설정에서 \"제한 설정 허용하기\"를 허용해주셔야 합니다</string>
+    <string name="perm_restricted_desc">앱이 알림을 읽을 수 없다면, 애플리케이션 설정에서 "제한 설정 허용하기"를 허용해주셔야 합니다</string>
     <string name="label_source_code_link">소스 코드:</string>
     <string name="allow_tag">허용 태그</string>
     <string name="ignore_tag">무시 태그</string>

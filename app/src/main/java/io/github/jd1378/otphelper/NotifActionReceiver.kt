@@ -14,8 +14,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotifActionReceiver : BroadcastReceiver() {
 
-  @Inject
-  lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
+  @Inject lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
 
   companion object {
     const val INTENT_ACTION_CODE_COPY = "io.github.jd1378.otphelper.actions.code_copy"
@@ -25,6 +24,8 @@ class NotifActionReceiver : BroadcastReceiver() {
         "io.github.jd1378.otphelper.actions.ignore_notif_nid"
     const val INTENT_ACTION_IGNORE_NOTIFICATION_APP =
         "io.github.jd1378.otphelper.actions.ignore_notif_app"
+    const val INTENT_ACTION_IGNORE_SMS_ORIGIN =
+        "io.github.jd1378.otphelper.actions.ignore_sms_origin"
     const val INTENT_ACTION_SHOW_DETAILS = "io.github.jd1378.otphelper.actions.show_details"
   }
 
@@ -37,8 +38,7 @@ class NotifActionReceiver : BroadcastReceiver() {
             "cancel_notif_id" to intent.getIntExtra("cancel_notif_id", -1),
         )
 
-    val workRequest =
-        OneTimeWorkRequestBuilder<NotifActionWorker>().setInputData(workData).build()
+    val workRequest = OneTimeWorkRequestBuilder<NotifActionWorker>().setInputData(workData).build()
     WorkManager.getInstance(context).enqueue(workRequest)
   }
 }

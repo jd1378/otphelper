@@ -12,6 +12,7 @@ import java.util.Date
             Index("createdAt"),
             Index("packageName"),
             Index(value = ["packageName", "type", "typeData"], unique = true),
+            Index(value = ["type", "typeData"]),
         ],
 )
 @Immutable

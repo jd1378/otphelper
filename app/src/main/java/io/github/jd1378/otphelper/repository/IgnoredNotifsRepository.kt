@@ -18,8 +18,9 @@ interface IgnoredNotifsRepository {
 
   suspend fun isIgnored(
       packageName: String,
-      notificationId: String,
-      notificationTag: String?
+      notificationId: String?,
+      notificationTag: String?,
+      smsOrigin: String?
   ): Boolean
 
   suspend fun setIgnored(

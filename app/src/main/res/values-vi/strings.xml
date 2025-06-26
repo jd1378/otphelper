@@ -24,12 +24,12 @@
     <string name="PERMISSION_ROUTE">Quyền</string>
     <string name="permissions_desc">Để đảm bảo ứng dụng có thể luôn phát hiện chính xác mã từ thông báo, bạn phải cấp các quyền sau:</string>
     <string name="open">Mở</string>
-    <string name="permission_todo_post_notifications">1. Gửi thông báo</string>
-    <string name="permission_todo_read_notifications">2. Đọc thông báo</string>
+    <string name="permission_todo_post_notifications">Gửi thông báo</string>
+    <string name="permission_todo_read_notifications">Đọc thông báo</string>
     <string name="grant">Cấp Quyền</string>
-    <string name="permission_todo_remain_open">3. Hoạt Động Dưới Nền</string>
+    <string name="permission_todo_remain_open">Hoạt Động Dưới Nền</string>
     <string name="perm_extra_desc">Trên một số thiết bị, như Xiaomi, Huawei,... để cho phép ứng dụng tự khởi động khi điện thoại khởi động lại, bạn phải cấp quyền tự khởi động theo cách thủ công.</string>
-    <string name="permission_todo_autostart">4. Cho phép tự khởi động</string>
+    <string name="permission_todo_autostart">Cho phép tự khởi động</string>
     <string name="send_detected_notif">Gửi Thông Báo</string>
     <string name="skip">Bỏ qua</string>
     <string name="finish">Kết thúc</string>
@@ -40,7 +40,7 @@
     <string name="test_notification_title">Đây là thông báo thử</string>
     <string name="permission_todo_allow_restricted_settings">Cho phép cài đặt bị hạn chế</string>
     <string name="failed_to_open_app_settings">Không mở được cài đặt ứng dụng</string>
-    <string name="perm_restricted_desc">Nếu bạn không thể cho phép đọc thông báo ở bước 2, hãy thử bật \"Cho phép cài đặt bị hạn chế\" trong cài đặt ứng dụng</string>
+    <string name="perm_restricted_desc">Nếu bạn không thể cho phép đọc thông báo, hãy thử bật \"Cho phép cài đặt bị hạn chế\" trong cài đặt ứng dụng</string>
     <string name="language">Ngôn Ngữ</string>
     <string name="system_default">Mặc định hệ thống</string>
     <string name="search_language">Tìm kiếm ngôn ngữ</string>

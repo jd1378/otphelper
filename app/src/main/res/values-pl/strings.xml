@@ -13,8 +13,8 @@
     <string name="ignored_list_description">Zignorowane wiadomości zostaną wyświetlone tutaj po naciśnięciu przycisku ignoruj.</string>
     <string name="copy">Kopiuj</string>
     <string name="open">Otwórz</string>
-    <string name="permission_todo_post_notifications">1. Wysyłanie powiadomień</string>
-    <string name="permission_todo_read_notifications">2. Czytaj powiadomienia</string>
+    <string name="permission_todo_post_notifications">Wysyłanie powiadomień</string>
+    <string name="permission_todo_read_notifications">Czytaj powiadomienia</string>
     <string name="grant">Pozwól</string>
     <string name="skip">Pomiń</string>
     <string name="finish">Zakończ</string>
@@ -24,7 +24,7 @@
     <string name="code_detected_channel_name">Kod wykryty</string>
     <string name="code_copied_to_clipboard">Skopiowano do schowka!</string>
     <string name="auto_copy">Auto Kopia</string>
-    <string name="permission_todo_remain_open">3. Pozostaw otwarty</string>
+    <string name="permission_todo_remain_open">Pozostaw otwarty</string>
     <string name="delete">Usuń</string>
     <string name="label_back">Wstecz</string>
     <string name="IGNORED_LIST_ROUTE">Lista ignorowanych</string>
@@ -33,13 +33,13 @@
     <string name="permissions_desc">Aby upewnić się, że aplikacja może poprawnie wykrywać kody z powiadomień przez cały czas, musisz przyznać następujące uprawnienia:</string>
     <string name="perm_extra_desc">Na niektórych urządzeniach, takich jak Xiaomi, Huawei itp., aby umożliwić uruchamianie aplikacji po ponownym uruchomieniu telefonu, należy ręcznie przyznać uprawnienie do autostartu. Nie możemy wykryć, czy masz takie uprawnienia, czy nie.</string>
     <string name="permission_revoked_channel_description">Przypomina użytkownikowi o wymaganych uprawnieniach</string>
-    <string name="permission_todo_autostart">4. Pozwól na autostart</string>
+    <string name="permission_todo_autostart">Pozwól na autostart</string>
     <string name="skip_warning">Aby zapewnić prawidłowe działanie aplikacji, należy podać te uprawnienia. Możesz ponownie otworzyć ten ekran za pomocą przycisku \"Uprawnienia\" na ekranie głównym.</string>
     <string name="send_detected_notif">Wysylaj powiadomienia</string>
     <string name="okay">Ok</string>
     <string name="notice">Komunikat</string>
     <string name="failed_to_open_app_settings">Nie udało się otworzyć ustawień aplikacji</string>
-    <string name="perm_restricted_desc">Jeśli nie możesz zezwolić na odczytywanie powiadomień w kroku 2, spróbuj włączyć opcję \"Zezwalaj na ograniczone ustawienia\" w ustawieniach aplikacji</string>
+    <string name="perm_restricted_desc">Jeśli nie możesz zezwolić na odczytywanie powiadomień, spróbuj włączyć opcję "Zezwalaj na ograniczone ustawienia" w ustawieniach aplikacji</string>
     <string name="permission_revoked">Cofnięto uprawnienia</string>
     <string name="test_notification_content">Twój kod to: 230914</string>
     <string name="language">Język</string>

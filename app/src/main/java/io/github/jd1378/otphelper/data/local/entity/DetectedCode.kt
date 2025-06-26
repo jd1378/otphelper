@@ -1,6 +1,7 @@
 package io.github.jd1378.otphelper.data.local.entity
 
 import androidx.compose.runtime.Immutable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
@@ -13,8 +14,9 @@ import java.util.Date
 data class DetectedCode(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val packageName: String,
-    val notificationId: String,
+    val notificationId: String = "",
     val notificationTag: String = "",
+    @ColumnInfo(defaultValue = "") val smsOrigin: String = "",
     val text: String,
     val createdAt: Date = Date(),
 )

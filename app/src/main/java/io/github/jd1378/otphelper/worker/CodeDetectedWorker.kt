@@ -18,6 +18,8 @@ import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
+import io.github.jd1378.otphelper.utils.getMessageId
+import io.github.jd1378.otphelper.utils.setMessageRead
 
 @HiltWorker
 class CodeDetectedWorker
@@ -36,19 +38,40 @@ constructor(
 
   override suspend fun doWork(): Result {
 
-    val packageName = inputData.getString("packageName")
-    val notificationId = inputData.getString("notificationId")
+    var packageName = inputData.getString("packageName")
+    val smsOrigin = inputData.getString("smsOrigin") ?: ""
+    val notificationId = inputData.getString("notificationId") ?: ""
     val notificationTag = inputData.getString("notificationTag") ?: ""
-    val text = inputData.getString("text")
-    val code = inputData.getString("code")
+    var text = inputData.getString("text")
+    var code = inputData.getString("code")
+    val isSms = inputData.getBoolean("is_sms", false)
 
-    if (packageName.isNullOrEmpty() ||
-        notificationId.isNullOrEmpty() ||
-        text.isNullOrEmpty() ||
-        code.isNullOrEmpty()) {
+    val missingData =
+        when {
+          packageName.isNullOrBlank() -> true
+          text.isNullOrBlank() -> true
+          code.isNullOrBlank() -> true
+          isSms && smsOrigin.isBlank() -> true
+          !isSms && notificationId.isBlank() -> true
+          else -> false
+        }
+    if (missingData) {
       Log.e(TAG, "Work was missing the necessary work input data. aborting.")
       return Result.failure()
     }
+    // necessary because smart cast didnt detect the when clause correctly:
+    packageName = packageName!!
+    code = code!!
+    text = text!!
+
+    val isIgnored =
+        ignoredNotifsRepository.isIgnored(
+            packageName = packageName,
+            notificationId = notificationId,
+            notificationTag = notificationTag,
+            smsOrigin = smsOrigin)
+
+    if (isIgnored) return Result.success()
 
     val settings = userSettingsRepository.fetchSettings()
 
@@ -61,6 +84,7 @@ constructor(
                       packageName = packageName,
                       notificationId = notificationId,
                       notificationTag = notificationTag,
+                      smsOrigin = smsOrigin,
                       text =
                           if (settings.shouldReplaceCodeInHistory)
                               text.replace(code, "0".repeat(code.length))
@@ -71,37 +95,41 @@ constructor(
         }
 
     try {
-      if (!ignoredNotifsRepository.isIgnored(
-          packageName = packageName,
-          notificationId = notificationId,
-          notificationTag = notificationTag)) {
-
-        if (settings.isShowToastEnabled) {
-          Handler(Looper.getMainLooper()).post {
-            Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.detected_code) + " " + code,
-                    Toast.LENGTH_SHORT)
-                .show()
-          }
+      if (settings.isShowToastEnabled) {
+        Handler(Looper.getMainLooper()).post {
+          Toast.makeText(
+                  applicationContext,
+                  applicationContext.getString(R.string.detected_code) + " " + code,
+                  Toast.LENGTH_SHORT)
+              .show()
         }
-        if (settings.isAutoCopyEnabled) {
-          Clipboard.copyCodeToClipboard(
-              applicationContext,
-              code,
-              settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled)
-        }
-        if (settings.isPostNotifEnabled) {
-          val extras = Bundle()
-          extras.putLong("historyId", historyId)
-          extras.putString("code", code)
-          extras.putString("packageName", packageName)
+      }
+      if (settings.isAutoCopyEnabled) {
+        Clipboard.copyCodeToClipboard(
+            applicationContext,
+            code,
+            settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled)
+      }
+      if (settings.isPostNotifEnabled) {
+        val extras = Bundle()
+        extras.putLong("historyId", historyId)
+        extras.putString("code", code)
+        extras.putString("packageName", packageName)
+        extras.putBoolean("is_sms", isSms)
+        if (isSms) {
+          extras.putString("smsOrigin", smsOrigin)
+        } else {
           extras.putString("notificationId", notificationId)
           extras.putString("notificationTag", notificationTag)
-
-          NotificationHelper.sendDetectedNotif(
-              applicationContext, extras, code, settings.isAutoCopyEnabled)
         }
+
+        NotificationHelper.sendDetectedNotif(
+            applicationContext, extras, code, settings.isAutoCopyEnabled)
+      }
+      if (isSms && settings.isAutoMarkAsReadEnabled) {
+        val id = getMessageId(applicationContext, text)
+        // may or may not work depending on android version, but we will try regardless
+        setMessageRead(applicationContext, id, true)
       }
     } catch (e: Exception) {
       Log.e(TAG, e.stackTraceToString())

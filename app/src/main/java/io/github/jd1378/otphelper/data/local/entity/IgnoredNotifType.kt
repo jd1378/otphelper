@@ -9,4 +9,5 @@ enum class IgnoredNotifType(override val translation: Int? = null) : Translatabl
   APPLICATION(R.string.application),
   NOTIFICATION_TAG(R.string.notification_tag),
   NOTIFICATION_ID(R.string.notification_id),
+  SMS_ORIGIN(R.string.sms_origin),
 }
