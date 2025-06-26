@@ -27,7 +27,6 @@
   <string name="open">Ouvrir</string>
   <string name="permission_todo_post_notifications">Envoyer Notifications</string>
   <string name="permission_todo_read_notifications">Lire Notifications</string>
-  <string name="grant">Autorisation</string>
   <string name="permission_todo_remain_open">Rester ouvert</string>
   <string name="perm_extra_desc">Sur certains appareils, comme Xiaomi, Huawei, etc., pour permettre à l\'application de démarrer lorsque le téléphone est redémarré, vous devez accorder manuellement l\'autorisation de démarrage automatique. Nous ne pouvons pas savoir si vous l\'avez fait ou non.</string>
   <string name="permission_todo_autostart">Autoriser l\'auto-démarrage</string>

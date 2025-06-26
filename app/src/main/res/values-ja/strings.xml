@@ -17,7 +17,6 @@
   <string name="permissions_desc">アプリが通知からコードを正常に検出できるようにするには、次の権限を付与する必要があります:</string>
   <string name="open">開く</string>
   <string name="permission_todo_post_notifications">通知の送信</string>
-  <string name="grant">許可</string>
   <string name="permission_todo_remain_open">バックグラウンドでの実行を許可</string>
   <string name="permission_todo_autostart">自動起動を許可</string>
   <string name="send_detected_notif">通知を送信</string>

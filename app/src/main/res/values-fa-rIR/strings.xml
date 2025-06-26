@@ -26,7 +26,6 @@
   <string name="open">باز کردن</string>
   <string name="permission_todo_post_notifications">ایجاد اعلان</string>
   <string name="permission_todo_read_notifications">خواندن اعلان ها</string>
-  <string name="grant">اجازه</string>
   <string name="permission_todo_remain_open">ادامه در پس زمینه</string>
   <string name="perm_extra_desc">در بعضی دستگاه ها، مانند شیائومی، هوآوی و غیره، برای اینکه برنامه بتواند هنگام راه اندازی مجدد دستگاه اجرا شود، شما باید به صورت دستی اجازه آن را صادر کنید. امکان تشخیص این مجوز برای برنامه وجود ندارد.</string>
   <string name="permission_todo_autostart">اجازه اجرای خودکار</string>

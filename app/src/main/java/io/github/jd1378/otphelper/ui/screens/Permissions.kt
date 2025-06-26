@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
@@ -52,6 +53,9 @@ fun Permissions(
       rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
         viewModel.updatePermissionsStatus(context)
       }
+
+  val requestLabel = stringResource(R.string.request)
+  val openSettingsLabel = stringResource(R.string.open_settings)
 
   LaunchedEffect(lifecycleState) {
     when (lifecycleState) {
@@ -102,32 +106,48 @@ fun Permissions(
           modifier = Modifier.fillMaxWidth(),
           fontSize = 15.sp)
 
+      val permissionGranted = stringResource(R.string.permission_granted_to)
+      val permissionNotGranted = stringResource(R.string.permission_not_granted_to)
       TodoItem(
           stringResource(R.string.permission_todo_post_notifications),
-          actionText = stringResource(R.string.grant),
-          enabled = !uiState.hasNotifPerm,
-          checked = uiState.hasNotifPerm) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-              permLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
-          }
+          actionText = stringResource(R.string.request),
+          buttonEnabled = false,
+          checked = uiState.hasNotifPerm,
+          checkboxSemantics = {
+            stateDescription = if (uiState.hasNotifPerm) permissionGranted else permissionNotGranted
+          },
+      ) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          permLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+      }
 
       if (uiState.modeOfOperation == ModeOfOperation.SMS) {
         TodoItem(
             stringResource(R.string.permission_todo_receive_sms),
-            actionText = stringResource(R.string.grant),
-            enabled = !uiState.hasSmsListenerPerm,
-            checked = uiState.hasSmsListenerPerm) {
-              permLauncher.launch(Manifest.permission.RECEIVE_SMS)
-            }
+            actionText = stringResource(R.string.request),
+            buttonEnabled = !uiState.hasSmsListenerPerm,
+            checked = uiState.hasSmsListenerPerm,
+            checkboxSemantics = {
+              stateDescription =
+                  if (uiState.hasSmsListenerPerm) permissionGranted else permissionNotGranted
+            },
+        ) {
+          permLauncher.launch(Manifest.permission.RECEIVE_SMS)
+        }
 
         TodoItem(
             stringResource(R.string.permission_todo_read_sms),
-            actionText = stringResource(R.string.grant),
-            enabled = !uiState.hasReadSmsPerm,
-            checked = uiState.hasReadSmsPerm) {
-              permLauncher.launch(Manifest.permission.READ_SMS)
-            }
+            actionText = stringResource(R.string.request),
+            buttonEnabled = !uiState.hasReadSmsPerm,
+            checked = uiState.hasReadSmsPerm,
+            checkboxSemantics = {
+              stateDescription =
+                  if (uiState.hasReadSmsPerm) permissionGranted else permissionNotGranted
+            },
+        ) {
+          permLauncher.launch(Manifest.permission.READ_SMS)
+        }
         Text(
             stringResource(R.string.read_notifs_sms_mode_desc),
             modifier = Modifier.fillMaxWidth(),
@@ -135,15 +155,26 @@ fun Permissions(
       }
       TodoItem(
           stringResource(R.string.permission_todo_read_notifications),
-          checked = uiState.hasNotifListenerPerm) {
-            viewModel.onOpenReadNotificationsPressed(context)
-          }
+          checked = uiState.hasNotifListenerPerm,
+          checkboxSemantics = {
+            stateDescription =
+                if (uiState.hasNotifListenerPerm) permissionGranted else permissionNotGranted
+          },
+      ) {
+        viewModel.onOpenReadNotificationsPressed(context)
+      }
 
       TodoItem(
           stringResource(R.string.permission_todo_remain_open),
-          checked = uiState.isIgnoringBatteryOptimizations) {
-            viewModel.onOpenBatteryOptimizationsPressed(context)
-          }
+          checked = uiState.isIgnoringBatteryOptimizations,
+          checkboxSemantics = {
+            stateDescription =
+                if (uiState.isIgnoringBatteryOptimizations) permissionGranted
+                else permissionNotGranted
+          },
+      ) {
+        viewModel.onOpenBatteryOptimizationsPressed(context)
+      }
 
       if (uiState.modeOfOperation == ModeOfOperation.Notification &&
           Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
@@ -178,9 +209,10 @@ fun Permissions(
         TodoItem(
             stringResource(R.string.permission_todo_allow_restricted_settings),
             intermediate = true,
-            checked = true) {
-              viewModel.onOpenAppSettings(context)
-            }
+            checked = true,
+        ) {
+          viewModel.onOpenAppSettings(context)
+        }
       }
     }
   }

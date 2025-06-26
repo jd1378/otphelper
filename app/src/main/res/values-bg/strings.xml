@@ -18,7 +18,6 @@
   <string name="permissions_desc">За да сте сигурни, че приложението може да открива правилно кодове от известия през цялото време, трябва да предоставите следните разрешения:</string>
   <string name="permission_todo_post_notifications">Публикувай известия</string>
   <string name="permission_todo_read_notifications">Прочети известия</string>
-  <string name="grant">Предоставяне</string>
   <string name="permission_todo_remain_open">Остави отворено</string>
   <string name="permission_todo_autostart">Разреши автоматично стартиране</string>
   <string name="send_detected_notif">Публикувай известие</string>

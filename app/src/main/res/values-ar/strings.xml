@@ -25,7 +25,6 @@
   <string name="open">فتح</string>
   <string name="permission_todo_post_notifications">نشر الإشعارات</string>
   <string name="permission_todo_read_notifications">قرأت الإشعارات</string>
-  <string name="grant">منح</string>
   <string name="permission_todo_remain_open">الأبقاء مفتوحاً</string>
   <string name="perm_extra_desc">في بعض الأجهزة، مثل Xiaomi و Huawei وما إلى ذلك، للسماح للتطبيق بالبدء عند إعادة تشغيل الهاتف، يتعين عليك منح إذن التشغيل التلقائي يدويًا. لا يمكننا اكتشاف ما إذا كان لديك أم لا.</string>
   <string name="permission_todo_autostart">السماح بالتشغيل التلقائي</string>

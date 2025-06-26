@@ -26,7 +26,6 @@
   <string name="open">Öffnen</string>
   <string name="permission_todo_post_notifications">Benachrichtigungen senden</string>
   <string name="permission_todo_read_notifications">Benachrichtigungen lesen</string>
-  <string name="grant">Erlauben</string>
   <string name="permission_todo_remain_open">Offen bleiben</string>
   <string name="perm_extra_desc">Auf manchen Geräten wie Xioami, Huawei, etc. musst du, um der App den Start beim Neustart des Handys zu erlauben, die Autostart Berechtigung manuell setzen. Wir können das nicht überprüfen.</string>
   <string name="permission_todo_autostart">Autostart erlauben</string>

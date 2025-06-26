@@ -31,7 +31,6 @@
   <string name="open">Open</string>
   <string name="permission_todo_post_notifications">Post Notifications</string>
   <string name="permission_todo_read_notifications">Read Notifications</string>
-  <string name="grant">Grant</string>
   <string name="permission_todo_remain_open">Remain Open</string>
   <string name="perm_extra_desc">On some devices, like Xiaomi, Huawei, etc, to allow app to start when phone is restarted, you have to manually grant autostart permission. We cannot detect if you have or not.</string>
   <string name="permission_todo_autostart">Allow autostart</string>

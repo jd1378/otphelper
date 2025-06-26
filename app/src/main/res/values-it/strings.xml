@@ -26,7 +26,6 @@
   <string name="open">Apri</string>
   <string name="permission_todo_post_notifications">Invia notifiche</string>
   <string name="permission_todo_read_notifications">Leggi notifiche</string>
-  <string name="grant">Garantisci</string>
   <string name="permission_todo_remain_open">Esecuzione in backgroud</string>
   <string name="perm_extra_desc">Su alcuni dispostivi come Xiaomi, Huawei, etc, per permettere all\'app di avviarsi col telefono, devi garantire il permesso di avvio automatico. Non possiamo controllare se il permesso sia garantino o meno.</string>
   <string name="permission_todo_autostart">Permetti avvio automatico</string>

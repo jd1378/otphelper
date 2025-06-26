@@ -27,7 +27,6 @@
   <string name="open">"खोले "</string>
   <string name="permission_todo_post_notifications">"पोस्ट नोटिफिकेशन "</string>
   <string name="permission_todo_read_notifications">"रीड नोटिफिकेशन "</string>
-  <string name="grant">स्वीकृत</string>
   <string name="permission_todo_remain_open">खुले रहें</string>
   <string name="perm_extra_desc">कुछ डिवाइसों, जैसे कि Xiaomi, Huawei, आदि पर, फ़ोन के पुनरारंभ होने पर ऐप को प्रारंभ करने की अनुमति देने के लिए, आपको मैन्युअल रूप से ऑटोस्टार्ट अनुमति देनी होगी। हम पता नहीं लगा सकते कि आपके पास है या नहीं।</string>
   <string name="permission_todo_autostart">ऑटोस्टार्ट की अनुमति दें</string>

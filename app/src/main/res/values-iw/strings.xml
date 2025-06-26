@@ -22,7 +22,6 @@
   <string name="open">פתח</string>
   <string name="permission_todo_post_notifications">שליחת התראות</string>
   <string name="permission_todo_read_notifications">קריאת התראות</string>
-  <string name="grant">הענק</string>
   <string name="permission_todo_remain_open">השאר דלוק</string>
   <string name="permission_todo_autostart">אפשר הפעלה אוטומטית</string>
   <string name="copy_to_clipboard">העתק ללוח</string>

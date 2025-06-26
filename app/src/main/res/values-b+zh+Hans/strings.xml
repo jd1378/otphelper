@@ -26,7 +26,6 @@
   <string name="open">打开</string>
   <string name="permission_todo_post_notifications">允许发送通知</string>
   <string name="permission_todo_read_notifications">允许读取通知</string>
-  <string name="grant">授权</string>
   <string name="permission_todo_remain_open">允许后台运行</string>
   <string name="perm_extra_desc">在某些手机上，如小米、华为等，要允许此应用在手机重启时启动，您必须手动授予自启动权限。此应用无法检测您是否授予了该权限。</string>
   <string name="permission_todo_autostart">允许应用自启动</string>

@@ -26,7 +26,6 @@
   <string name="open">খুলুন</string>
   <string name="permission_todo_post_notifications">নোটিফিকেশন প্রেরণ করা</string>
   <string name="permission_todo_read_notifications">নোটিফিকেশন পড়া</string>
-  <string name="grant">প্রদান</string>
   <string name="permission_todo_remain_open">চালু রাখুন</string>
   <string name="perm_extra_desc">কিছু ডিভাইসে, যেমন Xiaomi, Huawei ইত্যাদি, ফোন রিস্টার্ট হলে অ্যাপ চালু করার অনুমতি দিতে, আপনাকে ম্যানুয়ালি অটোস্টার্টের অনুমতি দিতে হবে। আপনার আছে কি না তা আমরা সনাক্ত করতে পারি না ।</string>
   <string name="permission_todo_autostart">স্বয়ংক্রিয়ভাবে চালুর অনুমতিদান</string>

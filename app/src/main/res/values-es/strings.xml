@@ -26,7 +26,6 @@
   <string name="open">Abrir</string>
   <string name="permission_todo_post_notifications">Publicar notificaciones</string>
   <string name="permission_todo_read_notifications">Leer notificaciones</string>
-  <string name="grant">Permitir</string>
   <string name="permission_todo_remain_open">Permanecer abierto</string>
   <string name="perm_extra_desc">En algunos dispositivos, como Xiaomi, Huawei, etc., para permitir que la aplicación se inicie cuando se reinicia el teléfono, debes permitir manualmente el permiso de inicio automático. No podemos detectar si lo has hecho o no.</string>
   <string name="permission_todo_autostart">Permitir inicio automático</string>

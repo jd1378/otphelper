@@ -34,7 +34,6 @@
   <string name="label_license">Llicència:</string>
   <string name="label_source_code_link">Codi font:</string>
   <string name="ignore_app">Ignora aplicació</string>
-  <string name="grant">Permet</string>
   <string name="permission_todo_read_notifications">Llegir notificacions</string>
   <string name="permission_todo_autostart">Permet iniciar automàticament</string>
   <string name="wont_detect_code_from_this_notif">No es detectaran més codis d\'aquesta notificació</string>
