@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -110,77 +111,85 @@ fun Settings(
                 ),
         ) {
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.auto_copy))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isAutoCopyEnabled,
-                      onCheckedChange = { viewModel.onAutoCopyToggle() },
-                  )
-                }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.auto_copy))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isAutoCopyEnabled,
+                  onCheckedChange = { viewModel.onAutoCopyToggle() },
+              )
+            }
 
-                SettingHelp(stringResource(R.string.auto_copy_help))
-              }
-
-          Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.send_detected_notif))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isPostNotifEnabled,
-                      onCheckedChange = { viewModel.onPostNotifToggle() },
-                  )
-                }
-                SettingHelp(stringResource(R.string.send_detected_notif_help))
-              }
+            SettingHelp(stringResource(R.string.auto_copy_help))
+          }
 
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.show_copy_confirmation))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isShowCopyConfirmationEnabled,
-                      onCheckedChange = { viewModel.onShowCopyConfirmationToggle() },
-                  )
-                }
-                SettingHelp(
-                    stringResource(
-                        R.string.show_confirmation_help,
-                        stringResource(R.string.code_copied_to_clipboard),
-                    ))
-              }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.send_detected_notif))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isPostNotifEnabled,
+                  onCheckedChange = { viewModel.onPostNotifToggle() },
+              )
+            }
+            SettingHelp(stringResource(R.string.send_detected_notif_help))
+          }
 
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.show_toast))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isShowToastEnabled,
-                      onCheckedChange = { viewModel.onShowToastToggle() },
-                  )
-                }
-                SettingHelp(stringResource(R.string.show_toast_help))
-              }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.show_copy_confirmation))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isShowCopyConfirmationEnabled,
+                  onCheckedChange = { viewModel.onShowCopyConfirmationToggle() },
+              )
+            }
+            SettingHelp(
+                stringResource(
+                    R.string.show_confirmation_help,
+                    stringResource(R.string.code_copied_to_clipboard),
+                ))
+          }
+
+          Column(
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.show_toast))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isShowToastEnabled,
+                  onCheckedChange = { viewModel.onShowToastToggle() },
+              )
+            }
+            SettingHelp(stringResource(R.string.show_toast_help))
+          }
 
           Button(
               modifier = Modifier.fillMaxWidth(),
@@ -215,40 +224,44 @@ fun Settings(
                 ),
         ) {
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.history))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = !userSettings.isHistoryDisabled,
-                      onCheckedChange = { viewModel.onHistoryToggle(context) },
-                  )
-                }
-                SettingHelp(stringResource(R.string.history_help))
-              }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.history))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = !userSettings.isHistoryDisabled,
+                  onCheckedChange = { viewModel.onHistoryToggle(context) },
+              )
+            }
+            SettingHelp(stringResource(R.string.history_help))
+          }
 
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.replace_code_in_history))
-                  Switch(
-                      enabled = !userSettings.isHistoryDisabled,
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.shouldReplaceCodeInHistory,
-                      onCheckedChange = { viewModel.onShouldReplaceCodeInHistoryToggle() },
-                  )
-                }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.replace_code_in_history))
+              Switch(
+                  enabled = !userSettings.isHistoryDisabled,
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.shouldReplaceCodeInHistory,
+                  onCheckedChange = { viewModel.onShouldReplaceCodeInHistoryToggle() },
+              )
+            }
 
-                SettingHelp(stringResource(R.string.replace_code_in_history_help))
-              }
+            SettingHelp(stringResource(R.string.replace_code_in_history_help))
+          }
         }
       }
 
@@ -266,39 +279,43 @@ fun Settings(
         ) {
           SettingHelp(stringResource(R.string.experimental_features_warning))
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.auto_dismiss))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isAutoDismissEnabled,
-                      onCheckedChange = { viewModel.onAutoDismissToggle() },
-                  )
-                }
-                SettingHelp(stringResource(R.string.auto_dismiss_desc))
-              }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.auto_dismiss))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isAutoDismissEnabled,
+                  onCheckedChange = { viewModel.onAutoDismissToggle() },
+              )
+            }
+            SettingHelp(stringResource(R.string.auto_dismiss_desc))
+          }
 
           Column(
-              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs))) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                  SettingLabel(stringResource(R.string.auto_mark_as_read))
-                  Switch(
-                      modifier = Modifier.height(32.dp),
-                      checked = userSettings.isAutoMarkAsReadEnabled,
-                      onCheckedChange = { viewModel.onAutoMarkAsReadToggle() },
-                  )
-                }
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.auto_mark_as_read))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isAutoMarkAsReadEnabled,
+                  onCheckedChange = { viewModel.onAutoMarkAsReadToggle() },
+              )
+            }
 
-                SettingHelp(stringResource(R.string.auto_mark_as_read_help))
-              }
+            SettingHelp(stringResource(R.string.auto_mark_as_read_help))
+          }
         }
       }
 
@@ -306,6 +323,7 @@ fun Settings(
           color = MaterialTheme.colorScheme.surfaceContainer,
           shape = MaterialTheme.shapes.large,
           onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false, true) },
+          modifier = Modifier.semantics(mergeDescendants = true) {},
       ) {
         Column(
             modifier = Modifier.fillMaxWidth(),

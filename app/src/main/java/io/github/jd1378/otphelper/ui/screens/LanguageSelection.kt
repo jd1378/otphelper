@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,6 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -40,20 +43,41 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
         )
       }) { padding ->
         Column(Modifier.padding(padding)) {
+          val onActiveChange = { _: Boolean -> }
+          val colors1 = SearchBarDefaults.colors()
           SearchBar(
+              inputField = {
+                SearchBarDefaults.InputField(
+                    // prevent saying "search" twice in talkback
+                    modifier = Modifier.semantics { contentDescription = "" },
+                    query = uiState.searchTerm,
+                    onQueryChange = { viewModel.setSearchTerm(it) },
+                    onSearch = {},
+                    expanded = false,
+                    onExpandedChange = onActiveChange,
+                    enabled = true,
+                    placeholder = { Text(text = stringResource(R.string.search_language)) },
+                    leadingIcon = {
+                      Icon(
+                          imageVector = Icons.Default.Search,
+                          contentDescription = null,
+                      )
+                    },
+                )
+              },
+              expanded = false,
+              onExpandedChange = onActiveChange,
               modifier =
                   Modifier.fillMaxWidth()
                       .padding(horizontal = dimensionResource(R.dimen.padding_medium))
                       .padding(bottom = dimensionResource(R.dimen.padding_xs)),
-              query = uiState.searchTerm,
-              onSearch = {},
-              onQueryChange = { viewModel.setSearchTerm(it) },
-              active = false,
-              onActiveChange = {},
-              placeholder = { Text(text = stringResource(R.string.search_language)) },
-              leadingIcon = {
-                Icon(imageVector = Icons.Default.Search, contentDescription = null)
-              }) {}
+              shape = SearchBarDefaults.inputFieldShape,
+              colors = colors1,
+              tonalElevation = SearchBarDefaults.TonalElevation,
+              shadowElevation = SearchBarDefaults.ShadowElevation,
+              windowInsets = SearchBarDefaults.windowInsets,
+              content = {},
+          )
           LazyColumn(
               Modifier.padding(horizontal = dimensionResource(R.dimen.padding_small)),
           ) {
