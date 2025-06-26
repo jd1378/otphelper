@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
@@ -48,7 +50,7 @@ fun Home(
         verticalArrangement = Arrangement.Center,
     ) {
       Column(
-          Modifier.width(IntrinsicSize.Max),
+          Modifier.width(IntrinsicSize.Max).widthIn(min = 200.dp),
           verticalArrangement = Arrangement.spacedBy(8.dp),
       ) {
         Button(
@@ -78,11 +80,13 @@ fun Home(
             onClick = { onNavigateToRoute(MainDestinations.SETTINGS_ROUTE, true, true) }) {
               Text(text = stringResource(R.string.settings))
             }
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { viewModel.onSendTestNotifPressed(context) },
-        ) {
-          Text(text = stringResource(R.string.send_test_notification))
+        if (userSettings.modeOfOperation == ModeOfOperation.Notification) {
+          Button(
+              modifier = Modifier.fillMaxWidth(),
+              onClick = { viewModel.onSendTestNotifPressed(context) },
+          ) {
+            Text(text = stringResource(R.string.send_test_notification))
+          }
         }
       }
     }

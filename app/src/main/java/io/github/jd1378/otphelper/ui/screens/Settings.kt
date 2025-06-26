@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.SavedStateHandle
+import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.repository.UserSettingsRepositoryMock
 import io.github.jd1378.otphelper.ui.components.SettingHelp
@@ -191,22 +192,24 @@ fun Settings(
             SettingHelp(stringResource(R.string.show_toast_help))
           }
 
-          Button(
-              modifier = Modifier.fillMaxWidth(),
-              elevation =
-                  ButtonDefaults.elevatedButtonElevation(
-                      defaultElevation = 1.dp,
-                      pressedElevation = 0.dp,
-                      disabledElevation = 0.dp,
-                  ),
-              onClick = { viewModel.onSendTestNotifPressed(context) },
-              colors =
-                  ButtonDefaults.buttonColors(
-                      containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                      contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                  ),
-          ) {
-            Text(stringResource(R.string.send_test_notification), fontWeight = FontWeight.Medium)
+          if (userSettings.modeOfOperation == ModeOfOperation.Notification) {
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                elevation =
+                    ButtonDefaults.elevatedButtonElevation(
+                        defaultElevation = 1.dp,
+                        pressedElevation = 0.dp,
+                        disabledElevation = 0.dp,
+                    ),
+                onClick = { viewModel.onSendTestNotifPressed(context) },
+                colors =
+                    ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                    ),
+            ) {
+              Text(stringResource(R.string.send_test_notification), fontWeight = FontWeight.Medium)
+            }
           }
         }
       }
