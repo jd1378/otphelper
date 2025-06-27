@@ -22,7 +22,7 @@
     <string name="copy">Копировать</string>
     <string name="ignore">Игнорировать</string>
     <string name="PERMISSION_ROUTE">Разрешения</string>
-    <string name="permissions_desc">Чтобы приложение всегда могло правильно определять коды из уведомлений, необходимо предоставить следующие разрешения:</string>
+    <string name="permissions_desc">Чтобы приложение всегда могло правильно определять коды, предоставьте следующие разрешения:</string>
     <string name="open">Открыть</string>
     <string name="permission_todo_post_notifications">Показывать уведомления</string>
     <string name="permission_todo_read_notifications">Читать уведомления</string>
