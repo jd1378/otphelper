@@ -815,7 +815,7 @@ Code d'authentification : AAAA1A"""
 
   @Test
   fun teamViewerChinese() {
-    val msg = """TeamViewer 验证码: QGFDAE"""
+    val msg = """TeamViewer 验证码： QGFDAE"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("QGFDAE", CodeExtractor().getCode(msg))
   }
