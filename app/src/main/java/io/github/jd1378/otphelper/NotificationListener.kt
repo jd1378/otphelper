@@ -18,6 +18,8 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
+import io.github.jd1378.otphelper.di.DETECTION_LOCK
+import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
@@ -30,9 +32,6 @@ class NotificationListener : NotificationListenerService() {
 
   companion object {
     val TAG = "NotificationListener"
-    // sometimes SMS may take several seconds to show as notification if the system is overloaded,
-    // but I'm keeping it to 2s to prevent incorrect interactions as much as possible
-    private const val MESSAGE_TIMEOUT_MS = 2_000L
     private val redactedNotificationMessages =
         mutableSetOf(
             "Sensitive notification content hidden", // en
@@ -200,10 +199,10 @@ class NotificationListener : NotificationListenerService() {
           }
         }
       } else {
-        val message = recentDetectedMessageHolder.message
+        val message = synchronized(DETECTION_LOCK) { recentDetectedMessageHolder.message }
         // sms mode and have detected message recently
         if (message != null) {
-          if (System.currentTimeMillis() - message.timestamp <= MESSAGE_TIMEOUT_MS) {
+          if (System.currentTimeMillis() - message.timestamp <= DETECTION_TIMEOUT_MS) {
             // fast detection path: We simply get the normal text of notification and check for
             // access
             // denial text, which means this notification is a sensitive notification
@@ -281,6 +280,9 @@ class NotificationListener : NotificationListenerService() {
 
         if (autoUpdatingListenerUtils.isAutoDismissEnabled) {
           cancelNotification(sbn.key)
+        }
+        synchronized(DETECTION_LOCK) {
+          recentDetectedMessageHolder.message = null // cleanup the sensitive data from memory
         }
       }
     }

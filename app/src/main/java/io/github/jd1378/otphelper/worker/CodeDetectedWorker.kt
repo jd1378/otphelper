@@ -14,10 +14,14 @@ import dagger.assisted.AssistedInject
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
 import io.github.jd1378.otphelper.data.local.entity.DetectedCode
+import io.github.jd1378.otphelper.di.DETECTION_LOCK
+import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
+import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
+import kotlinx.coroutines.delay
 
 @HiltWorker
 class CodeDetectedWorker
@@ -28,6 +32,7 @@ constructor(
     private val otpHelperDatabase: OtpHelperDatabase,
     private val userSettingsRepository: UserSettingsRepository,
     private val ignoredNotifsRepository: IgnoredNotifsRepository,
+    private var recentDetectedMessageHolder: RecentDetectedMessageHolder
 ) : CoroutineWorker(context, workerParams) {
 
   companion object {
@@ -126,6 +131,19 @@ constructor(
       }
     } catch (e: Exception) {
       Log.e(TAG, e.stackTraceToString())
+    }
+
+    // cleanup recentDetectedMessageHolder after timeout
+    delay(DETECTION_TIMEOUT_MS)
+    synchronized(DETECTION_LOCK) {
+      val message = recentDetectedMessageHolder.message
+      if (message != null) {
+        if (System.currentTimeMillis() - message.timestamp >= DETECTION_TIMEOUT_MS) {
+          // if the timeout has elapsed / no new message is replaced while we waited
+          // we clean it up
+          recentDetectedMessageHolder.message = null
+        }
+      }
     }
 
     return Result.success()

@@ -15,6 +15,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
+import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.RecentDetectedMessage
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
@@ -108,8 +109,10 @@ class SmsListener : BroadcastReceiver() {
                 Log.e(TAG, "Notification too large to check, skipping it...")
                 return
               }
-              recentDetectedMessageHolder.message =
-                  RecentDetectedMessage(messageBody, System.currentTimeMillis())
+              synchronized(DETECTION_LOCK) {
+                recentDetectedMessageHolder.message =
+                    RecentDetectedMessage(messageBody, System.currentTimeMillis())
+              }
               val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
               WorkManager.getInstance(context).enqueue(work)
             }
