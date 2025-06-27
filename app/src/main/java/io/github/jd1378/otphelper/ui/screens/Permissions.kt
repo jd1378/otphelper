@@ -183,7 +183,8 @@ fun Permissions(
             modifier = Modifier.fillMaxWidth(),
             fontSize = 15.sp)
 
-        CodeBlock(stringResource(R.string.sensitive_notifs_adb_command))
+        CodeBlock(stringResource(R.string.adb_command_sensitive_notifs))
+        CodeBlock(stringResource(R.string.adb_command_kill_app))
       }
 
       if (uiState.hasAutostartSettings) {
