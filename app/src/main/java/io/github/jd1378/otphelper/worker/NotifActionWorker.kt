@@ -63,11 +63,13 @@ constructor(
           val code = notif.extras.getString("code")
 
           if (code != null) {
+            val settings = userSettingsRepository.fetchSettings()
             val copied =
                 Clipboard.copyCodeToClipboard(
                     context,
                     code,
-                    userSettingsRepository.fetchSettings().isShowCopyConfirmationEnabled)
+                    settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled,
+                    !settings.isCopyAsNotSensitiveEnabled)
             NotificationHelper.sendDetectedNotif(context, notif.extras, code, copied)
           }
         }

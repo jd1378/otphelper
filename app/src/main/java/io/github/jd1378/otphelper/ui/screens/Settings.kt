@@ -325,6 +325,39 @@ fun Settings(
       Surface(
           color = MaterialTheme.colorScheme.surfaceContainer,
           shape = MaterialTheme.shapes.large,
+      ) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
+            modifier =
+                Modifier.padding(
+                    horizontal = dimensionResource(R.dimen.padding_li_h),
+                    vertical = dimensionResource(R.dimen.padding_li_v),
+                ),
+        ) {
+          Column(
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.copy_as_not_sensitive))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isCopyAsNotSensitiveEnabled,
+                  onCheckedChange = { viewModel.onIsCopyAsNotSensitiveToggle() },
+              )
+            }
+            SettingHelp(stringResource(R.string.copy_as_not_sensitive_desc))
+          }
+        }
+      }
+
+      Surface(
+          color = MaterialTheme.colorScheme.surfaceContainer,
+          shape = MaterialTheme.shapes.large,
           onClick = { onNavigateToRoute(MainDestinations.ABOUT_ROUTE, false, true) },
           modifier = Modifier.semantics(mergeDescendants = true) {},
       ) {

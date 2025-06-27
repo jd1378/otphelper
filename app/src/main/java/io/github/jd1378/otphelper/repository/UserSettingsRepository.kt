@@ -44,5 +44,7 @@ interface UserSettingsRepository {
 
   suspend fun setIsCleanupPhrasesMigrated(value: Boolean)
 
+  suspend fun setIsCopyAsNotSensitive(value: Boolean)
+
   suspend fun setModeOfOperation(value: ModeOfOperation)
 }

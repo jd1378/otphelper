@@ -103,4 +103,11 @@ constructor(
       userSettingsRepository.setIsAutoMarkAsReadEnabled(!userSettings.value.isAutoMarkAsReadEnabled)
     }
   }
+
+  fun onIsCopyAsNotSensitiveToggle() {
+    viewModelScope.launch {
+      userSettingsRepository.setIsCopyAsNotSensitive(
+          !userSettings.value.isCopyAsNotSensitiveEnabled)
+    }
+  }
 }

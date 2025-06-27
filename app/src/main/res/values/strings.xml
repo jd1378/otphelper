@@ -156,4 +156,6 @@
   <string name="permission_not_granted_to">Permission not granted to</string>
   <string name="open_settings">Open settings</string>
   <string name="request">Request</string>
+  <string name="copy_as_not_sensitive">Copy as not sensitive</string>
+  <string name="copy_as_not_sensitive_desc">When enabled, copied text will not be masked</string>
 </resources>

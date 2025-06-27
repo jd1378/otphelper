@@ -41,9 +41,10 @@ class Clipboard {
         context: Context,
         code: String,
         showConfirmation: Boolean = true,
+        isSensitive: Boolean = true,
     ): Boolean {
       return Handler(Looper.getMainLooper()).post {
-        val copied = copyToClipboard(context, code, true)
+        val copied = copyToClipboard(context, code, isSensitive)
         if (showConfirmation) {
           val toastText: Int =
               if (copied) {

@@ -77,6 +77,10 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
     TODO("Not yet implemented")
   }
 
+  override suspend fun setIsCopyAsNotSensitive(value: Boolean) {
+    TODO("Not yet implemented")
+  }
+
   override suspend fun setModeOfOperation(value: ModeOfOperation) {
     TODO("Not yet implemented")
   }

@@ -20,6 +20,7 @@ message UserSettings {
   repeated string cleanup_phrases = 14;
   bool is_cleanup_phrases_migrated = 15;
   ModeOfOperation mode_of_operation = 16;
+  bool is_copy_as_not_sensitive_enabled = 17;
 }
 
 enum ModeOfOperation {

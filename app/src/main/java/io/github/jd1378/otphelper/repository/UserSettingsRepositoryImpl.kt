@@ -131,6 +131,12 @@ constructor(
     }
   }
 
+  override suspend fun setIsCopyAsNotSensitive(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsCopyAsNotSensitiveEnabled(value).build()
+    }
+  }
+
   override suspend fun setModeOfOperation(value: ModeOfOperation) {
     userSettingsStore.updateData { currentSettings ->
       currentSettings.toBuilder().setModeOfOperation(value).build()

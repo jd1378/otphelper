@@ -111,7 +111,8 @@ constructor(
         Clipboard.copyCodeToClipboard(
             applicationContext,
             code,
-            settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled)
+            settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled,
+            !settings.isCopyAsNotSensitiveEnabled)
       }
       if (settings.isPostNotifEnabled) {
         val extras = Bundle()
