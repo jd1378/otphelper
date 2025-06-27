@@ -109,7 +109,7 @@ class SmsListener : BroadcastReceiver() {
                 return
               }
               recentDetectedMessageHolder.message =
-                  RecentDetectedMessage(messageBody, System.currentTimeMillis(), null)
+                  RecentDetectedMessage(messageBody, System.currentTimeMillis())
               val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
               WorkManager.getInstance(context).enqueue(work)
             }

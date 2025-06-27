@@ -7,7 +7,6 @@ import javax.inject.Singleton
 data class RecentDetectedMessage(
     val body: String,
     val timestamp: Long,
-    var notificationId: Long?,
 )
 
 @Singleton
