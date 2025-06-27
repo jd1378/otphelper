@@ -153,7 +153,7 @@ do
     if [ "$1" == 'tablet' ]; then
         scrDir="./tablet/$i/"
     else
-        scrDir="../metadata/android/$i/images/phoneScreenshots"
+        scrDir="../fastlane/metadata/android/$i/images/phoneScreenshots"
     fi
     
     mkdir -p $scrDir
