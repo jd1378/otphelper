@@ -18,8 +18,6 @@ import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
-import io.github.jd1378.otphelper.utils.getMessageId
-import io.github.jd1378.otphelper.utils.setMessageRead
 
 @HiltWorker
 class CodeDetectedWorker
@@ -125,11 +123,6 @@ constructor(
 
         NotificationHelper.sendDetectedNotif(
             applicationContext, extras, code, settings.isAutoCopyEnabled)
-      }
-      if (isSms && settings.isAutoMarkAsReadEnabled) {
-        val id = getMessageId(applicationContext, text)
-        // may or may not work depending on android version, but we will try regardless
-        setMessageRead(applicationContext, id, true)
       }
     } catch (e: Exception) {
       Log.e(TAG, e.stackTraceToString())
