@@ -83,4 +83,3 @@ jobs:
         releaseFiles: app/build/outputs/bundle/release/*.aab
         track: internal
         status: draft
-        changesNotSentForReview: true
