@@ -45,6 +45,7 @@ import io.github.jd1378.otphelper.ui.components.IgnoreNotifIdButton
 import io.github.jd1378.otphelper.ui.components.IgnoreNotifTagButton
 import io.github.jd1378.otphelper.ui.components.IgnoreOriginButton
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
 import io.github.jd1378.otphelper.ui.components.getAppInfo
 import io.github.jd1378.otphelper.ui.components.shortenAppLabel
 import io.github.jd1378.otphelper.ui.utils.SkipFirstLaunchedEffect
@@ -92,7 +93,9 @@ fun IgnoredAppDetail(
       }
       Box(
           modifier =
-              Modifier.fillMaxSize().padding(top = dimensionResource(R.dimen.padding_medium)),
+              Modifier.fillMaxSize()
+                  .padding(top = dimensionResource(R.dimen.padding_medium))
+                  .drawVerticalScrollbar(listState),
       ) {
         when (ignoreItems.loadState.refresh) {
           is LoadState.Error ->
