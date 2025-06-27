@@ -33,7 +33,9 @@ function navigate {
 }
 
 function restart_app {
-    adb shell am broadcast -a io.github.jd1378.otphelper -e command restart
+    adb shell am force-stop io.github.jd1378.otphelper
+    goto_app
+    sleep 1
 }
 
 function change_lang {
@@ -73,9 +75,9 @@ function clear_notifications {
       sleep 0.5
       num=$(( $num - 1 ))
     done
-    collapse_status_bar
     sleep 1
   fi
+  collapse_status_bar
 }
 
 function goto_home {
@@ -142,10 +144,9 @@ clear_status_bar
 # set timezone to london
 adb shell service call alarm 3 s16 Europe/London
 
-goto_app
-
 for i in "${locales[@]}"
 do
+    restart_app
     clear_notifications
     adb shell date 010611002025
 
@@ -176,4 +177,4 @@ do
     save_screenshot "$scrDir/2.png"
 done
 
-stop_clean_status_bar
+reset_status_bar
