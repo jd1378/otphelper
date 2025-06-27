@@ -1,0 +1,2 @@
+- Fixed some accessibility issues
+- Added SMS mode. This allows the app to work by reading sms directly instead of relying on notifications. You can choose between SMS mode and Notification mode at will.
