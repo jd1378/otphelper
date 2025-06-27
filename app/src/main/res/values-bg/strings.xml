@@ -15,7 +15,7 @@
     <string name="copy">Копирай</string>
     <string name="ignore">Игнорирай</string>
     <string name="PERMISSION_ROUTE">Разрешения</string>
-    <string name="permissions_desc">За да сте сигурни, че приложението може да открива правилно кодове от известия през цялото време, трябва да предоставите следните разрешения:</string>
+    <string name="permissions_desc">За да сте сигурни, че приложението винаги може да открива кодове правилно, моля, предоставете следните разрешения:</string>
     <string name="permission_todo_post_notifications">Публикувай известия</string>
     <string name="permission_todo_read_notifications">Прочети известия</string>
     <string name="permission_todo_remain_open">Остави отворено</string>
@@ -126,8 +126,8 @@
     <string name="read_notifs_sms_mode_desc">В SMS режим разрешението \"Прочети известия\" все още е необходимо, за да се изпълняват действията \"Маркирай като прочетено\" и \"Отхвърли\" върху известията. Ако не се нуждаете от тези функции, можете да пропуснете това разрешение.</string>
     <string name="experimental_features_warning">Следните функции са експериментални и може да не работят винаги както е предвидено.</string>
     <string name="read_notifs_android_15_desc">От Android 15 трябва или да изключите новата настройка \"Подобрени известия\" във вашите настройки на телефона, или да изпълните следните ADB команди и да отворите приложението отново. Ако не сте запознати с ADB, можете да се върнете и да смените режима на приложението на SMS, за да продължите да го използвате без това действие.</string>
-    <string name="permission_granted_to">Разрешението е дадено на</string>
-    <string name="permission_not_granted_to">Разрешението не е дадено на</string>
+    <string name="permission_granted_to">Разрешение, предоставено на</string>
+    <string name="permission_not_granted_to">Разрешение не е дадено на</string>
     <string name="open_settings">Отвори настройките</string>
     <string name="request">Заяви</string>
     <string name="wont_detect_code_from_this_origin">Няма да открие код от този произход отново</string>
