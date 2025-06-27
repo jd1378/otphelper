@@ -30,7 +30,9 @@ class NotificationListener : NotificationListenerService() {
 
   companion object {
     val TAG = "NotificationListener"
-    private const val MESSAGE_TIMEOUT_MS = 4_000L
+    // sometimes SMS may take several seconds to show as notification if the system is overloaded,
+    // but I'm keeping it to 2s to prevent incorrect interactions as much as possible
+    private const val MESSAGE_TIMEOUT_MS = 2_000L
     private val redactedNotificationMessages =
         mutableSetOf(
             "Sensitive notification content hidden", // en
