@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Neue Bereinigungsphrase</string>
   <string name="cleanup_phrases_desc">Hier definierte Phrasen werden aus den Nachrichten entfernt, bevor die Erkennungslogik angewendet wird. Sie können dies verwenden, um Probleme mit falsch erkannten Codes zu beheben.</string>
   <string name="label_privacy_policy">Datenschutzerklärung</string>
+  <string name="sms_origin">Absender</string>
+  <string name="ignore_origin">Absender ignorieren</string>
+  <string name="allow_origin">Absender erlauben</string>
+  <string name="MODE_ROUTE">Modus</string>
+  <string name="next">Weiter</string>
+  <string name="Notification">Benachrichtigung</string>
+  <string name="notification_mode_help">In diesem Modus liest die App nur den Benachrichtigungstext, um den Code zu extrahieren. Wenn die ursprüngliche Nachricht zu lang ist und der Benachrichtigungstext abgeschnitten wird, kann die Code-Erkennung fehlschlagen.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">In diesem Modus liest die App SMS-Nachrichten direkt, um Codes zu extrahieren. Es sind keine speziellen Berechtigungen erforderlich und es ist zuverlässiger, wenn Sie nur Codes aus SMS lesen möchten.</string>
+  <string name="mode_choose_help">Da Android 15 strengere Berechtigungen für das Lesen von Benachrichtigungen einführt, haben wir einen neuen SMS-Modus hinzugefügt. Dadurch kann die App auf Android 15+ weiterhin funktionieren, indem SMS anstelle von Benachrichtigungen verwendet werden.</string>
+  <string name="permissions_no_mode_selected">Kein Betriebsmodus ausgewählt. Bitte wählen Sie einen Modus, um die zugehörigen Berechtigungen anzuzeigen.</string>
+  <string name="permission_todo_receive_sms">SMS empfangen</string>
+  <string name="permission_todo_read_sms">SMS lesen</string>
+  <string name="permission_revoked_sms_notification_hint">Bitte erteilen Sie erneut die SMS-Berechtigung. Tippen Sie auf diese Nachricht, um die Einstellungen zu öffnen.</string>
+  <string name="read_notifs_sms_mode_desc">Im SMS-Modus wird die Berechtigung \"Benachrichtigungen lesen\" weiterhin benötigt, um die Aktionen \"Als gelesen markieren\" und \"Zurückweisen\" für Benachrichtigungen auszuführen. Wenn Sie diese Funktionen nicht benötigen, können Sie das Erteilen dieser Berechtigung überspringen.</string>
+  <string name="experimental_features_warning">Die folgenden Funktionen sind experimentell und funktionieren möglicherweise nicht immer wie vorgesehen.</string>
+  <string name="read_notifs_android_15_desc">Seit Android 15 müssen Sie entweder die neue Einstellung \"Erweiterte Benachrichtigungen\" in den Telefoneinstellungen deaktivieren oder die folgenden ADB-Befehle ausführen und die App erneut öffnen. Wenn Sie mit ADB nicht vertraut sind, können Sie zurückgehen und den App-Modus auf SMS ändern, um die App weiterhin ohne diese Aktion zu verwenden.</string>
+  <string name="permission_granted_to">Berechtigung erteilt für</string>
+  <string name="permission_not_granted_to">Berechtigung nicht erteilt für</string>
+  <string name="open_settings">Einstellungen öffnen</string>
+  <string name="request">Anfordern</string>
 </resources>

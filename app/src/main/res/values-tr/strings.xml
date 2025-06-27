@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Yeni Temizleme İfadesi</string>
   <string name="cleanup_phrases_desc">Burada tanımlanan ifadeler, algılama mantığını uygulamadan önce mesajlardan kaldırılacaktır. Bu, yanlış algılanan kodlarla ilgili sorunları düzeltmek için kullanılabilir.</string>
   <string name="label_privacy_policy">Gizlilik Politikası</string>
+  <string name="sms_origin">Origin</string>
+  <string name="ignore_origin">Origin\'i Yoksay</string>
+  <string name="allow_origin">Origin\'e İzin Ver</string>
+  <string name="MODE_ROUTE">Mod</string>
+  <string name="next">Sonraki</string>
+  <string name="Notification">Bildirim</string>
+  <string name="notification_mode_help">Bu modda, uygulama yalnızca bildirimin metnini okuyarak kodu çıkartır. Orijinal mesaj çok uzunsa ve bildirim metni kesilmişse, kodun çıkarılması başarısız olabilir.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">Bu modda, uygulama kodları çıkarmak için SMS mesajlarını doğrudan okur. Özel izin gerektirmez ve yalnızca SMS\'lerden kod okumanız gerekiyorsa daha güvenilirdir.</string>
+  <string name="mode_choose_help">Android 15, bildirimleri okuma izinleri için daha sıkı kurallar getirdiğinden, yeni bir SMS modu ekledik. Bu, uygulamanın Android 15+ üzerinde bildirimler yerine SMS kullanarak çalışmaya devam etmesini sağlar.</string>
+  <string name="permissions_no_mode_selected">Hiçbir çalışma modu seçilmedi. İlgili izinleri görmek için lütfen bir mod seçin.</string>
+  <string name="permission_todo_receive_sms">SMS Al</string>
+  <string name="permission_todo_read_sms">SMS Oku</string>
+  <string name="permission_revoked_sms_notification_hint">Lütfen SMS iznini tekrar verin. Ayarları açmak için bu mesaja dokunun.</string>
+  <string name="read_notifs_sms_mode_desc">SMS modunda, bildirimlerde \"Okundu olarak işaretle\" ve \"Kapat\" işlemlerini gerçekleştirmek için \"Bildirimleri Okuma\" izni yine de gereklidir. Bu özelliklere ihtiyacınız yoksa bu izni vermeyi atlayabilirsiniz.</string>
+  <string name="experimental_features_warning">Aşağıdaki özellikler deneyseldir ve her zaman beklenildiği gibi çalışmayabilir.</string>
+  <string name="read_notifs_android_15_desc">Android 15\'ten itibaren, telefon ayarlarında yeni \"Gelişmiş Bildirimler\" ayarını devre dışı bırakmanız veya aşağıdaki ADB komutlarını çalıştırıp uygulamayı tekrar açmanız gerekir. ADB\'yi bilmiyorsanız, geri dönüp uygulama modunu SMS olarak değiştirerek bu işlemi yapmadan uygulamayı kullanmaya devam edebilirsiniz.</string>
+  <string name="permission_granted_to">İzin verildi:</string>
+  <string name="permission_not_granted_to">İzin verilmedi:</string>
+  <string name="open_settings">Ayarları aç</string>
+  <string name="request">İste</string>
 </resources>

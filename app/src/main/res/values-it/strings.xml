@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Nuova frase di pulizia</string>
   <string name="cleanup_phrases_desc">Le frasi definite qui verranno rimosse dai messaggi prima di applicare la logica di rilevamento. Puoi usarlo per risolvere problemi con codici rilevati in modo errato.</string>
   <string name="label_privacy_policy">Informativa sulla privacy</string>
+  <string name="sms_origin">Origine</string>
+  <string name="ignore_origin">Ignora origine</string>
+  <string name="allow_origin">Consenti origine</string>
+  <string name="MODE_ROUTE">Modalità</string>
+  <string name="next">Avanti</string>
+  <string name="Notification">Notifica</string>
+  <string name="notification_mode_help">In questa modalità, l\'app legge solo il testo della notifica per estrarre il codice. Se il messaggio originale è troppo lungo e il testo della notifica viene troncato, l\'estrazione del codice potrebbe non riuscire.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">In questa modalità, l\'app legge direttamente i messaggi SMS per estrarre i codici. Non richiede permessi speciali ed è più affidabile se hai bisogno solo di leggere codici dagli SMS.</string>
+  <string name="mode_choose_help">Poiché Android 15 introduce permessi più restrittivi per la lettura delle notifiche, abbiamo aggiunto una nuova modalità SMS. Questo consente all\'app di continuare a funzionare su Android 15+ utilizzando gli SMS invece delle notifiche.</string>
+  <string name="permissions_no_mode_selected">Nessuna modalità di funzionamento selezionata. Scegli una modalità per visualizzare i permessi correlati.</string>
+  <string name="permission_todo_receive_sms">Ricevi SMS</string>
+  <string name="permission_todo_read_sms">Leggi SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Concedi nuovamente il permesso SMS. Tocca questo messaggio per aprire le impostazioni.</string>
+  <string name="read_notifs_sms_mode_desc">In modalità SMS, il permesso \"Leggi notifiche\" è comunque necessario per eseguire le azioni \"Segna come letto\" e \"Ignora\" sulle notifiche. Se non hai bisogno di queste funzioni, puoi saltare la concessione di questo permesso.</string>
+  <string name="experimental_features_warning">Le seguenti funzionalità sono sperimentali e potrebbero non funzionare sempre come previsto.</string>
+  <string name="read_notifs_android_15_desc">Da Android 15, è necessario disabilitare la nuova impostazione \"Notifiche avanzate\" nelle impostazioni del telefono oppure eseguire i seguenti comandi ADB e riaprire l\'app. Se non conosci ADB, puoi tornare indietro e cambiare la modalità dell\'app in SMS per continuare a usarla senza eseguire questa azione.</string>
+  <string name="permission_granted_to">Permesso concesso a</string>
+  <string name="permission_not_granted_to">Permesso non concesso a</string>
+  <string name="open_settings">Apri impostazioni</string>
+  <string name="request">Richiedi</string>
 </resources>

@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Nowe zdanie czyszczenia</string>
   <string name="cleanup_phrases_desc">Zwroty zdefiniowane tutaj zostaną usunięte z wiadomości przed zastosowaniem logiki wykrywania. Możesz użyć tego, aby naprawić problemy z nieprawidłowo wykrytym kodem.</string>
   <string name="label_privacy_policy">Polityka prywatności</string>
+  <string name="sms_origin">Pochodzenie</string>
+  <string name="ignore_origin">Ignoruj pochodzenie</string>
+  <string name="allow_origin">Zezwól na pochodzenie</string>
+  <string name="MODE_ROUTE">Tryb</string>
+  <string name="next">Dalej</string>
+  <string name="Notification">Powiadomienie</string>
+  <string name="notification_mode_help">W tym trybie aplikacja odczytuje tylko tekst powiadomienia, aby wyodrębnić kod. Jeśli oryginalna wiadomość jest zbyt długa i tekst powiadomienia zostanie obcięty, wyodrębnianie kodu może się nie powieść.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">W tym trybie aplikacja odczytuje bezpośrednio wiadomości SMS, aby wyodrębnić kody. Nie wymaga specjalnych uprawnień i jest bardziej niezawodny, jeśli potrzebujesz tylko czytać kody z SMS.</string>
+  <string name="mode_choose_help">Ponieważ Android 15 wprowadza bardziej rygorystyczne uprawnienia do odczytywania powiadomień, dodaliśmy nowy tryb SMS. Pozwala to aplikacji nadal działać na Androidzie 15+ poprzez użycie SMS zamiast powiadomień.</string>
+  <string name="permissions_no_mode_selected">Nie wybrano trybu działania. Wybierz tryb, aby zobaczyć powiązane uprawnienia.</string>
+  <string name="permission_todo_receive_sms">Odbieranie SMS</string>
+  <string name="permission_todo_read_sms">Czytaj SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Ponownie nadaj uprawnienia do SMS. Dotknij tej wiadomości, aby otworzyć ustawienia.</string>
+  <string name="read_notifs_sms_mode_desc">W trybie SMS uprawnienie „Czytaj powiadomienia” jest nadal wymagane do wykonywania akcji „Oznacz jako przeczytane” i „Odrzuć” na powiadomieniach. Jeśli nie potrzebujesz tych funkcji, możesz pominąć nadanie tego uprawnienia.</string>
+  <string name="experimental_features_warning">Następujące funkcje są eksperymentalne i mogą nie zawsze działać zgodnie z oczekiwaniami.</string>
+  <string name="read_notifs_android_15_desc">Od Androida 15 musisz wyłączyć nowe ustawienie „Ulepszone powiadomienia” w ustawieniach telefonu lub uruchomić poniższe polecenia ADB i ponownie otworzyć aplikację. Jeśli nie znasz ADB, możesz wrócić i zmienić tryb aplikacji na SMS, aby nadal korzystać z aplikacji bez wykonywania tej czynności.</string>
+  <string name="permission_granted_to">Uprawnienie przyznane dla</string>
+  <string name="permission_not_granted_to">Uprawnienie nieprzyznane dla</string>
+  <string name="open_settings">Otwórz ustawienia</string>
+  <string name="request">Poproś</string>
 </resources>

@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">新增清理字詞</string>
   <string name="cleanup_phrases_desc">此處定義的字詞將在應用檢測邏輯之前從訊息中移除。您可以使用此功能來修正錯誤檢測的代碼問題。</string>
   <string name="label_privacy_policy">隱私權政策</string>
+  <string name="sms_origin">來源</string>
+  <string name="ignore_origin">忽略來源</string>
+  <string name="allow_origin">允許來源</string>
+  <string name="MODE_ROUTE">模式</string>
+  <string name="next">下一步</string>
+  <string name="Notification">通知</string>
+  <string name="notification_mode_help">在此模式下，應用程式僅讀取通知文字以擷取驗證碼。如果原始訊息過長導致通知文字被截斷，可能會導致擷取失敗。</string>
+  <string name="sms">簡訊</string>
+  <string name="sms_mode_help">在此模式下，應用程式會直接讀取簡訊以擷取驗證碼。不需要特殊權限，如果您只需從簡訊讀取驗證碼，此模式更可靠。</string>
+  <string name="mode_choose_help">由於 Android 15 對讀取通知權限有更嚴格的限制，我們新增了簡訊模式。這讓應用程式在 Android 15 以上仍可透過簡訊而非通知繼續運作。</string>
+  <string name="permissions_no_mode_selected">尚未選擇運作模式。請選擇一種模式以檢視相關權限。</string>
+  <string name="permission_todo_receive_sms">允許接收簡訊</string>
+  <string name="permission_todo_read_sms">允許讀取簡訊</string>
+  <string name="permission_revoked_sms_notification_hint">請再次授予簡訊權限。點擊此訊息可開啟設定。</string>
+  <string name="read_notifs_sms_mode_desc">在簡訊模式下，仍需「讀取通知」權限才能對通知執行「標為已讀」和「關閉」等操作。如果您不需要這些功能，可以略過此權限。</string>
+  <string name="experimental_features_warning">以下功能為實驗性質，可能無法如預期運作。</string>
+  <string name="read_notifs_android_15_desc">自 Android 15 起，您需要在手機設定中關閉新的「增強型通知」設定，或執行下列 ADB 指令並重新開啟應用程式。如果您不熟悉 ADB，可以返回並將應用程式模式切換為簡訊以繼續使用，無需執行此操作。</string>
+  <string name="permission_granted_to">已授予權限給</string>
+  <string name="permission_not_granted_to">未授予權限給</string>
+  <string name="open_settings">開啟設定</string>
+  <string name="request">請求</string>
 </resources>

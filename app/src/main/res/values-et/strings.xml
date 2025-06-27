@@ -109,4 +109,25 @@
   <string name="copy_cleanup_regex">Copy cleanup regex</string>
   <string name="new_cleanup_phrase">New Cleanup Phrase</string>
   <string name="cleanup_phrases_desc">Phrases defined here will be removed from the messages before applying detection logic. You can use this to fix issues with incorrectly detected code.</string>
+  <string name="sms_origin">Päritolu</string>
+  <string name="ignore_origin">Eira päritolu</string>
+  <string name="allow_origin">Luba päritolu</string>
+  <string name="MODE_ROUTE">Režiim</string>
+  <string name="next">Järgmine</string>
+  <string name="Notification">Teavitus</string>
+  <string name="notification_mode_help">Selles režiimis loeb rakendus ainult teavituse teksti, et koodi välja võtta. Kui algne sõnum on liiga pikk ja teavituse tekst kärbitakse, võib koodi tuvastamine ebaõnnestuda.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">Selles režiimis loeb rakendus otse SMS-sõnumeid, et koodid välja võtta. See ei vaja eraldi õigusi ja on usaldusväärsem, kui soovid lugeda koode ainult SMS-idest.</string>
+  <string name="mode_choose_help">Kuna Android 15 toob kaasa rangemad õigused teavituste lugemiseks, lisasime uue SMS-režiimi. See võimaldab rakendusel jätkata tööd Android 15+ seadmetes, kasutades teavituste asemel SMS-e.</string>
+  <string name="permissions_no_mode_selected">Töörežiimi pole valitud. Palun vali režiim, et näha seotud õigusi.</string>
+  <string name="permission_todo_receive_sms">Võta vastu SMS</string>
+  <string name="permission_todo_read_sms">Loe SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Palun anna uuesti SMS-i luba. Ava seadete avamiseks puuduta seda teadet.</string>
+  <string name="read_notifs_sms_mode_desc">SMS-režiimis on \"Loe teavitusi\" luba siiski vajalik, et kasutada \"Märgi loetuks\" ja \"Sulge\" toiminguid teavitustel. Kui neid funktsioone pole vaja, võid selle loa andmise vahele jätta.</string>
+  <string name="experimental_features_warning">Järgmised funktsioonid on eksperimentaalsed ja ei pruugi alati töötada ootuspäraselt.</string>
+  <string name="read_notifs_android_15_desc">Alates Android 15-st pead kas keelama uue \"Täiustatud teavitused\" seade oma telefoni seadetes või käivitama järgmised ADB käsud ja avama rakenduse uuesti. Kui sa ei tunne ADB-d, võid minna tagasi ja muuta rakenduse režiimi SMS-iks, et jätkata rakenduse kasutamist ilma selle toiminguta.</string>
+  <string name="permission_granted_to">Õigus antud</string>
+  <string name="permission_not_granted_to">Õigus andmata</string>
+  <string name="open_settings">Ava seaded</string>
+  <string name="request">Taotle</string>
 </resources>

@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">عبارة تنظيف جديدة</string>
   <string name="cleanup_phrases_desc">سيتم إزالة العبارات المعرفة هنا من الرسائل قبل تطبيق منطق الاكتشاف. يمكنك استخدام هذا لإصلاح المشكلات المتعلقة بالكود المكتشف بشكل غير صحيح.</string>
   <string name="label_privacy_policy">سياسة الخصوصية</string>
+  <string name="sms_origin">المصدر</string>
+  <string name="ignore_origin">تجاهل المصدر</string>
+  <string name="allow_origin">السماح بالمصدر</string>
+  <string name="MODE_ROUTE">الوضع</string>
+  <string name="next">التالي</string>
+  <string name="Notification">الإشعار</string>
+  <string name="notification_mode_help">في هذا الوضع، يقرأ التطبيق نص الإشعار فقط لاستخراج الرمز. إذا كانت الرسالة الأصلية طويلة جدًا وتم اقتطاع نص الإشعار، فقد يفشل استخراج الرمز.</string>
+  <string name="sms">رسالة نصية</string>
+  <string name="sms_mode_help">في هذا الوضع، يقرأ التطبيق الرسائل النصية مباشرة لاستخراج الرموز. لا يتطلب أذونات خاصة ويكون أكثر موثوقية إذا كنت بحاجة فقط لقراءة الرموز من الرسائل النصية.</string>
+  <string name="mode_choose_help">نظرًا لأن أندرويد 15 يقدم أذونات أكثر صرامة لقراءة الإشعارات، أضفنا وضع الرسائل النصية الجديد. يتيح ذلك للتطبيق الاستمرار في العمل على أندرويد 15+ باستخدام الرسائل النصية بدلاً من الإشعارات.</string>
+  <string name="permissions_no_mode_selected">لم يتم اختيار وضع التشغيل. يرجى اختيار وضع لعرض الأذونات المتعلقة به.</string>
+  <string name="permission_todo_receive_sms">استلام الرسائل النصية</string>
+  <string name="permission_todo_read_sms">قراءة الرسائل النصية</string>
+  <string name="permission_revoked_sms_notification_hint">يرجى منح إذن الرسائل النصية مرة أخرى. اضغط على هذه الرسالة لفتح الإعدادات.</string>
+  <string name="read_notifs_sms_mode_desc">في وضع الرسائل النصية، لا يزال إذن \"قراءة الإشعارات\" مطلوبًا لتنفيذ إجراءات \"تحديد كمقروء\" و\"رفض\" على الإشعارات. إذا لم تكن بحاجة لهذه الميزات، يمكنك تخطي منح هذا الإذن.</string>
+  <string name="experimental_features_warning">الميزات التالية تجريبية وقد لا تعمل دائمًا كما هو متوقع.</string>
+  <string name="read_notifs_android_15_desc">منذ أندرويد 15، تحتاج إما إلى تعطيل إعداد \"الإشعارات المحسنة\" الجديد في إعدادات هاتفك أو تشغيل أوامر ADB التالية ثم فتح التطبيق مرة أخرى. إذا لم تكن على دراية بـ ADB، يمكنك الرجوع وتغيير وضع التطبيق إلى الرسائل النصية لمتابعة استخدام التطبيق دون تنفيذ هذا الإجراء.</string>
+  <string name="permission_granted_to">تم منح الإذن لـ</string>
+  <string name="permission_not_granted_to">لم يتم منح الإذن لـ</string>
+  <string name="open_settings">فتح الإعدادات</string>
+  <string name="request">طلب</string>
 </resources>

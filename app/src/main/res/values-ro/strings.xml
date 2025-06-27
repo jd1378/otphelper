@@ -109,4 +109,25 @@
   <string name="sensitive_phrases_desc_regex">Frazele trebuie să fie valabile Regex.</string>
   <string name="new_sensitive_phrase">Expresie cheie nouă</string>
   <string name="your_new_phrase">Expresie nouă</string>
+  <string name="sms_origin">Origine</string>
+  <string name="ignore_origin">Ignoră originea</string>
+  <string name="allow_origin">Permite originea</string>
+  <string name="MODE_ROUTE">Mod</string>
+  <string name="next">Următorul</string>
+  <string name="Notification">Notificare</string>
+  <string name="notification_mode_help">În acest mod, aplicația citește doar textul notificării pentru a extrage codul. Dacă mesajul original este prea lung și textul notificării este trunchiat, extragerea codului poate eșua.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">În acest mod, aplicația citește direct mesajele SMS pentru a extrage codurile. Nu necesită permisiuni speciale și este mai fiabil dacă ai nevoie doar să citești coduri din SMS.</string>
+  <string name="mode_choose_help">Deoarece Android 15 introduce permisiuni mai stricte pentru citirea notificărilor, am adăugat un nou mod SMS. Acesta permite aplicației să continue să funcționeze pe Android 15+ folosind SMS în loc de notificări.</string>
+  <string name="permissions_no_mode_selected">Nu a fost selectat niciun mod de operare. Te rugăm să alegi un mod pentru a vedea permisiunile aferente.</string>
+  <string name="permission_todo_receive_sms">Primește SMS</string>
+  <string name="permission_todo_read_sms">Citește SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Acordă din nou permisiunea SMS. Atinge acest mesaj pentru a deschide setările.</string>
+  <string name="read_notifs_sms_mode_desc">În modul SMS, permisiunea \"Citire notificări\" este necesară în continuare pentru a efectua acțiunile \"Marchează ca citită\" și \"Respinge\" pe notificări. Dacă nu ai nevoie de aceste funcții, poți omite acordarea acestei permisiuni.</string>
+  <string name="experimental_features_warning">Următoarele funcții sunt experimentale și pot să nu funcționeze întotdeauna conform așteptărilor.</string>
+  <string name="read_notifs_android_15_desc">Începând cu Android 15, trebuie fie să dezactivezi noua setare \"Notificări îmbunătățite\" din setările telefonului, fie să rulezi următoarele comenzi ADB și să redeschizi aplicația. Dacă nu ești familiarizat cu ADB, poți reveni și schimba modul aplicației pe SMS pentru a continua să folosești aplicația fără a efectua această acțiune.</string>
+  <string name="permission_granted_to">Permisiune acordată pentru</string>
+  <string name="permission_not_granted_to">Permisiune neacordată pentru</string>
+  <string name="open_settings">Deschide setările</string>
+  <string name="request">Solicită</string>
 </resources>

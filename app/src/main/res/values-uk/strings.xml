@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Нова фраза очищення</string>
   <string name="cleanup_phrases_desc">Фрази, визначені тут, будуть видалені з повідомлень перед застосуванням логіки виявлення. Ви можете використовувати це для виправлення проблем із неправильно виявленим кодом.</string>
   <string name="label_privacy_policy">Політика конфіденційності</string>
+  <string name="sms_origin">Джерело</string>
+  <string name="ignore_origin">Ігнорувати джерело</string>
+  <string name="allow_origin">Дозволити джерело</string>
+  <string name="MODE_ROUTE">Режим</string>
+  <string name="next">Далі</string>
+  <string name="Notification">Сповіщення</string>
+  <string name="notification_mode_help">У цьому режимі додаток читає лише текст сповіщення для вилучення коду. Якщо оригінальне повідомлення занадто довге і текст сповіщення обрізано, вилучення коду може не вдатися.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">У цьому режимі додаток читає SMS-повідомлення безпосередньо для вилучення кодів. Не потребує спеціальних дозволів і є надійнішим, якщо потрібно читати лише коди з SMS.</string>
+  <string name="mode_choose_help">Оскільки Android 15 вводить суворіші дозволи на читання сповіщень, ми додали новий режим SMS. Це дозволяє додатку продовжувати роботу на Android 15+ за допомогою SMS замість сповіщень.</string>
+  <string name="permissions_no_mode_selected">Не вибрано режим роботи. Будь ласка, виберіть режим, щоб переглянути відповідні дозволи.</string>
+  <string name="permission_todo_receive_sms">Отримувати SMS</string>
+  <string name="permission_todo_read_sms">Читати SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Ще раз надайте дозвіл на SMS. Торкніться цього повідомлення, щоб відкрити налаштування.</string>
+  <string name="read_notifs_sms_mode_desc">У режимі SMS дозвіл \"Читати сповіщення\" все ще потрібен для виконання дій \"Позначити як прочитане\" та \"Відхилити\" для сповіщень. Якщо ці функції вам не потрібні, можете не надавати цей дозвіл.</string>
+  <string name="experimental_features_warning">Наступні функції є експериментальними і можуть працювати не завжди коректно.</string>
+  <string name="read_notifs_android_15_desc">Починаючи з Android 15, потрібно або вимкнути нове налаштування \"Покращені сповіщення\" у налаштуваннях телефону, або виконати наступні команди ADB і знову відкрити додаток. Якщо ви не знайомі з ADB, можете повернутися назад і змінити режим додатку на SMS, щоб продовжити користування без цієї дії.</string>
+  <string name="permission_granted_to">Дозвіл надано для</string>
+  <string name="permission_not_granted_to">Дозвіл не надано для</string>
+  <string name="open_settings">Відкрити налаштування</string>
+  <string name="request">Запит</string>
 </resources>

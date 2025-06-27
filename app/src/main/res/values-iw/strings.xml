@@ -109,4 +109,25 @@
   <string name="copy_cleanup_regex">Copy cleanup regex</string>
   <string name="new_cleanup_phrase">New Cleanup Phrase</string>
   <string name="cleanup_phrases_desc">Phrases defined here will be removed from the messages before applying detection logic. You can use this to fix issues with incorrectly detected code.</string>
+  <string name="sms_origin">מקור</string>
+  <string name="ignore_origin">התעלם ממקור</string>
+  <string name="allow_origin">אפשר מקור</string>
+  <string name="MODE_ROUTE">מצב</string>
+  <string name="next">הבא</string>
+  <string name="Notification">התראה</string>
+  <string name="notification_mode_help">במצב זה, האפליקציה קוראת רק את טקסט ההתראה כדי לחלץ את הקוד. אם ההודעה המקורית ארוכה מדי וטקסט ההתראה נחתך, ייתכן שחילוץ הקוד ייכשל.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">במצב זה, האפליקציה קוראת הודעות SMS ישירות כדי לחלץ קודים. אין צורך בהרשאות מיוחדות וזה אמין יותר אם אתה צריך לקרוא קודים רק מ-SMS.</string>
+  <string name="mode_choose_help">מאז אנדרואיד 15 נוספו הרשאות מחמירות יותר לקריאת התראות, לכן הוספנו מצב SMS חדש. זה מאפשר לאפליקציה להמשיך לפעול באנדרואיד 15+ באמצעות SMS במקום התראות.</string>
+  <string name="permissions_no_mode_selected">לא נבחר מצב פעולה. אנא בחר מצב כדי להציג את ההרשאות הרלוונטיות.</string>
+  <string name="permission_todo_receive_sms">קבלת SMS</string>
+  <string name="permission_todo_read_sms">קריאת SMS</string>
+  <string name="permission_revoked_sms_notification_hint">אנא הענק מחדש הרשאת SMS. הקש על הודעה זו כדי לפתוח את ההגדרות.</string>
+  <string name="read_notifs_sms_mode_desc">במצב SMS, הרשאת \"קריאת התראות\" עדיין נדרשת כדי לבצע פעולות \"סמן כנקרא\" ו-\"סגור\" על התראות. אם אינך צריך תכונות אלו, תוכל לדלג על מתן הרשאה זו.</string>
+  <string name="experimental_features_warning">התכונות הבאות הן ניסיוניות ועלולות שלא לפעול תמיד כמצופה.</string>
+  <string name="read_notifs_android_15_desc">מאז אנדרואיד 15, עליך או לבטל את הגדרת \"התראות משופרות\" בהגדרות הטלפון שלך או להריץ את פקודות ה-ADB הבאות ולפתוח שוב את האפליקציה. אם אינך מכיר את ADB, תוכל לחזור אחורה ולשנות את מצב האפליקציה ל-SMS כדי להמשיך להשתמש באפליקציה ללא פעולה זו.</string>
+  <string name="permission_granted_to">הרשאה ניתנה ל</string>
+  <string name="permission_not_granted_to">הרשאה לא ניתנה ל</string>
+  <string name="open_settings">פתח הגדרות</string>
+  <string name="request">בקשה</string>
 </resources>

@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">নতুন পরিষ্কারের বাক্যাংশ</string>
   <string name="cleanup_phrases_desc">এখানে সংজ্ঞায়িত বাক্যাংশগুলি সনাক্তকরণ লজিক প্রয়োগ করার আগে বার্তাগুলি থেকে সরানো হবে। ভুলভাবে সনাক্ত করা কোডের সমস্যাগুলি সমাধান করতে এটি ব্যবহার করতে পারেন।</string>
   <string name="label_privacy_policy">গোপনীয়তা নীতি</string>
+  <string name="sms_origin">উৎপত্তি</string>
+  <string name="ignore_origin">উৎপত্তি উপেক্ষা করুন</string>
+  <string name="allow_origin">উৎপত্তি অনুমতি দিন</string>
+  <string name="MODE_ROUTE">মোড</string>
+  <string name="next">পরবর্তী</string>
+  <string name="Notification">বিজ্ঞপ্তি</string>
+  <string name="notification_mode_help">এই মোডে, অ্যাপটি শুধুমাত্র বিজ্ঞপ্তির টেক্সট পড়ে কোড বের করে। যদি মূল বার্তাটি খুব বড় হয় এবং বিজ্ঞপ্তির টেক্সট কাটা যায়, তাহলে কোড বের করা ব্যর্থ হতে পারে।</string>
+  <string name="sms">এসএমএস</string>
+  <string name="sms_mode_help">এই মোডে, অ্যাপটি সরাসরি এসএমএস বার্তা পড়ে কোড বের করে। এটি বিশেষ অনুমতি প্রয়োজন হয় না এবং শুধুমাত্র এসএমএস থেকে কোড পড়ার জন্য আরও নির্ভরযোগ্য।</string>
+  <string name="mode_choose_help">অ্যান্ড্রয়েড ১৫-এ বিজ্ঞপ্তি পড়ার জন্য আরও কঠোর অনুমতি চালু হওয়ায়, আমরা একটি নতুন এসএমএস মোড যোগ করেছি। এটি অ্যাপটিকে অ্যান্ড্রয়েড ১৫+ এ এসএমএস ব্যবহার করে চলতে দেয়।</string>
+  <string name="permissions_no_mode_selected">কোনো অপারেশন মোড নির্বাচন করা হয়নি। সংশ্লিষ্ট অনুমতিগুলি দেখতে একটি মোড নির্বাচন করুন।</string>
+  <string name="permission_todo_receive_sms">এসএমএস গ্রহণ করুন</string>
+  <string name="permission_todo_read_sms">এসএমএস পড়ুন</string>
+  <string name="permission_revoked_sms_notification_hint">অনুগ্রহ করে আবার এসএমএস অনুমতি দিন। সেটিংস খুলতে এই বার্তাটি আলতো চাপুন।</string>
+  <string name="read_notifs_sms_mode_desc">এসএমএস মোডে, \"বিজ্ঞপ্তি পড়া\" অনুমতি এখনও \"পঠিত হিসাবে চিহ্নিত করুন\" এবং \"বাতিল করুন\" অ্যাকশন সম্পাদনের জন্য প্রয়োজন। যদি এই ফিচারগুলোর দরকার না হয়, তাহলে এই অনুমতি না দিলেও চলবে।</string>
+  <string name="experimental_features_warning">নিম্নোক্ত ফিচারগুলো পরীক্ষামূলক এবং সবসময় প্রত্যাশিতভাবে কাজ নাও করতে পারে।</string>
+  <string name="read_notifs_android_15_desc">অ্যান্ড্রয়েড ১৫ থেকে, আপনাকে ফোন সেটিংসে নতুন \"Enhanced Notifications\" সেটিংটি বন্ধ করতে হবে অথবা নিচের ADB কমান্ডগুলো চালাতে হবে এবং অ্যাপটি আবার খুলতে হবে। আপনি যদি ADB সম্পর্কে জানেন না, তাহলে ফিরে গিয়ে অ্যাপ মোড এসএমএস-এ পরিবর্তন করুন যাতে এই পদক্ষেপ ছাড়াই অ্যাপটি ব্যবহার করতে পারেন।</string>
+  <string name="permission_granted_to">অনুমতি দেওয়া হয়েছে</string>
+  <string name="permission_not_granted_to">অনুমতি দেওয়া হয়নি</string>
+  <string name="open_settings">সেটিংস খুলুন</string>
+  <string name="request">অনুরোধ</string>
 </resources>

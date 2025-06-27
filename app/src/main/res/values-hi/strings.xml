@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">नया सफाई वाक्यांश</string>
   <string name="cleanup_phrases_desc">यहां परिभाषित वाक्यांशों को डिटेक्शन लॉजिक लागू करने से पहले संदेशों से हटा दिया जाएगा। आप इसका उपयोग गलत तरीके से डिटेक्ट किए गए कोड की समस्याओं को ठीक करने के लिए कर सकते हैं।</string>
   <string name="label_privacy_policy">गोपनीयता नीति</string>
+  <string name="sms_origin">मूल</string>
+  <string name="ignore_origin">मूल को अनदेखा करें</string>
+  <string name="allow_origin">मूल की अनुमति दें</string>
+  <string name="MODE_ROUTE">मोड</string>
+  <string name="next">अगला</string>
+  <string name="Notification">सूचना</string>
+  <string name="notification_mode_help">इस मोड में, ऐप केवल अधिसूचना के पाठ को पढ़कर कोड निकालता है। यदि मूल संदेश बहुत लंबा है और अधिसूचना का पाठ कट जाता है, तो कोड निकालना विफल हो सकता है।</string>
+  <string name="sms">एसएमएस</string>
+  <string name="sms_mode_help">इस मोड में, ऐप सीधे एसएमएस संदेशों को पढ़कर कोड निकालता है। इसके लिए विशेष अनुमतियों की आवश्यकता नहीं होती है और यदि आपको केवल एसएमएस से कोड पढ़ने हैं तो यह अधिक विश्वसनीय है।</string>
+  <string name="mode_choose_help">चूंकि Android 15 में अधिसूचनाएं पढ़ने के लिए अधिक सख्त अनुमतियां लागू की गई हैं, हमने एक नया एसएमएस मोड जोड़ा है। इससे ऐप Android 15+ पर अधिसूचनाओं के बजाय एसएमएस का उपयोग करके कार्य करना जारी रख सकता है।</string>
+  <string name="permissions_no_mode_selected">कोई संचालन मोड चयनित नहीं है। कृपया संबंधित अनुमतियों को देखने के लिए एक मोड चुनें।</string>
+  <string name="permission_todo_receive_sms">एसएमएस प्राप्त करें</string>
+  <string name="permission_todo_read_sms">एसएमएस पढ़ें</string>
+  <string name="permission_revoked_sms_notification_hint">कृपया एसएमएस अनुमति फिर से दें। सेटिंग्स खोलने के लिए इस संदेश को टैप करें।</string>
+  <string name="read_notifs_sms_mode_desc">एसएमएस मोड में, \"रीड नोटिफिकेशन\" अनुमति अभी भी अधिसूचनाओं पर \"पढ़ा हुआ चिह्नित करें\" और \"खारिज करें\" क्रियाएं करने के लिए आवश्यक है। यदि आपको इन सुविधाओं की आवश्यकता नहीं है, तो आप इस अनुमति को देना छोड़ सकते हैं।</string>
+  <string name="experimental_features_warning">निम्नलिखित सुविधाएँ प्रायोगिक हैं और हमेशा अपेक्षित रूप से काम नहीं कर सकती हैं।</string>
+  <string name="read_notifs_android_15_desc">Android 15 से, आपको अपने फ़ोन सेटिंग्स में नई \"एन्हांस्ड नोटिफिकेशन\" सेटिंग को अक्षम करना होगा या निम्नलिखित ADB कमांड चलानी होगी और ऐप को फिर से खोलना होगा। यदि आप ADB से परिचित नहीं हैं, तो आप वापस जाकर ऐप मोड को एसएमएस में बदल सकते हैं ताकि बिना यह क्रिया किए ऐप का उपयोग जारी रख सकें।</string>
+  <string name="permission_granted_to">अनुमति दी गई:</string>
+  <string name="permission_not_granted_to">अनुमति नहीं दी गई:</string>
+  <string name="open_settings">सेटिंग्स खोलें</string>
+  <string name="request">अनुरोध करें</string>
 </resources>

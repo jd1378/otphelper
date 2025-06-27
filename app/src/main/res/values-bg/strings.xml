@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Нова фраза за почистване</string>
   <string name="cleanup_phrases_desc">Фразите, дефинирани тук, ще бъдат премахнати от съобщенията, преди да се приложи логиката за откриване. Можете да използвате това, за да коригирате проблеми с неправилно открит код.</string>
   <string name="label_privacy_policy">Политика на поверителност</string>
+  <string name="sms_origin">Произход</string>
+  <string name="ignore_origin">Игнорирай произход</string>
+  <string name="allow_origin">Разреши произход</string>
+  <string name="MODE_ROUTE">Режим</string>
+  <string name="next">Следващ</string>
+  <string name="Notification">Известие</string>
+  <string name="notification_mode_help">В този режим приложението чете само текста на известието, за да извлече кода. Ако оригиналното съобщение е твърде дълго и текстът на известието е съкратен, извличането на кода може да се провали.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">В този режим приложението чете директно SMS съобщения, за да извлече кодове. Не изисква специални разрешения и е по-надежден, ако трябва да четете кодове само от SMS.</string>
+  <string name="mode_choose_help">Тъй като Android 15 въвежда по-строги разрешения за четене на известия, добавихме нов SMS режим. Това позволява на приложението да продължи да работи на Android 15+ чрез използване на SMS вместо известия.</string>
+  <string name="permissions_no_mode_selected">Не е избран режим на работа. Моля, изберете режим, за да видите свързаните разрешения.</string>
+  <string name="permission_todo_receive_sms">Получаване на SMS</string>
+  <string name="permission_todo_read_sms">Четене на SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Моля, дайте отново разрешение за SMS. Докоснете това съобщение, за да отворите настройките.</string>
+  <string name="read_notifs_sms_mode_desc">В SMS режим разрешението \"Прочети известия\" все още е необходимо, за да се изпълняват действията \"Маркирай като прочетено\" и \"Отхвърли\" върху известията. Ако не се нуждаете от тези функции, можете да пропуснете това разрешение.</string>
+  <string name="experimental_features_warning">Следните функции са експериментални и може да не работят винаги както е предвидено.</string>
+  <string name="read_notifs_android_15_desc">От Android 15 трябва или да изключите новата настройка \"Подобрени известия\" във вашите настройки на телефона, или да изпълните следните ADB команди и да отворите приложението отново. Ако не сте запознати с ADB, можете да се върнете и да смените режима на приложението на SMS, за да продължите да го използвате без това действие.</string>
+  <string name="permission_granted_to">Разрешението е дадено на</string>
+  <string name="permission_not_granted_to">Разрешението не е дадено на</string>
+  <string name="open_settings">Отвори настройките</string>
+  <string name="request">Заяви</string>
 </resources>

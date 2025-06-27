@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">新しいクリーンアップフレーズ</string>
   <string name="cleanup_phrases_desc">ここで定義されたフレーズは、検出ロジックを適用する前にメッセージから削除されます。これを使用して、誤って検出されたコードの問題を修正できます。</string>
   <string name="label_privacy_policy">プライバシーポリシー</string>
+  <string name="sms_origin">送信元</string>
+  <string name="ignore_origin">送信元を除外</string>
+  <string name="allow_origin">送信元を除外しない</string>
+  <string name="MODE_ROUTE">モード</string>
+  <string name="next">次へ</string>
+  <string name="Notification">通知</string>
+  <string name="notification_mode_help">このモードでは、アプリは通知テキストのみを読み取ってコードを抽出します。元のメッセージが長すぎて通知テキストが切り捨てられる場合、コードの抽出に失敗することがあります。</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">このモードでは、アプリがSMSメッセージを直接読み取ってコードを抽出します。特別な権限は不要で、SMSからのみコードを読み取る場合はより信頼性があります。</string>
+  <string name="mode_choose_help">Android 15では通知の読み取り権限がより厳格になったため、新しいSMSモードを追加しました。これにより、Android 15以降でも通知の代わりにSMSを利用してアプリを使い続けることができます。</string>
+  <string name="permissions_no_mode_selected">動作モードが選択されていません。関連する権限を表示するにはモードを選択してください。</string>
+  <string name="permission_todo_receive_sms">SMSの受信</string>
+  <string name="permission_todo_read_sms">SMSの読み取り</string>
+  <string name="permission_revoked_sms_notification_hint">SMSの権限を再度付与してください。このメッセージをタップすると設定が開きます。</string>
+  <string name="read_notifs_sms_mode_desc">SMSモードでは、「既読にする」や「閉じる」アクションを通知で実行するために「通知の読み取り」権限が必要です。これらの機能が不要な場合は、この権限を付与しなくても構いません。</string>
+  <string name="experimental_features_warning">以下の機能は実験的であり、常に意図した通りに動作するとは限りません。</string>
+  <string name="read_notifs_android_15_desc">Android 15以降では、端末設定で新しい「強化通知」設定を無効にするか、以下のADBコマンドを実行してからアプリを再度開く必要があります。ADBに詳しくない場合は、戻ってアプリのモードをSMSに変更することで、この操作を行わずにアプリを使い続けることができます。</string>
+  <string name="permission_granted_to">権限が付与されています:</string>
+  <string name="permission_not_granted_to">権限が付与されていません:</string>
+  <string name="open_settings">設定を開く</string>
+  <string name="request">リクエスト</string>
 </resources>

@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">新建清理词</string>
   <string name="cleanup_phrases_desc">此处定义的短语将在应用检测逻辑之前从消息中移除。您可以使用此功能修复错误检测到的验证码问题。</string>
   <string name="label_privacy_policy">隐私政策</string>
+  <string name="sms_origin">来源</string>
+  <string name="ignore_origin">忽略来源</string>
+  <string name="allow_origin">允许来源</string>
+  <string name="MODE_ROUTE">模式</string>
+  <string name="next">下一步</string>
+  <string name="Notification">通知</string>
+  <string name="notification_mode_help">在此模式下，应用仅读取通知文本以提取验证码。如果原始消息过长导致通知文本被截断，验证码提取可能会失败。</string>
+  <string name="sms">短信</string>
+  <string name="sms_mode_help">在此模式下，应用直接读取短信以提取验证码。不需要特殊权限，如果您只需从短信读取验证码，此方式更可靠。</string>
+  <string name="mode_choose_help">由于 Android 15 引入了更严格的通知读取权限，我们新增了短信模式。这样应用在 Android 15 及以上版本上可以通过短信而非通知继续工作。</string>
+  <string name="permissions_no_mode_selected">未选择操作模式。请选择模式以查看相关权限。</string>
+  <string name="permission_todo_receive_sms">接收短信</string>
+  <string name="permission_todo_read_sms">读取短信</string>
+  <string name="permission_revoked_sms_notification_hint">请重新授予短信权限。点击此消息可打开设置。</string>
+  <string name="read_notifs_sms_mode_desc">在短信模式下，仍需“读取通知”权限以执行“标记为已读”和“忽略”操作。如果不需要这些功能，可以跳过此权限。</string>
+  <string name="experimental_features_warning">以下功能为实验性功能，可能无法始终正常工作。</string>
+  <string name="read_notifs_android_15_desc">自 Android 15 起，您需要在手机设置中关闭新的“增强通知”设置，或运行以下 ADB 命令并重新打开应用。如果不了解 ADB，可以返回并将应用模式切换为短信以继续使用，无需执行此操作。</string>
+  <string name="permission_granted_to">已授予权限给</string>
+  <string name="permission_not_granted_to">未授予权限给</string>
+  <string name="open_settings">打开设置</string>
+  <string name="request">请求</string>
 </resources>

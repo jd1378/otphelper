@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">عبارت پاکسازی جدید</string>
   <string name="cleanup_phrases_desc">عباراتی که اینجا تعریف می‌شوند، قبل از اعمال منطق شناسایی از پیام‌ها حذف خواهند شد. می‌توانید از این برای رفع مشکل اشتباه شناسایی شدن کدها استفاده کنید.</string>
   <string name="label_privacy_policy">سیاست حفظ حریم خصوصی</string>
+  <string name="sms_origin">مبدأ</string>
+  <string name="ignore_origin">نادیده گرفتن مبدأ</string>
+  <string name="allow_origin">اجازه به مبدأ</string>
+  <string name="MODE_ROUTE">حالت</string>
+  <string name="next">بعدی</string>
+  <string name="Notification">اعلان</string>
+  <string name="notification_mode_help">در این حالت، برنامه فقط متن اعلان را برای استخراج کد می‌خواند. اگر پیام اصلی خیلی طولانی باشد و متن اعلان کوتاه شده باشد، ممکن است استخراج کد با شکست مواجه شود.</string>
+  <string name="sms">پیامک</string>
+  <string name="sms_mode_help">در این حالت، برنامه پیامک‌ها را مستقیماً برای استخراج کد می‌خواند. این حالت به مجوز ویژه‌ای نیاز ندارد و اگر فقط نیاز به خواندن کد از پیامک دارید، قابل اطمینان‌تر است.</string>
+  <string name="mode_choose_help">از آنجا که اندروید ۱۵ مجوزهای سخت‌گیرانه‌تری برای خواندن اعلان‌ها معرفی کرده است، حالت پیامکی جدیدی اضافه شده است. این امکان را می‌دهد که برنامه در اندروید ۱۵ و بالاتر با استفاده از پیامک به جای اعلان‌ها به کار خود ادامه دهد.</string>
+  <string name="permissions_no_mode_selected">هیچ حالت عملیاتی انتخاب نشده است. لطفاً یک حالت را انتخاب کنید تا مجوزهای مربوطه نمایش داده شوند.</string>
+  <string name="permission_todo_receive_sms">دریافت پیامک</string>
+  <string name="permission_todo_read_sms">خواندن پیامک</string>
+  <string name="permission_revoked_sms_notification_hint">لطفاً مجوز پیامک را دوباره بدهید. برای باز کردن تنظیمات روی این پیام ضربه بزنید.</string>
+  <string name="read_notifs_sms_mode_desc">در حالت پیامک، مجوز \"خواندن اعلان‌ها\" همچنان برای انجام عملیات \"علامت به عنوان خوانده شده\" و \"رد کردن\" روی اعلان‌ها لازم است. اگر به این قابلیت‌ها نیاز ندارید، می‌توانید این مجوز را نادیده بگیرید.</string>
+  <string name="experimental_features_warning">ویژگی‌های زیر آزمایشی هستند و ممکن است همیشه به درستی کار نکنند.</string>
+  <string name="read_notifs_android_15_desc">از اندروید ۱۵، باید تنظیم \"اعلان‌های پیشرفته\" را در تنظیمات گوشی غیرفعال کنید یا دستورات زیر را با ADB اجرا کرده و برنامه را دوباره باز کنید. اگر با ADB آشنایی ندارید، می‌توانید به عقب برگردید و حالت برنامه را به پیامک تغییر دهید تا بدون انجام این کارها از برنامه استفاده کنید.</string>
+  <string name="permission_granted_to">مجوز داده شده به</string>
+  <string name="permission_not_granted_to">مجوز داده نشده به</string>
+  <string name="open_settings">باز کردن تنظیمات</string>
+  <string name="request">درخواست</string>
 </resources>

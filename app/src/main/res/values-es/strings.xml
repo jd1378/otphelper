@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Nueva frase de limpieza</string>
   <string name="cleanup_phrases_desc">Las frases definidas aquí se eliminarán de los mensajes antes de aplicar la lógica de detección. Puedes usar esto para solucionar problemas con códigos detectados incorrectamente.</string>
   <string name="label_privacy_policy">Política de privacidad</string>
+  <string name="sms_origin">Origen</string>
+  <string name="ignore_origin">Ignorar origen</string>
+  <string name="allow_origin">Permitir origen</string>
+  <string name="MODE_ROUTE">Modo</string>
+  <string name="next">Siguiente</string>
+  <string name="Notification">Notificación</string>
+  <string name="notification_mode_help">En este modo, la aplicación solo lee el texto de la notificación para extraer el código. Si el mensaje original es muy largo y el texto de la notificación está truncado, la extracción del código puede fallar.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">En este modo, la aplicación lee directamente los mensajes SMS para extraer los códigos. No requiere permisos especiales y es más fiable si solo necesitas leer códigos de SMS.</string>
+  <string name="mode_choose_help">Dado que Android 15 introduce permisos más estrictos para leer notificaciones, hemos añadido un nuevo modo SMS. Esto permite que la aplicación siga funcionando en Android 15+ usando SMS en lugar de notificaciones.</string>
+  <string name="permissions_no_mode_selected">No se ha seleccionado ningún modo de funcionamiento. Por favor, elige un modo para ver los permisos relacionados.</string>
+  <string name="permission_todo_receive_sms">Recibir SMS</string>
+  <string name="permission_todo_read_sms">Leer SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Por favor, vuelve a conceder el permiso de SMS. Toca este mensaje para abrir los ajustes.</string>
+  <string name="read_notifs_sms_mode_desc">En el modo SMS, el permiso \"Leer notificaciones\" sigue siendo necesario para realizar las acciones \"Marcar como leído\" y \"Descartar\" en las notificaciones. Si no necesitas estas funciones, puedes omitir este permiso.</string>
+  <string name="experimental_features_warning">Las siguientes funciones son experimentales y pueden no funcionar siempre como se espera.</string>
+  <string name="read_notifs_android_15_desc">Desde Android 15, debes desactivar el nuevo ajuste \"Notificaciones mejoradas\" en la configuración de tu teléfono o ejecutar los siguientes comandos ADB y volver a abrir la aplicación. Si no estás familiarizado con ADB, puedes volver atrás y cambiar el modo de la aplicación a SMS para seguir usándola sin realizar esta acción.</string>
+  <string name="permission_granted_to">Permiso concedido a</string>
+  <string name="permission_not_granted_to">Permiso no concedido a</string>
+  <string name="open_settings">Abrir ajustes</string>
+  <string name="request">Solicitar</string>
 </resources>

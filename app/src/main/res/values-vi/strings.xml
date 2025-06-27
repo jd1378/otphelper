@@ -109,4 +109,25 @@
   <string name="new_cleanup_phrase">Cụm từ dọn dẹp mới</string>
   <string name="cleanup_phrases_desc">Các cụm từ được định nghĩa ở đây sẽ bị loại bỏ khỏi tin nhắn trước khi áp dụng logic phát hiện. Bạn có thể sử dụng điều này để khắc phục các vấn đề với mã được phát hiện không chính xác.</string>
   <string name="label_privacy_policy">Chính Sách Quyền Riêng Tư</string>
+  <string name="sms_origin">Nguồn</string>
+  <string name="ignore_origin">Bỏ qua nguồn</string>
+  <string name="allow_origin">Cho phép nguồn</string>
+  <string name="MODE_ROUTE">Chế độ</string>
+  <string name="next">Tiếp theo</string>
+  <string name="Notification">Thông báo</string>
+  <string name="notification_mode_help">Ở chế độ này, ứng dụng chỉ đọc nội dung thông báo để trích xuất mã. Nếu tin nhắn gốc quá dài và nội dung thông báo bị cắt ngắn, việc trích xuất mã có thể thất bại.</string>
+  <string name="sms">SMS</string>
+  <string name="sms_mode_help">Ở chế độ này, ứng dụng đọc trực tiếp tin nhắn SMS để trích xuất mã. Không yêu cầu quyền đặc biệt và đáng tin cậy hơn nếu bạn chỉ cần đọc mã từ SMS.</string>
+  <string name="mode_choose_help">Vì Android 15 giới thiệu quyền đọc thông báo nghiêm ngặt hơn, chúng tôi đã thêm chế độ SMS mới. Điều này cho phép ứng dụng tiếp tục hoạt động trên Android 15+ bằng cách sử dụng SMS thay vì thông báo.</string>
+  <string name="permissions_no_mode_selected">Chưa chọn chế độ hoạt động. Vui lòng chọn một chế độ để xem các quyền liên quan.</string>
+  <string name="permission_todo_receive_sms">Nhận SMS</string>
+  <string name="permission_todo_read_sms">Đọc SMS</string>
+  <string name="permission_revoked_sms_notification_hint">Vui lòng cấp lại quyền SMS. Nhấn vào tin nhắn này để mở cài đặt.</string>
+  <string name="read_notifs_sms_mode_desc">Ở chế độ SMS, quyền \"Đọc thông báo\" vẫn cần thiết để thực hiện các hành động \"Đánh dấu là đã đọc\" và \"Loại bỏ\" trên thông báo. Nếu bạn không cần các tính năng này, có thể bỏ qua quyền này.</string>
+  <string name="experimental_features_warning">Các tính năng sau đây là thử nghiệm và có thể không luôn hoạt động như mong đợi.</string>
+  <string name="read_notifs_android_15_desc">Từ Android 15, bạn cần tắt cài đặt \"Thông báo nâng cao\" mới trong cài đặt điện thoại hoặc chạy các lệnh ADB sau và mở lại ứng dụng. Nếu bạn không quen với ADB, bạn có thể quay lại và đổi chế độ ứng dụng sang SMS để tiếp tục sử dụng mà không cần thực hiện thao tác này.</string>
+  <string name="permission_granted_to">Đã cấp quyền cho</string>
+  <string name="permission_not_granted_to">Chưa cấp quyền cho</string>
+  <string name="open_settings">Mở cài đặt</string>
+  <string name="request">Yêu cầu</string>
 </resources>
