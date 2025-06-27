@@ -132,5 +132,5 @@
     <string name="request">Sol·licita</string>
     <string name="wont_detect_code_from_this_origin">No es detectaran més codis d\'aquest origen</string>
     <string name="copy_as_not_sensitive">Copia com a no sensible</string>
-    <string name="copy_as_not_sensitive_desc">Quan està activat, el text copiat no s'enmascararà</string>
+    <string name="copy_as_not_sensitive_desc">Quan està activat, el text copiat no s\'enmascararà</string>
 </resources>
