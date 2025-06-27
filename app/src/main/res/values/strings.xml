@@ -133,6 +133,8 @@
   <string name="copy_cleanup_regex">Copy cleanup regex</string>
   <string name="new_cleanup_phrase">New Cleanup Phrase</string>
   <string name="cleanup_phrases_desc">Phrases defined here will be removed from the messages before applying detection logic. You can use this to fix issues with incorrectly detected code.</string>
+  <string name="adb_command_sensitive_notifs" translatable="false">adb shell cmd appops set --user 0 io.github.jd1378.otphelper RECEIVE_SENSITIVE_NOTIFICATIONS allow</string>
+  <string name="adb_command_kill_app" translatable="false">adb shell am force-stop io.github.jd1378.otphelper</string>
   <string name="sms_origin">Origin</string>
   <string name="ignore_origin">Ignore Origin</string>
   <string name="allow_origin">Allow Origin</string>
@@ -150,8 +152,6 @@
   <string name="read_notifs_sms_mode_desc">In SMS mode, the \"Read Notifications\" permission is still needed to perform \"Mark as read\" and \"Dismiss\" actions on notifications. If you don’t need these features, you can skip granting this permission.</string>
   <string name="experimental_features_warning">The following features are experimental and may not always work as intended.</string>
   <string name="read_notifs_android_15_desc">Since Android 15, you need to either disable the new \"Enhanced Notifications\" setting in your phone settings or run the following ADB commands and open the app again. If you are not familiar with ADB, you can go back and change the app mode to SMS to continue using the app without performing this action.</string>
-  <string name="adb_command_sensitive_notifs" translatable="false">adb shell cmd appops set --user 0 io.github.jd1378.otphelper RECEIVE_SENSITIVE_NOTIFICATIONS allow</string>
-  <string name="adb_command_kill_app" translatable="false">adb shell am force-stop io.github.jd1378.otphelper</string>
   <string name="permission_granted_to">Permission granted to</string>
   <string name="permission_not_granted_to">Permission not granted to</string>
   <string name="open_settings">Open settings</string>
