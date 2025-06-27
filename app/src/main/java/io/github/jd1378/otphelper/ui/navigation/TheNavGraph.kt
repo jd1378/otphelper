@@ -158,6 +158,11 @@ fun NavGraphBuilder.addSettingsGraph(
 ) {
   composable(
       MainDestinations.SETTINGS_ROUTE,
+      deepLinks =
+          listOf(
+              navDeepLink {
+                uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.SETTINGS_ROUTE}"
+              }),
   ) {
     val viewModel = hiltViewModel<SettingsViewModel>()
     Settings(onNavigateToRoute, upPress, viewModel)
