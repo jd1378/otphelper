@@ -82,6 +82,9 @@ class NotificationHelper {
     ) {
       if (!hasNotifPermission(context)) return
 
+      val smsOrigin = extras.getString("smsOrigin") ?: ""
+      val isSms = extras.getBoolean("is_sms", false) && smsOrigin.isNotBlank()
+
       val notificationRV = RemoteViews(context.packageName, R.layout.code_notification_countdown)
       notificationRV.setTextViewText(
           R.id.code_detected_label,
@@ -111,18 +114,6 @@ class NotificationHelper {
               false,
           )
 
-      val ignoreAppPendingIntent =
-          PendingIntentCompat.getBroadcast(
-              context,
-              0,
-              Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_NOTIFICATION_APP).apply {
-                setPackage(context.packageName)
-                putExtra("cancel_notif_id", R.id.code_detected_notify_id)
-              },
-              0,
-              false,
-          )
-
       val notificationTimeout = 60_000L
 
       val notificationBuilder =
@@ -142,11 +133,41 @@ class NotificationHelper {
               .setTimeoutAfter(notificationTimeout)
               .setSilent(true)
               .setVibrate(null)
-              .addAction(
-                  R.drawable.baseline_visibility_off_24,
-                  context.getString(R.string.ignore_app),
-                  ignoreAppPendingIntent,
-              )
+      if (isSms) {
+        val ignoreOriginPendingIntent =
+            PendingIntentCompat.getBroadcast(
+                context,
+                0,
+                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_SMS_ORIGIN).apply {
+                  setPackage(context.packageName)
+                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                },
+                0,
+                false,
+            )
+        notificationBuilder.addAction(
+            R.drawable.baseline_visibility_off_24,
+            context.getString(R.string.ignore_origin),
+            ignoreOriginPendingIntent,
+        )
+      } else {
+        val ignoreAppPendingIntent =
+            PendingIntentCompat.getBroadcast(
+                context,
+                0,
+                Intent(NotifActionReceiver.INTENT_ACTION_IGNORE_NOTIFICATION_APP).apply {
+                  setPackage(context.packageName)
+                  putExtra("cancel_notif_id", R.id.code_detected_notify_id)
+                },
+                0,
+                false,
+            )
+        notificationBuilder.addAction(
+            R.drawable.baseline_visibility_off_24,
+            context.getString(R.string.ignore_app),
+            ignoreAppPendingIntent,
+        )
+      }
 
       val historyId = extras.getLong("historyId", 0L)
       if (historyId > 0L) {
