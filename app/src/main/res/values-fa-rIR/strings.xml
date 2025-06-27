@@ -131,4 +131,6 @@
     <string name="open_settings">باز کردن تنظیمات</string>
     <string name="request">درخواست</string>
     <string name="wont_detect_code_from_this_origin">از این مبدأ دیگر کدی تشخیص داده نمی‌شود</string>
+    <string name="copy_as_not_sensitive">کپی به عنوان غیرحساس</string>
+    <string name="copy_as_not_sensitive_desc">در صورت فعال بودن، متن کپی شده مخفی نمی‌شود</string>
 </resources>

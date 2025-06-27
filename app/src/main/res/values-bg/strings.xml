@@ -131,4 +131,6 @@
     <string name="open_settings">Отвори настройките</string>
     <string name="request">Заяви</string>
     <string name="wont_detect_code_from_this_origin">Няма да открие код от този произход отново</string>
+    <string name="copy_as_not_sensitive">Копирай като нечувствителен</string>
+    <string name="copy_as_not_sensitive_desc">Когато е активирано, копираният текст няма да бъде маскиран</string>
 </resources>

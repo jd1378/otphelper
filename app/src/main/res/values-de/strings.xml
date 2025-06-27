@@ -131,4 +131,6 @@
     <string name="open_settings">Einstellungen öffnen</string>
     <string name="request">Anfordern</string>
     <string name="wont_detect_code_from_this_origin">Von diesem Absender werden keine Codes mehr detektiert</string>
+    <string name="copy_as_not_sensitive">Als nicht sensibel kopieren</string>
+    <string name="copy_as_not_sensitive_desc">Wenn aktiviert, wird der kopierte Text nicht maskiert</string>
 </resources>

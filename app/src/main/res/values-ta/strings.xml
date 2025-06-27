@@ -131,4 +131,6 @@
     <string name="open_settings">அமைப்புகளைத் திறக்கவும்</string>
     <string name="request">கோரிக்கை</string>
     <string name="wont_detect_code_from_this_origin">இந்த மூலத்திலிருந்து குறியீட்டைக் கண்டறியாது</string>
+    <string name="copy_as_not_sensitive">உணர்திறனற்றதாக நகலெடுக்கவும்</string>
+    <string name="copy_as_not_sensitive_desc">இது இயக்கப்பட்டால், நகலெடுக்கப்பட்ட உரை மறைக்கப்படாது</string>
 </resources>

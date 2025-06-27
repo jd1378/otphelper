@@ -131,4 +131,6 @@
     <string name="open_settings">Abrir ajustes</string>
     <string name="request">Solicitar</string>
     <string name="wont_detect_code_from_this_origin">No se volverá a detectar el código de este origen</string>
+    <string name="copy_as_not_sensitive">Copiar como no sensible</string>
+    <string name="copy_as_not_sensitive_desc">Cuando está activado, el texto copiado no se enmascarará</string>
 </resources>

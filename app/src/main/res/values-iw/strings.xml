@@ -131,4 +131,6 @@
     <string name="open_settings">פתח הגדרות</string>
     <string name="request">בקשה</string>
     <string name="wont_detect_code_from_this_origin">לא יזהה קוד מהמקור הזה שוב</string>
+    <string name="copy_as_not_sensitive">העתק כלא רגיש</string>
+    <string name="copy_as_not_sensitive_desc">כאשר מאופשר, הטקסט שהועתק לא יוסתר</string>
 </resources>

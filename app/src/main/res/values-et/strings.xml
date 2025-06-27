@@ -131,4 +131,6 @@
     <string name="open_settings">Ava seaded</string>
     <string name="request">Taotle</string>
     <string name="wont_detect_code_from_this_origin">Ei tuvasta enam koodi sellest päritolust</string>
+    <string name="copy_as_not_sensitive">Kopeeri kui mitte-tundlik</string>
+    <string name="copy_as_not_sensitive_desc">Kui see on lubatud, siis kopeeritud teksti ei maskeerita</string>
 </resources>

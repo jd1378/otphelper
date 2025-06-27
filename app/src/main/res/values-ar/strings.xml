@@ -131,4 +131,6 @@
     <string name="open_settings">فتح الإعدادات</string>
     <string name="request">طلب</string>
     <string name="wont_detect_code_from_this_origin">لن يتم إكتشاف الرمز من هذا المصدر مرة آخرى</string>
+    <string name="copy_as_not_sensitive">نسخ كغير حساس</string>
+    <string name="copy_as_not_sensitive_desc">عند التفعيل، لن يتم إخفاء النص المنسوخ</string>
 </resources>

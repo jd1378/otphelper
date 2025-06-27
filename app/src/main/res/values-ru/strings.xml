@@ -131,4 +131,6 @@
     <string name="open_settings">Открыть настройки</string>
     <string name="request">Запросить</string>
     <string name="wont_detect_code_from_this_origin">Больше не искать код от этого отправителя</string>
+    <string name="copy_as_not_sensitive">Копировать как не конфиденциальное</string>
+    <string name="copy_as_not_sensitive_desc">Если включено, скопированный текст не будет скрыт</string>
 </resources>
