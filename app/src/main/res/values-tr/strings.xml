@@ -130,5 +130,5 @@
     <string name="permission_not_granted_to">İzin verilmedi:</string>
     <string name="open_settings">Ayarları aç</string>
     <string name="request">İste</string>
-    <string name="wont_detect_code_from_this_origin">Bu origin'den gelen kod bir daha algılanmayacak</string>
+    <string name="wont_detect_code_from_this_origin">Bu origin\'den gelen kod bir daha algılanmayacak</string>
 </resources>
