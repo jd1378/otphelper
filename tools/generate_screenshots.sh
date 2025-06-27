@@ -43,6 +43,7 @@ function change_lang {
 
 function reset_lang {
     adb shell am set-app-locales --package io.github.jd1378.otphelper --locales ""
+    sleep 1.5
 }
 
 function tap {
