@@ -22,7 +22,7 @@
   <string name="copy">کپی</string>
   <string name="ignore">نادیده بگیر</string>
   <string name="PERMISSION_ROUTE">مجوز ها</string>
-  <string name="permissions_desc">برای اینکه مطمئن شوید که برنامه می تواند کد داخل اعلان ها را شناسایی کند، باید مجوز های زیر را به برنامه بدهید:</string>
+  <string name="permissions_desc">برای اینکه مطمئن شوید برنامه همیشه می تواند کد ها را شناسایی کند، باید مجوز های زیر را به برنامه بدهید:</string>
   <string name="open">باز کردن</string>
   <string name="permission_todo_post_notifications">ایجاد اعلان</string>
   <string name="permission_todo_read_notifications">خواندن اعلان ها</string>
@@ -39,7 +39,7 @@
   <string name="test_notification_title">این یک اعلان آزمایشی است</string>
   <string name="permission_todo_allow_restricted_settings">استفاده از تنظیمات محدودشده</string>
   <string name="failed_to_open_app_settings">خطا هنگاه باز کردن تنظیمات برنامه</string>
-  <string name="perm_restricted_desc">اگر نتوانستید اجازه خواندن اعلان ها را بدهید، گزینه \"اجازه دادن به تنظیمات محدود شده\" را در تنظیمات برنامه فعال کنید</string>
+  <string name="perm_restricted_desc">اگر نتوانستید اجازه "خواندن اعلان ها" را بدهید، گزینه \"اجازه دادن به تنظیمات محدود شده\" را در تنظیمات برنامه فعال کنید</string>
   <string name="language">زبان</string>
   <string name="system_default">پیش فرض سیستم</string>
   <string name="search_language">جستجوی زبان</string>
