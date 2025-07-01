@@ -20,7 +20,7 @@
     <string name="copy">Copiar</string>
     <string name="ignore">Ignorar</string>
     <string name="PERMISSION_ROUTE">Permissões</string>
-    <string name="permissions_desc">Para garantir que o aplicativo possa detectar códigos de notificações corretamente o tempo todo, você deve conceder as seguintes permissões:</string>
+    <string name="permissions_desc">Para garantir que o aplicativo consiga sempre detectar os códigos corretamente, por favor conceda as seguintes permissões:</string>
     <string name="open">Abrir</string>
     <string name="permission_todo_post_notifications">Postar Notificações</string>
     <string name="permission_todo_read_notifications">Ler Notificações</string>
@@ -128,7 +128,9 @@
     <string name="read_notifs_android_15_desc">Desde o Android 15, você precisa desativar a nova configuração \"Notificações Aprimoradas\" nas configurações do seu telefone ou executar os seguintes comandos ADB e abrir o aplicativo novamente. Se você não está familiarizado com o ADB, pode voltar e alterar o modo do aplicativo para SMS para continuar usando o aplicativo sem realizar esta ação.</string>
     <string name="permission_granted_to">Permissão concedida para</string>
     <string name="permission_not_granted_to">Permissão não concedida para</string>
-    <string name="open_settings">Abrir configurações</string>
+    <string name="open_settings">Abrir Configurações</string>
     <string name="request">Solicitar</string>
     <string name="wont_detect_code_from_this_origin">Não vai mais detectar códigos dessa origem de novo</string>
+    <string name="copy_as_not_sensitive">Copiar como não confidencial</string>
+    <string name="copy_as_not_sensitive_desc">Com esta opção ativa, o texto copiado não será escondido</string>
 </resources>
