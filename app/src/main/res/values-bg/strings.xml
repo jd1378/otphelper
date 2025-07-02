@@ -101,7 +101,7 @@
     <string name="copy_ignore_regex">Копирай игнориран регулярен израз</string>
     <string name="ignored_phrases_desc">Ако някоя от тези фрази бъде намерена в съобщение, то ще бъде напълно игнорирано.</string>
     <string name="auto_mark_as_read_help">Опитва се да използва действието \"маркирай като прочетено\" върху известието, когато е възможно.</string>
-    <string name="app_name">Копирай SMS код</string>
+    <string name="app_name">Copy SMS Code</string>
     <string name="show_copy_confirmation">Покажи потвърждение за копиране</string>
     <string name="show_toast_help">Показва открития код в тост съобщение.</string>
     <string name="cleanup_phrases">Фрази за почистване</string>
