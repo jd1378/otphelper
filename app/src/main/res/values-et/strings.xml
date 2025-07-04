@@ -67,7 +67,7 @@
     <string name="error">Viga</string>
     <string name="show_details">Näita üksikasju</string>
     <string name="history">Ajalugu</string>
-    <string name="history_help">Ajalugu kustutatakse igal kesköösel, välja arvatud 10 viimast kirjet</string>
+    <string name="history_help">Ajalugu kustutatakse igal kesköösel, välja arvatud 10 viimast kirjet.</string>
     <string name="replace_code_in_history">Asenda ajaloos leiduvad koodid</string>
     <string name="replace_code_in_history_help">Ajaloos leiduvad koodid asendatakse nullidega.</string>
     <string name="show_toast">Näita teavituses</string>
@@ -103,8 +103,8 @@
     <string name="auto_dismiss">Auto Dismiss</string>
     <string name="auto_dismiss_desc">Automatically dismisses the notification from which the code was detected.</string>
     <string name="auto_mark_as_read">Märgi loetuks</string>
-    <string name="auto_mark_as_read_help">Kui vähegi võimalik, siis proovi kasutada teavitusel Märgi loetuks toimingut</string>
-    <string name="show_copy_confirmation">Show Copy Confirmation</string>
+    <string name="auto_mark_as_read_help">Kui vähegi võimalik, siis proovi kasutada teavitusel „Märgi loetuks“ toimingut</string>
+    <string name="show_copy_confirmation">Näita kopeerimise teavet</string>
     <string name="cleanup_phrases">Cleanup Phrases</string>
     <string name="copy_cleanup_regex">Copy cleanup regex</string>
     <string name="new_cleanup_phrase">New Cleanup Phrase</string>
