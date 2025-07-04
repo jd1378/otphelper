@@ -27,7 +27,7 @@
     <string name="copy">Copy</string>
     <string name="ignore">Ignore</string>
     <string name="PERMISSION_ROUTE">Permissions</string>
-    <string name="permissions_desc">To make sure app can detect codes from notifications correctly all the time, you have to grant the following permissions:</string>
+    <string name="permissions_desc">Selleks, et rakendus suudaks alati koode korrektselt tuvastada, palun anna talle järgnevad õigused:</string>
     <string name="open">Open</string>
     <string name="permission_todo_post_notifications">Post Notifications</string>
     <string name="permission_todo_read_notifications">Read Notifications</string>
@@ -42,9 +42,9 @@
     <string name="notice">Notice</string>
     <string name="test_notification_content">Your code is: 230914</string>
     <string name="test_notification_title">This is a test notification</string>
-    <string name="permission_todo_allow_restricted_settings">Allow restricted settings</string>
+    <string name="permission_todo_allow_restricted_settings">Kasuta piiratud seadistusi</string>
     <string name="failed_to_open_app_settings">Failed to open app settings</string>
-    <string name="perm_restricted_desc">If you could not allow reading notifications in step 2, try enabling \"Allow restricted settings\" in application settings</string>
+    <string name="perm_restricted_desc">Kui sul pole võimalik lubada „Read Notification“ õigust, siis palun proovi rakenduse seadistustes sisse lülitada „Kasuta piiratud seadistusi“.</string>
     <string name="about">About</string>
     <string name="label_version">Version:</string>
     <string name="label_license">License:</string>
@@ -128,7 +128,9 @@
     <string name="read_notifs_android_15_desc">Alates Android 15-st pead kas keelama uue \"Täiustatud teavitused\" seade oma telefoni seadetes või käivitama järgmised ADB käsud ja avama rakenduse uuesti. Kui sa ei tunne ADB-d, võid minna tagasi ja muuta rakenduse režiimi SMS-iks, et jätkata rakenduse kasutamist ilma selle toiminguta.</string>
     <string name="permission_granted_to">Õigus antud</string>
     <string name="permission_not_granted_to">Õigus andmata</string>
-    <string name="open_settings">Ava seaded</string>
-    <string name="request">Taotle</string>
+    <string name="open_settings">Ava seadistused</string>
+    <string name="request">Küsi õigusi</string>
     <string name="wont_detect_code_from_this_origin">Ei tuvasta enam koodi sellest päritolust</string>
+    <string name="copy_as_not_sensitive">Kopeeri mittedelikaatsena</string>
+    <string name="copy_as_not_sensitive_desc">Kui see valik pole kasutusel, siis kopeeritud tekst pole varjatud</string>
 </resources>
