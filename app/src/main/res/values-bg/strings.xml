@@ -72,7 +72,7 @@
     <string name="test_notification_content">Вашият код е: 230914</string>
     <string name="settings">Настройки</string>
     <string name="language">Език</string>
-    <string name="search_language">Език за търсене</string>
+    <string name="search_language">Търсене на език</string>
     <string name="no_result">Без резултат</string>
     <string name="label_source_code_link">Програмен код:</string>
     <string name="ignore_id">Игнорирай ID</string>
