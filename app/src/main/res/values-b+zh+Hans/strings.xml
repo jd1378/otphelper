@@ -22,7 +22,7 @@
     <string name="copy">复制</string>
     <string name="ignore">忽略</string>
     <string name="PERMISSION_ROUTE">权限管理</string>
-    <string name="permissions_desc">为了确保此应用可以随时从通知中检测验证码，此应用请求将以下权限：</string>
+    <string name="permissions_desc">为了确应用始终能正确检测验证码，请授予下列权限：</string>
     <string name="open">打开</string>
     <string name="permission_todo_post_notifications">允许发送通知</string>
     <string name="permission_todo_read_notifications">允许读取通知</string>
@@ -126,8 +126,8 @@
     <string name="read_notifs_sms_mode_desc">在短信模式下，仍需“读取通知”权限以执行“标记为已读”和“忽略”操作。如果不需要这些功能，可以跳过此权限。</string>
     <string name="experimental_features_warning">以下功能为实验性功能，可能无法始终正常工作。</string>
     <string name="read_notifs_android_15_desc">自 Android 15 起，您需要在手机设置中关闭新的“增强通知”设置，或运行以下 ADB 命令并重新打开应用。如果不了解 ADB，可以返回并将应用模式切换为短信以继续使用，无需执行此操作。</string>
-    <string name="permission_granted_to">已授予权限给</string>
-    <string name="permission_not_granted_to">未授予权限给</string>
+    <string name="permission_granted_to">已将权限授予</string>
+    <string name="permission_not_granted_to">未将权限授予</string>
     <string name="open_settings">打开设置</string>
     <string name="request">请求</string>
     <string name="wont_detect_code_from_this_origin">不再检测来自此来源的验证码</string>
