@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">इस मूल से दोबारा कोड का पता नहीं चलेगा</string>
     <string name="copy_as_not_sensitive">संवेदनशील नहीं के रूप में कॉपी करें</string>
     <string name="copy_as_not_sensitive_desc">सक्षम होने पर, कॉपी किया गया पाठ छिपाया नहीं जाएगा</string>
+    <string name="mode_sms_disabled_help">Google की नीति के कारण, इस ऐप के Google Play संस्करण में SMS मोड उपलब्ध नहीं है, क्योंकि गैर-डिफ़ॉल्ट SMS ऐप्स के लिए SMS अनुमतियाँ अवरुद्ध हैं। यदि आपको SMS मोड की आवश्यकता है, तो कृपया ऐप को F-Droid या GitHub से डाउनलोड करें।</string>
 </resources>

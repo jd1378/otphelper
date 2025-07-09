@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">এই উৎপত্তি থেকে কোড আর সনাক্ত করা হবে না</string>
     <string name="copy_as_not_sensitive">সংবেদনশীল নয় হিসাবে কপি করুন</string>
     <string name="copy_as_not_sensitive_desc">সক্রিয় থাকলে, কপি করা টেক্সট মাস্ক করা হবে না</string>
+    <string name="mode_sms_disabled_help">গুগল প্লে সংস্করণে SMS মোডটি উপলব্ধ নয়, কারণ গুগলের নীতিমালা অনুযায়ী SMS অনুমতি শুধুমাত্র ডিফল্ট SMS অ্যাপের জন্য অনুমোদিত। যদি আপনার SMS মোডের প্রয়োজন হয়, অনুগ্রহ করে F-Droid বা GitHub থেকে অ্যাপটি ডাউনলোড করুন।</string>
 </resources>

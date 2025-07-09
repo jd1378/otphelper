@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">앞으로 이 발신자에서 코드를 감지하지 않습니다</string>
     <string name="copy_as_not_sensitive">민감하지 않게 복사</string>
     <string name="copy_as_not_sensitive_desc">활성화하면 복사된 텍스트가 마스킹되지 않습니다</string>
+    <string name="mode_sms_disabled_help">Google 정책으로 인해 Google Play 버전에서는 SMS 모드를 사용할 수 없습니다. Google은 기본 SMS 앱이 아닌 앱의 SMS 권한을 차단합니다. SMS 모드가 필요하다면 F-Droid 또는 GitHub에서 앱을 다운로드해주세요.</string>
 </resources>

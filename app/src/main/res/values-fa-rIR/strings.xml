@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">از این مبدأ دیگر کدی تشخیص داده نمی‌شود</string>
     <string name="copy_as_not_sensitive">کپی به عنوان غیرحساس</string>
     <string name="copy_as_not_sensitive_desc">در صورت فعال بودن، متن کپی شده مخفی نمی‌شود</string>
+    <string name="mode_sms_disabled_help">حالت پیامک در نسخه گوگل پلی این برنامه به دلیل سیاست‌های گوگل که مجوز پیامک را برای برنامه‌های غیرپیش‌فرض مسدود می‌کند، در دسترس نیست. اگر به حالت پیامک نیاز دارید، لطفاً برنامه را از F-Droid یا گیت‌هاب دانلود کنید.</string>
 </resources>

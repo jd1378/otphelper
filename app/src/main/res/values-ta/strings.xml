@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">இந்த மூலத்திலிருந்து குறியீட்டைக் கண்டறியாது</string>
     <string name="copy_as_not_sensitive">உணர்திறனற்றதாக நகலெடுக்கவும்</string>
     <string name="copy_as_not_sensitive_desc">இது இயக்கப்பட்டால், நகலெடுக்கப்பட்ட உரை மறைக்கப்படாது</string>
+    <string name="mode_sms_disabled_help">Google Play பதிப்பில், Google-ன் கொள்கை காரணமாக SMS அனுமதிகள் தடையிடப்பட்டுள்ளதால் SMS முறை கிடைக்காது. SMS முறையை பயன்படுத்த வேண்டுமெனில், F-Droid அல்லது GitHub-இல் இருந்து பயன்பாட்டை பதிவிறக்கவும்.</string>
 </resources>

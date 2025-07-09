@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">Ei tuvasta enam koodi sellest päritolust</string>
     <string name="copy_as_not_sensitive">Kopeeri kui mitte-tundlik</string>
     <string name="copy_as_not_sensitive_desc">Kui see on lubatud, siis kopeeritud teksti ei maskeerita</string>
+    <string name="mode_sms_disabled_help">SMS-režiim ei ole selle rakenduse Google Play versioonis saadaval, kuna Google’i poliitika blokeerib SMS-i õigused rakendustele, mis ei ole vaikimisi SMS-i rakendused. Kui vajad SMS-režiimi, laadi rakendus alla F-Droidist või GitHubist.</string>
 </resources>

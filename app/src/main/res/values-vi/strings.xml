@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">Sẽ không phát hiện lại code từ nguồn này</string>
     <string name="copy_as_not_sensitive">Sao chép không nhạy cảm</string>
     <string name="copy_as_not_sensitive_desc">Khi bật, văn bản được sao chép sẽ không bị che</string>
+    <string name="mode_sms_disabled_help">Chế độ SMS không khả dụng trong phiên bản trên Google Play của ứng dụng này do chính sách của Google, không cho phép quyền SMS đối với các ứng dụng không phải là ứng dụng SMS mặc định. Nếu bạn cần chế độ SMS, vui lòng tải ứng dụng từ F-Droid hoặc GitHub.</string>
 </resources>

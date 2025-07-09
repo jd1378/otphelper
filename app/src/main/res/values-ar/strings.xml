@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">لن يتم إكتشاف الرمز من هذا المصدر مرة آخرى</string>
     <string name="copy_as_not_sensitive">نسخ كغير حساس</string>
     <string name="copy_as_not_sensitive_desc">عند التفعيل، لن يتم إخفاء النص المنسوخ</string>
+    <string name="mode_sms_disabled_help">وضع الرسائل النصية غير متوفر في إصدار Google Play من هذا التطبيق بسبب سياسة Google التي تمنع أذونات الرسائل النصية للتطبيقات غير الافتراضية للرسائل. إذا كنت بحاجة إلى وضع الرسائل النصية، يرجى تنزيل التطبيق من F-Droid أو GitHub.</string>
 </resources>

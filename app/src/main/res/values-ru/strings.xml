@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">Больше не искать код от этого отправителя</string>
     <string name="copy_as_not_sensitive">Копировать как не конфиденциальное</string>
     <string name="copy_as_not_sensitive_desc">Если включено, скопированный текст не будет скрыт</string>
+    <string name="mode_sms_disabled_help">Режим SMS недоступен в версии приложения из Google Play из-за политики Google, которая блокирует разрешения на SMS для приложений, не являющихся стандартными для SMS. Если вам нужен режим SMS, скачайте приложение с F-Droid или GitHub.</string>
 </resources>

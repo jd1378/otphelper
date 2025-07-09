@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">לא יזהה קוד מהמקור הזה שוב</string>
     <string name="copy_as_not_sensitive">העתק כלא רגיש</string>
     <string name="copy_as_not_sensitive_desc">כאשר מאופשר, הטקסט שהועתק לא יוסתר</string>
+    <string name="mode_sms_disabled_help">מצב SMS אינו זמין בגרסת Google Play של אפליקציה זו בשל מדיניות Google, אשר חוסמת הרשאות SMS לאפליקציות שאינן ברירת מחדל ל-SMS. אם אתה צריך את מצב ה-SMS, אנא הורד את האפליקציה מ-F-Droid או מ-GitHub.</string>
 </resources>

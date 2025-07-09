@@ -133,4 +133,5 @@
     <string name="wont_detect_code_from_this_origin">Von diesem Absender werden keine Codes mehr detektiert</string>
     <string name="copy_as_not_sensitive">Als nicht sensibel kopieren</string>
     <string name="copy_as_not_sensitive_desc">Wenn aktiviert, wird der kopierte Text nicht maskiert</string>
+    <string name="mode_sms_disabled_help">Der SMS-Modus ist in der Google Play-Version dieser App aufgrund der Google-Richtlinie, die SMS-Berechtigungen für Nicht-Standard-SMS-Apps blockiert, nicht verfügbar. Wenn Sie den SMS-Modus benötigen, laden Sie die App bitte von F-Droid oder GitHub herunter.</string>
 </resources>
