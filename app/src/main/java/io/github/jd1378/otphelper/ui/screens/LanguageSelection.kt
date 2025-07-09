@@ -84,7 +84,7 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
             items(items = uiState.locales, key = { locale -> locale.code }) { locale ->
               Row(
                   modifier =
-                      Modifier.animateItemPlacement()
+                      Modifier.animateItem(fadeOutSpec = null)
                           .fillMaxWidth()
                           .clickable(onClick = { viewModel.selectLocale(locale) })) {
                     Text(

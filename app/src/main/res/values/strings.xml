@@ -158,4 +158,5 @@
   <string name="request">Request</string>
   <string name="copy_as_not_sensitive">Copy as not sensitive</string>
   <string name="copy_as_not_sensitive_desc">When enabled, copied text will not be masked</string>
+  <string name="mode_sms_disabled_help">SMS mode is not available in the Google Play version of this app due to Google’s policy, which blocks SMS permissions for non-default SMS apps. If you need SMS mode, please download the app from F-Droid or GitHub.</string>
 </resources>

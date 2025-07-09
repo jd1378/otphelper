@@ -230,7 +230,7 @@ fun SensitivePhrases(
         ) {
           itemsIndexed(phrases, key = { _, item -> item }) { index, phrase ->
             Row(
-                Modifier.fillMaxWidth().animateItemPlacement(),
+                Modifier.fillMaxWidth().animateItem(fadeOutSpec = null),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {

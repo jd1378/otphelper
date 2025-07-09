@@ -17,6 +17,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
@@ -27,6 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.jd1378.otphelper.BuildConfig
 import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.TitleBar
@@ -40,6 +42,7 @@ fun ModeChoose(
     setupMode: Boolean = false,
 ) {
   val userSettings by viewModel.userSettings.collectAsStateWithLifecycle()
+  val smsEnabled = remember { BuildConfig.SMS_MODE_AVAILABLE }
   val context = LocalContext.current
 
   Scaffold(
@@ -118,26 +121,47 @@ fun ModeChoose(
               }
             }
           }
+
       Surface(
-          color = MaterialTheme.colorScheme.surfaceContainer,
+          color =
+              if (smsEnabled) MaterialTheme.colorScheme.surfaceContainer
+              else MaterialTheme.colorScheme.surfaceContainerLow,
           shape = MaterialTheme.shapes.large,
-          onClick = { viewModel.onModeSelected(context, ModeOfOperation.SMS) }) {
-            Row {
-              RadioButton(
-                  selected = userSettings.modeOfOperation == ModeOfOperation.SMS,
-                  onClick = { viewModel.onModeSelected(context, ModeOfOperation.SMS) })
-              Column(Modifier.padding(vertical = dimensionResource(R.dimen.padding_xs))) {
-                Text(
-                    text = stringResource(R.string.sms),
-                    style = MaterialTheme.typography.titleMedium)
-                Text(
-                    text = stringResource(R.string.sms_mode_help),
-                    style = MaterialTheme.typography.bodySmall,
-                    textAlign = TextAlign.Justify,
-                )
-              }
-            }
+          onClick = { if (smsEnabled) viewModel.onModeSelected(context, ModeOfOperation.SMS) },
+          enabled = smsEnabled,
+      ) {
+        Row {
+          RadioButton(
+              selected = userSettings.modeOfOperation == ModeOfOperation.SMS,
+              onClick = { if (smsEnabled) viewModel.onModeSelected(context, ModeOfOperation.SMS) },
+              enabled = smsEnabled,
+          )
+          Column(Modifier.padding(vertical = dimensionResource(R.dimen.padding_xs))) {
+            Text(
+                text = stringResource(R.string.sms),
+                style = MaterialTheme.typography.titleMedium,
+                color =
+                    if (smsEnabled) MaterialTheme.colorScheme.onSurface
+                    else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f))
+            Text(
+                text = stringResource(R.string.sms_mode_help),
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Justify,
+                color =
+                    if (smsEnabled) MaterialTheme.colorScheme.onSurface
+                    else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f))
           }
+        }
+      }
+
+      if (!smsEnabled) {
+        Text(
+            text = stringResource(R.string.mode_sms_disabled_help),
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)),
+            color = MaterialTheme.colorScheme.onBackground,
+        )
+      }
     }
   }
 }

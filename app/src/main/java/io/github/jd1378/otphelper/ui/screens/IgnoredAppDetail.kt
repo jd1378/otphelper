@@ -122,7 +122,7 @@ fun IgnoredAppDetail(
                   val ignoredNotif = ignoreItems[index]!! // because enablePlaceholders = false
 
                   IgnoredAppDetailItem(
-                      Modifier.animateItemPlacement(),
+                      Modifier.animateItem(fadeOutSpec = null),
                       ignoredNotif,
                       appInfoResult,
                       addDivider = index < ignoreItems.itemCount - 1,
@@ -180,7 +180,7 @@ fun IgnoredAppDetailItem(
                     withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                       append(ignoredNotif.type.getTranslation() + ": ")
                     }
-                    append (ignoredNotif.typeData)
+                    append(ignoredNotif.typeData)
                   },
               fontSize = 16.sp,
           )

@@ -33,14 +33,14 @@ jobs:
 
     - name: build
       run: | 
-        ./gradlew --no-daemon :app:bundleRelease  --stacktrace
-        ./gradlew --no-daemon :app:assembleRelease  --stacktrace
+        ./gradlew --no-daemon :app:bundlePlayRelease  --stacktrace
+        ./gradlew --no-daemon :app:assembleNormalRelease  --stacktrace
 
     - name: Sign App Apk
       if: ${{ github.event_name == 'release'}}
       uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: app/build/outputs/apk/release
+        releaseDirectory: app/build/outputs/apk/normal/release
         signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
         alias: ${{ secrets.ANDROID_ALIAS }}
         keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
@@ -53,7 +53,7 @@ jobs:
       if: ${{ github.event_name == 'release' }}
       uses: r0adkll/sign-android-release@v1
       with:
-        releaseDirectory: app/build/outputs/bundle/release
+        releaseDirectory: app/build/outputs/bundle/playRelease
         signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
         alias: ${{ secrets.ANDROID_ALIAS }}
         keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
@@ -72,7 +72,7 @@ jobs:
         allowUpdates: true
         replacesArtifacts: true
         updateOnlyUnreleased: true
-        artifacts: app/build/outputs/apk/release/*signed.apk,app/build/outputs/bundle/release/*.aab
+        artifacts: app/build/outputs/apk/normal/release/*signed.apk,app/build/outputs/bundle/playRelease/*.aab
 
     - name: Push to Play Store
       if: ${{ github.event_name == 'release' && !contains(github.ref, '-rc') }}
@@ -80,6 +80,6 @@ jobs:
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: io.github.jd1378.otphelper
-        releaseFiles: app/build/outputs/bundle/release/*.aab
+        releaseFiles: app/build/outputs/bundle/playRelease/*.aab
         track: internal
         status: draft

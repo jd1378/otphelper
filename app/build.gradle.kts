@@ -21,8 +21,8 @@ android {
     applicationId = "io.github.jd1378.otphelper"
     minSdk = 24
     targetSdk = 35
-    versionCode = 44
-    versionName = "1.19.0"
+    versionCode = 45
+    versionName = "1.19.1"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables { useSupportLibrary = true }
@@ -32,6 +32,19 @@ android {
     release {
       isMinifyEnabled = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+    }
+  }
+  flavorDimensions += "version"
+  productFlavors {
+    create("normal") {
+      isDefault = true
+      dimension = "version"
+      buildConfigField("Boolean", "SMS_MODE_AVAILABLE", "true")
+    }
+    create("play") {
+      dimension = "version"
+      versionNameSuffix = "-play"
+      buildConfigField("Boolean", "SMS_MODE_AVAILABLE", "false")
     }
   }
   compileOptions {
@@ -53,8 +66,8 @@ android {
 val protobufVersion = "3.25.6"
 
 dependencies {
-  implementation(platform("androidx.compose:compose-bom:2025.03.00"))
-  androidTestImplementation(platform("androidx.compose:compose-bom:2025.03.00"))
+  implementation(platform("androidx.compose:compose-bom:2025.05.00"))
+  androidTestImplementation(platform("androidx.compose:compose-bom:2025.05.00"))
 
   implementation("androidx.core:core-ktx:1.15.0")
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
