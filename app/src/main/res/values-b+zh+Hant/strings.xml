@@ -23,7 +23,7 @@
     <string name="copy">複製</string>
     <string name="ignore">忽略</string>
     <string name="PERMISSION_ROUTE">權限管理</string>
-    <string name="permissions_desc">為了確保可以隨時從通知中偵測驗證碼，此應用程式將請求以下權限：</string>
+    <string name="permissions_desc">為了確保可以隨時從通知中正確偵測驗證碼，此應用程式將請求以下權限：</string>
     <string name="open">開啟</string>
     <string name="permission_todo_post_notifications">允許發送通知</string>
     <string name="permission_todo_read_notifications">允許讀取通知</string>
@@ -131,7 +131,7 @@
     <string name="open_settings">開啟設定</string>
     <string name="request">請求</string>
     <string name="wont_detect_code_from_this_origin">將不會再從此來源中偵測驗證碼</string>
-    <string name="copy_as_not_sensitive">以非敏感資訊複製</string>
-    <string name="copy_as_not_sensitive_desc">啟用後，複製的文字將不會被遮蔽</string>
+    <string name="copy_as_not_sensitive_desc">一旦啟用，複製的字串會直接顯示</string>
+    <string name="copy_as_not_sensitive">複製為非敏感字串</string>
     <string name="mode_sms_disabled_help">由於 Google 政策限制，Google Play 版本無法使用簡訊模式，因為非預設簡訊應用程式無法取得簡訊權限。如果您需要簡訊模式，請從 F-Droid 或 GitHub 下載本應用程式。</string>
 </resources>

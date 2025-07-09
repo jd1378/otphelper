@@ -131,7 +131,7 @@
     <string name="open_settings">打开设置</string>
     <string name="request">请求</string>
     <string name="wont_detect_code_from_this_origin">不再检测来自此来源的验证码</string>
-    <string name="copy_as_not_sensitive">复制为非敏感内容</string>
-    <string name="copy_as_not_sensitive_desc">启用后，复制的文本将不会被遮盖</string>
+    <string name="copy_as_not_sensitive">作为非敏感项复制</string>
+    <string name="copy_as_not_sensitive_desc">启用后，复制的文本不会打码</string>
     <string name="mode_sms_disabled_help">由于 Google 政策，Google Play 版本无法使用短信模式，因为非默认短信应用无法获取短信权限。如果需要短信模式，请从 F-Droid 或 GitHub 下载本应用。</string>
 </resources>
