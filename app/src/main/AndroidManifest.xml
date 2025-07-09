@@ -60,6 +60,7 @@
         <data android:host="history_detail" />
         <data android:host="permissions" />
         <data android:host="home" />
+        <data android:host="settings" />
       </intent-filter>
     </activity>
 

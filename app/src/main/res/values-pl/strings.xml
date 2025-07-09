@@ -131,4 +131,6 @@
     <string name="open_settings">Otwórz ustawienia</string>
     <string name="request">Poproś</string>
     <string name="wont_detect_code_from_this_origin">Nie wykrywaj kodu z tego pochodzenia ponownie</string>
+    <string name="copy_as_not_sensitive">Kopiuj jako niepoufne</string>
+    <string name="copy_as_not_sensitive_desc">Gdy ta opcja jest włączona, skopiowany tekst nie będzie maskowany</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="open_settings">Ouvrir les paramètres</string>
     <string name="request">Demander</string>
     <string name="wont_detect_code_from_this_origin">Ne détectera plus de code depuis cette origine</string>
+    <string name="copy_as_not_sensitive">Copier comme non sensible</string>
+    <string name="copy_as_not_sensitive_desc">Lorsque cette option est activée, le texte copié ne sera pas masqué</string>
 </resources>

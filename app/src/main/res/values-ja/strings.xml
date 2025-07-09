@@ -131,4 +131,6 @@
     <string name="open_settings">設定を開く</string>
     <string name="request">リクエスト</string>
     <string name="wont_detect_code_from_this_origin">この送信元からはコードを検出しません</string>
+    <string name="copy_as_not_sensitive">非機密としてコピー</string>
+    <string name="copy_as_not_sensitive_desc">有効にすると、コピーしたテキストはマスクされません</string>
 </resources>

@@ -131,4 +131,6 @@
     <string name="open_settings">Deschide setările</string>
     <string name="request">Solicită</string>
     <string name="wont_detect_code_from_this_origin">Nu se va mai detecta codul din această origine</string>
+    <string name="copy_as_not_sensitive">Copiază ca nesensibil</string>
+    <string name="copy_as_not_sensitive_desc">Când este activat, textul copiat nu va fi mascat</string>
 </resources>

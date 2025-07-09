@@ -111,7 +111,9 @@ class SmsListener : BroadcastReceiver() {
               }
               synchronized(DETECTION_LOCK) {
                 recentDetectedMessageHolder.message =
-                    RecentDetectedMessage(messageBody, System.currentTimeMillis())
+                    RecentDetectedMessage(
+                        messageBody.substring(0, minOf(messageBody.length, 25)),
+                        System.currentTimeMillis())
               }
               val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
               WorkManager.getInstance(context).enqueue(work)

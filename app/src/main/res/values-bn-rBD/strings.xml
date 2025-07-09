@@ -131,4 +131,6 @@
     <string name="open_settings">সেটিংস খুলুন</string>
     <string name="request">অনুরোধ</string>
     <string name="wont_detect_code_from_this_origin">এই উৎপত্তি থেকে কোড আর সনাক্ত করা হবে না</string>
+    <string name="copy_as_not_sensitive">সংবেদনশীল নয় হিসাবে কপি করুন</string>
+    <string name="copy_as_not_sensitive_desc">সক্রিয় থাকলে, কপি করা টেক্সট মাস্ক করা হবে না</string>
 </resources>
