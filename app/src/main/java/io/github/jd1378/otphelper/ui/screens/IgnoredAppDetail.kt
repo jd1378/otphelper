@@ -6,12 +6,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
@@ -27,8 +25,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -155,26 +156,35 @@ fun IgnoredAppDetailItem(
   Column(modifier) {
     FlowRow(
         Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
         verticalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.End,
     ) {
       when (ignoredNotif.type) {
         IgnoredNotifType.APPLICATION -> {
+
           Text(
-              modifier = Modifier.weight(1f).width(IntrinsicSize.Max),
+              modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
               text = appInfoResult.shortenAppLabel(40),
               fontWeight = FontWeight.Bold,
+              fontSize = 16.sp,
           )
           Spacer(Modifier.padding(5.dp))
+
           IgnoreAppButton(true, onDelete)
         }
         else -> {
-          Column(Modifier.weight(1f).width(IntrinsicSize.Max)) {
-            Text(ignoredNotif.type.getTranslation(), fontWeight = FontWeight.Medium)
-            Text(ignoredNotif.typeData)
-          }
+          Text(
+              modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+              text =
+                  buildAnnotatedString {
+                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                      append(ignoredNotif.type.getTranslation() + ": ")
+                    }
+                    append (ignoredNotif.typeData)
+                  },
+              fontSize = 16.sp,
+          )
           Spacer(Modifier.padding(5.dp))
-
           when (ignoredNotif.type) {
             IgnoredNotifType.NOTIFICATION_ID -> IgnoreNotifIdButton(true, onDelete)
             IgnoredNotifType.NOTIFICATION_TAG -> IgnoreNotifTagButton(true, onDelete)
@@ -186,6 +196,7 @@ fun IgnoredAppDetailItem(
         }
       }
     }
+
     if (addDivider) {
       HorizontalDivider(Modifier.padding(vertical = dimensionResource(R.dimen.padding_settings)))
     }
