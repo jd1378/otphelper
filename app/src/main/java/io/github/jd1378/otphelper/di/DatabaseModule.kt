@@ -24,7 +24,7 @@ class DatabaseModule {
             OtpHelperDatabase::class.java,
             DATABASE_FILE_NAME,
         )
-        .fallbackToDestructiveMigration()
+        .fallbackToDestructiveMigration(true)
         .build()
   }
 }
