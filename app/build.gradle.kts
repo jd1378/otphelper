@@ -176,7 +176,7 @@ class ApplicationVariantAction : Action<ApplicationVariant> {
         val architecture = abi ?: "-universal"
 
         output.outputFileName =
-            "otp-helper-${flavor}-${builtType}-${versionName}-${architecture}-${versionCode}.apk"
+            "otp-helper--${builtType}-${versionName}-${architecture}-${versionCode}.apk"
       }
     }
   }
