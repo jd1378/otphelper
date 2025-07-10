@@ -18,14 +18,14 @@ or get the APK from [Latest Release](https://github.com/jd1378/otphelper/release
 
 ## How it works
 
-The app works in 2 modes now:
+The app works in 2 modes:
 
-### Notification
+### 1. Notification
 
 The app setups a [notification listener](https://github.com/jd1378/otphelper/blob/main/app/src/main/java/io/github/jd1378/otphelper/NotificationListener.kt) and reads all notifications that is sent by any apps. This allows the app to detect codes also from emails and possibly any other app that sends notification.
 when a notification is sent, the app creates a single string from all text in the notification, then [checks if it should be ignored](https://github.com/jd1378/otphelper/blob/main/app/src/main/java/io/github/jd1378/otphelper/utils/CodeIgnore.kt). If It's not ignored, then It's matched against the [code detection regex](https://github.com/jd1378/otphelper/blob/main/app/src/main/java/io/github/jd1378/otphelper/utils/CodeExtractor.kt). The extracted code is then handled according to your settings.
 
-### SMS
+### 2. SMS
 
 The app listens to all incoming SMS messages and then processes them in the same way as the notification mode: checks if it should be ignored, and if not, matches it against the code detection regex. The extracted code is then handled according to your settings.
 
