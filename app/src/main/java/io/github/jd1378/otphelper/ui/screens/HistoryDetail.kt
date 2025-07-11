@@ -2,11 +2,11 @@ package io.github.jd1378.otphelper.ui.screens
 
 import android.text.format.DateUtils
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,6 +31,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -136,23 +137,24 @@ fun HistoryDetail(
         }
 
         if (detectedCode.smsOrigin.isBlank()) {
+          HorizontalDivider()
           Row(
               horizontalArrangement = Arrangement.End,
               modifier = Modifier.fillMaxWidth(),
           ) {
             IgnoreAppButton(isAppIgnored.value) { viewModel.toggleAppIgnore(detectedCode) }
           }
-          HorizontalDivider()
         }
 
         if (detectedCode.smsOrigin.isNotBlank()) {
+          HorizontalDivider()
           FlowRow(
               Modifier.fillMaxWidth(),
               verticalArrangement = Arrangement.Center,
-              horizontalArrangement = Arrangement.End,
+              horizontalArrangement = Arrangement.SpaceBetween,
           ) {
             Text(
-                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                modifier = Modifier.align(Alignment.CenterVertically),
                 text = stringResource(R.string.sms_origin) + ": " + detectedCode.smsOrigin,
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
@@ -169,10 +171,10 @@ fun HistoryDetail(
           FlowRow(
               Modifier.fillMaxWidth(),
               verticalArrangement = Arrangement.Center,
-              horizontalArrangement = Arrangement.End,
+              horizontalArrangement = Arrangement.SpaceBetween,
           ) {
             Text(
-                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                modifier = Modifier.align(Alignment.CenterVertically),
                 text =
                     stringResource(R.string.notification_id) + ": " + detectedCode.notificationId,
                 fontWeight = FontWeight.Medium,
@@ -191,17 +193,20 @@ fun HistoryDetail(
           FlowRow(
               Modifier.fillMaxWidth(),
               verticalArrangement = Arrangement.Center,
-              horizontalArrangement = Arrangement.End,
+              horizontalArrangement = Arrangement.SpaceBetween,
           ) {
-            Box(Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
-              Text(
-                  stringResource(R.string.notification_tag) + ":",
-                  fontWeight = FontWeight.Medium,
-                  fontSize = 16.sp,
-              )
-            }
-            Text(detectedCode.notificationTag)
-
+            Text(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                text =
+                    buildAnnotatedString {
+                      withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append(stringResource(R.string.notification_tag) + ": ")
+                      }
+                      append(detectedCode.notificationTag)
+                    },
+                fontSize = 16.sp,
+            )
+            Spacer(Modifier.padding(5.dp))
             IgnoreNotifTagButton(isNotifTagIgnored.value) {
               viewModel.toggleNotifTagIgnore(detectedCode)
             }
