@@ -1,5 +1,6 @@
 package io.github.jd1378.otphelper.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -386,6 +387,7 @@ fun Settings(
   }
 }
 
+@SuppressLint("ViewModelConstructorInComposable")
 @Preview
 @Composable
 fun SettingsPreview() {
