@@ -157,7 +157,7 @@ fun IgnoredAppDetailItem(
     FlowRow(
         Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
-        horizontalArrangement = Arrangement.End,
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
       when (ignoredNotif.type) {
         IgnoredNotifType.APPLICATION -> {
@@ -174,7 +174,7 @@ fun IgnoredAppDetailItem(
         }
         else -> {
           Text(
-              modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+              modifier = Modifier.align(Alignment.CenterVertically),
               text =
                   buildAnnotatedString {
                     withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
