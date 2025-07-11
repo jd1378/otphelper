@@ -1,0 +1,2 @@
+- Fixed issue of text not wrapping correctly for more cases
+- Updated translations
