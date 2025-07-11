@@ -132,6 +132,6 @@
     <string name="request">Запит</string>
     <string name="wont_detect_code_from_this_origin">Більше не виявляти код із цього джерела</string>
     <string name="copy_as_not_sensitive">Копіювати як неконфіденційне</string>
-    <string name="mode_sms_disabled_help">Режим SMS недоступний у версії додатку з Google Play через політику Google, яка блокує дозволи на SMS для неосновних SMS-додатків. Якщо вам потрібен режим SMS, будь ласка, завантажте додаток з F-Droid або GitHub.</string>
+    <string name="mode_sms_disabled_help">Режим SMS недоступний у версії цього додатка для Google Play через політику Google, яка блокує дозволи на SMS для додатків SMS, які не є стандартними. Якщо вам потрібен режим SMS, завантажте додаток з F-Droid або GitHub.</string>
     <string name="copy_as_not_sensitive_desc">Коли ввімкнено, скопійований текст не буде масковано</string>
 </resources>
