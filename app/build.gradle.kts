@@ -192,3 +192,9 @@ androidComponents {
     }
   }
 }
+
+tasks.whenTaskAdded {
+  if (name.contains("ArtProfile")) {
+    enabled = false
+  }
+}
