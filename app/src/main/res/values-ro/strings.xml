@@ -21,14 +21,14 @@
     <string name="copy">Copiază</string>
     <string name="ignore">Ignoră</string>
     <string name="PERMISSION_ROUTE">Permisiuni</string>
-    <string name="permissions_desc">Pentru a te asigura că aplicația poate detecta corect codurile din notificări, trebuie să acorzi următoarele permisiuni:</string>
+    <string name="permissions_desc">Pentru a te asigura că aplicația poate detecta întotdeauna codurile în mod corect, acordă următoarele permisiuni:</string>
     <string name="open">Deschide</string>
     <string name="permission_todo_post_notifications">Afișare notificări</string>
     <string name="permission_todo_read_notifications">Citire notificări</string>
     <string name="permission_todo_remain_open">Rulează continuu</string>
     <string name="perm_extra_desc">Pe unele dispozitive, cum ar fi Xiaomi, Huawei, etc., pentru a permite aplicației să pornească atunci când telefonul este repornit, trebuie să acorzi manual permisiunea Pornire automată. Din aplicație nu se poate detecta dacă această permisiune este furnizată.</string>
     <string name="permission_todo_autostart">Permite pornirea automată</string>
-    <string name="send_detected_notif">Afișare notificări</string>
+    <string name="send_detected_notif">Arată notificări</string>
     <string name="skip">Omite</string>
     <string name="finish">Finalizare</string>
     <string name="okay">OK</string>
