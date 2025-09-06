@@ -133,5 +133,5 @@
     <string name="wont_detect_code_from_this_origin">この送信元からはコードを検出しません</string>
     <string name="copy_as_not_sensitive">秘匿不要な情報としてコピー</string>
     <string name="copy_as_not_sensitive_desc">有効にすると、コピーしたテキストが不可視化されません。</string>
-    <string name="mode_sms_disabled_help">Googleのポリシーにより、Google Play版のこのアプリではSMSモードは利用できません。SMS権限はデフォルトのSMSアプリ以外には許可されていません。SMSモードが必要な場合は、F-DroidまたはGitHubからアプリをダウンロードしてください。</string>
+    <string name="mode_sms_disabled_help">Google のポリシーにより、デフォルト以外の SMS アプリの SMS 権限がブロックされるため、Google Play 版では SMS モードはご利用いただけません。SMS モードが必要な場合は、F-Droid または GitHub からアプリをダウンロードしてください。</string>
 </resources>
