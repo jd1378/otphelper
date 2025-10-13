@@ -49,4 +49,8 @@ interface UserSettingsRepository {
   suspend fun setModeOfOperation(value: ModeOfOperation)
 
   suspend fun setDetectionTestContent(value: String)
+
+  suspend fun setIsBroadcastCodeEnabled(value: Boolean)
+
+  suspend fun setBroadcastTargetPackageName(value: String)
 }

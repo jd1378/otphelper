@@ -1,6 +1,7 @@
 package io.github.jd1378.otphelper.worker
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -32,7 +33,7 @@ constructor(
     private val otpHelperDatabase: OtpHelperDatabase,
     private val userSettingsRepository: UserSettingsRepository,
     private val ignoredNotifsRepository: IgnoredNotifsRepository,
-    private var recentDetectedMessageHolder: RecentDetectedMessageHolder
+    private var recentDetectedMessageHolder: RecentDetectedMessageHolder,
 ) : CoroutineWorker(context, workerParams) {
 
   companion object {
@@ -72,7 +73,8 @@ constructor(
             packageName = packageName,
             notificationId = notificationId,
             notificationTag = notificationTag,
-            smsOrigin = smsOrigin)
+            smsOrigin = smsOrigin,
+        )
 
     if (isIgnored) return Result.success()
 
@@ -92,7 +94,8 @@ constructor(
                           if (settings.shouldReplaceCodeInHistory)
                               text.replace(code, "0".repeat(code.length))
                           else text,
-                  ))
+                  )
+              )
         } else {
           0L
         }
@@ -103,7 +106,8 @@ constructor(
           Toast.makeText(
                   applicationContext,
                   applicationContext.getString(R.string.detected_code) + " " + code,
-                  Toast.LENGTH_SHORT)
+                  Toast.LENGTH_SHORT,
+              )
               .show()
         }
       }
@@ -112,23 +116,41 @@ constructor(
             applicationContext,
             code,
             settings.isShowCopyConfirmationEnabled && !settings.isShowToastEnabled,
-            !settings.isCopyAsNotSensitiveEnabled)
+            !settings.isCopyAsNotSensitiveEnabled,
+        )
       }
+      val extras =
+          if (settings.isPostNotifEnabled || settings.isBroadcastCodeEnabled) {
+            Bundle().apply {
+              putLong("historyId", historyId)
+              putString("code", code)
+              putString("packageName", packageName)
+              putBoolean("is_sms", isSms)
+              if (isSms) {
+                putString("smsOrigin", smsOrigin)
+              } else {
+                putString("notificationId", notificationId)
+                putString("notificationTag", notificationTag)
+              }
+            }
+          } else {
+            Bundle()
+          }
       if (settings.isPostNotifEnabled) {
-        val extras = Bundle()
-        extras.putLong("historyId", historyId)
-        extras.putString("code", code)
-        extras.putString("packageName", packageName)
-        extras.putBoolean("is_sms", isSms)
-        if (isSms) {
-          extras.putString("smsOrigin", smsOrigin)
-        } else {
-          extras.putString("notificationId", notificationId)
-          extras.putString("notificationTag", notificationTag)
-        }
-
         NotificationHelper.sendDetectedNotif(
-            applicationContext, extras, code, settings.isAutoCopyEnabled)
+            applicationContext,
+            extras,
+            code,
+            settings.isAutoCopyEnabled,
+        )
+      }
+      if (settings.isBroadcastCodeEnabled && settings.broadcastTargetPackageName.isNotBlank()) {
+        val intent =
+            Intent(applicationContext.getString(R.string.intent_action_code_detected)).apply {
+              setPackage(settings.broadcastTargetPackageName)
+              putExtras(extras)
+            }
+        applicationContext.sendBroadcast(intent)
       }
     } catch (e: Exception) {
       Log.e(TAG, e.stackTraceToString())

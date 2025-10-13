@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
@@ -21,22 +23,26 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.SavedStateHandle
 import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.repository.UserSettingsRepositoryMock
+import io.github.jd1378.otphelper.ui.components.CodeBlock
 import io.github.jd1378.otphelper.ui.components.SettingHelp
 import io.github.jd1378.otphelper.ui.components.SettingLabel
 import io.github.jd1378.otphelper.ui.components.SettingPageLink
@@ -54,6 +60,7 @@ fun Settings(
   val context = LocalContext.current
   val userSettings by viewModel.userSettings.collectAsState()
   val scrollState = rememberScrollState()
+  val focusManager = LocalFocusManager.current
 
   Scaffold(
       modifier = Modifier.fillMaxSize(),
@@ -361,6 +368,59 @@ fun Settings(
               )
             }
             SettingHelp(stringResource(R.string.copy_as_not_sensitive_desc))
+          }
+        }
+      }
+
+      Surface(
+          color = MaterialTheme.colorScheme.surfaceContainer,
+          shape = MaterialTheme.shapes.large,
+      ) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_settings)),
+            modifier =
+                Modifier.padding(
+                    horizontal = dimensionResource(R.dimen.padding_li_h),
+                    vertical = dimensionResource(R.dimen.padding_li_v),
+                ),
+        ) {
+          Column(
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+              SettingLabel(stringResource(R.string.broadcast_code))
+              Switch(
+                  modifier = Modifier.height(32.dp),
+                  checked = userSettings.isBroadcastCodeEnabled,
+                  onCheckedChange = { viewModel.onBroadcastCodeToggle() },
+              )
+            }
+            SettingHelp(stringResource(R.string.broadcast_code_help))
+          }
+
+          TextField(
+              modifier = Modifier.fillMaxWidth(),
+              label = { Text(stringResource(R.string.target_package_name)) },
+              placeholder = { Text("e.g. com.llamalab.automate") },
+              value = userSettings.broadcastTargetPackageName,
+              onValueChange = viewModel::setBroadcastTargetPackageName,
+              supportingText = { SettingHelp(stringResource(R.string.broadcast_target_help)) },
+              keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
+              keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
+          )
+
+          Column(
+              modifier = Modifier.semantics(mergeDescendants = true) {},
+              verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_xs)),
+          ) {
+            Text(stringResource(R.string.intent_action))
+            CodeBlock(stringResource(R.string.intent_action_code_detected))
+            SettingHelp(stringResource(R.string.intent_action_code_detected_help))
           }
         }
       }

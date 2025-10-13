@@ -22,6 +22,8 @@ message UserSettings {
   ModeOfOperation mode_of_operation = 16;
   bool is_copy_as_not_sensitive_enabled = 17;
   string detection_test_content = 18;
+  bool is_broadcast_code_enabled = 19;
+  string broadcast_target_package_name = 20;
 }
 
 enum ModeOfOperation {

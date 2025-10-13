@@ -163,4 +163,11 @@
   <string name="detection_test_desc">Here you can enter a sample text to test your configuration. Sensitive phrase and detected code will be highlighted.</string>
   <string name="detection_test_empty_hint">Results will be shown here</string>
   <string name="detection_test_ignore_phrase_detected">Ignore phrase has been detected</string>
+  <string name="broadcast_code">Broadcast Code</string>
+  <string name="broadcast_code_help">Send detected codes via an intent to the app specified below. Enable only if you understand the risks, as this may expose your codes to other apps.</string>
+  <string name="target_package_name">Target Package Name</string>
+  <string name="broadcast_target_help">Enter the package name of the app to receive the broadcast. Leaving this blank disables broadcasting for security reasons.</string>
+  <string name="intent_action" translatable="false">Intent Action</string>
+  <string name="intent_action_code_detected" translatable="false">io.github.jd1378.otphelper.actions.code_detected</string>
+  <string name="intent_action_code_detected_help">The detected code will be included in the broadcast extras under the key \"code\".</string>
 </resources>

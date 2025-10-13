@@ -148,4 +148,16 @@ constructor(
       currentSettings.toBuilder().setDetectionTestContent(value).build()
     }
   }
+
+  override suspend fun setIsBroadcastCodeEnabled(value: Boolean) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setIsBroadcastCodeEnabled(value).build()
+    }
+  }
+
+  override suspend fun setBroadcastTargetPackageName(value: String) {
+    userSettingsStore.updateData { currentSettings ->
+      currentSettings.toBuilder().setBroadcastTargetPackageName(value).build()
+    }
+  }
 }

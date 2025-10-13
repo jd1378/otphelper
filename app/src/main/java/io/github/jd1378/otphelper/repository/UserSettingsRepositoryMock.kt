@@ -88,4 +88,12 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   override suspend fun setDetectionTestContent(value: String) {
     TODO("Not yet implemented")
   }
+
+  override suspend fun setIsBroadcastCodeEnabled(value: Boolean) {
+    TODO("Not yet implemented")
+  }
+
+  override suspend fun setBroadcastTargetPackageName(value: String) {
+    TODO("Not yet implemented")
+  }
 }

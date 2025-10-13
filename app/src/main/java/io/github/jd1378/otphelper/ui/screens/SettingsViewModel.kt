@@ -11,10 +11,10 @@ import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.UserSettings
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.NotificationHelper
-import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @Stable
 @HiltViewModel
@@ -22,22 +22,25 @@ class SettingsViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val userSettingsRepository: UserSettingsRepository
+    private val userSettingsRepository: UserSettingsRepository,
 ) : ViewModel() {
 
   val userSettings =
       userSettingsRepository.userSettings.stateIn(
           scope = viewModelScope,
           started = SharingStarted.WhileSubscribed(5_000),
-          initialValue = UserSettings.getDefaultInstance())
+          initialValue = UserSettings.getDefaultInstance(),
+      )
 
   fun onAutoCopyToggle() {
     val newValue = !userSettings.value.isAutoCopyEnabled
     viewModelScope.launch {
       userSettingsRepository.setIsAutoCopyEnabled(newValue)
-      if (!newValue &&
-          !userSettings.value.isPostNotifEnabled &&
-          !userSettings.value.isShowToastEnabled) {
+      if (
+          !newValue &&
+              !userSettings.value.isPostNotifEnabled &&
+              !userSettings.value.isShowToastEnabled
+      ) {
         userSettingsRepository.setIsPostNotifEnabled(true)
       }
     }
@@ -55,7 +58,8 @@ constructor(
   fun onShowCopyConfirmationToggle() {
     viewModelScope.launch {
       userSettingsRepository.setIsShowCopyConfirmationEnabled(
-          !userSettings.value.isShowCopyConfirmationEnabled)
+          !userSettings.value.isShowCopyConfirmationEnabled
+      )
     }
   }
 
@@ -84,7 +88,8 @@ constructor(
   fun onShouldReplaceCodeInHistoryToggle() {
     viewModelScope.launch {
       userSettingsRepository.setShouldReplaceCodeInHistory(
-          !userSettings.value.shouldReplaceCodeInHistory)
+          !userSettings.value.shouldReplaceCodeInHistory
+      )
     }
   }
 
@@ -107,7 +112,18 @@ constructor(
   fun onIsCopyAsNotSensitiveToggle() {
     viewModelScope.launch {
       userSettingsRepository.setIsCopyAsNotSensitive(
-          !userSettings.value.isCopyAsNotSensitiveEnabled)
+          !userSettings.value.isCopyAsNotSensitiveEnabled
+      )
     }
+  }
+
+  fun onBroadcastCodeToggle() {
+    viewModelScope.launch {
+      userSettingsRepository.setIsBroadcastCodeEnabled(!userSettings.value.isBroadcastCodeEnabled)
+    }
+  }
+
+  fun setBroadcastTargetPackageName(str: String) {
+    viewModelScope.launch { userSettingsRepository.setBroadcastTargetPackageName(str) }
   }
 }
