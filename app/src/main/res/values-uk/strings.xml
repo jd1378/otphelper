@@ -134,10 +134,10 @@
     <string name="copy_as_not_sensitive">Копіювати як неконфіденційне</string>
     <string name="mode_sms_disabled_help">Режим SMS недоступний у версії цього додатка для Google Play через політику Google, яка блокує дозволи на SMS для додатків SMS, які не є стандартними. Якщо вам потрібен режим SMS, завантажте додаток з F-Droid або GitHub.</string>
     <string name="copy_as_not_sensitive_desc">Коли ввімкнено, скопійований текст не буде масковано</string>
-    <string name="detection_test">Тест виявлення</string>
-    <string name="detection_test_desc">Тут ви можете ввести зразковий текст для перевірки вашої конфігурації. Чутлива фраза та виявлений код будуть виділені.</string>
+    <string name="detection_test">Тест на виявлення</string>
+    <string name="detection_test_desc">Тут ви можете ввести зразок тексту для перевірки вашої конфігурації. Конфіденційна фраза та виявлений код будуть виділені.</string>
     <string name="detection_test_empty_hint">Результати будуть показані тут</string>
-    <string name="detection_test_ignore_phrase_detected">Виявлено фразу для ігнорування</string>
+    <string name="detection_test_ignore_phrase_detected">Виявлено фразу \"Ігнорувати\"</string>
     <string name="broadcast_code">Транслювати код</string>
     <string name="broadcast_code_help">Надсилайте виявлені коди через intent до зазначеного нижче додатку. Вмикайте лише якщо розумієте ризики, оскільки це може розкрити ваші коди іншим додаткам.</string>
     <string name="target_package_name">Ім\'я цільового пакета</string>
