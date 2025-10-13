@@ -34,6 +34,7 @@ import io.github.jd1378.otphelper.ui.components.TitleBar
 @Composable
 fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel) {
   val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+  val context = LocalContext.current
 
   Scaffold(
       topBar = {
@@ -41,73 +42,79 @@ fun LanguageSelection(upPress: () -> Unit, viewModel: LanguageSelectionViewModel
             upPress = upPress,
             text = LocalContext.current.getString(R.string.language),
         )
-      }) { padding ->
-        Column(Modifier.padding(padding)) {
-          val onActiveChange = { _: Boolean -> }
-          val colors1 = SearchBarDefaults.colors()
-          SearchBar(
-              inputField = {
-                SearchBarDefaults.InputField(
-                    // prevent saying "search" twice in talkback
-                    modifier = Modifier.semantics { contentDescription = "" },
-                    query = uiState.searchTerm,
-                    onQueryChange = { viewModel.setSearchTerm(it) },
-                    onSearch = {},
-                    expanded = false,
-                    onExpandedChange = onActiveChange,
-                    enabled = true,
-                    placeholder = { Text(text = stringResource(R.string.search_language)) },
-                    leadingIcon = {
-                      Icon(
-                          imageVector = Icons.Default.Search,
-                          contentDescription = null,
-                      )
-                    },
-                )
-              },
-              expanded = false,
-              onExpandedChange = onActiveChange,
+      }
+  ) { padding ->
+    Column(Modifier.padding(padding)) {
+      val onActiveChange = { _: Boolean -> }
+      val colors1 = SearchBarDefaults.colors()
+      SearchBar(
+          inputField = {
+            SearchBarDefaults.InputField(
+                // prevent saying "search" twice in talkback
+                modifier = Modifier.semantics { contentDescription = "" },
+                query = uiState.searchTerm,
+                onQueryChange = { viewModel.setSearchTerm(it) },
+                onSearch = {},
+                expanded = false,
+                onExpandedChange = onActiveChange,
+                enabled = true,
+                placeholder = { Text(text = stringResource(R.string.search_language)) },
+                leadingIcon = {
+                  Icon(
+                      imageVector = Icons.Default.Search,
+                      contentDescription = null,
+                  )
+                },
+            )
+          },
+          expanded = false,
+          onExpandedChange = onActiveChange,
+          modifier =
+              Modifier.fillMaxWidth()
+                  .padding(horizontal = dimensionResource(R.dimen.padding_medium))
+                  .padding(bottom = dimensionResource(R.dimen.padding_xs)),
+          shape = SearchBarDefaults.inputFieldShape,
+          colors = colors1,
+          tonalElevation = SearchBarDefaults.TonalElevation,
+          shadowElevation = SearchBarDefaults.ShadowElevation,
+          windowInsets = SearchBarDefaults.windowInsets,
+          content = {},
+      )
+      LazyColumn(
+          Modifier.padding(horizontal = dimensionResource(R.dimen.padding_small)),
+      ) {
+        items(items = uiState.locales, key = { locale -> locale.code }) { locale ->
+          Row(
               modifier =
-                  Modifier.fillMaxWidth()
-                      .padding(horizontal = dimensionResource(R.dimen.padding_medium))
-                      .padding(bottom = dimensionResource(R.dimen.padding_xs)),
-              shape = SearchBarDefaults.inputFieldShape,
-              colors = colors1,
-              tonalElevation = SearchBarDefaults.TonalElevation,
-              shadowElevation = SearchBarDefaults.ShadowElevation,
-              windowInsets = SearchBarDefaults.windowInsets,
-              content = {},
-          )
-          LazyColumn(
-              Modifier.padding(horizontal = dimensionResource(R.dimen.padding_small)),
+                  Modifier.animateItem(fadeOutSpec = null)
+                      .fillMaxWidth()
+                      .clickable(onClick = { viewModel.selectLocale(locale, context) })
           ) {
-            items(items = uiState.locales, key = { locale -> locale.code }) { locale ->
-              Row(
-                  modifier =
-                      Modifier.animateItem(fadeOutSpec = null)
-                          .fillMaxWidth()
-                          .clickable(onClick = { viewModel.selectLocale(locale) })) {
-                    Text(
-                        text = stringResource(locale.label),
-                        Modifier.fillMaxWidth()
-                            .padding(
-                                horizontal = dimensionResource(R.dimen.padding_small),
-                                vertical = 14.dp))
-                  }
-            }
-            if (uiState.locales.isEmpty()) {
-              item {
-                Text(
-                    text = stringResource(R.string.no_result),
-                    textAlign = TextAlign.Center,
-                    modifier =
-                        Modifier.fillMaxWidth()
-                            .padding(
-                                horizontal = dimensionResource(R.dimen.padding_small),
-                                vertical = 14.dp))
-              }
-            }
+            Text(
+                text = stringResource(locale.label),
+                Modifier.fillMaxWidth()
+                    .padding(
+                        horizontal = dimensionResource(R.dimen.padding_small),
+                        vertical = 14.dp,
+                    ),
+            )
+          }
+        }
+        if (uiState.locales.isEmpty()) {
+          item {
+            Text(
+                text = stringResource(R.string.no_result),
+                textAlign = TextAlign.Center,
+                modifier =
+                    Modifier.fillMaxWidth()
+                        .padding(
+                            horizontal = dimensionResource(R.dimen.padding_small),
+                            vertical = 14.dp,
+                        ),
+            )
           }
         }
       }
+    }
+  }
 }

@@ -39,7 +39,12 @@ class NotificationHelper {
       }
     }
 
-    fun createPermissionRevokedChannel(context: Context): String {
+    fun createNotificationChannels(context: Context) {
+      createPermissionRevokedChannel(context)
+      createDetectedChannel(context)
+    }
+
+    private fun createPermissionRevokedChannel(context: Context): String {
       val channelId = context.getString(R.string.permission_revoked_channel_id)
       // Create the NotificationChannel only on API 26+
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -49,8 +54,7 @@ class NotificationHelper {
         val channel =
             NotificationChannel(channelId, name, importance).apply { description = descriptionText }
         // Register the channel with the system
-        val notificationManager: NotificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.createNotificationChannel(channel)
       }
       return channelId
@@ -62,12 +66,11 @@ class NotificationHelper {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val name = context.getString(R.string.code_detected_channel_name)
         val descriptionText = context.getString(R.string.code_detected_channel_description)
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val importance = NotificationManager.IMPORTANCE_HIGH
         val channel =
             NotificationChannel(channelId, name, importance).apply { description = descriptionText }
         // Register the channel with the system
-        val notificationManager: NotificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.createNotificationChannel(channel)
       }
       return channelId
@@ -101,7 +104,7 @@ class NotificationHelper {
         notificationRV.setViewVisibility(R.id.copy_textview, View.GONE)
       }
 
-      val channelId = createDetectedChannel(context)
+      val channelId = context.getString(R.string.code_detected_channel_id)
 
       val copyPendingIntent =
           PendingIntentCompat.getBroadcast(
@@ -244,7 +247,7 @@ class NotificationHelper {
     ) {
       if (!hasNotifPermission(context)) return
 
-      val channelId = createPermissionRevokedChannel(context)
+      val channelId = context.getString(R.string.permission_revoked_channel_id)
 
       val openSettingsPendingIntent =
           PendingIntentCompat.getActivity(
@@ -280,8 +283,10 @@ class NotificationHelper {
     }
 
     fun sendTestNotif(context: Context) {
-      if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-          PackageManager.PERMISSION_GRANTED) {
+      if (
+          ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+              PackageManager.PERMISSION_GRANTED
+      ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
           val name = context.getString(R.string.code_detected_channel_name)
@@ -318,7 +323,7 @@ class NotificationHelper {
     ) {
       if (!hasNotifPermission(context)) return
 
-      val channelId = createPermissionRevokedChannel(context)
+      val channelId = context.getString(R.string.permission_revoked_channel_id)
 
       val openPermissionsPendingIntent =
           getDeepLinkPendingIntent(
