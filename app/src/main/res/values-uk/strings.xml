@@ -138,9 +138,9 @@
     <string name="detection_test_desc">Тут ви можете ввести зразок тексту для перевірки вашої конфігурації. Конфіденційна фраза та виявлений код будуть виділені.</string>
     <string name="detection_test_empty_hint">Результати будуть показані тут</string>
     <string name="detection_test_ignore_phrase_detected">Виявлено фразу \"Ігнорувати\"</string>
-    <string name="broadcast_code">Транслювати код</string>
-    <string name="broadcast_code_help">Надсилайте виявлені коди через intent до зазначеного нижче додатку. Вмикайте лише якщо розумієте ризики, оскільки це може розкрити ваші коди іншим додаткам.</string>
-    <string name="target_package_name">Ім\'я цільового пакета</string>
-    <string name="broadcast_target_help">Введіть ім\'я пакета додатку, який отримуватиме трансляцію. Якщо залишити поле порожнім, трансляція буде вимкнена з міркувань безпеки.</string>
-    <string name="intent_action_code_detected_help">Виявлений код буде включено до extras трансляції під ключем \"code\".</string>
+    <string name="broadcast_code">Код трансляції</string>
+    <string name="broadcast_code_help">Надсилайте виявлені коди через намір до зазначеної нижче програми. Увімкніть, лише якщо ви розумієте ризики, оскільки це може розкрити ваші коди іншим програмам.</string>
+    <string name="target_package_name">Назва цільового пакета</string>
+    <string name="broadcast_target_help">Введіть назву пакета програми для отримання трансляції. Якщо залишити це поле порожнім, трансляція буде вимкнена з міркувань безпеки.</string>
+    <string name="intent_action_code_detected_help">Виявлений код буде включено до додаткових матеріалів трансляції під ключем «код».</string>
 </resources>
