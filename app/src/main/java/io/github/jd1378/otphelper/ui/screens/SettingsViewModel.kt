@@ -123,6 +123,10 @@ constructor(
     }
   }
 
+  suspend fun getBroadcastTargetPackageName(): String {
+    return userSettingsRepository.fetchSettings().broadcastTargetPackageName
+  }
+
   fun setBroadcastTargetPackageName(str: String) {
     viewModelScope.launch { userSettingsRepository.setBroadcastTargetPackageName(str) }
   }

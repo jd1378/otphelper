@@ -25,8 +25,13 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -50,6 +55,8 @@ import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 import io.github.jd1378.otphelper.ui.theme.OtpHelperTheme
 import io.github.jd1378.otphelper.ui.utils.getCurrentLocale
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun Settings(
@@ -57,10 +64,27 @@ fun Settings(
     upPress: () -> Unit,
     viewModel: SettingsViewModel,
 ) {
+  val scope = rememberCoroutineScope()
   val context = LocalContext.current
   val userSettings by viewModel.userSettings.collectAsState()
   val scrollState = rememberScrollState()
   val focusManager = LocalFocusManager.current
+  var isInitialLoad by remember { mutableStateOf(true) }
+  var targetPackageName by remember { mutableStateOf("") }
+
+  LaunchedEffect(Unit) {
+    scope.launch {
+      targetPackageName = viewModel.getBroadcastTargetPackageName()
+      isInitialLoad = false
+    }
+  }
+
+  LaunchedEffect(targetPackageName) {
+    if (isInitialLoad) return@LaunchedEffect
+    // effectively debounce
+    delay(100)
+    viewModel.setBroadcastTargetPackageName(targetPackageName)
+  }
 
   Scaffold(
       modifier = Modifier.fillMaxSize(),
@@ -407,8 +431,8 @@ fun Settings(
               modifier = Modifier.fillMaxWidth(),
               label = { Text(stringResource(R.string.target_package_name)) },
               placeholder = { Text("e.g. com.llamalab.automate") },
-              value = userSettings.broadcastTargetPackageName,
-              onValueChange = viewModel::setBroadcastTargetPackageName,
+              value = targetPackageName,
+              onValueChange = { targetPackageName = it },
               supportingText = { SettingHelp(stringResource(R.string.broadcast_target_help)) },
               keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
               keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
