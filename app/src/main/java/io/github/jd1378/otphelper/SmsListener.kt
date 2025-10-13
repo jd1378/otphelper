@@ -83,41 +83,52 @@ class SmsListener : BroadcastReceiver() {
     autoUpdatingListenerUtils.awaitCodeExtractor()
     if (autoUpdatingListenerUtils.modeOfOperation != ModeOfOperation.SMS) return
     if (intent?.action.equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)) {
+
+      val originToBodyMap = mutableMapOf<String, String>()
+      // a long sms may be in multiple fragments
       for (smsMessage in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-        val messageBody = smsMessage.messageBody
+        if (smsMessage.displayOriginatingAddress.isNullOrBlank()) continue
+        if (smsMessage.messageBody.isNullOrBlank()) continue
+        originToBodyMap.merge(
+            smsMessage.displayOriginatingAddress,
+            smsMessage.messageBody,
+        ) { old, new ->
+          old + new
+        }
+      }
 
-        if (!messageBody.isNullOrBlank() && !smsMessage.displayOriginatingAddress.isNullOrBlank()) {
-          autoUpdatingListenerUtils.awaitCodeExtractor()
-          val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
+      for ((displayOrigin, messageBody) in originToBodyMap) {
+        autoUpdatingListenerUtils.awaitCodeExtractor()
+        val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
 
-          val text = codeExtractor.cleanup(messageBody)
+        val text = codeExtractor.cleanup(messageBody)
 
-          if (text.isNotEmpty()) {
-            val code = codeExtractor.getCode(text, false) // to not do it more than once
-            if (!code.isNullOrEmpty()) {
-              val data: Data
-              try {
-                data =
-                    workDataOf(
-                        "packageName" to Telephony.Sms.getDefaultSmsPackage(context),
-                        "is_sms" to true,
-                        "smsOrigin" to smsMessage.displayOriginatingAddress,
-                        "text" to text,
-                        "code" to code,
-                    )
-              } catch (e: Throwable) {
-                Log.e(TAG, "Notification too large to check, skipping it...")
-                return
-              }
-              synchronized(DETECTION_LOCK) {
-                recentDetectedMessageHolder.message =
-                    RecentDetectedMessage(
-                        messageBody.substring(0, minOf(messageBody.length, 25)),
-                        System.currentTimeMillis())
-              }
-              val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
-              WorkManager.getInstance(context).enqueue(work)
+        if (text.isNotEmpty()) {
+          val code = codeExtractor.getCode(text, false) // to not do it more than once
+          if (!code.isNullOrEmpty()) {
+            val data: Data
+            try {
+              data =
+                  workDataOf(
+                      "packageName" to Telephony.Sms.getDefaultSmsPackage(context),
+                      "is_sms" to true,
+                      "smsOrigin" to displayOrigin,
+                      "text" to text,
+                      "code" to code,
+                  )
+            } catch (e: Throwable) {
+              Log.e(TAG, "Notification too large to check, skipping it...")
+              return
             }
+            synchronized(DETECTION_LOCK) {
+              recentDetectedMessageHolder.message =
+                  RecentDetectedMessage(
+                      messageBody.substring(0, minOf(messageBody.length, 25)),
+                      System.currentTimeMillis(),
+                  )
+            }
+            val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
+            WorkManager.getInstance(context).enqueue(work)
           }
         }
       }
