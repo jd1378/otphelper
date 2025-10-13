@@ -1,0 +1,4 @@
+- Added "Detection Test" page in settings. Now you can test your messages manually to ensure they work when you expect them to.
+- Increased code detected notification channel importance. This will only affect new installs.
+- Fixed an issue with SMS mode where it wouldn't work reliably with long messages
+- Added an option to broadcast the detected code by the app. This allows you to use it with apps like "Automate", or any similar app that can receive broadcasts.
