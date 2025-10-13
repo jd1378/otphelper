@@ -107,12 +107,16 @@ fun DetectionTest(
           SelectionContainer {
             Text(
                 buildAnnotatedString {
-                  withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                    append(stringResource(R.string.detected_code))
-                    append(" ")
+                  append(stringResource(R.string.detected_code))
+                  append(" ")
+                  withStyle(
+                      SpanStyle(
+                          color = customColors.codeHighlight,
+                          fontWeight = FontWeight.ExtraBold,
+                      )
+                  ) {
+                    append(result.matchResult.groups[result.codeGroup]!!.value)
                   }
-                  val code = result.matchResult.groups[result.codeGroup]!!.value
-                  append(code)
                 }
             )
           }
