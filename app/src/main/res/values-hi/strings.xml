@@ -134,10 +134,10 @@
     <string name="copy_as_not_sensitive">संवेदनशील नहीं के रूप में कॉपी करें</string>
     <string name="copy_as_not_sensitive_desc">सक्षम होने पर, कॉपी किया गया पाठ छिपाया नहीं जाएगा</string>
     <string name="mode_sms_disabled_help">Google की नीति के कारण, इस ऐप के Google Play संस्करण में SMS मोड उपलब्ध नहीं है, क्योंकि गैर-डिफ़ॉल्ट SMS ऐप्स के लिए SMS अनुमतियाँ अवरुद्ध हैं। यदि आपको SMS मोड की आवश्यकता है, तो कृपया ऐप को F-Droid या GitHub से डाउनलोड करें।</string>
-    <string name="detection_test">Detection Test</string>
-    <string name="detection_test_desc">Here you can enter a sample text to test your configuration. Sensitive phrase and detected code will be highlighted.</string>
-    <string name="detection_test_empty_hint">Results will be shown here</string>
-    <string name="detection_test_ignore_phrase_detected">Ignore phrase has been detected</string>
+    <string name="detection_test">डिटेक्शन परीक्षण</string>
+    <string name="detection_test_desc">यहां आप अपना कॉन्फ़िगरेशन जांचने के लिए एक नमूना पाठ दर्ज कर सकते हैं। संवेदनशील वाक्यांश और पता लगाया गया कोड हाइलाइट किया जाएगा।</string>
+    <string name="detection_test_empty_hint">परिणाम यहां दिखाए जाएंगे</string>
+    <string name="detection_test_ignore_phrase_detected">अनदेखा वाक्यांश पाया गया है</string>
     <string name="broadcast_code">कोड प्रसारित करें</string>
     <string name="broadcast_code_help">नीचे दिए गए ऐप को intent के माध्यम से पता लगाए गए कोड भेजें। केवल तभी सक्षम करें जब आप जोखिम समझते हों, क्योंकि इससे आपके कोड अन्य ऐप्स को उजागर हो सकते हैं।</string>
     <string name="target_package_name">लक्ष्य पैकेज का नाम</string>
