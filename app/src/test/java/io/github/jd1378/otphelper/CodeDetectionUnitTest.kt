@@ -108,7 +108,8 @@ class CodeDetectionUnitTest {
 سلام عزیز
 از کالاهایی که خریده‌اید راضی هستید؟ لطفا میزان رضایتتان را از طریق لینک زیر به ما بگویید.
 https://www.digikala.com/transaction/rate/?RatingCode=x123456
-همچنین میتوانید درباره کالا دیدگاه ثبت کنید و پس از تایید دیدگاه، از دیجی کلاب امتیاز بگیرید!""")
+همچنین میتوانید درباره کالا دیدگاه ثبت کنید و پس از تایید دیدگاه، از دیجی کلاب امتیاز بگیرید!"""
+            )
 
     Assert.assertTrue(shouldIgnore)
   }
@@ -128,7 +129,8 @@ https://www.digikala.com/transaction/rate/?RatingCode=x123456
 رمز اول0000*0000000
 در1999/01/01
 12:00:00
-اشتباه وارد شده است""")
+اشتباه وارد شده است"""
+            )
 
     Assert.assertTrue(should)
   }
@@ -519,11 +521,11 @@ code: 123456
   fun samaneNobatCode() {
     val msg =
         """
-      کد تایید شما در سامانه نوبت  : 123456
+          کد تایید شما در سامانه نوبت  : 123456
 
-      لغو11
-      لغو11
-    """
+          لغو11
+          لغو11
+        """
             .trimIndent()
 
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
@@ -615,13 +617,13 @@ code: 123456
   fun oneTimePasswordVariant() {
     val msg =
         """
-      Danmarks Statistik SMS Token
+          Danmarks Statistik SMS Token
 
-      One-Time Password:
-      AAAAAAAA
+          One-Time Password:
+          AAAAAAAA
 
-      Expiration Date: TUE Jan 05 12:00:00 CET 2024
-    """
+          Expiration Date: TUE Jan 05 12:00:00 CET 2024
+        """
             .trimIndent()
 
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
@@ -818,5 +820,20 @@ Code d'authentification : AAAA1A"""
     val msg = """TeamViewer 验证码： QGFDAE"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("QGFDAE", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun chinaMobileApp() {
+    val msg =
+        """办理确认提醒】尊敬的客户，您于2025年09月30日23:45在中国移动的线上渠道即将办理以下业务，本次办理的随机验证码为【 123456 】：
+【订购】
+【1】中国移动APP线上主题活动享30GB流量7天包(编号：15BJ202247)，资费0.00元/月，2025年09月30日生效，2025年10月07日失效，无需赔付，【业务内容】中国移动APP线上主题活动享30GB流量7天包，包含30GB国内通用流量（不含中国港澳台地区），流量使用有效期7天。
+【生效规则】订购成功立即生效，有效期7天，到期自动失效，无需退订。
+【赠送优惠】立即生效，赠送优惠有效期为7天。优惠到期自动取消。流量不可用于流量转赠、流量共享，不享受流量不清零服务。
+
+非合约类业务失效和续展时间以公示为准，详见“中国移动”APP（首页-资费专区）。如有办理合约且于合约生效期间转品牌销户、过户、离网、取消方案等均视为违约，请确认您已阅知以上信息后提供随机验证码办理。业务退订可拨打10086热线、到营业厅或登录中国移动APP(我的-已订业务)等方式选择退订。办理成功后请您关注办理成功提醒短信，谢谢。【中国移动】
+"""
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("123456", CodeExtractor().getCode(msg))
   }
 }
