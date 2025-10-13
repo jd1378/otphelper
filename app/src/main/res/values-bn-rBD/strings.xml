@@ -138,4 +138,9 @@
     <string name="detection_test_desc">এখানে আপনি একটি নমুনা টেক্সট লিখে আপনার কনফিগারেশন পরীক্ষা করতে পারেন। সংবেদনশীল বাক্যাংশ এবং সনাক্তকৃত কোড হাইলাইট করা হবে।</string>
     <string name="detection_test_empty_hint">ফলাফল এখানে দেখানো হবে</string>
     <string name="detection_test_ignore_phrase_detected">উপেক্ষিত বাক্যাংশ সনাক্ত করা হয়েছে</string>
+    <string name="broadcast_code">কোড সম্প্রচার করুন</string>
+    <string name="broadcast_code_help">নিম্নে নির্দিষ্ট অ্যাপে intent এর মাধ্যমে সনাক্তকৃত কোড পাঠান। শুধুমাত্র ঝুঁকি সম্পর্কে সচেতন হলে সক্রিয় করুন, কারণ এটি আপনার কোড অন্য অ্যাপের কাছে প্রকাশ করতে পারে।</string>
+    <string name="target_package_name">টার্গেট প্যাকেজের নাম</string>
+    <string name="broadcast_target_help">ব্রডকাস্ট গ্রহণকারী অ্যাপের প্যাকেজের নাম লিখুন। নিরাপত্তার কারণে এটি ফাঁকা রাখলে ব্রডকাস্ট বন্ধ থাকবে।</string>
+    <string name="intent_action_code_detected_help">সনাক্তকৃত কোডটি \"code\" কী-তে ব্রডকাস্ট এক্সট্রাতে অন্তর্ভুক্ত হবে।</string>
 </resources>

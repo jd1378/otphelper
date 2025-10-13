@@ -138,4 +138,9 @@
     <string name="detection_test_desc">உங்கள் அமைப்பை சோதிக்க உதாரண உரையை இங்கே உள்ளிடலாம். உணர்திறன் வாய்ந்த சொற்கள் மற்றும் கண்டறியப்பட்ட குறியீடு ஹைலைட் செய்யப்படும்.</string>
     <string name="detection_test_empty_hint">முடிவுகள் இங்கே காட்டப்படும்</string>
     <string name="detection_test_ignore_phrase_detected">புறக்கணிக்க வேண்டிய சொல் கண்டறியப்பட்டது</string>
+    <string name="broadcast_code">குறியீட்டை பிராட்காஸ்ட் செய்யவும்</string>
+    <string name="broadcast_code_help">கண்டறியப்பட்ட குறியீடுகளை கீழே குறிப்பிடப்பட்டுள்ள செயலிக்கு intent மூலம் அனுப்பவும். ஆபத்துகளைப் புரிந்துகொண்டால் மட்டுமே இயக்கவும், ஏனெனில் இது உங்கள் குறியீடுகளை மற்ற செயலிகளுக்கு வெளிப்படுத்தலாம்.</string>
+    <string name="target_package_name">இலக்கு செயலியின் பெயர்</string>
+    <string name="broadcast_target_help">பிராட்காஸ்ட்டைப் பெறும் செயலியின் பெயரை உள்ளிடவும். பாதுகாப்பிற்காக காலியாக விட்டால் பிராட்காஸ்ட் முடக்கப்படும்.</string>
+    <string name="intent_action_code_detected_help">கண்டறியப்பட்ட குறியீடு \"code\" என்ற விசையில் extras-இல் சேர்க்கப்படும்.</string>
 </resources>

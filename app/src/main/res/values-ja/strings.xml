@@ -138,4 +138,9 @@
     <string name="detection_test_desc">ここにサンプルテキストを入力して設定をテストできます。検出対象の語句と検出されたコードが強調表示されます。</string>
     <string name="detection_test_empty_hint">結果はここに表示されます</string>
     <string name="detection_test_ignore_phrase_detected">除外語句が検出されました</string>
+    <string name="broadcast_code">コード送信</string>
+    <string name="broadcast_code_help">検出されたコードを下記のアプリにインテントで送信します。リスクを理解している場合のみ有効にしてください。他のアプリにコードが漏れる可能性があります。</string>
+    <string name="target_package_name">送信先パッケージ名</string>
+    <string name="broadcast_target_help">ブロードキャストを受信するアプリのパッケージ名を入力してください。空欄の場合はセキュリティのため送信が無効化されます。</string>
+    <string name="intent_action_code_detected_help">検出されたコードは、ブロードキャストの extras の \"code\" キーに含まれます。</string>
 </resources>

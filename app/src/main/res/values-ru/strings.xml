@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Здесь вы можете ввести пример текста для проверки вашей конфигурации. Чувствительная фраза и обнаруженный код будут выделены.</string>
     <string name="detection_test_empty_hint">Результаты будут показаны здесь</string>
     <string name="detection_test_ignore_phrase_detected">Обнаружена фраза для игнорирования</string>
+    <string name="broadcast_code">Транслировать код</string>
+    <string name="broadcast_code_help">Отправляйте обнаруженные коды через intent в указанное ниже приложение. Включайте только если понимаете риски, так как это может раскрыть ваши коды другим приложениям.</string>
+    <string name="target_package_name">Имя целевого пакета</string>
+    <string name="broadcast_target_help">Введите имя пакета приложения, которое получит трансляцию. Если оставить поле пустым, трансляция будет отключена по соображениям безопасности.</string>
+    <string name="intent_action_code_detected_help">Обнаруженный код будет включён в extras трансляции под ключом \"code\".</string>
 </resources>

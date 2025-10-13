@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Aquí puedes ingresar un texto de ejemplo para probar tu configuración. La frase sensible y el código detectado se resaltarán.</string>
     <string name="detection_test_empty_hint">Los resultados se mostrarán aquí</string>
     <string name="detection_test_ignore_phrase_detected">Se ha detectado una expresión ignorada</string>
+    <string name="broadcast_code">Transmitir código</string>
+    <string name="broadcast_code_help">Envía los códigos detectados mediante un intent a la aplicación especificada abajo. Activa solo si entiendes los riesgos, ya que esto puede exponer tus códigos a otras aplicaciones.</string>
+    <string name="target_package_name">Nombre del paquete de destino</string>
+    <string name="broadcast_target_help">Introduce el nombre del paquete de la aplicación que recibirá la difusión. Dejar este campo vacío desactiva la difusión por motivos de seguridad.</string>
+    <string name="intent_action_code_detected_help">El código detectado se incluirá en los extras del broadcast bajo la clave \"code\".</string>
 </resources>

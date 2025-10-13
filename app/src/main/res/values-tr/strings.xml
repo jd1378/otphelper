@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Burada yapılandırmanızı test etmek için örnek bir metin girebilirsiniz. Hassas ifadeler ve algılanan kod vurgulanacaktır.</string>
     <string name="detection_test_empty_hint">Sonuçlar burada gösterilecektir</string>
     <string name="detection_test_ignore_phrase_detected">Yoksayma ifadesi algılandı</string>
+    <string name="broadcast_code">Kodu yayınla</string>
+    <string name="broadcast_code_help">Algılanan kodları aşağıda belirtilen uygulamaya intent ile gönderin. Sadece riskleri anlıyorsanız etkinleştirin, çünkü bu kodlarınızın diğer uygulamalara açılmasına neden olabilir.</string>
+    <string name="target_package_name">Hedef Paket Adı</string>
+    <string name="broadcast_target_help">Yayını alacak uygulamanın paket adını girin. Güvenlik nedeniyle boş bırakılırsa yayın devre dışı kalır.</string>
+    <string name="intent_action_code_detected_help">Algılanan kod, yayın extras\'ında \"code\" anahtarı altında yer alacaktır.</string>
 </resources>

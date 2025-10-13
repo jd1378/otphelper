@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Hier können Sie einen Beispieltext eingeben, um Ihre Konfiguration zu testen. Sensible Ausdrücke und erkannte Codes werden hervorgehoben.</string>
     <string name="detection_test_empty_hint">Die Ergebnisse werden hier angezeigt</string>
     <string name="detection_test_ignore_phrase_detected">Ein ignorierter Ausdruck wurde erkannt</string>
+    <string name="broadcast_code">Code übertragen</string>
+    <string name="broadcast_code_help">Sende erkannte Codes per Intent an die unten angegebene App. Nur aktivieren, wenn du die Risiken kennst, da dies deine Codes für andere Apps zugänglich machen kann.</string>
+    <string name="target_package_name">Ziel-Paketname</string>
+    <string name="broadcast_target_help">Gib den Paketnamen der App ein, die den Broadcast empfangen soll. Wenn dieses Feld leer bleibt, wird der Broadcast aus Sicherheitsgründen deaktiviert.</string>
+    <string name="intent_action_code_detected_help">Der erkannte Code wird im Broadcast-Extra unter dem Schlüssel \"code\" enthalten sein.</string>
 </resources>

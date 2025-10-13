@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Bạn có thể nhập một đoạn văn bản mẫu để kiểm tra cấu hình của mình. Cụm từ nhạy cảm và mã được phát hiện sẽ được làm nổi bật.</string>
     <string name="detection_test_empty_hint">Kết quả sẽ được hiển thị ở đây</string>
     <string name="detection_test_ignore_phrase_detected">Đã phát hiện cụm từ bỏ qua</string>
+    <string name="broadcast_code">Phát mã</string>
+    <string name="broadcast_code_help">Gửi mã đã phát hiện qua intent đến ứng dụng được chỉ định bên dưới. Chỉ bật nếu bạn hiểu rủi ro, vì điều này có thể làm lộ mã của bạn cho ứng dụng khác.</string>
+    <string name="target_package_name">Tên gói ứng dụng nhận</string>
+    <string name="broadcast_target_help">Nhập tên gói của ứng dụng sẽ nhận truyền phát. Để trống sẽ tắt truyền phát vì lý do bảo mật.</string>
+    <string name="intent_action_code_detected_help">Mã đã phát hiện sẽ được đưa vào extras của truyền phát với khóa \"code\".</string>
 </resources>

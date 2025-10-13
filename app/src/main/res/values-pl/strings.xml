@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Tutaj możesz wpisać przykładowy tekst, aby przetestować swoją konfigurację. Wrażliwe frazy i wykryty kod zostaną wyróżnione.</string>
     <string name="detection_test_empty_hint">Wyniki zostaną wyświetlone tutaj</string>
     <string name="detection_test_ignore_phrase_detected">Wykryto frazę do ignorowania</string>
+    <string name="broadcast_code">Transmisja kodu</string>
+    <string name="broadcast_code_help">Wyślij wykryte kody przez intent do poniżej wskazanej aplikacji. Włącz tylko, jeśli rozumiesz ryzyko, ponieważ może to ujawnić Twoje kody innym aplikacjom.</string>
+    <string name="target_package_name">Nazwa pakietu docelowego</string>
+    <string name="broadcast_target_help">Wpisz nazwę pakietu aplikacji, która odbierze transmisję. Pozostawienie pustego pola wyłącza transmisję ze względów bezpieczeństwa.</string>
+    <string name="intent_action_code_detected_help">Wykryty kod zostanie uwzględniony w extras transmisji pod kluczem \"code\".</string>
 </resources>

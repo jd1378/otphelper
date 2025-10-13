@@ -138,4 +138,9 @@
     <string name="detection_test_desc">您可以在此輸入範例文字以測試您的設定。敏感字詞和偵測到的驗證碼將會高亮顯示。</string>
     <string name="detection_test_empty_hint">結果將顯示在此處</string>
     <string name="detection_test_ignore_phrase_detected">已偵測到忽略字詞</string>
+    <string name="broadcast_code">廣播驗證碼</string>
+    <string name="broadcast_code_help">透過 intent 將偵測到的驗證碼發送到下方指定的應用程式。僅在了解風險時啟用，因為這可能會將您的驗證碼暴露給其他應用程式。</string>
+    <string name="target_package_name">目標套件名稱</string>
+    <string name="broadcast_target_help">輸入接收廣播的應用程式套件名稱。為安全起見，留空將停用廣播。</string>
+    <string name="intent_action_code_detected_help">偵測到的驗證碼將包含在廣播 extras 的 \"code\" 鍵下。</string>
 </resources>

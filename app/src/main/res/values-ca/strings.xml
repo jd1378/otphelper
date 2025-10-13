@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Aquí pots introduir un text d\'exemple per provar la teva configuració. La frase sensible i el codi detectat es destacaran.</string>
     <string name="detection_test_empty_hint">Els resultats es mostraran aquí</string>
     <string name="detection_test_ignore_phrase_detected">S\'ha detectat una frase d\'ignorats</string>
+    <string name="broadcast_code">Difondre el codi</string>
+    <string name="broadcast_code_help">Envia els codis detectats mitjançant un intent a l\'aplicació especificada a sota. Activa-ho només si entens els riscos, ja que això pot exposar els teus codis a altres aplicacions.</string>
+    <string name="target_package_name">Nom del paquet de destinació</string>
+    <string name="broadcast_target_help">Introdueix el nom del paquet de l\'aplicació que rebrà la difusió. Deixar-ho en blanc desactiva la difusió per motius de seguretat.</string>
+    <string name="intent_action_code_detected_help">El codi detectat s\'inclourà als extres de la difusió amb la clau \"code\".</string>
 </resources>

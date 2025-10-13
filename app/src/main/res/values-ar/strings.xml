@@ -138,4 +138,9 @@
     <string name="detection_test_desc">هنا يمكنك إدخال نص تجريبي لاختبار إعداداتك. سيتم تمييز العبارة الحساسة والرمز المكتشف.</string>
     <string name="detection_test_empty_hint">سيتم عرض النتائج هنا</string>
     <string name="detection_test_ignore_phrase_detected">تم اكتشاف عبارة تم تجاهلها</string>
+    <string name="broadcast_code">بث الرمز</string>
+    <string name="broadcast_code_help">أرسل الرموز المكتشفة عبر intent إلى التطبيق المحدد أدناه. فعّل فقط إذا كنت تدرك المخاطر، فقد يؤدي ذلك إلى كشف رموزك لتطبيقات أخرى.</string>
+    <string name="target_package_name">اسم حزمة التطبيق المستهدف</string>
+    <string name="broadcast_target_help">أدخل اسم حزمة التطبيق الذي سيستقبل البث. ترك هذا الحقل فارغاً يعطل البث لأسباب أمنية.</string>
+    <string name="intent_action_code_detected_help">سيتم تضمين الرمز المكتشف في بيانات البث تحت المفتاح \"code\".</string>
 </resources>

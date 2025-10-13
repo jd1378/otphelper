@@ -138,4 +138,9 @@
     <string name="detection_test_desc">כאן ניתן להזין טקסט לדוגמה כדי לבדוק את ההגדרות שלך. ביטוי רגיש וקוד שזוהה יודגשו.</string>
     <string name="detection_test_empty_hint">התוצאות יוצגו כאן</string>
     <string name="detection_test_ignore_phrase_detected">זוהה ביטוי התעלמות</string>
+    <string name="broadcast_code">לשדר קוד</string>
+    <string name="broadcast_code_help">שלח קודים שזוהו באמצעות intent לאפליקציה המצוינת למטה. הפעל רק אם אתה מבין את הסיכונים, כי זה עלול לחשוף את הקודים שלך לאפליקציות אחרות.</string>
+    <string name="target_package_name">שם חבילת יעד</string>
+    <string name="broadcast_target_help">הזן את שם החבילה של האפליקציה שתקבל את השידור. השארת שדה זה ריק תבטל את השידור מסיבות אבטחה.</string>
+    <string name="intent_action_code_detected_help">הקוד שזוהה ייכלל ב-extras של השידור תחת המפתח \"code\".</string>
 </resources>

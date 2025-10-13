@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Here you can enter a sample text to test your configuration. Sensitive phrase and detected code will be highlighted.</string>
     <string name="detection_test_empty_hint">Results will be shown here</string>
     <string name="detection_test_ignore_phrase_detected">Ignore phrase has been detected</string>
+    <string name="broadcast_code">कोड प्रसारित करें</string>
+    <string name="broadcast_code_help">नीचे दिए गए ऐप को intent के माध्यम से पता लगाए गए कोड भेजें। केवल तभी सक्षम करें जब आप जोखिम समझते हों, क्योंकि इससे आपके कोड अन्य ऐप्स को उजागर हो सकते हैं।</string>
+    <string name="target_package_name">लक्ष्य पैकेज का नाम</string>
+    <string name="broadcast_target_help">प्रसारण प्राप्त करने वाले ऐप का पैकेज नाम दर्ज करें। सुरक्षा कारणों से खाली छोड़ने पर प्रसारण अक्षम हो जाएगा।</string>
+    <string name="intent_action_code_detected_help">पता लगाया गया कोड \"code\" कुंजी के तहत प्रसारण extras में शामिल किया जाएगा।</string>
 </resources>

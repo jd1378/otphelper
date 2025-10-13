@@ -138,4 +138,9 @@
     <string name="detection_test_desc">여기에 샘플 텍스트를 입력하여 설정을 테스트할 수 있습니다. 민감한 단어와 감지된 코드가 강조 표시됩니다.</string>
     <string name="detection_test_empty_hint">결과가 여기에 표시됩니다</string>
     <string name="detection_test_ignore_phrase_detected">무시할 단어가 감지되었습니다</string>
+    <string name="broadcast_code">코드 전송</string>
+    <string name="broadcast_code_help">감지된 코드를 아래에 지정된 앱으로 인텐트를 통해 전송합니다. 위험을 이해하는 경우에만 활성화하세요. 이 기능을 사용하면 코드가 다른 앱에 노출될 수 있습니다.</string>
+    <string name="target_package_name">대상 패키지 이름</string>
+    <string name="broadcast_target_help">브로드캐스트를 받을 앱의 패키지 이름을 입력하세요. 비워두면 보안상 브로드캐스트가 비활성화됩니다.</string>
+    <string name="intent_action_code_detected_help">감지된 코드는 \"code\" 키로 브로드캐스트 extras에 포함됩니다.</string>
 </resources>

@@ -138,4 +138,9 @@
     <string name="detection_test_desc">Тук можете да въведете примерен текст, за да тествате вашата конфигурация. Чувствителната фраза и откритият код ще бъдат маркирани.</string>
     <string name="detection_test_empty_hint">Резултатите ще се покажат тук</string>
     <string name="detection_test_ignore_phrase_detected">Открита е игнорирана фраза</string>
+    <string name="broadcast_code">Излъчване на код</string>
+    <string name="broadcast_code_help">Изпращайте откритите кодове чрез intent към приложението, посочено по-долу. Активирайте само ако сте наясно с рисковете, тъй като това може да изложи вашите кодове на други приложения.</string>
+    <string name="target_package_name">Име на целевия пакет</string>
+    <string name="broadcast_target_help">Въведете името на пакета на приложението, което ще получи излъчването. Ако оставите празно, излъчването ще бъде изключено поради съображения за сигурност.</string>
+    <string name="intent_action_code_detected_help">Откритият код ще бъде включен в extras на излъчването под ключ \"code\".</string>
 </resources>
