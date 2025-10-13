@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">Kopeeri mittedelikaatsena</string>
     <string name="copy_as_not_sensitive_desc">Kui see valik pole kasutusel, siis kopeeritud tekst pole varjatud</string>
     <string name="mode_sms_disabled_help">SMS-režiim ei ole selle rakenduse Google Play versioonis saadaval, kuna Google’i reeglid blokeerivad SMS-i õigused rakendustele, mis ei ole vaikimisi SMS-i rakendused. Kui vajad SMS-režiimi, laadi rakendus alla F-Droidist või GitHubist.</string>
+    <string name="detection_test">Tuvastuse test</string>
+    <string name="detection_test_desc">Siin saad sisestada näidisteksti, et testida oma seadistust. Tuvastusfraas ja tuvastatud kood tõstetakse esile.</string>
+    <string name="detection_test_empty_hint">Tulemused kuvatakse siin</string>
+    <string name="detection_test_ignore_phrase_detected">Eiramise fraas on tuvastatud</string>
 </resources>

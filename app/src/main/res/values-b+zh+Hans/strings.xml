@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">作为非敏感项复制</string>
     <string name="copy_as_not_sensitive_desc">启用后，复制的文本不会打码</string>
     <string name="mode_sms_disabled_help">由于 Google 政策，Google Play 版本无法使用短信模式，因为非默认短信应用无法获取短信权限。如果需要短信模式，请从 F-Droid 或 GitHub 下载本应用。</string>
+    <string name="detection_test">检测测试</string>
+    <string name="detection_test_desc">您可以在此输入示例文本以测试您的配置。触发词和检测到的验证码将被高亮显示。</string>
+    <string name="detection_test_empty_hint">结果将显示在此处</string>
+    <string name="detection_test_ignore_phrase_detected">已检测到忽略词</string>
 </resources>

@@ -84,4 +84,8 @@ class UserSettingsRepositoryMock : UserSettingsRepository {
   override suspend fun setModeOfOperation(value: ModeOfOperation) {
     TODO("Not yet implemented")
   }
+
+  override suspend fun setDetectionTestContent(value: String) {
+    TODO("Not yet implemented")
+  }
 }

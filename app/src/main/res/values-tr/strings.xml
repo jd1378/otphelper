@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">Hassas Olmayan Olarak Kopyala</string>
     <string name="copy_as_not_sensitive_desc">Etkinleştirildiğinde, kopyalanan metin maskelenmeyecektir</string>
     <string name="mode_sms_disabled_help">Google’ın politikası nedeniyle bu uygulamanın Google Play sürümünde SMS modu kullanılamaz; Google, varsayılan SMS uygulaması olmayan uygulamalar için SMS izinlerini engellemektedir. SMS moduna ihtiyacınız varsa lütfen uygulamayı F-Droid veya GitHub üzerinden indirin.</string>
+    <string name="detection_test">Algılama Testi</string>
+    <string name="detection_test_desc">Burada yapılandırmanızı test etmek için örnek bir metin girebilirsiniz. Hassas ifadeler ve algılanan kod vurgulanacaktır.</string>
+    <string name="detection_test_empty_hint">Sonuçlar burada gösterilecektir</string>
+    <string name="detection_test_ignore_phrase_detected">Yoksayma ifadesi algılandı</string>
 </resources>

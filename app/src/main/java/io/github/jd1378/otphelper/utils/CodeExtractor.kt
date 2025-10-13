@@ -51,8 +51,8 @@ object CodeExtractorDefaults {
           "\\bautoryzacji\\W", // PL
           "Parol\\s+dlya\\s+podtverzhdeniya", // russian
           "\\bпароль\\W", // russian
-          "인증번호" // "authentication number" in korean
-          )
+          "인증번호", // "authentication number" in korean
+      )
 
   val skipPhrases =
       persistentListOf(
@@ -119,7 +119,8 @@ class CodeExtractor // this comment is to separate parts
               setOf(
                   RegexOption.IGNORE_CASE,
                   RegexOption.MULTILINE,
-              ))
+              )
+          )
 
   val specialCodeMatcher =
       """((?:[\d\u0660-\u0669\u06F0-\u06F9]-?){4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9 ]{4,}(?=\s)|[\d\u0660-\u0669\u06F0-\u06F9]{4,})[^:]*(${sensitivePhrases.joinToString("|")})"""
@@ -212,6 +213,11 @@ class CodeExtractor // this comment is to separate parts
   fun shouldIgnore(str: String): Boolean {
     if (ignoredPhrases.isEmpty()) return false
     return str.contains(ignoredPhrasesRegex)
+  }
+
+  fun getIgnorePhrase(str: String): String? {
+    if (ignoredPhrases.isEmpty()) return null
+    return ignoredPhrasesRegex.find(str)?.value
   }
 
   fun cleanup(str: String): String {

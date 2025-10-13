@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">Copiar como no sensible</string>
     <string name="copy_as_not_sensitive_desc">Cuando está activado, el texto copiado no se enmascarará</string>
     <string name="mode_sms_disabled_help">El modo SMS no está disponible en la versión de Google Play de esta aplicación debido a la política de Google, que bloquea los permisos de SMS para aplicaciones que no son la app de SMS predeterminada. Si necesitas el modo SMS, descarga la aplicación desde F-Droid o GitHub.</string>
+    <string name="detection_test">Prueba de detección</string>
+    <string name="detection_test_desc">Aquí puedes ingresar un texto de ejemplo para probar tu configuración. La frase sensible y el código detectado se resaltarán.</string>
+    <string name="detection_test_empty_hint">Los resultados se mostrarán aquí</string>
+    <string name="detection_test_ignore_phrase_detected">Se ha detectado una expresión ignorada</string>
 </resources>

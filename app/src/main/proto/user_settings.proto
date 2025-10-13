@@ -21,6 +21,7 @@ message UserSettings {
   bool is_cleanup_phrases_migrated = 15;
   ModeOfOperation mode_of_operation = 16;
   bool is_copy_as_not_sensitive_enabled = 17;
+  string detection_test_content = 18;
 }
 
 enum ModeOfOperation {

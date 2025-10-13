@@ -47,4 +47,6 @@ interface UserSettingsRepository {
   suspend fun setIsCopyAsNotSensitive(value: Boolean)
 
   suspend fun setModeOfOperation(value: ModeOfOperation)
+
+  suspend fun setDetectionTestContent(value: String)
 }

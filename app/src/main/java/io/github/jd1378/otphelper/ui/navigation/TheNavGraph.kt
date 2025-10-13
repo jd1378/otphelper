@@ -11,6 +11,8 @@ import io.github.jd1378.otphelper.OTPHELPER_APP_SCHEME
 import io.github.jd1378.otphelper.ui.screens.About
 import io.github.jd1378.otphelper.ui.screens.CleanupPhrases
 import io.github.jd1378.otphelper.ui.screens.CleanupPhrasesViewModel
+import io.github.jd1378.otphelper.ui.screens.DetectionTest
+import io.github.jd1378.otphelper.ui.screens.DetectionTestViewModel
 import io.github.jd1378.otphelper.ui.screens.History
 import io.github.jd1378.otphelper.ui.screens.HistoryDetail
 import io.github.jd1378.otphelper.ui.screens.HistoryDetailViewModel
@@ -36,7 +38,7 @@ import io.github.jd1378.otphelper.ui.screens.SettingsViewModel
 
 fun NavGraphBuilder.otphelperNavGraph(
     upPress: () -> Unit,
-    onNavigateToRoute: (String, Boolean, Boolean) -> Unit
+    onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
 ) {
   addHomeGraph(onNavigateToRoute)
   addLanguageSelectionGraph(upPress)
@@ -51,19 +53,19 @@ fun NavGraphBuilder.otphelperNavGraph(
   addSensitivePhrasesGraph(upPress = upPress)
   addIgnoredPhrasesGraph(upPress = upPress)
   addCleanupPhrasesGraph(upPress = upPress)
+  addDetectionTestGraph(upPress = upPress)
 }
 
 fun NavGraphBuilder.addHomeGraph(
     onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
   composable(
       MainDestinations.HOME_ROUTE,
       deepLinks =
           listOf(
-              navDeepLink {
-                uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.HOME_ROUTE}"
-              }),
+              navDeepLink { uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.HOME_ROUTE}" }
+          ),
   ) {
     val viewModel = hiltViewModel<HomeViewModel>()
     Home(onNavigateToRoute, modifier, viewModel)
@@ -81,7 +83,7 @@ fun NavGraphBuilder.addLanguageSelectionGraph(upPress: () -> Unit) {
 
 fun NavGraphBuilder.addIgnoredAppListGraph(
     onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
-    upPress: () -> Unit
+    upPress: () -> Unit,
 ) {
   composable(
       MainDestinations.IGNORED_APP_LIST_ROUTE,
@@ -94,16 +96,16 @@ fun NavGraphBuilder.addIgnoredAppListGraph(
 fun NavGraphBuilder.addIgnoredAppDetailGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
   composable(
       "${MainDestinations.IGNORED_APP_DETAIL_ROUTE}/{${NavArgs.PACKAGE_NAME}}",
-      arguments = listOf(navArgument(NavArgs.PACKAGE_NAME) { type = NavType.StringType })) {
-          backStackEntry ->
-        val historyId = backStackEntry.arguments?.getString(NavArgs.PACKAGE_NAME)
-        if (historyId.isNullOrEmpty()) {
-          upPress()
-        } else {
-          val viewModel = hiltViewModel<IgnoredAppDetailViewModel>()
-          IgnoredAppDetail(modifier, upPress, viewModel)
-        }
-      }
+      arguments = listOf(navArgument(NavArgs.PACKAGE_NAME) { type = NavType.StringType }),
+  ) { backStackEntry ->
+    val historyId = backStackEntry.arguments?.getString(NavArgs.PACKAGE_NAME)
+    if (historyId.isNullOrEmpty()) {
+      upPress()
+    } else {
+      val viewModel = hiltViewModel<IgnoredAppDetailViewModel>()
+      IgnoredAppDetail(modifier, upPress, viewModel)
+    }
+  }
 }
 
 fun NavGraphBuilder.addPermissionsGraph(
@@ -117,14 +119,16 @@ fun NavGraphBuilder.addPermissionsGraph(
           listOf(
               navDeepLink {
                 uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.PERMISSIONS_ROUTE}"
-              }),
+              }
+          ),
   ) { backStackEntry ->
     val viewModel = hiltViewModel<PermissionsViewModel>()
     Permissions(
         onNavigateToRoute,
         upPress,
         viewModel,
-        backStackEntry.arguments?.containsKey("setup") ?: false)
+        backStackEntry.arguments?.containsKey("setup") ?: false,
+    )
   }
 }
 
@@ -134,14 +138,16 @@ fun NavGraphBuilder.addModeChooseGraph(
 ) {
   composable(
       MainDestinations.MODE_SETUP_ROUTE,
-      arguments = listOf(navArgument("setup") { nullable = true })) { backStackEntry ->
-        val viewModel = hiltViewModel<ModeChooseViewModel>()
-        ModeChoose(
-            onNavigateToRoute,
-            upPress,
-            viewModel,
-            backStackEntry.arguments?.containsKey("setup") ?: false)
-      }
+      arguments = listOf(navArgument("setup") { nullable = true }),
+  ) { backStackEntry ->
+    val viewModel = hiltViewModel<ModeChooseViewModel>()
+    ModeChoose(
+        onNavigateToRoute,
+        upPress,
+        viewModel,
+        backStackEntry.arguments?.containsKey("setup") ?: false,
+    )
+  }
 }
 
 fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
@@ -154,7 +160,7 @@ fun NavGraphBuilder.addAboutGraph(upPress: () -> Unit) {
 
 fun NavGraphBuilder.addSettingsGraph(
     onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
-    upPress: () -> Unit
+    upPress: () -> Unit,
 ) {
   composable(
       MainDestinations.SETTINGS_ROUTE,
@@ -162,7 +168,8 @@ fun NavGraphBuilder.addSettingsGraph(
           listOf(
               navDeepLink {
                 uriPattern = "$OTPHELPER_APP_SCHEME://${MainDestinations.SETTINGS_ROUTE}"
-              }),
+              }
+          ),
   ) {
     val viewModel = hiltViewModel<SettingsViewModel>()
     Settings(onNavigateToRoute, upPress, viewModel)
@@ -172,7 +179,7 @@ fun NavGraphBuilder.addSettingsGraph(
 fun NavGraphBuilder.addHistoryGraph(
     modifier: Modifier = Modifier,
     onNavigateToRoute: (String, Boolean, Boolean) -> Unit,
-    upPress: () -> Unit
+    upPress: () -> Unit,
 ) {
   composable(MainDestinations.HISTORY_ROUTE) {
     val viewModel = hiltViewModel<HistoryViewModel>()
@@ -188,17 +195,18 @@ fun NavGraphBuilder.addHistoryDetailGraph(modifier: Modifier = Modifier, upPress
               navDeepLink {
                 uriPattern =
                     "$OTPHELPER_APP_SCHEME://${MainDestinations.HISTORY_DETAIL_ROUTE}/{${NavArgs.HISTORY_ID}}"
-              }),
-      arguments = listOf(navArgument(NavArgs.HISTORY_ID) { type = NavType.LongType })) {
-          backStackEntry ->
-        val historyId = backStackEntry.arguments?.getLong(NavArgs.HISTORY_ID)
-        if (historyId == 0L) {
-          upPress()
-        } else {
-          val viewModel = hiltViewModel<HistoryDetailViewModel>()
-          HistoryDetail(modifier, upPress, viewModel)
-        }
-      }
+              }
+          ),
+      arguments = listOf(navArgument(NavArgs.HISTORY_ID) { type = NavType.LongType }),
+  ) { backStackEntry ->
+    val historyId = backStackEntry.arguments?.getLong(NavArgs.HISTORY_ID)
+    if (historyId == 0L) {
+      upPress()
+    } else {
+      val viewModel = hiltViewModel<HistoryDetailViewModel>()
+      HistoryDetail(modifier, upPress, viewModel)
+    }
+  }
 }
 
 fun NavGraphBuilder.addSensitivePhrasesGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
@@ -219,5 +227,12 @@ fun NavGraphBuilder.addCleanupPhrasesGraph(modifier: Modifier = Modifier, upPres
   composable(MainDestinations.CLEANUP_PHRASES_ROUTE) {
     val viewModel = hiltViewModel<CleanupPhrasesViewModel>()
     CleanupPhrases(modifier, upPress, viewModel)
+  }
+}
+
+fun NavGraphBuilder.addDetectionTestGraph(modifier: Modifier = Modifier, upPress: () -> Unit) {
+  composable(MainDestinations.DETECTION_TEST_ROUTE) {
+    val viewModel = hiltViewModel<DetectionTestViewModel>()
+    DetectionTest(modifier, upPress, viewModel)
   }
 }

@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">نسخ كغير حساس</string>
     <string name="copy_as_not_sensitive_desc">عند التفعيل، لن يتم إخفاء النص المنسوخ</string>
     <string name="mode_sms_disabled_help">وضع الرسائل النصية غير متوفر في إصدار Google Play من هذا التطبيق بسبب سياسة Google التي تمنع أذونات الرسائل النصية للتطبيقات غير الافتراضية للرسائل. إذا كنت بحاجة إلى وضع الرسائل النصية، يرجى تنزيل التطبيق من F-Droid أو GitHub.</string>
+    <string name="detection_test">اختبار الاكتشاف</string>
+    <string name="detection_test_desc">هنا يمكنك إدخال نص تجريبي لاختبار إعداداتك. سيتم تمييز العبارة الحساسة والرمز المكتشف.</string>
+    <string name="detection_test_empty_hint">سيتم عرض النتائج هنا</string>
+    <string name="detection_test_ignore_phrase_detected">تم اكتشاف عبارة تم تجاهلها</string>
 </resources>

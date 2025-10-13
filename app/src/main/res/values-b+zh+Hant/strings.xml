@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive_desc">一旦啟用，複製的字串會直接顯示</string>
     <string name="copy_as_not_sensitive">複製為非敏感字串</string>
     <string name="mode_sms_disabled_help">由於 Google 政策限制，Google Play 版本無法使用簡訊模式，因為非預設簡訊應用程式無法取得簡訊權限。如果您需要簡訊模式，請從 F-Droid 或 GitHub 下載本應用程式。</string>
+    <string name="detection_test">偵測測試</string>
+    <string name="detection_test_desc">您可以在此輸入範例文字以測試您的設定。敏感字詞和偵測到的驗證碼將會高亮顯示。</string>
+    <string name="detection_test_empty_hint">結果將顯示在此處</string>
+    <string name="detection_test_ignore_phrase_detected">已偵測到忽略字詞</string>
 </resources>

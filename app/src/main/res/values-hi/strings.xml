@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">संवेदनशील नहीं के रूप में कॉपी करें</string>
     <string name="copy_as_not_sensitive_desc">सक्षम होने पर, कॉपी किया गया पाठ छिपाया नहीं जाएगा</string>
     <string name="mode_sms_disabled_help">Google की नीति के कारण, इस ऐप के Google Play संस्करण में SMS मोड उपलब्ध नहीं है, क्योंकि गैर-डिफ़ॉल्ट SMS ऐप्स के लिए SMS अनुमतियाँ अवरुद्ध हैं। यदि आपको SMS मोड की आवश्यकता है, तो कृपया ऐप को F-Droid या GitHub से डाउनलोड करें।</string>
+    <string name="detection_test">Detection Test</string>
+    <string name="detection_test_desc">Here you can enter a sample text to test your configuration. Sensitive phrase and detected code will be highlighted.</string>
+    <string name="detection_test_empty_hint">Results will be shown here</string>
+    <string name="detection_test_ignore_phrase_detected">Ignore phrase has been detected</string>
 </resources>

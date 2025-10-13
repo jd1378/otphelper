@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">העתק כלא רגיש</string>
     <string name="copy_as_not_sensitive_desc">כאשר מאופשר, הטקסט שהועתק לא יוסתר</string>
     <string name="mode_sms_disabled_help">מצב SMS אינו זמין בגרסת Google Play של אפליקציה זו בשל מדיניות Google, אשר חוסמת הרשאות SMS לאפליקציות שאינן ברירת מחדל ל-SMS. אם אתה צריך את מצב ה-SMS, אנא הורד את האפליקציה מ-F-Droid או מ-GitHub.</string>
+    <string name="detection_test">בדיקת זיהוי</string>
+    <string name="detection_test_desc">כאן ניתן להזין טקסט לדוגמה כדי לבדוק את ההגדרות שלך. ביטוי רגיש וקוד שזוהה יודגשו.</string>
+    <string name="detection_test_empty_hint">התוצאות יוצגו כאן</string>
+    <string name="detection_test_ignore_phrase_detected">זוהה ביטוי התעלמות</string>
 </resources>

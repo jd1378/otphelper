@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">کپی به عنوان غیرحساس</string>
     <string name="copy_as_not_sensitive_desc">در صورت فعال بودن، متن کپی شده مخفی نمی‌شود</string>
     <string name="mode_sms_disabled_help">حالت پیامک در نسخه گوگل پلی این برنامه به دلیل سیاست‌های گوگل که مجوز پیامک را برای برنامه‌های غیرپیش‌فرض مسدود می‌کند، در دسترس نیست. اگر به حالت پیامک نیاز دارید، لطفاً برنامه را از F-Droid، بازار یا گیت‌هاب دانلود کنید.</string>
+    <string name="detection_test">آزمون شناسایی</string>
+    <string name="detection_test_desc">اینجا می‌توانید یک متن نمونه وارد کنید تا تنظیمات خود را آزمایش کنید. عبارت حساس و کد شناسایی شده برجسته می‌شوند.</string>
+    <string name="detection_test_empty_hint">نتایج اینجا نمایش داده می‌شوند</string>
+    <string name="detection_test_ignore_phrase_detected">عبارت نادیده گرفتن متن شناسایی شد</string>
 </resources>

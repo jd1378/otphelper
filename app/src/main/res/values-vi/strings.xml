@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">Sao chép không nhạy cảm</string>
     <string name="copy_as_not_sensitive_desc">Khi bật, văn bản được sao chép sẽ không bị che</string>
     <string name="mode_sms_disabled_help">Chế độ SMS không khả dụng trong phiên bản trên Google Play của ứng dụng này do chính sách của Google, không cho phép quyền SMS đối với các ứng dụng không phải là ứng dụng SMS mặc định. Nếu bạn cần chế độ SMS, vui lòng tải ứng dụng từ F-Droid hoặc GitHub.</string>
+    <string name="detection_test">Kiểm tra phát hiện</string>
+    <string name="detection_test_desc">Bạn có thể nhập một đoạn văn bản mẫu để kiểm tra cấu hình của mình. Cụm từ nhạy cảm và mã được phát hiện sẽ được làm nổi bật.</string>
+    <string name="detection_test_empty_hint">Kết quả sẽ được hiển thị ở đây</string>
+    <string name="detection_test_ignore_phrase_detected">Đã phát hiện cụm từ bỏ qua</string>
 </resources>

@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">秘匿不要な情報としてコピー</string>
     <string name="copy_as_not_sensitive_desc">有効にすると、コピーしたテキストが不可視化されません。</string>
     <string name="mode_sms_disabled_help">Google のポリシーにより、デフォルト以外の SMS アプリの SMS 権限がブロックされるため、Google Play 版では SMS モードはご利用いただけません。SMS モードが必要な場合は、F-Droid または GitHub からアプリをダウンロードしてください。</string>
+    <string name="detection_test">検出テスト</string>
+    <string name="detection_test_desc">ここにサンプルテキストを入力して設定をテストできます。検出対象の語句と検出されたコードが強調表示されます。</string>
+    <string name="detection_test_empty_hint">結果はここに表示されます</string>
+    <string name="detection_test_ignore_phrase_detected">除外語句が検出されました</string>
 </resources>

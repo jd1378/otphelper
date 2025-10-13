@@ -100,6 +100,14 @@ fun Settings(
           title = stringResource(R.string.cleanup_phrases),
       )
 
+      SettingPageLink(
+          modifier =
+              Modifier.clickable {
+                onNavigateToRoute(MainDestinations.DETECTION_TEST_ROUTE, false, true)
+              },
+          title = stringResource(R.string.detection_test),
+      )
+
       Surface(
           color = MaterialTheme.colorScheme.surfaceContainer,
           shape = MaterialTheme.shapes.large,
@@ -171,7 +179,8 @@ fun Settings(
                 stringResource(
                     R.string.show_confirmation_help,
                     stringResource(R.string.code_copied_to_clipboard),
-                ))
+                )
+            )
           }
 
           Column(

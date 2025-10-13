@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">Копиране като нечувствително</string>
     <string name="copy_as_not_sensitive_desc">Когато е активирано, копираният текст няма да бъде маскиран</string>
     <string name="mode_sms_disabled_help">SMS режимът не е наличен във версията на това приложение от Google Play поради политиката на Google, която блокира разрешенията за SMS за приложения, които не са по подразбиране за SMS. Ако имате нужда от SMS режим, моля, изтеглете приложението от F-Droid или GitHub.</string>
+    <string name="detection_test">Тест за откриване</string>
+    <string name="detection_test_desc">Тук можете да въведете примерен текст, за да тествате вашата конфигурация. Чувствителната фраза и откритият код ще бъдат маркирани.</string>
+    <string name="detection_test_empty_hint">Резултатите ще се покажат тук</string>
+    <string name="detection_test_ignore_phrase_detected">Открита е игнорирана фраза</string>
 </resources>

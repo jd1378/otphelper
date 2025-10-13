@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">உணர்திறனற்றதாக நகலெடுக்கவும்</string>
     <string name="copy_as_not_sensitive_desc">இது இயக்கப்பட்டால், நகலெடுக்கப்பட்ட உரை மறைக்கப்படாது</string>
     <string name="mode_sms_disabled_help">Google Play பதிப்பில், Google-ன் கொள்கை காரணமாக SMS அனுமதிகள் தடையிடப்பட்டுள்ளதால் SMS முறை கிடைக்காது. SMS முறையை பயன்படுத்த வேண்டுமெனில், F-Droid அல்லது GitHub-இல் இருந்து பயன்பாட்டை பதிவிறக்கவும்.</string>
+    <string name="detection_test">கண்டறிதல் சோதனை</string>
+    <string name="detection_test_desc">உங்கள் அமைப்பை சோதிக்க உதாரண உரையை இங்கே உள்ளிடலாம். உணர்திறன் வாய்ந்த சொற்கள் மற்றும் கண்டறியப்பட்ட குறியீடு ஹைலைட் செய்யப்படும்.</string>
+    <string name="detection_test_empty_hint">முடிவுகள் இங்கே காட்டப்படும்</string>
+    <string name="detection_test_ignore_phrase_detected">புறக்கணிக்க வேண்டிய சொல் கண்டறியப்பட்டது</string>
 </resources>

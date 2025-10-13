@@ -134,4 +134,8 @@
     <string name="copy_as_not_sensitive">সংবেদনশীল নয় হিসাবে কপি করুন</string>
     <string name="copy_as_not_sensitive_desc">সক্রিয় থাকলে, কপি করা টেক্সট মাস্ক করা হবে না</string>
     <string name="mode_sms_disabled_help">গুগল প্লে সংস্করণে SMS মোডটি উপলব্ধ নয়, কারণ গুগলের নীতিমালা অনুযায়ী SMS অনুমতি শুধুমাত্র ডিফল্ট SMS অ্যাপের জন্য অনুমোদিত। যদি আপনার SMS মোডের প্রয়োজন হয়, অনুগ্রহ করে F-Droid বা GitHub থেকে অ্যাপটি ডাউনলোড করুন।</string>
+    <string name="detection_test">সনাক্তকরণ পরীক্ষা</string>
+    <string name="detection_test_desc">এখানে আপনি একটি নমুনা টেক্সট লিখে আপনার কনফিগারেশন পরীক্ষা করতে পারেন। সংবেদনশীল বাক্যাংশ এবং সনাক্তকৃত কোড হাইলাইট করা হবে।</string>
+    <string name="detection_test_empty_hint">ফলাফল এখানে দেখানো হবে</string>
+    <string name="detection_test_ignore_phrase_detected">উপেক্ষিত বাক্যাংশ সনাক্ত করা হয়েছে</string>
 </resources>
