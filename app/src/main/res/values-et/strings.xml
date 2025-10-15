@@ -139,8 +139,8 @@
     <string name="detection_test_empty_hint">Tulemused kuvatakse siin</string>
     <string name="detection_test_ignore_phrase_detected">Eiramise fraas on tuvastatud</string>
     <string name="broadcast_code">Edasta kood</string>
-    <string name="broadcast_code_help">Saada tuvastatud koodid intentiga allpool määratud rakendusele. Luba ainult siis, kui mõistad riske, kuna see võib paljastada sinu koodid teistele rakendustele.</string>
+    <string name="broadcast_code_help">Suuna tuvastatud koodid allpool määratud rakendusele. Luba ainult siis, kui mõistad riske, kuna see võib muuta sinu koodid teistele rakendustele nähtavaks.</string>
     <string name="target_package_name">Sihtpaketi nimi</string>
     <string name="broadcast_target_help">Sisesta rakenduse paketi nimi, mis edastuse vastu võtab. Turvalisuse huvides jätab tühjaks jätmine edastuse välja lülitatuks.</string>
-    <string name="intent_action_code_detected_help">Tuvastatud kood lisatakse edastuse extras alla võtme \"code\".</string>
+    <string name="intent_action_code_detected_help">Tuvastatud kood lisatakse edastuse lisadesse märkega „code“.</string>
 </resources>
