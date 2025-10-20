@@ -135,10 +135,10 @@
     <string name="copy_as_not_sensitive_desc">Când este activat, textul copiat nu va fi mascat</string>
     <string name="mode_sms_disabled_help">Modul SMS nu este disponibil în versiunea Google Play a acestei aplicații din cauza politicii Google, care blochează permisiunile SMS pentru aplicațiile care nu sunt aplicația SMS implicită. Dacă ai nevoie de modul SMS, descarcă aplicația de pe F-Droid sau GitHub.</string>
     <string name="detection_test">Test de detectare</string>
-    <string name="detection_test_desc">Aici poți introduce un text de exemplu pentru a testa configurația. Fraza sensibilă și codul detectat vor fi evidențiate.</string>
+    <string name="detection_test_desc">Aici poți introduce un text exemplu pentru a testa configurația. Fraza sensibilă și codul detectat vor fi evidențiate.</string>
     <string name="detection_test_empty_hint">Rezultatele vor fi afișate aici</string>
     <string name="detection_test_ignore_phrase_detected">A fost detectată o frază de ignorare</string>
-    <string name="broadcast_code">Difuzează codul</string>
+    <string name="broadcast_code">Difuzare cod</string>
     <string name="broadcast_code_help">Trimite codurile detectate prin intent către aplicația specificată mai jos. Activează doar dacă înțelegi riscurile, deoarece acest lucru poate expune codurile tale altor aplicații.</string>
     <string name="target_package_name">Numele pachetului țintă</string>
     <string name="broadcast_target_help">Introdu numele pachetului aplicației care va primi difuzarea. Lăsarea acestui câmp gol dezactivează difuzarea din motive de securitate.</string>
