@@ -134,8 +134,8 @@ class NotificationHelper {
               .setCategory(Notification.CATEGORY_SERVICE)
               .setSortKey("0")
               .setTimeoutAfter(notificationTimeout)
-              .setSilent(true)
-              .setVibrate(null)
+              .setDefaults(NotificationCompat.DEFAULT_SOUND or NotificationCompat.DEFAULT_VIBRATE)
+              .setPriority(NotificationCompat.PRIORITY_MAX)
       if (isSms) {
         val ignoreOriginPendingIntent =
             PendingIntentCompat.getBroadcast(
