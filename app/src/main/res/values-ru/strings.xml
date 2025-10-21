@@ -135,12 +135,12 @@
     <string name="copy_as_not_sensitive_desc">Если включено, скопированный текст не будет замаскирован</string>
     <string name="mode_sms_disabled_help">Режим SMS недоступен в версии приложения из Google Play из-за политики Google, которая блокирует разрешения на SMS для приложений, не являющихся стандартными для SMS. Если вам нужен режим SMS, скачайте приложение с F-Droid или GitHub.</string>
     <string name="detection_test">Тест обнаружения</string>
-    <string name="detection_test_desc">Здесь вы можете ввести пример текста для проверки вашей конфигурации. Чувствительная фраза и обнаруженный код будут выделены.</string>
-    <string name="detection_test_empty_hint">Результаты будут показаны здесь</string>
-    <string name="detection_test_ignore_phrase_detected">Обнаружена фраза для игнорирования</string>
-    <string name="broadcast_code">Транслировать код</string>
-    <string name="broadcast_code_help">Отправляйте обнаруженные коды через intent в указанное ниже приложение. Включайте только если понимаете риски, так как это может раскрыть ваши коды другим приложениям.</string>
-    <string name="target_package_name">Имя целевого пакета</string>
-    <string name="broadcast_target_help">Введите имя пакета приложения, которое получит трансляцию. Если оставить поле пустым, трансляция будет отключена по соображениям безопасности.</string>
-    <string name="intent_action_code_detected_help">Обнаруженный код будет включён в extras трансляции под ключом \"code\".</string>
+    <string name="detection_test_desc">Здесь можно ввести образец текста для проверки конфигурации. Ключевая фраза и найденный код будут выделены.</string>
+    <string name="detection_test_empty_hint">Здесь будут показаны результаты</string>
+    <string name="detection_test_ignore_phrase_detected">Найдена игнорируемая фраза</string>
+    <string name="broadcast_code">Отправка кодов</string>
+    <string name="broadcast_code_help">Отправка найденных кодов указанному приложению через intent. Используйте только если понимаете риски, так как это действие может раскрыть коды другим приложениям.</string>
+    <string name="target_package_name">Имя пакета получателя</string>
+    <string name="broadcast_target_help">Имя пакета приложения, которое будет получать коды. Если оставить поле пустым, отправка кодов будет отключена по соображениям безопасности.</string>
+    <string name="intent_action_code_detected_help">Найденный код будет отправлен в ключе «code».</string>
 </resources>
