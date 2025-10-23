@@ -128,3 +128,9 @@ You can show your love and support for this project by donating to the following
 BTC: bc1q8prgxcfcqpcq5ennyv08sxg6ymx2pm4azvcu0l
 
 LTC: LVnTy14pHFRoSbqWbmhGBNjV4k2dBnY2Zn
+
+---------
+
+### Stars over time
+
+<img src="https://api.star-history.com/svg?repos=jd1378/otphelper&type=Date&theme=dark" alt="Chart of github stars over time"/>
