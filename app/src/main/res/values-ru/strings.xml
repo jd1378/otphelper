@@ -134,7 +134,7 @@
     <string name="copy_as_not_sensitive">Копировать без защиты</string>
     <string name="copy_as_not_sensitive_desc">Если включено, скопированный текст не будет замаскирован</string>
     <string name="mode_sms_disabled_help">Режим SMS недоступен в версии приложения из Google Play из-за политики Google, которая блокирует разрешения на SMS для приложений, не являющихся стандартными для SMS. Если вам нужен режим SMS, скачайте приложение с F-Droid или GitHub.</string>
-    <string name="detection_test">Тест обнаружения</string>
+    <string name="detection_test">Тест поиска</string>
     <string name="detection_test_desc">Здесь можно ввести образец текста для проверки конфигурации. Ключевая фраза и найденный код будут выделены.</string>
     <string name="detection_test_empty_hint">Здесь будут показаны результаты</string>
     <string name="detection_test_ignore_phrase_detected">Найдена игнорируемая фраза</string>
