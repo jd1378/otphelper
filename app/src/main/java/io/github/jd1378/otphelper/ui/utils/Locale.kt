@@ -5,6 +5,6 @@ import androidx.compose.ui.platform.LocalConfiguration
 import java.util.Locale
 
 @Composable
-fun getCurrentLocale(): Locale {
+fun getCurrentLocale(): Locale? {
   return LocalConfiguration.current.locales[0]
 }

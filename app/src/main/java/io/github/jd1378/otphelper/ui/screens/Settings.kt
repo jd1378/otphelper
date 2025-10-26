@@ -104,7 +104,7 @@ fun Settings(
                 onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false, true)
               },
           title = stringResource(R.string.language),
-          subtitle = getCurrentLocale().displayLanguage,
+          subtitle = getCurrentLocale()?.displayLanguage ?: stringResource(R.string.error),
       )
 
       SettingPageLink(
