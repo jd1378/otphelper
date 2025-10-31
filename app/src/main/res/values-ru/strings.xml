@@ -92,10 +92,10 @@
     <string name="sensitive_phrases_desc_regex">Фразы должны быть корректными регулярными выражениями.</string>
     <string name="new_sensitive_phrase">Новая ключевая фраза</string>
     <string name="your_new_phrase">Новая фраза</string>
-    <string name="copy_general_regex">Копировать общее рег.выражение</string>
-    <string name="copy_special_regex">Копировать специальное рег.выражение</string>
+    <string name="copy_general_regex">Копировать общие фразы как рег.выражение</string>
+    <string name="copy_special_regex">Копировать свои фразы как рег.выражение</string>
     <string name="ignored_phrases">Игнорируемые фразы</string>
-    <string name="copy_ignore_regex">Копировать игнорируемое рег.выражение</string>
+    <string name="copy_ignore_regex">Копировать игнорируемые фразы как рег.выражение</string>
     <string name="ignored_phrases_desc">Если в сообщении будет содержаться любая из этих фраз, оно будет полностью проигнорировано.</string>
     <string name="new_ignored_phrase">Новая игнорируемая фраза</string>
     <string name="auto_dismiss">Автозакрытие</string>
@@ -105,7 +105,7 @@
     <string name="show_copy_confirmation">Показывать подтверждение копирования</string>
     <string name="show_toast_help">Показывать найденный код во всплывающем уведомлении.</string>
     <string name="cleanup_phrases">Фразы очистки</string>
-    <string name="copy_cleanup_regex">Копировать рег.выражение очистки</string>
+    <string name="copy_cleanup_regex">Копировать фразы очистки как рег.выражение</string>
     <string name="new_cleanup_phrase">Новая фраза очистки</string>
     <string name="cleanup_phrases_desc">Указанные здесь фразы будут удалены из текста сообщения перед поиском кода. Функцию можно использовать для исправления проблем с поиском.</string>
     <string name="label_privacy_policy">Политика конфиденциальности</string>
