@@ -1,1 +1,2 @@
 - Increased code detected notification priority to increase it's chance of showing as heads-up notification
+- Updated translations
