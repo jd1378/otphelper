@@ -1,8 +1,7 @@
 import com.android.build.gradle.api.ApplicationVariant
 import com.android.build.gradle.api.BaseVariantOutput
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
-import org.gradle.configurationcache.extensions.capitalized
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.internal.extensions.stdlib.capitalized
 
 plugins {
   id("com.android.application")
@@ -10,17 +9,17 @@ plugins {
   id("org.jetbrains.kotlin.plugin.compose")
   id("com.google.devtools.ksp")
   id("com.google.dagger.hilt.android")
-  id("com.google.protobuf") version "0.9.4"
+  id("com.google.protobuf") version "0.9.5"
 }
 
 android {
   namespace = "io.github.jd1378.otphelper"
-  compileSdk = 35
+  compileSdk = 36
 
   defaultConfig {
     applicationId = "io.github.jd1378.otphelper"
     minSdk = 24
-    targetSdk = 35
+    targetSdk = 36
     versionCode = 49
     versionName = "1.20.1"
 
@@ -56,53 +55,53 @@ android {
     compose = true
     buildConfig = true
   }
-  composeOptions { kotlinCompilerExtensionVersion = "1.5.14" }
   packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
   androidResources { generateLocaleConfig = true }
 
   applicationVariants.all(ApplicationVariantAction())
 }
 
-val protobufVersion = "3.25.8"
+val protobufVersion = "4.33.0"
 
 dependencies {
-  implementation(platform("androidx.compose:compose-bom:2025.06.01"))
-  androidTestImplementation(platform("androidx.compose:compose-bom:2025.06.01"))
+  implementation(platform("androidx.compose:compose-bom:2025.10.01"))
+  androidTestImplementation(platform("androidx.compose:compose-bom:2025.10.01"))
 
-  implementation("androidx.core:core-ktx:1.16.0")
-  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.1")
-  implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.1")
-  implementation("androidx.activity:activity-compose:1.10.1")
+  implementation("androidx.core:core-ktx:1.17.0")
+  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")
+  implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
+  implementation("androidx.activity:activity-compose:1.11.0")
   implementation("androidx.compose.ui:ui")
   implementation("androidx.compose.ui:ui-tooling-preview")
   implementation("androidx.compose.material3:material3")
+  implementation("androidx.compose.material:material-icons-core")
   implementation("androidx.datastore:datastore-preferences:1.1.7")
   testImplementation("junit:junit:4.13.2")
-  androidTestImplementation("androidx.test.ext:junit:1.2.1")
-  androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+  androidTestImplementation("androidx.test.ext:junit:1.3.0")
+  androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
   androidTestImplementation("androidx.compose.ui:ui-test-junit4")
   debugImplementation("androidx.compose.ui:ui-tooling")
   debugImplementation("androidx.compose.ui:ui-test-manifest")
   // debugImplementation because LeakCanary should only run in debug builds.
-  debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
+  debugImplementation("com.squareup.leakcanary:leakcanary-android:2.14")
   // navigation
-  implementation("androidx.navigation:navigation-compose:2.9.1")
+  implementation("androidx.navigation:navigation-compose:2.9.5")
   // hilt
-  implementation("com.google.dagger:hilt-android:2.56.2")
-  ksp("com.google.dagger:hilt-compiler:2.56.2")
+  implementation("com.google.dagger:hilt-android:2.57.2")
+  ksp("com.google.dagger:hilt-compiler:2.57.2")
   // hilt for navigation compose
-  implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+  implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
   // hilt for work manager
-  implementation("androidx.hilt:hilt-work:1.2.0")
-  ksp("androidx.hilt:hilt-compiler:1.2.0")
-  implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
-  implementation("androidx.work:work-runtime-ktx:2.10.2")
+  implementation("androidx.hilt:hilt-work:1.3.0")
+  ksp("androidx.hilt:hilt-compiler:1.3.0")
+  implementation("androidx.hilt:hilt-navigation-fragment:1.3.0")
+  implementation("androidx.work:work-runtime-ktx:2.11.0")
   // app compat (for locales)
   val appcompatVersion = "1.7.1"
   implementation("androidx.appcompat:appcompat:$appcompatVersion")
   implementation("androidx.appcompat:appcompat-resources:$appcompatVersion")
   // room db
-  val roomVersion = "2.7.2"
+  val roomVersion = "2.8.3"
   implementation("androidx.room:room-runtime:$roomVersion")
   annotationProcessor("androidx.room:room-compiler:$roomVersion")
   ksp("androidx.room:room-compiler:$roomVersion")
@@ -121,7 +120,7 @@ dependencies {
   implementation("androidx.core:core-splashscreen:1.1.0-rc01")
 
   // immutable collections (for compose stability fix)
-  implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
+  implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
 
   // cache
   implementation("io.github.reactivecircus.cache4k:cache4k:0.14.0")
@@ -140,10 +139,12 @@ protobuf {
   generateProtoTasks {
     all().forEach { task ->
       task.builtins {
-        // Configures the task output type
-        // Lite has smaller code size and is recommended for Android
-        create("java") { option("lite") }
-        create("kotlin") { option("lite") }
+        register("java") {
+          option("lite")
+        }
+        register("kotlin") {
+          option("lite")
+        }
       }
     }
   }
@@ -186,9 +187,12 @@ androidComponents {
   onVariants(selector().all()) { variant ->
     afterEvaluate {
       val capName = variant.name.capitalized()
-      tasks.getByName<KotlinCompile>("ksp${capName}Kotlin") {
-        setSource(tasks.getByName("generate${capName}Proto").outputs)
-      }
+      val protoTask = tasks.getByName("generate${capName}Proto")
+      val kspTask = tasks.getByName("ksp${capName}Kotlin")
+      kspTask.dependsOn(protoTask)
+      val testProtoTask = tasks.getByName("generate${capName}UnitTestProto")
+      val testKspTask = tasks.getByName("ksp${capName}UnitTestKotlin")
+      testKspTask.dependsOn(testProtoTask)
     }
   }
 }
