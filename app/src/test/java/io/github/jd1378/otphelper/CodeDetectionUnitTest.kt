@@ -108,7 +108,7 @@ class CodeDetectionUnitTest {
 سلام عزیز
 از کالاهایی که خریده‌اید راضی هستید؟ لطفا میزان رضایتتان را از طریق لینک زیر به ما بگویید.
 https://www.digikala.com/transaction/rate/?RatingCode=x123456
-همچنین میتوانید درباره کالا دیدگاه ثبت کنید و پس از تایید دیدگاه، از دیجی کلاب امتیاز بگیرید!"""
+همچنین میتوانید درباره کالا دیدگاه ثبت کنید و پس از تایید دیدگاه، از دیجی کلاب امتیاز بگیرید!""",
             )
 
     Assert.assertTrue(shouldIgnore)
@@ -129,7 +129,7 @@ https://www.digikala.com/transaction/rate/?RatingCode=x123456
 رمز اول0000*0000000
 در1999/01/01
 12:00:00
-اشتباه وارد شده است"""
+اشتباه وارد شده است""",
             )
 
     Assert.assertTrue(should)
@@ -268,21 +268,24 @@ www.iranketab.ir
 
   @Test
   fun twBankingOneCode() {
-    val msg = "請提防詐騙！密碼勿提供他人或輸入不明網頁，您的信用卡網路消費幣別新台幣金額9876元，交易驗證碼『123456』請十分鐘內認證"
+    val msg =
+        "請提防詐騙！密碼勿提供他人或輸入不明網頁，您的信用卡網路消費幣別新台幣金額9876元，交易驗證碼『123456』請十分鐘內認證"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
 
   @Test
   fun twBankingTwoCode() {
-    val msg = "【銀行轉帳】OTP密碼1234567網頁識別碼ABCD轉入帳號後四碼8888、TWD\$9876，密碼勿告知他人以防詐騙"
+    val msg =
+        "【銀行轉帳】OTP密碼1234567網頁識別碼ABCD轉入帳號後四碼8888、TWD\$9876，密碼勿告知他人以防詐騙"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("1234567", CodeExtractor().getCode(msg))
   }
 
   @Test
   fun twShopeeCode() {
-    val msg = "【蝦皮購物】輸入 123456 以登入您的帳號，15 分鐘有效。請不要將驗證碼分享給任何人，包括蝦皮員工。"
+    val msg =
+        "【蝦皮購物】輸入 123456 以登入您的帳號，15 分鐘有效。請不要將驗證碼分享給任何人，包括蝦皮員工。"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
@@ -534,7 +537,8 @@ code: 123456
 
   @Test
   fun chineseAlipayCode() {
-    val msg = "【支付宝】校验码1234，付款金额169.00，你正在使用支付宝，需要进行校验，请勿向任何人提供您收到的短信校验码"
+    val msg =
+        "【支付宝】校验码1234，付款金额169.00，你正在使用支付宝，需要进行校验，请勿向任何人提供您收到的短信校验码"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("1234", CodeExtractor().getCode(msg))
   }
@@ -553,7 +557,8 @@ code: 123456
 
   @Test
   fun japaneseMyJCB() {
-    val msg = "MyJCBアプリワンタイムパスコード「123456」、10分間有効です。MyJCBアプリへご入力下さい。偽サイトへの入力にご注意ください。"
+    val msg =
+        "MyJCBアプリワンタイムパスコード「123456」、10分間有効です。MyJCBアプリへご入力下さい。偽サイトへの入力にご注意ください。"
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
@@ -673,7 +678,8 @@ If you didn't request this code by trying to log in on another device, simply ig
 
   @Test
   fun miHoYoCode() {
-    val msg = """【米哈游】验证码：123456（10分钟内有效）。您正在关闭新设备验证功能，请勿将验证码告诉他人哦。"""
+    val msg =
+        """【米哈游】验证码：123456（10分钟内有效）。您正在关闭新设备验证功能，请勿将验证码告诉他人哦。"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
@@ -773,14 +779,16 @@ Code d'authentification : AAAA1A"""
 
   @Test
   fun tencentChineseCode() {
-    val msg = """【腾讯科技】你正在「修改QQ8******1的密保手机」，验证码123456。提供给他人会导致QQ被盗，若非本人操作，请修改密码。"""
+    val msg =
+        """【腾讯科技】你正在「修改QQ8******1的密保手机」，验证码123456。提供给他人会导致QQ被盗，若非本人操作，请修改密码。"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
 
   @Test
   fun tiktokChineseCode() {
-    val msg = """【抖音】验证码123456，用于手机登录，5分钟内有效。验证码提供给他人可能导致账号被盗，请勿泄露，谨防被骗。"""
+    val msg =
+        """【抖音】验证码123456，用于手机登录，5分钟内有效。验证码提供给他人可能导致账号被盗，请勿泄露，谨防被骗。"""
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
   }
@@ -835,5 +843,14 @@ Code d'authentification : AAAA1A"""
 """
     assertEquals(false, CodeExtractor().shouldIgnore(msg))
     assertEquals("123456", CodeExtractor().getCode(msg))
+  }
+
+  @Test
+  fun openBankTestWithCleanup() {
+    var msg =
+        """Openbank: TEILE DIESEN CODE MIT NIEMANDEM. Bestätigungscode ABC4 für eine sofortige Überweisung von ${'$'}{amount} ${'$'}{currency} auf das Konto **9999. Mehr : +01234567890123"""
+    msg = msg.replace("""\sfür eine.*""".toRegex(), "")
+    assertEquals(false, CodeExtractor().shouldIgnore(msg))
+    assertEquals("ABC4", CodeExtractor().getCode(msg))
   }
 }
