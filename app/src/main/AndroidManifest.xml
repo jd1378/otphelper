@@ -77,15 +77,6 @@
         <action android:name="android.intent.action.BOOT_COMPLETED" />
       </intent-filter>
     </receiver>
-    <receiver
-        android:name=".SmsListener"
-        android:exported="true"
-        android:permission="android.permission.BROADCAST_SMS"
-        android:priority="100">
-      <intent-filter>
-        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-      </intent-filter>
-    </receiver>
 
     <provider
         android:name="androidx.startup.InitializationProvider"
