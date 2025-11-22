@@ -6,7 +6,7 @@
   <uses-feature
       android:name="android.hardware.telephony"
       android:required="false" />
-  
+
   <!-- SMS permission is only used if user decides to use the SMS mode instead of notification mode -->
   <!-- In SMS mode we also need the android.permission.QUERY_ALL_PACKAGES to function properly, -->
   <!-- as we want to show information about the default SMS app (icon and name) in History screen -->
@@ -17,16 +17,7 @@
   <uses-permission
       android:name="android.permission.QUERY_ALL_PACKAGES"
       tools:ignore="QueryAllPackagesPermission" />
-
-  <receiver
-      android:name=".SmsListener"
-      android:exported="true"
-      android:permission="android.permission.BROADCAST_SMS">
-    <intent-filter android:priority="1000">
-      <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-    </intent-filter>
-  </receiver>
-
+  
   <queries>
     <intent>
       <action android:name="android.provider.Telephony.SMS_DELIVER" />
