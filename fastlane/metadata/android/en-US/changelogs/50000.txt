@@ -1,0 +1,1 @@
+- Fixed an issue where an SMS without a phone number was getting ignored in SMS mode
