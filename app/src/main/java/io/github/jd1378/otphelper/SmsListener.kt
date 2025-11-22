@@ -24,8 +24,11 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SmsListener : BroadcastReceiver() {
 
-  @Inject lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
-  @Inject lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
+  @Inject
+  lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
+
+  @Inject
+  lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
 
   companion object {
     val TAG = "SmsListener"
@@ -34,7 +37,7 @@ class SmsListener : BroadcastReceiver() {
       return ActivityCompat.checkSelfPermission(context, Manifest.permission.RECEIVE_SMS) ==
           PackageManager.PERMISSION_GRANTED &&
           ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_SMS) ==
-              PackageManager.PERMISSION_GRANTED
+          PackageManager.PERMISSION_GRANTED
     }
 
     fun isSmsListenerServiceEnabled(context: Context): Boolean {
@@ -52,6 +55,7 @@ class SmsListener : BroadcastReceiver() {
             false
           }
         }
+
         else -> false
       }
     }
@@ -87,10 +91,13 @@ class SmsListener : BroadcastReceiver() {
       val originToBodyMap = mutableMapOf<String, String>()
       // a long sms may be in multiple fragments
       for (smsMessage in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-        if (smsMessage.displayOriginatingAddress.isNullOrBlank()) continue
         if (smsMessage.messageBody.isNullOrBlank()) continue
+        var originatingAddress = smsMessage.displayOriginatingAddress
+        if (originatingAddress.isNullOrBlank()) {
+          originatingAddress = context.getString(R.string.unknown_sender)
+        }
         originToBodyMap.merge(
-            smsMessage.displayOriginatingAddress,
+            originatingAddress,
             smsMessage.messageBody,
         ) { old, new ->
           old + new
