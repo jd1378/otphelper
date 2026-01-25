@@ -35,8 +35,9 @@ object CodeExtractorDefaults {
           "סיסמ",
           "\\bהקוד\\W",
           "\\bקוד\\W",
-          "\\bKodu\\W", // turkish
-          "\\bKodunuz\\W", // turkish
+          "\\bKodu\\W", // "code" in turkish
+          "\\bKodunuz\\W", // "your code" in turkish
+          "\\b[sş]ifre:\\W", // "password" in turkish
           "\\bKodi\\W",
           "\\bKods\\W",
           "\\b(?:m|sms)?TAN\\W",
