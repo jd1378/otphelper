@@ -78,10 +78,10 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission", "LaunchActivityFromNotification")
     fun sendDetectedNotif(
-        context: Context,
-        extras: Bundle,
-        code: String,
-        copied: Boolean = false,
+      context: Context,
+      extras: Bundle,
+      code: String,
+      copied: Boolean = false,
     ) {
       if (!hasNotifPermission(context)) return
 
@@ -117,7 +117,7 @@ class NotificationHelper {
               false,
           )
 
-      val notificationTimeout = 60_000L
+      val notificationTimeout = 180_000L
 
       val notificationBuilder =
           NotificationCompat.Builder(context, channelId)
@@ -243,7 +243,7 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission")
     fun sendPermissionRevokedNotif(
-        context: Context,
+      context: Context,
     ) {
       if (!hasNotifPermission(context)) return
 
@@ -284,8 +284,8 @@ class NotificationHelper {
 
     fun sendTestNotif(context: Context) {
       if (
-          ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-              PackageManager.PERMISSION_GRANTED
+        ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+        PackageManager.PERMISSION_GRANTED
       ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
@@ -319,7 +319,7 @@ class NotificationHelper {
 
     @SuppressLint("MissingPermission")
     fun sendSmsPermissionRevokedNotif(
-        context: Context,
+      context: Context,
     ) {
       if (!hasNotifPermission(context)) return
 

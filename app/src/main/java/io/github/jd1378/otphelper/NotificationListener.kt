@@ -27,8 +27,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotificationListener : NotificationListenerService() {
 
-  @Inject lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
-  @Inject lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
+  @Inject
+  lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
+  @Inject
+  lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
 
   companion object {
     val TAG = "NotificationListener"
@@ -101,7 +103,7 @@ class NotificationListener : NotificationListenerService() {
 
     @SuppressLint("DiscouragedApi")
     private fun hasRedactedMessage(
-        notif: Notification,
+      notif: Notification,
     ): Boolean {
       try {
         // we do this every time because system language can be changed at any point in time
@@ -135,13 +137,13 @@ class NotificationListener : NotificationListenerService() {
     super.onNotificationPosted(sbn)
     autoUpdatingListenerUtils.awaitCodeExtractor()
     if (autoUpdatingListenerUtils.modeOfOperation != ModeOfOperation.Notification &&
-        !autoUpdatingListenerUtils.isAutoDismissEnabled &&
-        !autoUpdatingListenerUtils.isAutoMarkAsReadEnabled) {
+      !autoUpdatingListenerUtils.isAutoDismissEnabled &&
+      !autoUpdatingListenerUtils.isAutoMarkAsReadEnabled) {
       return
     }
     if (sbn != null) {
       if (sbn.packageName == BuildConfig.APPLICATION_ID && sbn.id == R.id.code_detected_notify_id)
-          return
+        return
 
       val mNotification = sbn.notification
       // ignore notifications that are foreground service
@@ -160,7 +162,6 @@ class NotificationListener : NotificationListenerService() {
         for (key in notification_text_keys) {
           val str = extras.getCharSequence(key)?.toString()
           if (!str.isNullOrEmpty()) {
-            if (codeExtractor.shouldIgnore(str)) return
             notifyTexts.append(str)
             notifyTexts.append("\n")
           }
@@ -174,7 +175,9 @@ class NotificationListener : NotificationListenerService() {
             }
           }
         }
-        val notificationText = codeExtractor.cleanup(notifyTexts.toString())
+        val notifyText = notifyTexts.toString()
+        if (codeExtractor.shouldIgnore(notifyText)) return
+        val notificationText = codeExtractor.cleanup(notifyText)
 
         if (notificationText.isNotEmpty()) {
           val code = codeExtractor.getCode(notificationText, false) // to not do it more than once
@@ -261,7 +264,7 @@ class NotificationListener : NotificationListenerService() {
             for (action in mNotification.actions) {
               val isReadAction =
                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                      action.semanticAction == Notification.Action.SEMANTIC_ACTION_MARK_AS_READ) {
+                    action.semanticAction == Notification.Action.SEMANTIC_ACTION_MARK_AS_READ) {
                     true
                   } else {
                     val title = action.title.toString().lowercase()

@@ -107,7 +107,7 @@ class SmsListener : BroadcastReceiver() {
       for ((displayOrigin, messageBody) in originToBodyMap) {
         autoUpdatingListenerUtils.awaitCodeExtractor()
         val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
-
+        if (codeExtractor.shouldIgnore(messageBody)) continue
         val text = codeExtractor.cleanup(messageBody)
 
         if (text.isNotEmpty()) {
