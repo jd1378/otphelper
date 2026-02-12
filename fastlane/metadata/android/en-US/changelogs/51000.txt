@@ -1,3 +1,4 @@
 - Increased code detection notification timeout to 3 minutes
 - Fixed a bug where ignored phrases did not work in SMS mode
 - Removed unused permission about accessing network state (It was added automatically by a library and not used anywhere. We decided to remove it for your peace of mind.)
+- Added a small reminder to check permissions on mode change
