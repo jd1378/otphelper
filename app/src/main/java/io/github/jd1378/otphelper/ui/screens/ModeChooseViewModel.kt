@@ -42,7 +42,7 @@ constructor(
 
   fun onModeSelected(context: Context, mode: ModeOfOperation) {
     viewModelScope.launch {
-      if (userSettings.value.modeOfOperation != mode) {
+      if (userSettings.value.modeOfOperation != mode && userSettings.value.isSetupFinished) {
         setShowPermissionsReminder(true)
       }
       userSettingsRepository.setModeOfOperation(mode)
