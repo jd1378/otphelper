@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">הזן את שם החבילה של האפליקציה שתקבל את השידור. השארת שדה זה ריק תבטל את השידור מסיבות אבטחה.</string>
   <string name="intent_action_code_detected_help">הקוד שזוהה ייכלל ב-extras של השידור תחת המפתח \"code\".</string>
   <string name="unknown_sender">שולח לא ידוע</string>
+    <string name="permissions_reminder_title">בדוק הרשאות</string>
+    <string name="permissions_reminder_message">שינית את מצב הפעולה. אנא בדוק את הרשאות האפליקציה עבור מצב זה כדי לוודא שהאפליקציה פועלת כראוי.</string>
+    <string name="take_me_there">קח אותי לשם</string>
 </resources>

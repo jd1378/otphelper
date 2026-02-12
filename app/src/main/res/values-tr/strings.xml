@@ -143,5 +143,8 @@
   <string name="target_package_name">Hedef Paket Adı</string>
   <string name="broadcast_target_help">Yayını alacak uygulamanın paket adını girin. Güvenlik nedeniyle boş bırakılırsa yayın devre dışı kalır.</string>
   <string name="intent_action_code_detected_help">Algılanan kod, yayın extras\'ında \"code\" anahtarı altında yer alacaktır.</string>
+  <string name="permissions_reminder_title">İzinleri kontrol et</string>
+  <string name="permissions_reminder_message">Modu değiştirdiniz. Uygulamanın doğru çalışması için lütfen bu mod için uygulama izinlerini kontrol edin.</string>
+  <string name="take_me_there">Beni oraya götür</string>
   <string name="unknown_sender">Bilinmeyen gönderici</string>
 </resources>

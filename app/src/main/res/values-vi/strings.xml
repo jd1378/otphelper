@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Nhập tên gói của ứng dụng sẽ nhận truyền phát. Để trống sẽ tắt truyền phát vì lý do bảo mật.</string>
   <string name="intent_action_code_detected_help">Mã đã phát hiện sẽ được đưa vào extras của truyền phát với khóa \"code\".</string>
   <string name="unknown_sender">Người gửi không xác định</string>
+  <string name="permissions_reminder_title">Kiểm tra quyền</string>
+  <string name="permissions_reminder_message">Bạn đã thay đổi chế độ. Vui lòng kiểm tra các quyền ứng dụng cho chế độ này để đảm bảo ứng dụng hoạt động đúng.</string>
+  <string name="take_me_there">Đưa tôi đến đó</string>
 </resources>

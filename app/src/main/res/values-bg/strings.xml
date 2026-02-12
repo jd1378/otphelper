@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Въведете името на пакета на приложението, което ще получи излъчването. Ако оставите празно, излъчването ще бъде изключено поради съображения за сигурност.</string>
   <string name="intent_action_code_detected_help">Откритият код ще бъде включен в extras на излъчването под ключ \"code\".</string>
   <string name="unknown_sender">Неизвестен подател</string>
+  <string name="permissions_reminder_title">Проверете разрешенията</string>
+  <string name="permissions_reminder_message">Променихте режима. Моля, проверете разрешенията на приложението за този режим, за да сте сигурни, че приложението работи правилно.</string>
+  <string name="take_me_there">Отведи ме там</string>
 </resources>

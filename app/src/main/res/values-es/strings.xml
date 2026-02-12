@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Introduce el nombre del paquete de la aplicación que recibirá la difusión. Dejar este campo vacío desactiva la difusión por motivos de seguridad.</string>
   <string name="intent_action_code_detected_help">El código detectado se incluirá en los extras del broadcast bajo la clave \"code\".</string>
   <string name="unknown_sender">Remitente desconocido</string>
+  <string name="permissions_reminder_title">Verificar permisos</string>
+  <string name="permissions_reminder_message">Has cambiado el modo. Por favor, comprueba los permisos de la aplicación para este modo para asegurarte de que la aplicación funciona correctamente.</string>
+  <string name="take_me_there">Llévame allí</string>
 </resources>

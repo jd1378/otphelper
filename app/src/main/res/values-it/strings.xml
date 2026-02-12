@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Inserisci il nome del pacchetto dell\'app che riceverà il broadcast. Lasciare vuoto disabilita il broadcast per motivi di sicurezza.</string>
   <string name="intent_action_code_detected_help">Il codice rilevato sarà incluso negli extra del broadcast con la chiave \"code\".</string>
   <string name="unknown_sender">Mittente sconosciuto</string>
+    <string name="permissions_reminder_title">Controlla le autorizzazioni</string>
+    <string name="permissions_reminder_message">Hai modificato la modalità. Controlla le autorizzazioni dell\'app per questa modalità per assicurarti che l\'app funzioni correttamente.</string>
+    <string name="take_me_there">Portami lì</string>
 </resources>

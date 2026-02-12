@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">نام بسته برنامه‌ای که قرار است دریافت‌کننده ارسال باشد را وارد کنید. خالی گذاشتن این فیلد به دلایل امنیتی ارسال را غیرفعال می‌کند.</string>
   <string name="intent_action_code_detected_help">کد شناسایی شده در extras ارسال با کلید \"code\" قرار می‌گیرد.</string>
   <string name="unknown_sender">فرستنده ناشناس</string>
+  <string name="permissions_reminder_title">بررسی مجوزها</string>
+  <string name="permissions_reminder_message">شما حالت را تغییر دادید. لطفاً برای اطمینان از عملکرد صحیح برنامه، مجوزهای برنامه برای این حالت را بررسی کنید.</string>
+  <string name="take_me_there">مرا به آنجا ببر</string>
 </resources>

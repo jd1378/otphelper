@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">ব্রডকাস্ট গ্রহণকারী অ্যাপের প্যাকেজের নাম লিখুন। নিরাপত্তার কারণে এটি ফাঁকা রাখলে ব্রডকাস্ট বন্ধ থাকবে।</string>
   <string name="intent_action_code_detected_help">সনাক্তকৃত কোডটি \"code\" কী-তে ব্রডকাস্ট এক্সট্রাতে অন্তর্ভুক্ত হবে।</string>
   <string name="unknown_sender">অজানা প্রেরক</string>
+  <string name="permissions_reminder_title">অনুমতি পরীক্ষা করুন</string>
+  <string name="permissions_reminder_message">আপনি মোড পরিবর্তন করেছেন। অ্যাপটি সঠিকভাবে কাজ করে কিনা তা নিশ্চিত করতে অনুগ্রহ করে এই মোডের জন্য অ্যাপ অনুমতিগুলি পরীক্ষা করুন।</string>
+  <string name="take_me_there">আমাকে সেখানে নিয়ে যান</string>
 </resources>

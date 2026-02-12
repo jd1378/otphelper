@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">輸入接收廣播的應用程式套件名稱。為安全起見，留空將停用廣播。</string>
   <string name="intent_action_code_detected_help">偵測到的驗證碼將包含在廣播 extras 的 \"code\" 鍵下。</string>
   <string name="unknown_sender">未知發件人</string>
+  <string name="permissions_reminder_title">檢查權限</string>
+  <string name="permissions_reminder_message">您已更改模式。請檢查此模式所需的應用權限，以確保應用程式可正常運作。</string>
+  <string name="take_me_there">帶我去那裡</string>
 </resources>

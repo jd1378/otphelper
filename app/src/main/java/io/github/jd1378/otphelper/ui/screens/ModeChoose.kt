@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -36,12 +38,13 @@ import io.github.jd1378.otphelper.ui.navigation.MainDestinations
 
 @Composable
 fun ModeChoose(
-    onNavigateToRoute: ((String, Boolean, Boolean) -> Unit),
-    upPress: () -> Unit,
-    viewModel: ModeChooseViewModel,
-    setupMode: Boolean = false,
+  onNavigateToRoute: ((String, Boolean, Boolean) -> Unit),
+  upPress: () -> Unit,
+  viewModel: ModeChooseViewModel,
+  setupMode: Boolean = false,
 ) {
   val userSettings by viewModel.userSettings.collectAsStateWithLifecycle()
+  val showPermissionsReminder by viewModel.showPermissionsReminder.collectAsStateWithLifecycle()
   val smsEnabled = remember { BuildConfig.SMS_MODE_AVAILABLE }
   val context = LocalContext.current
 
@@ -50,37 +53,45 @@ fun ModeChoose(
         TitleBar(
             upPress = upPress,
             text = stringResource(R.string.MODE_ROUTE),
-            showBackBtn = !setupMode) {
-              if (setupMode) {
-                Button(
-                    modifier =
-                        Modifier.padding(
-                            start = 40.dp, end = dimensionResource(R.dimen.padding_small)),
-                    onClick = {
-                      onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false, true)
-                    }) {
-                      Text(text = stringResource(R.string.language))
-                    }
-              }
+            showBackBtn = !setupMode,
+        ) {
+          if (setupMode) {
+            Button(
+                modifier = Modifier.padding(
+                    start = 40.dp, end = dimensionResource(R.dimen.padding_small),
+                ),
+                onClick = {
+                  onNavigateToRoute(MainDestinations.LANGUAGE_SELECTION_ROUTE, false, true)
+                },
+            ) {
+              Text(text = stringResource(R.string.language))
             }
+          }
+        }
       },
       bottomBar = {
         if (setupMode) {
-          Row(Modifier.navigationBarsPadding().padding(10.dp)) {
+          Row(
+              Modifier
+                  .navigationBarsPadding()
+                  .padding(10.dp),
+          ) {
             Spacer(modifier = Modifier.weight(1f))
             Button(
                 onClick = {
                   onNavigateToRoute(MainDestinations.PERMISSIONS_SETUP_ROUTE, false, false)
                 },
-                enabled = userSettings.modeOfOperation != ModeOfOperation.UNRECOGNIZED) {
-                  Text(text = stringResource(R.string.next))
-                }
+                enabled = userSettings.modeOfOperation != ModeOfOperation.UNRECOGNIZED,
+            ) {
+              Text(text = stringResource(R.string.next))
+            }
           }
         }
       },
   ) { padding ->
     Column(
-        Modifier.padding(padding)
+        Modifier
+            .padding(padding)
             .padding(top = 10.dp)
             .padding(horizontal = dimensionResource(R.dimen.padding_page))
             .verticalScroll(rememberScrollState()),
@@ -89,43 +100,44 @@ fun ModeChoose(
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
         Text(
             text = stringResource(R.string.mode_choose_help),
-            style =
-                TextStyle(
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    fontWeight = FontWeight.Normal,
-                    letterSpacing = 0.3.sp),
-            modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)))
+            style = TextStyle(
+                fontSize = 16.sp,
+                lineHeight = 24.sp,
+                fontWeight = FontWeight.Normal,
+                letterSpacing = 0.3.sp,
+            ),
+            modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)),
+        )
       }
       Surface(
           color = MaterialTheme.colorScheme.surfaceContainer,
           shape = MaterialTheme.shapes.large,
-          onClick = { viewModel.onModeSelected(context, ModeOfOperation.Notification) }) {
-            Row {
-              RadioButton(
-                  selected = userSettings.modeOfOperation == ModeOfOperation.Notification,
-                  onClick = { viewModel.onModeSelected(context, ModeOfOperation.Notification) })
-              Column(Modifier.padding(vertical = dimensionResource(R.dimen.padding_xs))) {
-                Text(
-                    text = stringResource(R.string.Notification),
-                    fontSize = 20.sp,
-                )
-                Text(
-                    text =
-                        stringResource(
-                            R.string.notification_mode_help,
-                        ),
-                    style = MaterialTheme.typography.bodySmall,
-                    textAlign = TextAlign.Justify,
-                )
-              }
-            }
+          onClick = { viewModel.onModeSelected(context, ModeOfOperation.Notification) },
+      ) {
+        Row {
+          RadioButton(
+              selected = userSettings.modeOfOperation == ModeOfOperation.Notification,
+              onClick = { viewModel.onModeSelected(context, ModeOfOperation.Notification) },
+          )
+          Column(Modifier.padding(vertical = dimensionResource(R.dimen.padding_xs))) {
+            Text(
+                text = stringResource(R.string.Notification),
+                fontSize = 20.sp,
+            )
+            Text(
+                text = stringResource(
+                    R.string.notification_mode_help,
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Justify,
+            )
           }
+        }
+      }
 
       Surface(
-          color =
-              if (smsEnabled) MaterialTheme.colorScheme.surfaceContainer
-              else MaterialTheme.colorScheme.surfaceContainerLow,
+          color = if (smsEnabled) MaterialTheme.colorScheme.surfaceContainer
+          else MaterialTheme.colorScheme.surfaceContainerLow,
           shape = MaterialTheme.shapes.large,
           onClick = { if (smsEnabled) viewModel.onModeSelected(context, ModeOfOperation.SMS) },
           enabled = smsEnabled,
@@ -140,16 +152,16 @@ fun ModeChoose(
             Text(
                 text = stringResource(R.string.sms),
                 style = MaterialTheme.typography.titleMedium,
-                color =
-                    if (smsEnabled) MaterialTheme.colorScheme.onSurface
-                    else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f))
+                color = if (smsEnabled) MaterialTheme.colorScheme.onSurface
+                else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+            )
             Text(
                 text = stringResource(R.string.sms_mode_help),
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Justify,
-                color =
-                    if (smsEnabled) MaterialTheme.colorScheme.onSurface
-                    else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f))
+                color = if (smsEnabled) MaterialTheme.colorScheme.onSurface
+                else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+            )
           }
         }
       }
@@ -162,6 +174,31 @@ fun ModeChoose(
             color = MaterialTheme.colorScheme.onBackground,
         )
       }
+    }
+
+    if (showPermissionsReminder) {
+      AlertDialog(
+          onDismissRequest = { viewModel.setShowPermissionsReminder(false) },
+          title = { Text(text = stringResource(R.string.permissions_reminder_title)) },
+          text = { Text(text = stringResource(R.string.permissions_reminder_message)) },
+          confirmButton = {
+            TextButton(
+                onClick = {
+                  viewModel.setShowPermissionsReminder(false)
+                },
+            ) { Text(text = stringResource(R.string.okay)) }
+          },
+          dismissButton = {
+            TextButton(
+                onClick = {
+                  viewModel.setShowPermissionsReminder(false)
+                  onNavigateToRoute(MainDestinations.PERMISSIONS_ROUTE, false, false)
+                },
+            ) {
+              Text(text = stringResource(R.string.take_me_there))
+            }
+          },
+      )
     }
   }
 }

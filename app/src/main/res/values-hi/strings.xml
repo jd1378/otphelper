@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">प्रसारण प्राप्त करने वाले ऐप का पैकेज नाम दर्ज करें। सुरक्षा कारणों से खाली छोड़ने पर प्रसारण अक्षम हो जाएगा।</string>
   <string name="intent_action_code_detected_help">पता लगाया गया कोड \"code\" कुंजी के तहत प्रसारण extras में शामिल किया जाएगा।</string>
   <string name="unknown_sender">अज्ञात प्रेषक</string>
+  <string name="permissions_reminder_title">अनुमतियाँ जाँचें</string>
+  <string name="permissions_reminder_message">आपने मोड बदल दिया है। कृपया सुनिश्चित करने के लिए इस मोड के लिए ऐप अनुमतियों की जाँच करें कि ऐप सही ढंग से काम करे।</string>
+  <string name="take_me_there">मुझे वहाँ ले चलो</string>
 </resources>

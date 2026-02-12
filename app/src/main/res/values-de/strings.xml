@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Gib den Paketnamen der App ein, die den Broadcast empfangen soll. Wenn dieses Feld leer bleibt, wird der Broadcast aus Sicherheitsgründen deaktiviert.</string>
   <string name="intent_action_code_detected_help">Der erkannte Code wird im Broadcast-Extra unter dem Schlüssel \"code\" enthalten sein.</string>
   <string name="unknown_sender">Unbekannter Absender</string>
+  <string name="permissions_reminder_title">Berechtigungen prüfen</string>
+  <string name="permissions_reminder_message">Sie haben den Modus geändert. Bitte prüfen Sie die App-Berechtigungen für diesen Modus, damit die App korrekt funktioniert.</string>
+  <string name="take_me_there">Bring mich dahin</string>
 </resources>

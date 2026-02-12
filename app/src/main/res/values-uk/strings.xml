@@ -144,4 +144,7 @@
     <string name="broadcast_target_help">Введіть назву пакета програми для отримання трансляції. Якщо залишити це поле порожнім, трансляція буде вимкнена з міркувань безпеки.</string>
     <string name="intent_action_code_detected_help">Виявлений код буде включено до додаткових матеріалів трансляції під ключем «код».</string>
     <string name="unknown_sender">Невідомий відправник</string>
+    <string name="permissions_reminder_title">Перевірте дозволи</string>
+    <string name="permissions_reminder_message">Ви змінили режим. Будь ласка, перевірте дозволи додатка для цього режиму, щоб переконатися, що додаток працює правильно.</string>
+    <string name="take_me_there">Відвести мене туди</string>
 </resources>

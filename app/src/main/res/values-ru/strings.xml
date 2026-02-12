@@ -144,4 +144,7 @@
     <string name="broadcast_target_help">Имя пакета приложения, которое будет получать коды. Если оставить поле пустым, отправка кодов будет отключена по соображениям безопасности.</string>
     <string name="intent_action_code_detected_help">Найденный код будет отправлен в ключе «code».</string>
     <string name="unknown_sender">Неизвестный отправитель</string>
+    <string name="permissions_reminder_title">Проверьте разрешения</string>
+    <string name="permissions_reminder_message">Вы изменили режим. Пожалуйста, проверьте разрешения приложения для этого режима, чтобы приложение работало корректно.</string>
+    <string name="take_me_there">Отвести меня туда</string>
 </resources>

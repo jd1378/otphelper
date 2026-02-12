@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">ブロードキャストを受信するアプリのパッケージ名を入力してください。空欄の場合はセキュリティのため送信が無効化されます。</string>
   <string name="intent_action_code_detected_help">検出されたコードは、ブロードキャストの extras の \"code\" キーに含まれます。</string>
   <string name="unknown_sender">差出人不明</string>
+  <string name="permissions_reminder_title">権限を確認してください</string>
+  <string name="permissions_reminder_message">モードを変更しました。このモードでアプリが正しく動作するように、アプリの権限を確認してください。</string>
+  <string name="take_me_there">そこへ移動</string>
 </resources>

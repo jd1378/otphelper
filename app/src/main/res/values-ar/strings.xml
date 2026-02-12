@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">أدخل اسم حزمة التطبيق الذي سيستقبل البث. ترك هذا الحقل فارغاً يعطل البث لأسباب أمنية.</string>
   <string name="intent_action_code_detected_help">سيتم تضمين الرمز المكتشف في بيانات البث تحت المفتاح \"code\".</string>
   <string name="unknown_sender">مرسل غير معروف</string>
+  <string name="permissions_reminder_title">تحقق من الأذونات</string>
+  <string name="permissions_reminder_message">لقد قمت بتغيير وضع التطبيق. يرجى التحقق من أذونات التطبيق لهذا الوضع لضمان عمل التطبيق بشكل صحيح.</string>
+  <string name="take_me_there">خذني إلى هناك</string>
 </resources>

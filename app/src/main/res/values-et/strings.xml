@@ -144,4 +144,7 @@
     <string name="broadcast_target_help">Sisesta rakenduse paketi nimi, mis edastuse vastu võtab. Turvalisuse huvides jätab tühjaks jätmine edastuse välja lülitatuks.</string>
     <string name="intent_action_code_detected_help">Tuvastatud kood lisatakse edastuse lisadesse märkega „code“.</string>
     <string name="unknown_sender">Tundmatu saatja</string>
+    <string name="permissions_reminder_title">Kontrolli õigusi</string>
+    <string name="permissions_reminder_message">Te muutsid režiimi. Palun kontrolli selle režiimi jaoks rakenduse õigusi, et veenduda rakenduse õiges toimimises.</string>
+    <string name="take_me_there">Viige mind sinna</string>
 </resources>

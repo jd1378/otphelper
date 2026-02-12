@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">输入接收广播的应用包名。出于安全原因，留空将禁用广播。</string>
   <string name="intent_action_code_detected_help">检测到的验证码将包含在广播 extras 的 \"code\" 键下。</string>
   <string name="unknown_sender">未知发送者</string>
+  <string name="permissions_reminder_title">检查权限</string>
+  <string name="permissions_reminder_message">您已更改模式。请检查此模式所需的应用权限，以确保应用正常工作。</string>
+  <string name="take_me_there">带我去那里</string>
 </resources>

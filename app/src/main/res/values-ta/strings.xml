@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">பிராட்காஸ்ட்டைப் பெறும் செயலியின் பெயரை உள்ளிடவும். பாதுகாப்பிற்காக காலியாக விட்டால் பிராட்காஸ்ட் முடக்கப்படும்.</string>
   <string name="intent_action_code_detected_help">கண்டறியப்பட்ட குறியீடு \"code\" என்ற விசையில் extras-இல் சேர்க்கப்படும்.</string>
   <string name="unknown_sender">அறியப்படாத அனுப்புநர்</string>
+  <string name="permissions_reminder_title">அனுமதிகளைச் சரிபார்க்கவும்</string>
+  <string name="permissions_reminder_message">நீங்கள் செயல்முறையை மாற்றியுள்ளீர்கள். التطبيق சரியாக செயல்பட அனுமதிகளை தயவுசெய்து சரிபார்க்கவும்.</string>
+  <string name="take_me_there">அங்கே அழைத்து செல்லவும்</string>
 </resources>

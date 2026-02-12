@@ -171,4 +171,7 @@
   <string name="intent_action_code_detected" translatable="false">io.github.jd1378.otphelper.actions.code_detected</string>
   <string name="intent_action_code_detected_help">The detected code will be included in the broadcast extras under the key \"code\".</string>
   <string name="unknown_sender">Unknown sender</string>
+  <string name="permissions_reminder_title">Check permissions</string>
+  <string name="permissions_reminder_message">You changed the app mode. Please check the app permissions for this mode to ensure the app functions correctly.</string>
+  <string name="take_me_there">Take me there</string>
 </resources>

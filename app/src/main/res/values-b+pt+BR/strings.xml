@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Digite o nome do pacote do aplicativo que receberá a transmissão. Deixar em branco desativa a transmissão por motivos de segurança.</string>
   <string name="intent_action_code_detected_help">O código detectado será incluído nos extras da transmissão sob a chave \"code\".</string>
   <string name="unknown_sender">Remetente desconhecido</string>
+  <string name="permissions_reminder_title">Verifique as permissões</string>
+  <string name="permissions_reminder_message">Você alterou o modo. Verifique as permissões do aplicativo para este modo para garantir que o aplicativo funcione corretamente.</string>
+  <string name="take_me_there">Leve-me lá</string>
 </resources>

@@ -144,4 +144,7 @@
   <string name="broadcast_target_help">Wpisz nazwę pakietu aplikacji, która odbierze transmisję. Pozostawienie pustego pola wyłącza transmisję ze względów bezpieczeństwa.</string>
   <string name="intent_action_code_detected_help">Wykryty kod zostanie uwzględniony w extras transmisji pod kluczem \"code\".</string>
   <string name="unknown_sender">Nieznany nadawca</string>
+    <string name="permissions_reminder_title">Sprawdź uprawnienia</string>
+    <string name="permissions_reminder_message">Zmieniłeś tryb. Proszę sprawdź uprawnienia aplikacji dla tego trybu, aby upewnić się, że aplikacja działa poprawnie.</string>
+    <string name="take_me_there">Zabierz mnie tam</string>
 </resources>
