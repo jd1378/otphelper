@@ -145,6 +145,6 @@
     <string name="intent_action_code_detected_help">Найденный код будет отправлен в ключе «code».</string>
     <string name="unknown_sender">Неизвестный отправитель</string>
     <string name="permissions_reminder_title">Проверьте разрешения</string>
-    <string name="permissions_reminder_message">Вы изменили режим. Пожалуйста, проверьте разрешения приложения для этого режима, чтобы приложение работало корректно.</string>
-    <string name="take_me_there">Отвести меня туда</string>
+    <string name="permissions_reminder_message">Вы изменили режим. Проверьте разрешения приложения для данного режима, чтобы приложение работало корректно.</string>
+    <string name="take_me_there">Открыть эти настройки</string>
 </resources>

@@ -145,6 +145,6 @@
     <string name="intent_action_code_detected_help">Tuvastatud kood lisatakse edastuse lisadesse märkega „code“.</string>
     <string name="unknown_sender">Tundmatu saatja</string>
     <string name="permissions_reminder_title">Kontrolli õigusi</string>
-    <string name="permissions_reminder_message">Te muutsid režiimi. Palun kontrolli selle režiimi jaoks rakenduse õigusi, et veenduda rakenduse õiges toimimises.</string>
-    <string name="take_me_there">Viige mind sinna</string>
+    <string name="permissions_reminder_message">Sa muutsid rakenduse töörežiimi. Veendumaks rakenduse õiges toimimises palun kontrolli selle režiimi jaoks vajalikke rakenduse õigusi.</string>
+    <string name="take_me_there">Juhata mind sinna</string>
 </resources>
