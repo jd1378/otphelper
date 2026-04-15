@@ -145,6 +145,6 @@
     <string name="intent_action_code_detected_help">Codul detectat va fi inclus în extras-ul difuzării sub cheia \"code\".</string>
     <string name="unknown_sender">Expeditor necunoscut</string>
     <string name="permissions_reminder_title">Verifică permisiunile</string>
-    <string name="permissions_reminder_message">Ați schimbat modul. Vă rugăm să verificați permisiunile aplicației pentru acest mod pentru a vă asigura că aplicația funcționează corect.</string>
+    <string name="permissions_reminder_message">Ai schimbat modul. Verifică permisiunile aplicației pentru acest mod pentru a te asigura că aplicația funcționează corect.</string>
     <string name="take_me_there">Du-mă acolo</string>
 </resources>
