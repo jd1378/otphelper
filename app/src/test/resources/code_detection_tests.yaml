@@ -1,0 +1,681 @@
+# OTP code detection test cases.
+# Each entry runs two assertions: shouldIgnore and getCode (unless skipCodeCheck: true).
+# expectedCode: ~ means null (no code expected).
+
+- name: dummyTest
+  message: doesnt have anything
+  shouldIgnore: false
+  expectedCode: ~
+
+- name: dummyTest2
+  message: "doesn't have code here"
+  shouldIgnore: false
+  expectedCode: ~
+
+# ── Persian / Iranian banking ──────────────────────────────────────────────────
+
+- name: pasargadCode
+  shouldIgnore: false
+  expectedCode: "1122334455"
+  message: |-
+    پاسارگاد
+    خرید
+    اسنپ فود
+    مبلغ:1,555,000
+    رمز:1122334455
+    00:00:00
+
+- name: randomMovePooyaCode
+  shouldIgnore: false
+  expectedCode: "1122334455"
+  message: |-
+    انتقال به کارت
+    000000*0000
+    5,555,555
+    رمز پویا 1122334455
+
+- name: pasargadCodeWithRamzArzKeyword
+  shouldIgnore: false
+  expectedCode: "1122334455"
+  message: |-
+    پاسارگاد
+    خرید
+    سایت رمز-ارز یه چیزی 12421
+    مبلغ:1,555,000
+    رمز:1122334455
+    00:00:00
+
+- name: samanCode
+  shouldIgnore: false
+  expectedCode: "1122334455"
+  message: |-
+    بانک سامان
+    خريد
+    اسنپ
+    مبلغ 450,000 ريال
+    رمز 1122334455
+    زمان اعتبار رمز 12:00:00
+
+- name: sinaCode
+  shouldIgnore: false
+  expectedCode: "1122334455"
+  message: |-
+    *بانک سينا*
+    خريد
+    ايرانسل
+    مبلغ 10,000 ريال
+    رمز 1122334455
+    زمان اعتبار  12:00:00
+    تاريخ 1400/01/01-10:00
+
+# ── Ignore-only tests ──────────────────────────────────────────────────────────
+
+- name: digikalaIgnore1
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+  message: |-
+    دیجی‌کالا
+    سلام عزیز
+    از کالاهایی که خریده‌اید راضی هستید؟ لطفا میزان رضایتتان را از طریق لینک زیر به ما بگویید.
+    https://www.digikala.com/transaction/rate/?RatingCode=x123456
+    همچنین میتوانید درباره کالا دیدگاه ثبت کنید و پس از تایید دیدگاه، از دیجی کلاب امتیاز بگیرید!
+
+- name: vscodeIgnore
+  message: 'your vscode is: 12312312'
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: pasargadShouldIgnore1
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+  message: |-
+    پاسارگاد
+    رمز اول0000*0000000
+    در1999/01/01
+    12:00:00
+    اشتباه وارد شده است
+
+- name: unicodeIgnoreTest
+  message: some unicode is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: fancodeIgnoreTest
+  message: some fancode is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: encodeIgnoreTest
+  message: some encode is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: decodeIgnoreTest
+  message: some decode is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: barcodeIgnoreTest
+  message: some barcode is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+- name: codexIgnoreTest
+  message: some codex is 123456
+  shouldIgnore: true
+  skipCodeCheck: true
+  expectedCode: ~
+
+# ── English / Latin ────────────────────────────────────────────────────────────
+
+- name: iranKetabCode
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    کد فعالسازی شما در سایت ایران کتاب 
+    Code: 123456
+    www.iranketab.ir
+    لغو11
+
+- name: tiktokCode
+  message: '[#][TikTok] 123456 is your verification code'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: instagramCode
+  message: "123 456 is your Instagram code. Don't share it."
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: paypal2FACode
+  message: 'PayPal : 123456 est votre code de sécurité. Ne partagez pas votre code.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: amazonCode
+  message: 123456 ist dein Amazon-Einmalkennwort. Teile es nicht mit anderen Personen.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: googleCode
+  message: G-123456 is your Google verification code.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: metroHealthCode
+  message: 'MetroHealth: Your verification code is: 123456. This code expires at 12:00 AM EDT.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: hdfcBankCode
+  message: 123456 is the One Time Password (OTP) to 2FA Login of your HDFC securities trading and investment account.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: githubCode
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    123456 is your GitHub authentication code.
+
+    @github.com #123456
+
+- name: blueSmart
+  message: Your One Time Password for user account with BluSmart is 123456. Valid for 10 Mins. For any assistance call (redacted).
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: bankFundTransferCode
+  message: '<#>123456 is OTP for your fund transfer to JANE DOE A/c no ending 5678, valid for 5 mins. Never share OTP. Team Abc Bank 858BTD4Un5'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: tencentCode
+  message: '[Tencent Technology] You are performing [QQ 57******2 login verification], verification code 123456. Providing it to others may lead to QQ being stolen. If it is not your own operation, please change your password.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: hospitalCode1
+  message: '[Hospital name]: Your verification code is: 123456. This code expires at 2:59 PM EDT.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: teamViewerEnglish
+  message: 'TeamViewer verification code: QGFDAE'
+  shouldIgnore: false
+  expectedCode: QGFDAE
+
+- name: telegramCode
+  shouldIgnore: false
+  expectedCode: "12345"
+  message: |-
+    Login code: 12345. Do not give this code to anyone, even if they say they are from Telegram!
+
+    This code can be used to log in to your Telegram account. We never ask it for anything else.
+
+    If you didn't request this code by trying to log in on another device, simply ignore this message.
+
+- name: oneTimePasswordVariant
+  shouldIgnore: false
+  expectedCode: AAAAAAAA
+  message: |-
+    Danmarks Statistik SMS Token
+
+    One-Time Password:
+    AAAAAAAA
+
+    Expiration Date: TUE Jan 05 12:00:00 CET 2024
+
+- name: charteredCode
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    QJL - 123456 is the One Time P/W (OTP) for online transaction on your card. ...............
+
+    Your Online Transaction to -, XXXXXXXXXXXX in Online Banking initiated. Your eTAC is 9876543210. .........
+
+- name: mTanNotWorkingIssue65
+  message: 'mTan-Code: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── OTP keyword sensitivity ────────────────────────────────────────────────────
+
+- name: shouldNotExtractAnythingFromWordsContainingOTP_1
+  message: 123456 is your foOTPath.
+  shouldIgnore: false
+  expectedCode: ~
+
+- name: shouldNotExtractAnythingFromWordsContainingOTP_2
+  message: your foOTPath is 123456.
+  shouldIgnore: false
+  expectedCode: ~
+
+- name: shouldBeSensitiveToOTP_1
+  message: 123456 is your OTP.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: shouldBeSensitiveToOTP_2
+  message: your otp is 123456.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Minimum code length ────────────────────────────────────────────────────────
+
+- name: shouldNotExtractCodeLessThanFourChars_1
+  message: your code is 123
+  shouldIgnore: false
+  expectedCode: ~
+
+- name: shouldNotExtractCodeLessThanFourChars_2
+  message: your code is 1234
+  shouldIgnore: false
+  expectedCode: "1234"
+
+- name: shouldNotExtractCodeLessThanFourChars_3
+  message: 123 is your code
+  shouldIgnore: false
+  expectedCode: ~
+
+- name: shouldNotExtractCodeLessThanFourChars_4
+  message: 1234 is your code
+  shouldIgnore: false
+  expectedCode: "1234"
+
+# ── Spanish ────────────────────────────────────────────────────────────────────
+
+- name: spanishCode1
+  message: Su codigo de verificacion de AAAA es 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: spanishCode2
+  message: 'BBB. Clave de firma: 1234. Introduce esta clave de un solo uso (OTP) en el formulario web para firmar (SMS CERTIFICADO)'
+  shouldIgnore: false
+  expectedCode: "1234"
+
+- name: spanishCode3
+  message: 123 456 es tu código de Instagram. No lo compartas.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: spanishCode4
+  message: 'PayPal: Tu código de seguridad es 123456. No lo compartas con nadie.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: spanishCode5
+  message: 123456 es tu contraseña temporal de Amazon. No la compartas con nadie.
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: spanishPINCode
+  message: 'Para acceder a su información del SCSALUD introduzca el siguiente PIN: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── French ─────────────────────────────────────────────────────────────────────
+
+- name: frenchCode
+  shouldIgnore: false
+  expectedCode: AAAA1A
+  message: |-
+    [LINE1]
+    [LINE2]
+    [LINE3]
+    [LINE4]
+    Code d'authentification : AAAA1A
+
+- name: ecarteBleu
+  message: "Le code à saisir pour votre achat de 200,00 EUR est 12345678. Ne donnez ce code à personne. Si vous n'avez pas réalisé cet achat, appelez le 09.69.32.00.04."
+  shouldIgnore: false
+  expectedCode: "12345678"
+
+# ── German ─────────────────────────────────────────────────────────────────────
+
+- name: germanGooglePayCode
+  message: 222222 ist der Google Pay Aktivierungscode für deine Trade Republic Karte Endziffer-0000. Dieser Code verliert seine Gültigkeit nach 5 Minuten. Wir werden Sie niemals bitten, diesen Code zu teilen.
+  shouldIgnore: false
+  expectedCode: "222222"
+
+- name: atrustHandySignaturCode
+  shouldIgnore: false
+  expectedCode: au8kuf
+  message: |-
+    Handy-Signatur für
+     eid.oesterreich.gv.at
+    Vergleichswert
+     v 7 n M Z S S H 6 l
+    TAN
+     a u 8 k u f
+    Bitte überprüfen Sie alle Werte!
+    (5 Min. gültig)
+
+- name: atrustHandySignaturCode2
+  shouldIgnore: false
+  expectedCode: 1u8kuf
+  message: |-
+    Handy-Signatur für
+     eid.oesterreich.gv.at
+    Vergleichswert
+     v 7 n M Z S S H 6 l
+    TAN
+     1 u 8 k u f
+    Bitte überprüfen Sie alle Werte!
+    (5 Min. gültig)
+
+- name: openBankTestWithCleanup
+  message: 'Openbank: TEILE DIESEN CODE MIT NIEMANDEM. Bestätigungscode ABC4'
+  shouldIgnore: false
+  expectedCode: ABC4
+
+# ── Italian ────────────────────────────────────────────────────────────────────
+
+- name: italianCode1
+  message: 'Il tuo codice di sicurezza è: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Finnish ────────────────────────────────────────────────────────────────────
+
+- name: finnishMicrosoft
+  message: Microsoft todennuksessa käytetään vahvistuskoodia 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: finnishOTPCode
+  message: Kirjautumisen kertakäyttökoodisi on 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Russian ────────────────────────────────────────────────────────────────────
+
+- name: russionCode
+  message: 'ваш код: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: russianCode1
+  message: 'Ваш код: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: russianCode2
+  message: '10.04.2024 10:18 Parol dlya podtverzhdeniya: 123456. Perevod 800.00 RUB.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: russianCode
+  message: 'Сеансовый пароль Интернет-банка e-bgpb.by: 123456. Никому не сообщайте!'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: russianYandexCode
+  message: 123-456 — код для входа в Яндекс
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Hebrew ─────────────────────────────────────────────────────────────────────
+
+- name: hebrewCode1
+  message: 'סיסמתך היא: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: hebrewCode2
+  message: קוד הכניסה שלך הוא 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: hebrewCode3
+  message: הקוד שלך הוא 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: hebrewCode4
+  message: 'הסיסמה החד פעמית: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: shouldNotExtractHebrewNonCode
+  message: בנקודת 123456
+  shouldIgnore: false
+  expectedCode: ~
+
+# ── Georgian ───────────────────────────────────────────────────────────────────
+
+- name: georgianCode1
+  message: '(s/n an p/n) 987789123: 123456 kods vada gasdis 5 wuTSi'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: georgianCode2
+  message: 'ertjeradi kodi: 123456'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Polish ─────────────────────────────────────────────────────────────────────
+
+- name: plCode1
+  message: 123456 - to Twój kod weryfikacyjny
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: plCode2
+  message: 'Twoje hasło do autoryzacji to: 123456.'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Turkish ────────────────────────────────────────────────────────────────────
+
+- name: binanceTRCode
+  message: '[Binance TR] Doğrulama Kodu: 123456. Lütfen bu doğrulama kodunu Binance TR çalışanı dahil kimseyle paylaşmayın! B040'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Korean ─────────────────────────────────────────────────────────────────────
+
+- name: koreanCode
+  message: '[한국모바일인증(주)]본인확인 인증번호[123456]입니다. "타인노출금지"'
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Chinese ────────────────────────────────────────────────────────────────────
+
+- name: kingsoftCode
+  message: 【金山办公】验证码123456，10分钟内有效。验证码提供给他人可能导致账号被盗，请勿转发或泄露。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: alibabaCode
+  message: 【阿里巴巴】验证码123456，您正在登录验证，切勿将验证码泄露于他人，验证码15分钟内有效。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: twBankingOneCode
+  message: 請提防詐騙！密碼勿提供他人或輸入不明網頁，您的信用卡網路消費幣別新台幣金額9876元，交易驗證碼『123456』請十分鐘內認證
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: twBankingTwoCode
+  message: 【銀行轉帳】OTP密碼1234567網頁識別碼ABCD轉入帳號後四碼8888、TWD$9876，密碼勿告知他人以防詐騙
+  shouldIgnore: false
+  expectedCode: "1234567"
+
+- name: twShopeeCode
+  message: 【蝦皮購物】輸入 123456 以登入您的帳號，15 分鐘有效。請不要將驗證碼分享給任何人，包括蝦皮員工。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: chineseAlipayCode
+  message: 【支付宝】校验码1234，付款金额169.00，你正在使用支付宝，需要进行校验，请勿向任何人提供您收到的短信校验码
+  shouldIgnore: false
+  expectedCode: "1234"
+
+- name: tencentChineseCode
+  message: 【腾讯科技】你正在「修改QQ8******1的密保手机」，验证码123456。提供给他人会导致QQ被盗，若非本人操作，请修改密码。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: tiktokChineseCode
+  message: 【抖音】验证码123456，用于手机登录，5分钟内有效。验证码提供给他人可能导致账号被盗，请勿泄露，谨防被骗。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: miHoYoCode
+  message: 【米哈游】验证码：123456（10分钟内有效）。您正在关闭新设备验证功能，请勿将验证码告诉他人哦。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: bilibiliCode
+  message: 【哔哩哔哩】123456短信登录验证码，5分钟内有效，请勿泄露。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: chinaMobileCode
+  message: 【验证密码】您的短信验证码为1234，切勿将验证码泄露于他人，1分钟内有效！尊敬的客户，您好！您正在中国移动线上渠道上办理永辉超市15元满减券，产品资费为15元/次(订购生效时间以订购成功短信为准)，若非本人操作，请勿泄露，任何索取行为均可能涉嫌诈骗。【中国移动】
+  shouldIgnore: false
+  expectedCode: "1234"
+
+- name: teamViewerChinese
+  message: TeamViewer 验证码： QGFDAE
+  shouldIgnore: false
+  expectedCode: QGFDAE
+
+- name: chinaMobileApp
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |
+    办理确认提醒】尊敬的客户，您于2025年09月30日23:45在中国移动的线上渠道即将办理以下业务，本次办理的随机验证码为【 123456 】：
+    【订购】
+    【1】中国移动APP线上主题活动享30GB流量7天包(编号：15BJ202247)，资费0.00元/月，2025年09月30日生效，2025年10月07日失效，无需赔付，【业务内容】中国移动APP线上主题活动享30GB流量7天包，包含30GB国内通用流量（不含中国港澳台地区），流量使用有效期7天。
+    【生效规则】订购成功立即生效，有效期7天，到期自动失效，无需退订。
+    【赠送优惠】立即生效，赠送优惠有效期为7天。优惠到期自动取消。流量不可用于流量转赠、流量共享，不享受流量不清零服务。
+
+    非合约类业务失效和续展时间以公示为准，详见"中国移动"APP（首页-资费专区）。如有办理合约且于合约生效期间转品牌销户、过户、离网、取消方案等均视为违约，请确认您已阅知以上信息后提供随机验证码办理。业务退订可拨打10086热线、到营业厅或登录中国移动APP(我的-已订业务)等方式选择退订。办理成功后请您关注办理成功提醒短信，谢谢。【中国移动】
+
+# ── Japanese ───────────────────────────────────────────────────────────────────
+
+- name: japaneseMercari
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    [ログイン] 認証番号：123456
+
+    ログインが実行されます
+    心当たりがない場合は詐欺に注意して下さい
+    メルカリ
+
+- name: japaneseMyJCB
+  message: MyJCBアプリワンタイムパスコード「123456」、10分間有効です。MyJCBアプリへご入力下さい。偽サイトへの入力にご注意ください。
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: japaneseJapanRailwaySmartEX
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |
+
+    【スマートEX】ワンタイムパスワード:123456
+    この番号を入力してください。
+    有効期限は5分間です。
+
+- name: japaneseJCB3DSecure
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    パスワード：123456
+    ご利用金額：JPY 54,321
+    株式会社ジェーシービー
+
+- name: japaneseJapanPostBank
+  shouldIgnore: false
+  expectedCode: "12345"
+  message: |-
+    【ゆうちょ銀行】確認コードは12345です。
+    このコードを、メールやSMSで誘導された先の偽サイトに入力しないよう、ご注意ください。
+
+# ── Vietnamese ─────────────────────────────────────────────────────────────────
+
+- name: vietnameseCode1
+  message: GD truc tuyen VietinBank,ma GD 1533 ma OTP 123456 so tien 50000 tai web MOMOCE.QK tuyet doi KHONG cung cap OTP cho nguoi khac
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: vietnameseCode2
+  message: Tai khoan quy khach se bi tru 6000000 VND qua kenh giao dich truc tuyen. Neu dung, quy khach thuc hien nhap OTP 123456 de hoan tat. Neu khong, LH 19009247
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: vietnameseCode3
+  message: QK nhap ma OTP 123456 tuong ung voi ma giao dich 7709 de cap lai mat khau dich vu VietinBank iPay.TH QK khong thuc hien giao dich nay, LH 1900558868
+  shouldIgnore: false
+  expectedCode: "123456"
+
+- name: sacombank
+  message: Quy khach se MAT TIEN va THONG TIN neu cung cap Ma xac thuc giao dich (OTP) cho bat ky ai. Ma OTP (het han sau 1 phut) cua Quy khach la 123-456
+  shouldIgnore: false
+  expectedCode: "123456"
+
+# ── Persian (misc) ─────────────────────────────────────────────────────────────
+
+- name: rabinCash2FA
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    کدامنیتی درخواست انتقال ارز از کیف‌پول رابین‌کش
+
+    مقدار ارز:
+    1000000IRT
+
+    کیف‌پول مقصد:
+    0000000000000000
+
+    code: 123456
+    لغو11
+
+- name: samaneNobatCode
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    کد تایید شما در سامانه نوبت  : 123456
+
+    لغو11
+    لغو11
+
+# ── Long text ──────────────────────────────────────────────────────────────────
+
+- name: longCodeCaptureTest
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices sagittis convallis. Aliquam mattis arcu sit amet ante finibus, quis commodo ex faucibus. Pellentesque cursus ut leo at tempus. Proin eget molestie justo. Sed facilisis libero eu ex tempor, nec pretium nisl vehicula. Vivamus vitae sagittis felis. Donec quis ligula vel neque mattis aliquam vel lacinia urna. In auctor neque lacus, sit amet luctus nulla pretium nec. Proin venenatis arcu vitae nisi mollis pulvinar. Sed ac dui egestas, varius quam sed, ultrices nulla. Pellentesque interdum ligula maximus, rhoncus velit vel, condimentum sem. Integer id interdum turpis. Praesent eu velit non lacus luctus vulputate ut eu neque.
+
+    Suspendisse cursus metus commodo placerat pulvinar. In hac habitasse platea dictumst. Suspendisse blandit in erat sed elementum. Sed blandit commodo tortor rutrum varius. Curabitur ut augue quis lectus scelerisque faucibus. Praesent a urna scelerisque metus auctor molestie vitae id tortor. Proin gravida efficitur felis, a convallis augue iaculis in. Donec nec tincidunt turpis, ut finibus enim. Nam sit amet molestie magna, id congue dui. Praesent ac urna id massa iaculis efficitur sagittis vitae neque. Pellentesque hendrerit, massa quis feugiat ultrices, mi libero blandit odio, semper imperdiet nisl nisi at nulla. Sed porttitor arcu vel laoreet cursus. Proin commodo porttitor porttitor. Curabitur id accumsan nunc. Proin pretium lacinia ante, nec imperdiet magna mollis at. Mauris eget convallis leo, non posuere arcu.
+
+    Nunc suscipit sit amet felis in tempus. Fusce luctus auctor lorem quis pharetra. Phasellus scelerisque ultricies ex sed pulvinar. Cras ex arcu, tincidunt non arcu at, bibendum tempor urna. Phasellus pretium quam id elit auctor, id interdum justo ultrices. Etiam egestas viverra nisl quis pellentesque. Proin ut lacus lacus. Cras iaculis congue est eu lobortis. Quisque erat nulla, finibus ac fermentum a, elementum eu quam. Sed scelerisque ipsum vel odio viverra, sed tempor elit pulvinar.
+
+    Sed ultricies nulla lacus, eget feugiat lorem scelerisque vitae. In nec neque commodo, tincidunt elit eget, commodo massa. Vestibulum in malesuada tortor. Vestibulum vitae sem lectus. Sed ut purus sit amet velit egestas lacinia et id orci. In hac habitasse platea dictumst. Curabitur tincidunt est efficitur erat elementum dignissim. Nam rutrum convallis mi, et placerat nunc varius ac.
+
+    Quisque in justo sed sem condimentum blandit. Curabitur tempor accumsan imperdiet. Fusce augue est, mollis eget magna sit amet, venenatis sollicitudin tellus. Cras aliquam orci sit amet mauris hendrerit malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce congue scelerisque posuere. Ut posuere sapien volutpat, tincidunt nisl vel, porttitor nunc.
+
+    Nulla accumsan dapibus nibh, vel porta erat commodo ut. Integer volutpat urna ex, sed imperdiet est venenatis vel. Ut vel fringilla ipsum. Aliquam mi leo, vulputate et nisi ut, mattis dapibus nulla. Cras in risus libero. Mauris finibus consectetur ipsum, ut mollis dui ornare sit amet. Praesent tristique enim ullamcorper dignissim dignissim. Sed vitae vehicula erat, in ullamcorper ipsum. Sed vitae nulla massa. Nam neque turpis, commodo ac odio non, interdum mattis sem. Praesent malesuada nisi vitae augue fringilla facilisis sit amet accumsan lacus. Donec ac rhoncus turpis, ac volutpat dolor. Etiam sit amet auctor diam. Proin sapien diam, euismod bibendum lacus cursus, feugiat semper est.
+
+    Fusce ultricies, turpis ac vestibulum molestie, leo lorem condimentum sem, tincidunt laoreet nisi tellus sed mauris. Aenean eu dolor ex. Praesent lobortis mi ut ligula porta, id pharetra nibh suscipit. Morbi congue rutrum pulvinar. Curabitur elementum iaculis lectus, sed feugiat ante imperdiet sit amet. Quisque nisl neque, dapibus et felis et, consectetur pulvinar leo. Curabitur nec magna erat. Nam consequat convallis metus, et ultricies quam aliquet vitae. Duis et diam sapien. Aenean tincidunt pellentesque gravida. Proin purus quam, porta ac ante nec, facilisis facilisis dui. Fusce in nisi placerat, pretium ex id, dictum urna. Nam dictum massa non est consectetur, sed bibendum ex commodo. Aliquam erat volutpat.
+
+    Curabitur sed diam quis erat tempus porta nec quis magna. Curabitur non dolor eu libero aliquam molestie. Pellentesque facilisis, orci et blandit iaculis, neque velit ornare tellus, facilisis gravida lectus massa venenatis tortor. Phasellus eleifend ipsum eget arcu fermentum, sed eleifend justo faucibus. Praesent vel sem vel sem suscipit congue id a tortor. Integer euismod dui ac metus lobortis, ac lobortis mi facilisis. Nullam id ligula in lorem condimentum luctus. Etiam et mauris nisl. Nulla facilisi. Praesent non nulla ultricies, malesuada velit a, lacinia sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras ut ligula in magna feugiat elementum.
+
+    Nunc tincidunt venenatis urna, a ultrices odio tincidunt porttitor. Suspendisse potenti. Vestibulum viverra orci at nulla tempor, at eleifend nibh malesuada. Etiam auctor eleifend tortor non hendrerit. Nunc pharetra odio at lorem hendrerit imperdiet. Nam dapibus lectus egestas ligula feugiat pretium. Aenean volutpat nunc ut tellus posuere mattis. Duis at semper justo, eget ornare neque. Vestibulum a tempor est, eu volutpat libero. Maecenas et facilisis sapien, eget tristique leo. Fusce urna tortor, vehicula vitae urna non, fermentum imperdiet velit. Integer id ex at justo vehicula lacinia. Duis vel faucibus velit. Sed accumsan leo orci, id sodales urna suscipit ut. Nam sagittis, elit a ultrices auctor, lacus leo posuere elit, ut fringilla odio nisi vel ipsum.
+
+    Duis in posuere nulla. Mauris interdum euismod erat id faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In auctor orci ultrices aliquet cursus. Nullam vel semper neque, vel dignissim urna. In sagittis erat velit, eu molestie lectus porta id. Integer vel diam urna. In vel mi placerat diam mollis euismod. Pellentesque volutpat molestie porta. Nullam fringilla arcu lacus, sed aliquet mauris commodo eu. Vivamus vitae erat justo. Integer vitae auctor massa. Maecenas suscipit dapibus tellus in tincidunt. Etiam eleifend sit amet mi ac iaculis.
+
+    OTP 123456
