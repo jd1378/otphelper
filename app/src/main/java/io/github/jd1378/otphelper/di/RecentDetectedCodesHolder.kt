@@ -8,7 +8,7 @@ import javax.inject.Singleton
 // treated as a duplicate and not recorded again. Some apps (e.g. Gmail) repost
 // the same notification with a new notification id within a few seconds, which
 // previously caused the same code to be captured multiple times. See issue #217.
-const val DUPLICATE_DETECTION_WINDOW_MS = 10_000L
+const val DUPLICATE_DETECTION_WINDOW_MS = 5_000L
 
 @Singleton
 @Stable
