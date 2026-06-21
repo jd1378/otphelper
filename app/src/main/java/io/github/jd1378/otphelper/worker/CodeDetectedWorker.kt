@@ -3,8 +3,6 @@ package io.github.jd1378.otphelper.worker
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.hilt.work.HiltWorker
@@ -22,6 +20,7 @@ import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
+import io.github.jd1378.otphelper.utils.showToast
 import kotlinx.coroutines.delay
 
 @HiltWorker
@@ -102,14 +101,11 @@ constructor(
 
     try {
       if (settings.isShowToastEnabled) {
-        Handler(Looper.getMainLooper()).post {
-          Toast.makeText(
-                  applicationContext,
-                  applicationContext.getString(R.string.detected_code) + " " + code,
-                  Toast.LENGTH_LONG,
-              )
-              .show()
-        }
+        showToast(
+            applicationContext,
+            applicationContext.getString(R.string.detected_code) + " " + code,
+            Toast.LENGTH_LONG,
+        )
       }
       if (settings.isAutoCopyEnabled) {
         Clipboard.copyCodeToClipboard(

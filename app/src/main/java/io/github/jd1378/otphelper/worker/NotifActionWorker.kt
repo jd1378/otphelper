@@ -3,9 +3,6 @@ package io.github.jd1378.otphelper.worker
 import android.app.Notification
 import android.app.NotificationManager
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationManagerCompat
 import androidx.hilt.work.HiltWorker
@@ -24,6 +21,7 @@ import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
+import io.github.jd1378.otphelper.utils.showToast
 
 @HiltWorker
 class NotifActionWorker
@@ -118,7 +116,6 @@ constructor(
       context: Context,
       @StringRes message: Int,
   ) {
-    val handler = Handler(Looper.getMainLooper())
-    handler.post { Toast.makeText(context, message, Toast.LENGTH_LONG).show() }
+    showToast(context, context.getString(message))
   }
 }
