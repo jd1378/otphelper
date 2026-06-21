@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
+import io.github.jd1378.otphelper.di.RecentDetectedCodesHolder
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
@@ -29,8 +30,12 @@ class NotificationListener : NotificationListenerService() {
 
   @Inject
   lateinit var autoUpdatingListenerUtils: AutoUpdatingListenerUtils
+
   @Inject
   lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
+
+  @Inject
+  lateinit var recentDetectedCodesHolder: RecentDetectedCodesHolder
 
   companion object {
     val TAG = "NotificationListener"
@@ -182,23 +187,30 @@ class NotificationListener : NotificationListenerService() {
         if (notificationText.isNotEmpty()) {
           val code = codeExtractor.getCode(notificationText, false) // to not do it more than once
           if (!code.isNullOrEmpty()) {
-            val data: Data
-            try {
-              data =
-                  workDataOf(
-                      "packageName" to sbn.packageName,
-                      "notificationId" to sbn.id.toString(),
-                      "notificationTag" to sbn.tag,
-                      "text" to notificationText,
-                      "code" to code,
-                  )
-            } catch (e: Throwable) {
-              Log.e(TAG, "Notification too large to check, skipping it...")
-              return
-            }
+            // mark detected so post-detection actions (dismiss / mark as read) still apply to
+            // every notification instance, even reposted duplicates
             codeDetected = true
-            val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
-            WorkManager.getInstance(applicationContext).enqueue(work)
+            // some apps repost the same notification with a new id within seconds; dedupe on the
+            // stable content so we record / copy / toast the code only once. see issue #217
+            val signature = "${sbn.packageName}|${code}|${notificationText}"
+            if (!recentDetectedCodesHolder.isDuplicate(signature, System.currentTimeMillis())) {
+              val data: Data
+              try {
+                data =
+                    workDataOf(
+                        "packageName" to sbn.packageName,
+                        "notificationId" to sbn.id.toString(),
+                        "notificationTag" to sbn.tag,
+                        "text" to notificationText,
+                        "code" to code,
+                    )
+              } catch (e: Throwable) {
+                Log.e(TAG, "Notification too large to check, skipping it...")
+                return
+              }
+              val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
+              WorkManager.getInstance(applicationContext).enqueue(work)
+            }
           }
         }
       } else {
