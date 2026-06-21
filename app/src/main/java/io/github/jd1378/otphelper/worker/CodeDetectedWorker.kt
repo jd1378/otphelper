@@ -106,7 +106,7 @@ constructor(
           Toast.makeText(
                   applicationContext,
                   applicationContext.getString(R.string.detected_code) + " " + code,
-                  Toast.LENGTH_SHORT,
+                  Toast.LENGTH_LONG,
               )
               .show()
         }
