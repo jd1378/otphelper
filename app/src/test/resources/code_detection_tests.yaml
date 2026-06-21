@@ -323,6 +323,26 @@
   shouldIgnore: false
   expectedCode: "123456"
 
+# ING bank (Spain) 4-char alphanumeric codes, see issue #220.
+# Codes that contain a digit are reliably isolated from the trailing prose.
+# A pure all-letter code (DUSG) is indistinguishable from an emphasized prose
+# word, so it stays best-effort (not detected) to avoid false positives.
+
+- name: ingCodeTF33
+  message: 'ING: Introduce el codigo TF33 para confirmar tu operacion. Si no has sido tu quien ha realizado la operacion llamanos al 912066666'
+  shouldIgnore: false
+  expectedCode: TF33
+
+- name: ingCode4KAM
+  message: 'ING: Introduce el codigo 4KAM para acceder a ING de forma segura. Si no lo has solicitado, te recomendamos cambiar tu clave cuanto antes en tu Area personal.'
+  shouldIgnore: false
+  expectedCode: 4KAM
+
+- name: ingCodeGW7C
+  message: 'ING: Introduce el codigo GW7C para confirmar tu operacion. Si no has sido tu quien ha realizado la operacion llamanos al 912066666'
+  shouldIgnore: false
+  expectedCode: GW7C
+
 # ── French ─────────────────────────────────────────────────────────────────────
 
 - name: frenchCode

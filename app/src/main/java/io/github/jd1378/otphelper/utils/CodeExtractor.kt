@@ -143,6 +143,32 @@ class CodeExtractor // this comment is to separate parts
       """(${cleanupPhrases.joinToString("|")})"""
           .toRegex(setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
+  // A token shaped like an OTP code: a 4+ char alphanumeric run containing at
+  // least one digit, or a 4+ char all-uppercase run (e.g. GW7C, 4KAM, QGFDAE).
+  private val codeShape =
+      """(?:(?=[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]*[\d\u0660-\u0669\u06F0-\u06F9])[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]{4,}|[A-Z][A-Z\-]{3,})"""
+
+  // The code shape eligible to trigger the direct cleanup below. It is limited
+  // to digit-bearing tokens on purpose: a pure all-uppercase token (e.g. GW7C
+  // is fine, but DUSG) is indistinguishable from ordinary emphasized prose such
+  // as "code WILL arrive shortly", so accepting it here would auto-detect
+  // non-OTP words. Pure all-letter codes remain best-effort via the existing
+  // generalCodeMatcher and are intentionally not boosted by this cleanup.
+  private val directCodeShape =
+      """(?=[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]*[\d\u0660-\u0669\u06F0-\u06F9])[\d\u0660-\u0669\u06F0-\u06F9a-zA-Z\-]{4,}"""
+
+  // Normalizes a "<phrase> <CODE> <trailing prose>" shape (e.g. ING bank's
+  // "codigo GW7C para confirmar...") into "<phrase>: <CODE>" so the trailing
+  // text cannot be greedily consumed by generalCodeMatcher. The negative
+  // lookahead leaves the message untouched when a later sensitive phrase is
+  // itself followed by another code-shaped token, so a genuine OTP appearing
+  // later in the line still wins over a contextual token captured here.
+  private val directCodeCleanupRegex =
+      """((?i:${sensitivePhrases.joinToString("|")}))\s*($directCodeShape)(?=\s+\p{L})(?![^\r\n]*(?i:${
+        sensitivePhrases.joinToString("|")
+      })[^\r\n]*?$codeShape)[^\r\n]*"""
+          .toRegex(setOf(RegexOption.MULTILINE))
+
   // doCleanup is added for convenience in unit testing
   fun getCode(str: String, doCleanup: Boolean = true): String? {
     if (sensitivePhrases.isEmpty()) return null
@@ -231,6 +257,12 @@ class CodeExtractor // this comment is to separate parts
 
   fun cleanup(str: String): String {
     if (cleanupPhrases.isEmpty()) return str
-    return str.replace(cleanupPhrasesRegex, "")
+    var result = str.replace(cleanupPhrasesRegex, "")
+    // Only isolate the code from trailing prose when there is a sensitive
+    // phrase to anchor on; with an empty list the regex would match without one.
+    if (sensitivePhrases.isNotEmpty()) {
+      result = result.replace(directCodeCleanupRegex, "${'$'}1: ${'$'}2")
+    }
+    return result
   }
 }
