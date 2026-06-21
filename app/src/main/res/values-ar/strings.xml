@@ -38,6 +38,7 @@
   <string name="test_notification_title">هذا إشعار اختباري</string>
   <string name="permission_todo_allow_restricted_settings">السماح بالإعدادات المقيدة</string>
   <string name="failed_to_open_app_settings">فشل في فتح إعدادات التطبيق</string>
+  <string name="failed_to_open_link">لم يتم العثور على تطبيق لفتح هذا الرابط</string>
   <string name="perm_restricted_desc">إذا لم تتمكن من السماح بقراءة الإشعارات، فحاول تمكين السماح بالإعدادات المقيدة في إعدادات ‏تطبيق ( نسخ رموز التحقق ) داخل إعدادات الهاتف</string>
   <string name="language">اللغة</string>
   <string name="system_default">تبعاً لنظام</string>

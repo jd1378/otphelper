@@ -40,6 +40,7 @@
   <string name="test_notification_title">This is a test notification</string>
   <string name="permission_todo_allow_restricted_settings">Allow restricted settings</string>
   <string name="failed_to_open_app_settings">Failed to open app settings</string>
+  <string name="failed_to_open_link">לא נמצאה אפליקציה לפתיחת קישור זה</string>
   <string name="perm_restricted_desc">If you are unable to grant "Read Notifications" permission, try enabling \"Allow restricted settings\" in application settings</string>
   <string name="language">Language</string>
   <string name="system_default">System Default</string>

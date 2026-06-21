@@ -42,6 +42,7 @@
   <string name="test_notification_title">This is a test notification</string>
   <string name="permission_todo_allow_restricted_settings">Allow restricted settings</string>
   <string name="failed_to_open_app_settings">Failed to open app settings</string>
+  <string name="failed_to_open_link">No app found to open this link</string>
   <string name="perm_restricted_desc">If you are unable to grant \"Read Notifications\" permission, try enabling \"Allow restricted settings\" in application settings</string>
   <string name="de" translatable="false">Deutsch</string>
   <string name="bn_BD" translatable="false">Bangla (Bangladesh)</string>

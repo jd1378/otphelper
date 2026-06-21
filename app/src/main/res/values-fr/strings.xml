@@ -40,6 +40,7 @@
   <string name="test_notification_title">Ceci est un test de notification</string>
   <string name="permission_todo_allow_restricted_settings">Autoriser les paramètres restreints</string>
   <string name="failed_to_open_app_settings">Échec de l\'ouverture des paramètres de l\'application</string>
+  <string name="failed_to_open_link">Aucune application trouvée pour ouvrir ce lien</string>
   <string name="perm_restricted_desc">Si vous n\'avez pas pu autoriser les notifications de lecture, essayez d\'activer l\'option "Autoriser les paramètres restreints" dans les paramètres de l\'application</string>
   <string name="language">Langue</string>
   <string name="system_default">Système par défaut</string>

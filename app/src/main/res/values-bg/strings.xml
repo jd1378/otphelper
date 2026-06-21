@@ -68,6 +68,7 @@
   <string name="perm_extra_desc">На някои устройства, като Xiaomi, Huawei и др., за да позволите на приложението да стартира при рестартиране на телефона, трябва ръчно да предоставите разрешение за автоматично стартиране. Не можем да установим дали сте го направили или не.</string>
   <string name="permission_todo_allow_restricted_settings">Разреши ограничени настройки</string>
   <string name="failed_to_open_app_settings">Неуспешно отваряне на настройките на приложението</string>
+  <string name="failed_to_open_link">Няма приложение за отваряне на тази връзка</string>
   <string name="perm_restricted_desc">Ако не можете да предоставите разрешение за „Четене на известия“, опитайте да активирате „Разрешаване на ограничени настройки“ в настройките на приложението</string>
   <string name="test_notification_content">Вашият код е: 230914</string>
   <string name="settings">Настройки</string>

@@ -52,6 +52,7 @@ import io.github.jd1378.otphelper.ui.components.NewPhraseDialog
 import io.github.jd1378.otphelper.ui.components.TitleBar
 import io.github.jd1378.otphelper.ui.components.drawVerticalScrollbar
 import io.github.jd1378.otphelper.utils.Clipboard
+import io.github.jd1378.otphelper.utils.openUriSafely
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -209,7 +210,7 @@ fun SensitivePhrases(
             annotatedString
                 .getStringAnnotations(tag = "URL", start = offset, end = offset)
                 .firstOrNull()
-                ?.let { annotation -> uriHandler.openUri(annotation.item) }
+                ?.let { annotation -> uriHandler.openUriSafely(context, annotation.item) }
           },
           modifier = Modifier.fillMaxWidth(),
       )

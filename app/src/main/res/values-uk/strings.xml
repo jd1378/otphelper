@@ -40,6 +40,7 @@
     <string name="test_notification_title">Це тестове повідомлення</string>
     <string name="permission_todo_allow_restricted_settings">Дозволити обмежені налаштування</string>
     <string name="failed_to_open_app_settings">Не вдалося відкрити налаштування програми</string>
+  <string name="failed_to_open_link">Не знайдено застосунку для відкриття цього посилання</string>
     <string name="perm_restricted_desc">Якщо ви не змогли дозволити читання сповіщень, спробуйте увімкнути "Дозволити обмежені налаштування" у налаштуваннях додатку</string>
     <string name="language">Мова</string>
     <string name="system_default">Стандартна системи</string>

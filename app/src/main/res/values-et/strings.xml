@@ -44,6 +44,7 @@
     <string name="test_notification_title">See on testteavitus</string>
     <string name="permission_todo_allow_restricted_settings">Kasuta piiratud seadistusi</string>
     <string name="failed_to_open_app_settings">Rakenduse seadistuste avamine ei õnnestunud</string>
+  <string name="failed_to_open_link">Selle lingi avamiseks ei leitud rakendust</string>
     <string name="perm_restricted_desc">Kui sul pole võimalik lubada „Read Notification“ õigust, siis palun proovi rakenduse seadistustes sisse lülitada „Kasuta piiratud seadistusi“</string>
     <string name="about">Rakenduse teave</string>
     <string name="label_version">Versioon:</string>

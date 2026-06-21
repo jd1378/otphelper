@@ -40,6 +40,7 @@
   <string name="test_notification_title">這是一條用來測試驗證碼偵測的通知</string>
   <string name="permission_todo_allow_restricted_settings">允許受限制的設定</string>
   <string name="failed_to_open_app_settings">無法開啟系統設定</string>
+  <string name="failed_to_open_link">找不到可開啟此連結的應用程式</string>
   <string name="perm_restricted_desc">如果無法允許讀取通知的權限，請嘗試在系統設定中的應用程式設定中開啟「允許受限制的設定」</string>
   <string name="language">切換語言</string>
   <string name="system_default">系統預設語言</string>

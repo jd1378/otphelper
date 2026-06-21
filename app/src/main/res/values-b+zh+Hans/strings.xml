@@ -39,6 +39,7 @@
   <string name="test_notification_title">这是一条用来测试验证码提取的通知</string>
   <string name="permission_todo_allow_restricted_settings">允许受限设置</string>
   <string name="failed_to_open_app_settings">无法打开系统设置</string>
+  <string name="failed_to_open_link">未找到可打开此链接的应用</string>
   <string name="perm_restricted_desc">如果无法授权允许读取通知的权限，请尝试在系统设置中的应用程序设置中开启“允许受限设置”</string>
   <string name="language">切换语言</string>
   <string name="system_default">系统默认</string>

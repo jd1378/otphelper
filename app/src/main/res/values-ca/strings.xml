@@ -26,6 +26,7 @@
   <string name="permission_todo_allow_restricted_settings">Permet configuracions restringides</string>
   <string name="notice">Avís</string>
   <string name="failed_to_open_app_settings">No s\'ha pogut obrir les configuracions de l\'aplicació</string>
+  <string name="failed_to_open_link">No s\'ha trobat cap aplicació per obrir aquest enllaç</string>
   <string name="about">Quant a</string>
   <string name="search_language">Cerca idioma</string>
   <string name="language">Idioma</string>

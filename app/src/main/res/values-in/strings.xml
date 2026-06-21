@@ -41,6 +41,7 @@
     <string name="test_notification_title">Ini adalah notifikasi uji</string>
     <string name="permission_todo_allow_restricted_settings">Izinkan pengaturan terbatas</string>
     <string name="failed_to_open_app_settings">Gagal membuka pengaturan aplikasi</string>
+  <string name="failed_to_open_link">Tidak ada aplikasi untuk membuka tautan ini</string>
     <string name="perm_restricted_desc">Jika Anda tidak dapat memberikan izin \"Baca Notifikasi\", coba aktifkan \"Izinkan pengaturan terbatas\" di pengaturan aplikasi</string>
     <string name="language">Bahasa</string>
     <string name="system_default">Bawaan Sistem</string>

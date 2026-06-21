@@ -34,6 +34,7 @@
     <string name="test_notification_content">Seu código é: 230914</string>
     <string name="test_notification_title">Esta é uma notificação de teste</string>
     <string name="failed_to_open_app_settings">Falha ao abrir as configurações do aplicativo</string>
+  <string name="failed_to_open_link">Nenhuma aplicação encontrada para abrir esta ligação</string>
     <string name="language">Idioma</string>
     <string name="system_default">Padrão do Sistema</string>
     <string name="search_language">Buscar por idioma</string>

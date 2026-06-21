@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -30,6 +31,7 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.ui.components.LinkText
 import io.github.jd1378.otphelper.ui.components.LinkTextData
 import io.github.jd1378.otphelper.ui.components.TitleBar
+import io.github.jd1378.otphelper.utils.openUriSafely
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
@@ -84,6 +86,7 @@ fun About(upPress: () -> Unit) {
                 }
 
             val uriHandler = LocalUriHandler.current
+            val context = LocalContext.current
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -99,7 +102,7 @@ fun About(upPress: () -> Unit) {
                                 text = stringResource(R.string.github),
                                 tag = "github_homepage",
                                 annotation = "https://github.com/jd1378/otphelper",
-                                onClick = { uriHandler.openUri(it.item) },
+                                onClick = { uriHandler.openUriSafely(context, it.item) },
                             ),
                         ),
                     fontSize = 21.sp,
@@ -115,7 +118,7 @@ fun About(upPress: () -> Unit) {
                               text = stringResource(R.string.label_privacy_policy),
                               tag = "label_privacy_policy",
                               annotation = "https://jd1378.github.io/otphelper/privacy-policy",
-                              onClick = { uriHandler.openUri(it.item) },
+                              onClick = { uriHandler.openUriSafely(context, it.item) },
                           ),
                       ),
                   fontSize = 21.sp,

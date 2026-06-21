@@ -39,6 +39,7 @@
   <string name="test_notification_title">Esta es una notificación de prueba</string>
   <string name="permission_todo_allow_restricted_settings">Permitir ajustes restringidos</string>
   <string name="failed_to_open_app_settings">No se pudo abrir la configuración de la aplicación</string>
+  <string name="failed_to_open_link">No se encontró ninguna aplicación para abrir este enlace</string>
   <string name="perm_restricted_desc">Si no has podido permitir la lectura de las notificaciones, prueba activando "Permitir ajustes restringidos" en los ajustes de la aplicación</string>
   <string name="language">Idioma</string>
   <string name="system_default">Predeterminado del sistema</string>

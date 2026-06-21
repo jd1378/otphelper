@@ -24,6 +24,7 @@
   <string name="test_notification_title">테스트 알림입니다</string>
   <string name="permission_todo_allow_restricted_settings">제한 설정 허용하기</string>
   <string name="failed_to_open_app_settings">앱 설정 열기 실패</string>
+  <string name="failed_to_open_link">이 링크를 열 수 있는 앱을 찾을 수 없습니다</string>
   <string name="perm_restricted_desc">앱이 알림을 읽을 수 없다면, 애플리케이션 설정에서 "제한 설정 허용하기"를 허용해주셔야 합니다</string>
   <string name="label_source_code_link">소스 코드:</string>
   <string name="allow_tag">허용 태그</string>

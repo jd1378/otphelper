@@ -38,6 +38,7 @@
     <string name="test_notification_title">Aceasta este o notificare de test</string>
     <string name="permission_todo_allow_restricted_settings">Permite setările restricționate</string>
     <string name="failed_to_open_app_settings">Deschiderea setărilor aplicației a eșuat</string>
+  <string name="failed_to_open_link">Nu s-a găsit nicio aplicație pentru a deschide acest link</string>
     <string name="search_language">Caută limba</string>
     <string name="no_result">Niciun rezultat</string>
     <string name="about">Despre</string>

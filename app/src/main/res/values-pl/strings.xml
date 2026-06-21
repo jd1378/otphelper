@@ -38,6 +38,7 @@
   <string name="okay">Ok</string>
   <string name="notice">Komunikat</string>
   <string name="failed_to_open_app_settings">Nie udało się otworzyć ustawień aplikacji</string>
+  <string name="failed_to_open_link">Nie znaleziono aplikacji do otwarcia tego linku</string>
   <string name="perm_restricted_desc">Jeśli nie możesz zezwolić na odczytywanie powiadomień, spróbuj włączyć opcję "Zezwalaj na ograniczone ustawienia" w ustawieniach aplikacji</string>
   <string name="permission_revoked">Cofnięto uprawnienia</string>
   <string name="test_notification_content">Twój kod to: 230914</string>
