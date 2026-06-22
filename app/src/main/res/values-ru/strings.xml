@@ -39,7 +39,7 @@
     <string name="test_notification_title">Это пробное уведомление</string>
     <string name="permission_todo_allow_restricted_settings">Разрешить ограниченные настройки</string>
     <string name="failed_to_open_app_settings">Не удалось открыть настройки</string>
-  <string name="failed_to_open_link">Не найдено приложение для открытия этой ссылки</string>
+    <string name="failed_to_open_link">Не найдено приложение для открытия этой ссылки</string>
     <string name="perm_restricted_desc">Если вы не можете разрешить чтение уведомлений, то попробуйте включить «Разрешить ограниченные настройки» в настройках приложения.</string>
     <string name="language">Язык</string>
     <string name="system_default">Системный</string>
