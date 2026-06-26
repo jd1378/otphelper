@@ -124,7 +124,7 @@ class SmsListener : BroadcastReceiver() {
                       "code" to code,
                   )
             } catch (e: Throwable) {
-              Log.e(TAG, "Notification too large to check, skipping it...")
+              Log.e(TAG, "SMS too large to check, skipping it...")
               return
             }
             synchronized(DETECTION_LOCK) {
