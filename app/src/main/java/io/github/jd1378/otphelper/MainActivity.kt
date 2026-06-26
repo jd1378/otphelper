@@ -13,6 +13,7 @@ import io.github.jd1378.otphelper.MyWorkManager.doDataMigration
 import io.github.jd1378.otphelper.MyWorkManager.enableHistoryCleanup
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.ActivityHelper
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.SettingsHelper
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -37,18 +38,27 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     installSplashScreen()
     super.onCreate(savedInstanceState)
+    AppLogger.i("MainActivity", "onCreate")
     ActivityHelper.adjustFontSize(this, scale)
 
     handleIntent(intent)
 
     lifecycleScope.launch {
       val settings = userSettingsRepository.fetchSettings()
+      AppLogger.i(
+          "MainActivity",
+          "settings loaded: setupFinished=${settings.isSetupFinished}, " +
+              "mode=${settings.modeOfOperation}, migrationDone=${settings.isMigrationDone}, " +
+              "cleanupPhrasesMigrated=${settings.isCleanupPhrasesMigrated}",
+      )
 
       // setup initial settings
       if (!settings.isMigrationDone) {
+        AppLogger.i("MainActivity", "starting data migration + history cleanup")
         doDataMigration(applicationContext)
         enableHistoryCleanup(applicationContext)
       } else if (!settings.isCleanupPhrasesMigrated) {
+        AppLogger.i("MainActivity", "starting cleanup-phrases migration")
         doCleanupPhrasesMigration(applicationContext)
       }
     }
@@ -69,6 +79,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun handleIntent(intent: Intent?) {
+    AppLogger.d("MainActivity", "handleIntent: action=${intent?.action}, data=${intent?.data}")
     when (intent?.action) {
       INTENT_ACTION_OPEN_NOTIFICATION_LISTENER_SETTINGS ->
           SettingsHelper.openNotificationListenerSettings(this)

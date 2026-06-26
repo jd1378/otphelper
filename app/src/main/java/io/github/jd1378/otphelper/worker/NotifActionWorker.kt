@@ -19,6 +19,7 @@ import io.github.jd1378.otphelper.R
 import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
 import io.github.jd1378.otphelper.utils.showToast
@@ -48,8 +49,12 @@ constructor(
     val action = inputData.getString("action")
     val cancelNotifId = inputData.getInt("cancel_notif_id", -1)
     val context = applicationContext
+    AppLogger.i(TAG, "doWork: action=$action, cancelNotifId=$cancelNotifId")
 
     val notif = getActiveNotification(context, R.id.code_detected_notify_id)
+    if (notif == null) {
+      AppLogger.d(TAG, "no active code-detected notification found")
+    }
     if (notif != null) {
 
       val ignoredPackageName = notif.extras.getString("packageName")!!

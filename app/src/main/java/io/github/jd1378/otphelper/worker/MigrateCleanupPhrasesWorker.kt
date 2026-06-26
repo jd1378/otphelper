@@ -7,6 +7,7 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults
 
 const val migrateCleanupPhrasesWorkName = "cleanup_phrases_migrate_work"
@@ -21,10 +22,11 @@ constructor(
 ) : CoroutineWorker(context, workerParams) {
 
   companion object {
-    const val TAG: String = "MigrateWorker"
+    const val TAG: String = "MigrateCleanupPhrasesWorker"
   }
 
   override suspend fun doWork(): Result {
+    AppLogger.i(TAG, "doWork: migrating cleanup phrases")
 
     userSettingsRepository.setCleanupPhrases(CodeExtractorDefaults.cleanupPhrases)
     userSettingsRepository.setIsCleanupPhrasesMigrated(true)

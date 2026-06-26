@@ -10,7 +10,6 @@ import android.content.res.Resources
 import android.os.Build
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import android.util.Log
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -22,6 +21,7 @@ import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
 import io.github.jd1378.otphelper.di.RecentDetectedCodesHolder
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
 
@@ -134,8 +134,14 @@ class NotificationListener : NotificationListenerService() {
   }
 
   override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    AppLogger.i(TAG, "onStartCommand: action=${intent?.action}, flags=$flags, startId=$startId")
     super.onStartCommand(intent, flags, startId)
     return START_STICKY
+  }
+
+  override fun onListenerConnected() {
+    super.onListenerConnected()
+    AppLogger.i(TAG, "onListenerConnected")
   }
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
@@ -147,6 +153,7 @@ class NotificationListener : NotificationListenerService() {
       return
     }
     if (sbn != null) {
+      AppLogger.d(TAG, "onNotificationPosted: pkg=${sbn.packageName}, id=${sbn.id}")
       if (sbn.packageName == BuildConfig.APPLICATION_ID && sbn.id == R.id.code_detected_notify_id)
         return
 
@@ -155,7 +162,13 @@ class NotificationListener : NotificationListenerService() {
       val isForegroundService = (mNotification.flags and Notification.FLAG_FOREGROUND_SERVICE) != 0
       val isOngoing = (mNotification.flags and Notification.FLAG_ONGOING_EVENT) != 0
 
-      if (isForegroundService || isOngoing) return
+      if (isForegroundService || isOngoing) {
+        AppLogger.d(
+            TAG,
+            "skipping: foregroundService=$isForegroundService, ongoing=$isOngoing",
+        )
+        return
+      }
 
       var codeDetected = false
 
@@ -181,19 +194,31 @@ class NotificationListener : NotificationListenerService() {
           }
         }
         val notifyText = notifyTexts.toString()
-        if (codeExtractor.shouldIgnore(notifyText)) return
+        if (codeExtractor.shouldIgnore(notifyText)) {
+          AppLogger.d(TAG, "notification ignored by ignore phrases, pkg=${sbn.packageName}")
+          return
+        }
         val notificationText = codeExtractor.cleanup(notifyText)
 
         if (notificationText.isNotEmpty()) {
           val code = codeExtractor.getCode(notificationText, false) // to not do it more than once
-          if (!code.isNullOrEmpty()) {
+          if (code.isNullOrEmpty()) {
+            AppLogger.d(TAG, "no code found in notification, pkg=${sbn.packageName}")
+          } else {
             // mark detected so post-detection actions (dismiss / mark as read) still apply to
             // every notification instance, even reposted duplicates
             codeDetected = true
             // some apps repost the same notification with a new id within seconds; dedupe on the
             // stable content so we record / copy / toast the code only once. see issue #217
             val signature = "${sbn.packageName}|${code}|${notificationText}"
-            if (!recentDetectedCodesHolder.isDuplicate(signature, System.currentTimeMillis())) {
+            if (recentDetectedCodesHolder.isDuplicate(signature, System.currentTimeMillis())) {
+              AppLogger.d(TAG, "code detected but duplicate, skipping enqueue, pkg=${sbn.packageName}")
+            } else {
+              AppLogger.i(
+                  TAG,
+                  "code detected in notification, enqueueing CodeDetectedWorker, " +
+                      "pkg=${sbn.packageName}",
+              )
               val data: Data
               try {
                 data =
@@ -205,7 +230,7 @@ class NotificationListener : NotificationListenerService() {
                         "code" to code,
                     )
               } catch (e: Throwable) {
-                Log.e(TAG, "Notification too large to check, skipping it...")
+                AppLogger.e(TAG, "Notification too large to check, skipping it...", e)
                 return
               }
               val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
@@ -270,6 +295,12 @@ class NotificationListener : NotificationListenerService() {
       }
 
       if (codeDetected) {
+        AppLogger.i(
+            TAG,
+            "post-detection actions: autoMarkAsRead=" +
+                "${autoUpdatingListenerUtils.isAutoMarkAsReadEnabled}, autoDismiss=" +
+                "${autoUpdatingListenerUtils.isAutoDismissEnabled}, pkg=${sbn.packageName}",
+        )
         if (autoUpdatingListenerUtils.isAutoMarkAsReadEnabled) {
           val actions = mNotification.actions
           if (actions != null) {
@@ -286,7 +317,7 @@ class NotificationListener : NotificationListenerService() {
                 try {
                   action.actionIntent.send()
                 } catch (e: Throwable) {
-                  Log.d(TAG, "failed to use notification action '${action.title}'")
+                  AppLogger.d(TAG, "failed to use notification action '${action.title}'")
                 }
               }
             }
@@ -307,10 +338,10 @@ class NotificationListener : NotificationListenerService() {
     super.onListenerDisconnected()
 
     // Handle the listener disconnected event
-    Log.i(TAG, "Notification listener disconnected.")
+    AppLogger.i(TAG, "Notification listener disconnected.")
 
     if (isNotificationListenerServiceEnabled(applicationContext)) {
-      Log.d(TAG, "Rebinding to the service")
+      AppLogger.d(TAG, "Rebinding to the service")
       val componentName =
           ComponentName(
               this,

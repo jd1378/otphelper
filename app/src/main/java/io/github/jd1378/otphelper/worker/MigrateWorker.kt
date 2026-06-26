@@ -15,6 +15,7 @@ import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.getDeepLinkPendingIntent
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.ui.navigation.MainDestinations
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.CodeExtractorDefaults
 
 const val migrateWorkName = "migrate_work"
@@ -36,6 +37,7 @@ constructor(
   }
 
   override suspend fun doWork(): Result {
+    AppLogger.i(TAG, "doWork: running data migration")
 
     val ignoredList = oldIgnoredNotifSetRepository.getIgnoredNotifSet()
     // we do not handle tags here, because it was mistakenly missing packageName

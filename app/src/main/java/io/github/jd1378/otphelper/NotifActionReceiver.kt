@@ -8,6 +8,7 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.NotifActionWorker
 import javax.inject.Inject
 
@@ -30,7 +31,11 @@ class NotifActionReceiver : BroadcastReceiver() {
   }
 
   override fun onReceive(context: Context?, intent: Intent?) {
-    if (context == null || intent == null) return
+    AppLogger.i("NotifActionReceiver", "onReceive: action=${intent?.action}")
+    if (context == null || intent == null) {
+      AppLogger.w("NotifActionReceiver", "null context or intent, aborting")
+      return
+    }
 
     val workData =
         workDataOf(

@@ -1,9 +1,9 @@
 package io.github.jd1378.otphelper.di
 
-import android.util.Log
 import androidx.compose.runtime.Stable
 import io.github.jd1378.otphelper.ModeOfOperation
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import java.util.concurrent.CountDownLatch
 import javax.inject.Inject
@@ -23,7 +23,7 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   }
 
   private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
-    Log.e(TAG, exception.message ?: exception.toString())
+    AppLogger.e(TAG, exception.message ?: exception.toString(), exception)
   }
 
   private val scope = CoroutineScope(Dispatchers.IO + exceptionHandler)
@@ -49,6 +49,14 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
         isAutoDismissEnabled = it.isAutoDismissEnabled
         isAutoMarkAsReadEnabled = it.isAutoMarkAsReadEnabled
         modeOfOperation = it.modeOfOperation
+        AppLogger.i(
+            TAG,
+            "settings updated: mode=$modeOfOperation, " +
+                "autoDismiss=$isAutoDismissEnabled, autoMarkAsRead=$isAutoMarkAsReadEnabled, " +
+                "sensitivePhrases=${it.sensitivePhrasesList.size}, " +
+                "ignoredPhrases=${it.ignoredPhrasesList.size}, " +
+                "cleanupPhrases=${it.cleanupPhrasesList.size}",
+        )
         latch.countDown() // Release the latch
       }
     }

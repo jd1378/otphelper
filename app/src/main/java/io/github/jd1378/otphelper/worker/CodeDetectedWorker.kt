@@ -3,7 +3,6 @@ package io.github.jd1378.otphelper.worker
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
@@ -18,6 +17,7 @@ import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.repository.UserSettingsRepository
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.Clipboard
 import io.github.jd1378.otphelper.utils.NotificationHelper
 import io.github.jd1378.otphelper.utils.showToast
@@ -40,6 +40,7 @@ constructor(
   }
 
   override suspend fun doWork(): Result {
+    AppLogger.i(TAG, "doWork: started")
 
     var packageName = inputData.getString("packageName")
     val smsOrigin = inputData.getString("smsOrigin") ?: ""
@@ -59,7 +60,7 @@ constructor(
           else -> false
         }
     if (missingData) {
-      Log.e(TAG, "Work was missing the necessary work input data. aborting.")
+      AppLogger.e(TAG, "Work was missing the necessary work input data. aborting.")
       return Result.failure()
     }
     // necessary because smart cast didnt detect the when clause correctly:
@@ -75,9 +76,19 @@ constructor(
             smsOrigin = smsOrigin,
         )
 
-    if (isIgnored) return Result.success()
+    if (isIgnored) {
+      AppLogger.i(TAG, "detection ignored (pkg=$packageName, smsOrigin=$smsOrigin), aborting")
+      return Result.success()
+    }
 
     val settings = userSettingsRepository.fetchSettings()
+    AppLogger.i(
+        TAG,
+        "processing detection: isSms=$isSms, pkg=$packageName, " +
+            "historyDisabled=${settings.isHistoryDisabled}, toast=${settings.isShowToastEnabled}, " +
+            "autoCopy=${settings.isAutoCopyEnabled}, postNotif=${settings.isPostNotifEnabled}, " +
+            "broadcast=${settings.isBroadcastCodeEnabled}",
+    )
 
     val historyId =
         if (!settings.isHistoryDisabled) {
@@ -146,10 +157,11 @@ constructor(
               setPackage(settings.broadcastTargetPackageName)
               putExtras(extras)
             }
+        AppLogger.i(TAG, "broadcast sent to ${settings.broadcastTargetPackageName}")
         applicationContext.sendBroadcast(intent)
       }
     } catch (e: Exception) {
-      Log.e(TAG, e.stackTraceToString())
+      AppLogger.e(TAG, "failed during code-detected actions", e)
     }
 
     // cleanup recentDetectedMessageHolder after timeout

@@ -7,6 +7,7 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import io.github.jd1378.otphelper.data.local.db.OtpHelperDatabase
+import io.github.jd1378.otphelper.utils.AppLogger
 
 const val dataCleanupWorkName = "data_cleanup_work"
 
@@ -24,6 +25,7 @@ constructor(
   }
 
   override suspend fun doWork(): Result {
+    AppLogger.i(TAG, "doWork: cleaning up old detected codes")
     otpHelperDatabase.detectedCodeDao().cleanup()
     return Result.success()
   }

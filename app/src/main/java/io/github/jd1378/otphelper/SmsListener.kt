@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.Telephony
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -18,6 +17,7 @@ import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.RecentDetectedMessage
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
+import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
 
@@ -84,8 +84,15 @@ class SmsListener : BroadcastReceiver() {
   }
 
   override fun onReceive(context: Context, intent: Intent?) {
+    AppLogger.i(TAG, "onReceive: action=${intent?.action}")
     autoUpdatingListenerUtils.awaitCodeExtractor()
-    if (autoUpdatingListenerUtils.modeOfOperation != ModeOfOperation.SMS) return
+    if (autoUpdatingListenerUtils.modeOfOperation != ModeOfOperation.SMS) {
+      AppLogger.d(
+          TAG,
+          "ignoring: mode is ${autoUpdatingListenerUtils.modeOfOperation}, not SMS",
+      )
+      return
+    }
     if (intent?.action.equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)) {
 
       val originToBodyMap = mutableMapOf<String, String>()
@@ -104,15 +111,23 @@ class SmsListener : BroadcastReceiver() {
         }
       }
 
+      AppLogger.d(TAG, "received SMS from ${originToBodyMap.size} origin(s)")
+
       for ((displayOrigin, messageBody) in originToBodyMap) {
         autoUpdatingListenerUtils.awaitCodeExtractor()
         val codeExtractor = autoUpdatingListenerUtils.codeExtractor!!
-        if (codeExtractor.shouldIgnore(messageBody)) continue
+        if (codeExtractor.shouldIgnore(messageBody)) {
+          AppLogger.d(TAG, "message ignored by ignore phrases")
+          continue
+        }
         val text = codeExtractor.cleanup(messageBody)
 
         if (text.isNotEmpty()) {
           val code = codeExtractor.getCode(text, false) // to not do it more than once
-          if (!code.isNullOrEmpty()) {
+          if (code.isNullOrEmpty()) {
+            AppLogger.d(TAG, "no code found in message")
+          } else {
+            AppLogger.i(TAG, "code detected in SMS, enqueueing CodeDetectedWorker")
             val data: Data
             try {
               data =
@@ -124,7 +139,7 @@ class SmsListener : BroadcastReceiver() {
                       "code" to code,
                   )
             } catch (e: Throwable) {
-              Log.e(TAG, "SMS too large to check, skipping it...")
+              AppLogger.e(TAG, "SMS too large to check, skipping it...", e)
               return
             }
             synchronized(DETECTION_LOCK) {
