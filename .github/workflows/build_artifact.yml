@@ -1,0 +1,67 @@
+name: Build artifact (signed release)
+
+# Manual-only build that produces a release-signed, installable APK and uploads
+# it as a workflow artifact. It does NOT publish a GitHub release and does NOT
+# push to Google Play. Use it to hand a production-faithful build to a user for
+# log capture:
+#
+#   adb logcat -s OtpHelper:*
+#
+# This is the "normal" flavor release build, signed with the same release keys
+# used for distribution. Logs are NOT stripped: proguard-android-optimize only
+# removes Log calls when -assumenosideeffects is declared (it is not), so the
+# AppLogger output survives minification. R8 may rename classes, but AppLogger
+# uses a fixed string tag, so the single-tag logcat filter keeps working.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: cimg/android:2023.09.1
+      options: --user root
+
+    steps:
+      - name: install git
+        run: |
+          sudo apt-get update;
+          sudo apt-get -y install git;
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build normal release APK
+        run: ./gradlew --no-daemon :app:assembleNormalRelease --stacktrace
+
+      - name: Sign release APK
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: app/build/outputs/apk/normal/release
+          signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+          alias: ${{ secrets.ANDROID_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        env:
+          # build tools version is found inside cimg/android related tag pulled
+          # layers details inside docker hub. after `...-c SDK_TOOLS_URL=...`
+          BUILD_TOOLS_VERSION: "33.0.1"
+
+      - name: Upload signed APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: otphelper-normal-release-signed-apk
+          path: app/build/outputs/apk/normal/release/*signed.apk
+          if-no-files-found: error
+          retention-days: 30
