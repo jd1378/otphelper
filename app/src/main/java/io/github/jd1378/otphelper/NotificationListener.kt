@@ -21,9 +21,18 @@ import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
 import io.github.jd1378.otphelper.di.RecentDetectedCodesHolder
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 @AndroidEntryPoint
 class NotificationListener : NotificationListenerService() {
@@ -36,6 +45,12 @@ class NotificationListener : NotificationListenerService() {
 
   @Inject
   lateinit var recentDetectedCodesHolder: RecentDetectedCodesHolder
+
+  @Inject
+  lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
+
+  private val notificationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+  private val notificationMutex = Mutex()
 
   companion object {
     val TAG = "NotificationListener"
@@ -146,6 +161,21 @@ class NotificationListener : NotificationListenerService() {
 
   override fun onNotificationPosted(sbn: StatusBarNotification?) {
     super.onNotificationPosted(sbn)
+    if (sbn == null) return
+    // Room's ignore lookup is suspending. Keep it off the service's main thread and serialize
+    // processing so notifications cannot race over the recent SMS/detection state.
+    notificationScope.launch {
+      try {
+        notificationMutex.withLock { processNotification(sbn) }
+      } catch (e: CancellationException) {
+        throw e
+      } catch (e: Exception) {
+        AppLogger.e(TAG, "failed to process notification, pkg=${sbn.packageName}", e)
+      }
+    }
+  }
+
+  internal suspend fun processNotification(sbn: StatusBarNotification?) {
     autoUpdatingListenerUtils.awaitCodeExtractor()
     if (autoUpdatingListenerUtils.modeOfOperation != ModeOfOperation.Notification &&
       !autoUpdatingListenerUtils.isAutoDismissEnabled &&
@@ -167,6 +197,18 @@ class NotificationListener : NotificationListenerService() {
             TAG,
             "skipping: foregroundService=$isForegroundService, ongoing=$isOngoing",
         )
+        return
+      }
+
+      // The worker checks this too, but mark-as-read and dismissal happen here independently.
+      // Apply app/id/tag exclusions before detection or any notification action in either mode.
+      if (ignoredNotifsRepository.isIgnored(
+          packageName = sbn.packageName,
+          notificationId = sbn.id.toString(),
+          notificationTag = sbn.tag,
+          smsOrigin = null,
+      )) {
+        AppLogger.i(TAG, "notification ignored by ignored list, pkg=${sbn.packageName}")
         return
       }
 
@@ -349,5 +391,10 @@ class NotificationListener : NotificationListenerService() {
           )
       requestRebind(componentName)
     }
+  }
+
+  override fun onDestroy() {
+    notificationScope.cancel()
+    super.onDestroy()
   }
 }
