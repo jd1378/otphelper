@@ -288,6 +288,22 @@
   shouldIgnore: false
   expectedCode: "123456"
 
+# email apps like Gmail put the account address in the notification sub text,
+# digits at the end of it must not be detected as the code (issue #156)
+- name: accountEmailWithDigitsIssue156
+  shouldIgnore: false
+  expectedCode: "123456"
+  message: |-
+    Your verification code
+    someone42@example.com
+    Your verification code
+    Use 123456 to verify your account.
+
+- name: dottedEmailWithDigitsIssue156
+  message: Your verification code for first.last1234@example.com is 123456
+  shouldIgnore: false
+  expectedCode: "123456"
+
 # ── OTP keyword sensitivity ────────────────────────────────────────────────────
 
 - name: shouldNotExtractAnythingFromWordsContainingOTP_1
