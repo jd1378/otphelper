@@ -103,6 +103,11 @@ object CodeExtractorDefaults {
 
   val cleanupPhrases =
       persistentListOf(
+          // before simpleDomainRegex, otherwise it only removes part of an address like
+          // first.last1234@example.com and the leftover digits can be detected as the code.
+          // the lookbehind keeps matching linear: without it, a long run of letters with no
+          // "@" is rescanned from every position.
+          "(?<![a-zA-Z0-9._%+-])[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+", // simpleEmailRegex
           "[a-zA-Z0-9][a-zA-Z0-9-]{0,61}\\.[a-zA-Z]{2,}(?:[.a-zA-Z]{0,3}(?=\\s+)|)", // simpleDomainRegex
           "['\"]",
           "Endziffer-\\d+",
