@@ -68,17 +68,11 @@ constructor(
       return otpHelperDatabase.ignoredNotifDao().ignoredNotifBySmsOrigin(smsOrigin).firstOrNull() !=
           null
     } else {
-      val ignoredList = otpHelperDatabase.ignoredNotifDao().ignoredNotifByPackageName(packageName)
-      return null !=
-          ignoredList.firstOrNull() {
-            return when (it.type) {
-              IgnoredNotifType.APPLICATION -> true
-              IgnoredNotifType.NOTIFICATION_ID -> it.typeData == notificationId
-              IgnoredNotifType.NOTIFICATION_TAG ->
-                  !notificationTag.isNullOrBlank() && it.typeData == notificationTag
-              IgnoredNotifType.SMS_ORIGIN -> false
-            }
-          }
+      return isNotificationIgnored(
+          otpHelperDatabase.ignoredNotifDao().ignoredNotifByPackageName(packageName),
+          notificationId,
+          notificationTag,
+      )
     }
   }
 
@@ -112,3 +106,19 @@ constructor(
     otpHelperDatabase.ignoredNotifDao().delete(packageName, type, typeData)
   }
 }
+
+/** [entries] are the ignored entries of the notification's package. */
+internal fun isNotificationIgnored(
+    entries: List<IgnoredNotif>,
+    notificationId: String?,
+    notificationTag: String?,
+): Boolean =
+    entries.any {
+      when (it.type) {
+        IgnoredNotifType.APPLICATION -> true
+        IgnoredNotifType.NOTIFICATION_ID -> it.typeData == notificationId
+        IgnoredNotifType.NOTIFICATION_TAG ->
+            !notificationTag.isNullOrBlank() && it.typeData == notificationTag
+        IgnoredNotifType.SMS_ORIGIN -> false
+      }
+    }
