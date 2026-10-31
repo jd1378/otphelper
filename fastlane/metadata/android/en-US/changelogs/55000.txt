@@ -1,0 +1,4 @@
+- Fixed apps, notifications and SMS senders in the ignored list still being marked as read or dismissed automatically
+- Fixed email addresses in notifications (like the account address shown by Gmail) being detected as the code
+- Added Turkish phrase "şifreniz"
+- The email and Turkish changes apply to new installs. On an existing install, reset your cleanup phrases and sensitive phrases back to default to get them
