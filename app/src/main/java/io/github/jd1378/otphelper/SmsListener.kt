@@ -17,9 +17,11 @@ import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.RecentDetectedMessage
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
+import kotlinx.coroutines.runBlocking
 
 @AndroidEntryPoint
 class SmsListener : BroadcastReceiver() {
@@ -29,6 +31,9 @@ class SmsListener : BroadcastReceiver() {
 
   @Inject
   lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
+
+  @Inject
+  lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
 
   companion object {
     val TAG = "SmsListener"
@@ -83,6 +88,11 @@ class SmsListener : BroadcastReceiver() {
     }
   }
 
+  // origin entries are not tied to a package, so packageName is unused here
+  private fun isOriginIgnored(origin: String): Boolean = runBlocking {
+    ignoredNotifsRepository.isIgnored("", null, null, smsOrigin = origin)
+  }
+
   override fun onReceive(context: Context, intent: Intent?) {
     AppLogger.i(TAG, "onReceive: action=${intent?.action}")
     autoUpdatingListenerUtils.awaitCodeExtractor()
@@ -126,6 +136,10 @@ class SmsListener : BroadcastReceiver() {
           val code = codeExtractor.getCode(text, false) // to not do it more than once
           if (code.isNullOrEmpty()) {
             AppLogger.d(TAG, "no code found in message")
+          } else if (isOriginIgnored(displayOrigin)) {
+            // also keeps the message out of recentDetectedMessageHolder, so NotificationListener
+            // does not mark the SMS app's notification as read or dismiss it
+            AppLogger.d(TAG, "code detected but sms origin is in ignored list")
           } else {
             AppLogger.i(TAG, "code detected in SMS, enqueueing CodeDetectedWorker")
             val data: Data

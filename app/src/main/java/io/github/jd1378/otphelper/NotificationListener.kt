@@ -21,9 +21,11 @@ import io.github.jd1378.otphelper.di.DETECTION_LOCK
 import io.github.jd1378.otphelper.di.DETECTION_TIMEOUT_MS
 import io.github.jd1378.otphelper.di.RecentDetectedCodesHolder
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
+import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
 import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.worker.CodeDetectedWorker
 import javax.inject.Inject
+import kotlinx.coroutines.runBlocking
 
 @AndroidEntryPoint
 class NotificationListener : NotificationListenerService() {
@@ -36,6 +38,9 @@ class NotificationListener : NotificationListenerService() {
 
   @Inject
   lateinit var recentDetectedCodesHolder: RecentDetectedCodesHolder
+
+  @Inject
+  lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
 
   companion object {
     val TAG = "NotificationListener"
@@ -295,6 +300,20 @@ class NotificationListener : NotificationListenerService() {
       }
 
       if (codeDetected) {
+        // CodeDetectedWorker skips ignored notifications, but the actions below run here, so
+        // they need their own check. a single indexed lookup, only reached when a code is found.
+        val isIgnored = runBlocking {
+          ignoredNotifsRepository.isIgnored(
+              packageName = sbn.packageName,
+              notificationId = sbn.id.toString(),
+              notificationTag = sbn.tag,
+              smsOrigin = null,
+          )
+        }
+        if (isIgnored) {
+          AppLogger.d(TAG, "notification in ignored list, no actions, pkg=${sbn.packageName}")
+          return
+        }
         AppLogger.i(
             TAG,
             "post-detection actions: autoMarkAsRead=" +
