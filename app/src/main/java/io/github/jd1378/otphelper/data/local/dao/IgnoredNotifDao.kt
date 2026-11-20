@@ -16,6 +16,9 @@ abstract class IgnoredNotifDao : BaseDao<IgnoredNotif> {
   @Query("SELECT * FROM IgnoredNotif ORDER BY createdAt DESC")
   abstract fun ignoredNotifSortedByCreatedAtPagingSource(): PagingSource<Int, IgnoredNotif>
 
+  @Query("SELECT * FROM IgnoredNotif")
+  abstract fun getAllFlow(): Flow<List<IgnoredNotif>>
+
   @Query("SELECT * FROM IgnoredNotif WHERE id = :id ORDER BY createdAt DESC")
   abstract fun ignoredNotifById(id: String): Flow<IgnoredNotif?>
 

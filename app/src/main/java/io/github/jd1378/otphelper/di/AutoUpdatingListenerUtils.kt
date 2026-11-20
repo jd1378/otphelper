@@ -6,6 +6,7 @@ import io.github.jd1378.otphelper.repository.UserSettingsRepository
 import io.github.jd1378.otphelper.utils.AppLogger
 import io.github.jd1378.otphelper.utils.CodeExtractor
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -63,6 +64,9 @@ constructor(private val userSettingsRepository: UserSettingsRepository) {
   }
 
   fun awaitCodeExtractor() {
-    latch.await()
+    latch.await(300, TimeUnit.MILLISECONDS)
+    if (codeExtractor == null) {
+      codeExtractor = CodeExtractor()
+    }
   }
 }
