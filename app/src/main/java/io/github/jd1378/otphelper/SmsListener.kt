@@ -146,7 +146,7 @@ class SmsListener : BroadcastReceiver() {
             try {
               data =
                   workDataOf(
-                      "packageName" to Telephony.Sms.getDefaultSmsPackage(context),
+                      "packageName" to (Telephony.Sms.getDefaultSmsPackage(context) ?: "android.telephony.sms"),
                       "is_sms" to true,
                       "smsOrigin" to displayOrigin,
                       "text" to text,
