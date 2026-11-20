@@ -32,8 +32,8 @@ fun getMissingAppInfoResult(context: Context, packageName: String?): AppInfoResu
 }
 
 fun getAppInfo(context: Context, packageName: String?): AppInfoResult {
-  if (packageName.isNullOrEmpty()) getMissingAppInfoResult(context, packageName)
-  var result = cache.get(packageName!!)
+  if (packageName.isNullOrEmpty()) return getMissingAppInfoResult(context, packageName)
+  var result = cache.get(packageName)
   if (result == null) {
     result =
         try {

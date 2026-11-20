@@ -52,7 +52,7 @@ constructor(
 
     val missingData =
         when {
-          packageName.isNullOrBlank() -> true
+          !isSms && packageName.isNullOrBlank() -> true
           text.isNullOrBlank() -> true
           code.isNullOrBlank() -> true
           isSms && smsOrigin.isBlank() -> true
@@ -63,8 +63,7 @@ constructor(
       AppLogger.e(TAG, "Work was missing the necessary work input data. aborting.")
       return Result.failure()
     }
-    // necessary because smart cast didnt detect the when clause correctly:
-    packageName = packageName!!
+    packageName = packageName?.ifBlank { null } ?: if (isSms) "android.telephony.sms" else ""
     code = code!!
     text = text!!
 
