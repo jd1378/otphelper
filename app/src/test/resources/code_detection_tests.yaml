@@ -751,3 +751,21 @@
     Duis in posuere nulla. Mauris interdum euismod erat id faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In auctor orci ultrices aliquet cursus. Nullam vel semper neque, vel dignissim urna. In sagittis erat velit, eu molestie lectus porta id. Integer vel diam urna. In vel mi placerat diam mollis euismod. Pellentesque volutpat molestie porta. Nullam fringilla arcu lacus, sed aliquet mauris commodo eu. Vivamus vitae erat justo. Integer vitae auctor massa. Maecenas suscipit dapibus tellus in tincidunt. Etiam eleifend sit amet mi ac iaculis.
 
     OTP 123456
+
+# ── Alphanumeric (ING Bank) ──────────────────────────────────────────────────
+
+- name: ingCodeGW7C
+  shouldIgnore: false
+  expectedCode: "GW7C"
+  message: "ING: Introduce el codigo GW7C para confirmar tu operacion. Si no has sido tu quien ha realizado la operacion llamanos al 912066666"
+
+- name: ingCode4KAM
+  shouldIgnore: false
+  expectedCode: "4KAM"
+  message: "ING: Introduce el codigo 4KAM para acceder a ING de forma segura. Si no lo has solicitado, te recomendamos cambiar tu clave cuanto antes en tu Area personal."
+
+- name: ingCodeTF33
+  shouldIgnore: false
+  expectedCode: "TF33"
+  message: "ING: Introduce el codigo TF33 para confirmar tu operacion. Si no has sido tu quien ha realizado la operacion llamanos al 912066666"
+
