@@ -10,7 +10,11 @@ import io.github.jd1378.otphelper.data.local.entity.IgnoredNotifType
 import io.github.jd1378.otphelper.model.IgnoredNotifsOfPackageName
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 @Singleton
 @Stable
@@ -19,6 +23,17 @@ class IgnoredNotifsRepositoryImpl
 constructor(
     private val otpHelperDatabase: OtpHelperDatabase,
 ) : IgnoredNotifsRepository {
+
+  private val coroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+  @Volatile private var cachedIgnoredList: List<IgnoredNotif>? = null
+
+  init {
+    coroutineScope.launch {
+      otpHelperDatabase.ignoredNotifDao().getAllFlow().collect { list ->
+        cachedIgnoredList = list
+      }
+    }
+  }
 
   companion object {
     const val TAG = "IgnoredNotifsRepositoryImpl"
@@ -63,6 +78,18 @@ constructor(
       notificationTag: String?,
       smsOrigin: String?,
   ): Boolean {
+    val list = cachedIgnoredList
+    if (list != null) {
+      if (!smsOrigin.isNullOrBlank()) {
+        return list.any { it.type == IgnoredNotifType.SMS_ORIGIN && it.typeData == smsOrigin }
+      } else {
+        return isNotificationIgnored(
+            list.filter { it.packageName == packageName },
+            notificationId,
+            notificationTag,
+        )
+      }
+    }
 
     if (!smsOrigin.isNullOrBlank()) {
       return otpHelperDatabase.ignoredNotifDao().ignoredNotifBySmsOrigin(smsOrigin).firstOrNull() !=
