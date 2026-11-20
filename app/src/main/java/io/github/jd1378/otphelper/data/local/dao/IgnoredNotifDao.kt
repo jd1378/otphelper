@@ -42,4 +42,7 @@ abstract class IgnoredNotifDao : BaseDao<IgnoredNotif> {
 
   @Query("SELECT packageName, count(*) as totalItems FROM IgnoredNotif GROUP BY packageName")
   abstract fun getGroupedByPackageName(): PagingSource<Int, IgnoredNotifsOfPackageName>
+
+  @Query("SELECT * FROM IgnoredNotif ORDER BY createdAt DESC")
+  abstract suspend fun getAll(): List<IgnoredNotif>
 }

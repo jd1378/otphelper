@@ -1,6 +1,8 @@
 package io.github.jd1378.otphelper.ui.screens
 
 import android.annotation.SuppressLint
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,6 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -69,6 +72,18 @@ fun Settings(
   val userSettings by viewModel.userSettings.collectAsState()
   val scrollState = rememberScrollState()
   val focusManager = LocalFocusManager.current
+  val exportLauncher =
+      rememberLauncherForActivityResult(
+          contract = ActivityResultContracts.CreateDocument("application/json")
+      ) { uri ->
+        uri?.let { viewModel.exportConfiguration(context, it) }
+      }
+  val importLauncher =
+      rememberLauncherForActivityResult(
+          contract = ActivityResultContracts.OpenDocument()
+      ) { uri ->
+        uri?.let { viewModel.importConfiguration(context, it) }
+      }
   var isInitialLoad by remember { mutableStateOf(true) }
   var targetPackageName by remember { mutableStateOf("") }
 
@@ -445,6 +460,50 @@ fun Settings(
             Text(stringResource(R.string.intent_action))
             CodeBlock(stringResource(R.string.intent_action_code_detected))
             SettingHelp(stringResource(R.string.intent_action_code_detected_help))
+          }
+        }
+      }
+
+      Surface(
+          color = MaterialTheme.colorScheme.surfaceContainer,
+          shape = MaterialTheme.shapes.large,
+      ) {
+        Column(
+            modifier =
+                Modifier.padding(
+                        horizontal = dimensionResource(R.dimen.padding_settings),
+                        vertical = dimensionResource(R.dimen.padding_page),
+                    )
+                    .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+        ) {
+          Text(
+              stringResource(R.string.backup_and_restore),
+              fontWeight = FontWeight.Bold,
+          )
+          SettingHelp(stringResource(R.string.backup_restore_desc))
+
+          Row(
+              modifier = Modifier.fillMaxWidth(),
+              horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+          ) {
+            Button(
+                modifier = Modifier.weight(1f),
+                onClick = {
+                  exportLauncher.launch("otphelper-backup-${System.currentTimeMillis()}.json")
+                },
+            ) {
+              Text(stringResource(R.string.export_configuration))
+            }
+
+            OutlinedButton(
+                modifier = Modifier.weight(1f),
+                onClick = {
+                  importLauncher.launch(arrayOf("application/json", "*/*"))
+                },
+            ) {
+              Text(stringResource(R.string.import_configuration))
+            }
           }
         }
       }

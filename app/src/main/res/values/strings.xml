@@ -1,4 +1,12 @@
 <resources>
+  <string name="backup_and_restore">Backup &amp; Restore</string>
+  <string name="export_configuration">Export Configuration</string>
+  <string name="import_configuration">Import Configuration</string>
+  <string name="backup_restore_desc">Backup your settings, custom phrases, and ignored list to a JSON file, or restore them from a previous backup.</string>
+  <string name="export_success">Configuration exported successfully</string>
+  <string name="export_failed">Failed to export configuration</string>
+  <string name="import_success">Configuration imported successfully</string>
+  <string name="invalid_backup_file">Invalid or corrupted backup file</string>
   <string name="app_name">Copy SMS Code</string>
   <string name="detected_code">Detected Code:</string>
   <string name="code_detected_channel_name">Code Detected</string>
