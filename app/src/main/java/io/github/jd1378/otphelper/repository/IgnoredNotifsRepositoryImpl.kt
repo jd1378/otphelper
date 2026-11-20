@@ -105,6 +105,14 @@ constructor(
   ) {
     otpHelperDatabase.ignoredNotifDao().delete(packageName, type, typeData)
   }
+
+  override suspend fun getAll(): List<IgnoredNotif> {
+    return otpHelperDatabase.ignoredNotifDao().getAll()
+  }
+
+  override suspend fun insertAll(entities: List<IgnoredNotif>) {
+    otpHelperDatabase.ignoredNotifDao().insertAll(entities)
+  }
 }
 
 /** [entries] are the ignored entries of the notification's package. */

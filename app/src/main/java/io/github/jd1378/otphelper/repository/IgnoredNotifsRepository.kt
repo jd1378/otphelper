@@ -38,4 +38,8 @@ interface IgnoredNotifsRepository {
   suspend fun deleteIgnored(ignoredNotif: IgnoredNotif)
 
   suspend fun deleteIgnored(packageName: String, type: IgnoredNotifType, typeData: String)
+
+  suspend fun getAll(): List<IgnoredNotif>
+
+  suspend fun insertAll(entities: List<IgnoredNotif>)
 }
