@@ -15,6 +15,7 @@ import androidx.work.workDataOf
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jd1378.otphelper.di.AutoUpdatingListenerUtils
 import io.github.jd1378.otphelper.di.DETECTION_LOCK
+import io.github.jd1378.otphelper.di.RecentDetectedCodesHolder
 import io.github.jd1378.otphelper.di.RecentDetectedMessage
 import io.github.jd1378.otphelper.di.RecentDetectedMessageHolder
 import io.github.jd1378.otphelper.repository.IgnoredNotifsRepository
@@ -31,6 +32,9 @@ class SmsListener : BroadcastReceiver() {
 
   @Inject
   lateinit var recentDetectedMessageHolder: RecentDetectedMessageHolder
+
+  @Inject
+  lateinit var recentDetectedCodesHolder: RecentDetectedCodesHolder
 
   @Inject
   lateinit var ignoredNotifsRepository: IgnoredNotifsRepository
@@ -141,30 +145,35 @@ class SmsListener : BroadcastReceiver() {
             // does not mark the SMS app's notification as read or dismiss it
             AppLogger.d(TAG, "code detected but sms origin is in ignored list")
           } else {
-            AppLogger.i(TAG, "code detected in SMS, enqueueing CodeDetectedWorker")
-            val data: Data
-            try {
-              data =
-                  workDataOf(
-                      "packageName" to Telephony.Sms.getDefaultSmsPackage(context),
-                      "is_sms" to true,
-                      "smsOrigin" to displayOrigin,
-                      "text" to text,
-                      "code" to code,
-                  )
-            } catch (e: Throwable) {
-              AppLogger.e(TAG, "SMS too large to check, skipping it...", e)
-              return
+            val signature = "sms|$displayOrigin|$code|$text"
+            if (recentDetectedCodesHolder.isDuplicate(signature, System.currentTimeMillis())) {
+              AppLogger.d(TAG, "code detected in SMS but duplicate, skipping enqueue, origin=$displayOrigin")
+            } else {
+              AppLogger.i(TAG, "code detected in SMS, enqueueing CodeDetectedWorker")
+              val data: Data
+              try {
+                data =
+                    workDataOf(
+                        "packageName" to Telephony.Sms.getDefaultSmsPackage(context),
+                        "is_sms" to true,
+                        "smsOrigin" to displayOrigin,
+                        "text" to text,
+                        "code" to code,
+                    )
+              } catch (e: Throwable) {
+                AppLogger.e(TAG, "SMS too large to check, skipping it...", e)
+                return
+              }
+              synchronized(DETECTION_LOCK) {
+                recentDetectedMessageHolder.message =
+                    RecentDetectedMessage(
+                        messageBody.substring(0, minOf(messageBody.length, 25)),
+                        System.currentTimeMillis(),
+                    )
+              }
+              val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
+              WorkManager.getInstance(context).enqueue(work)
             }
-            synchronized(DETECTION_LOCK) {
-              recentDetectedMessageHolder.message =
-                  RecentDetectedMessage(
-                      messageBody.substring(0, minOf(messageBody.length, 25)),
-                      System.currentTimeMillis(),
-                  )
-            }
-            val work = OneTimeWorkRequestBuilder<CodeDetectedWorker>().setInputData(data).build()
-            WorkManager.getInstance(context).enqueue(work)
           }
         }
       }

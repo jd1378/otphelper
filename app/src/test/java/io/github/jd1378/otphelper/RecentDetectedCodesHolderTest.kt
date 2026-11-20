@@ -48,4 +48,14 @@ class RecentDetectedCodesHolderTest {
     assertFalse(holder.isDuplicate(otherSig, 1_000L))
     assertTrue(holder.isDuplicate(sig, 2_000L))
   }
+
+  @Test
+  fun smsSignaturesDeduplicateCorrectly() {
+    val holder = RecentDetectedCodesHolder()
+    val smsSig = "sms|BANK_OTP|123456|Your code is 123456"
+    assertFalse(holder.isDuplicate(smsSig, 0L))
+    assertTrue(holder.isDuplicate(smsSig, 1_500L))
+    // 1_500 + 5_000 + 1 = 6_501L is past window
+    assertFalse(holder.isDuplicate(smsSig, 1_500L + DUPLICATE_DETECTION_WINDOW_MS + 1))
+  }
 }
